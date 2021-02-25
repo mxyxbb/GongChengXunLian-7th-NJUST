@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F407xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;   ../Drivers/STM32F4xx_HAL_Driver/Inc;   ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;   ../Drivers/CMSIS/Device/ST/STM32F4xx/Include;   ../Drivers/CMSIS/Include</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;..\Core\Src</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -591,6 +591,96 @@
               <FileName>system_stm32f4xx.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Core/Src/system_stm32f4xx.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>SCSLib</GroupName>
+          <Files>
+            <File>
+              <FileName>SCS.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\SCSLib\SCS.c</FilePath>
+            </File>
+            <File>
+              <FileName>SCSCL.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\SCSLib\SCSCL.c</FilePath>
+            </File>
+            <File>
+              <FileName>SCSerail.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\SCSLib\SCSerail.c</FilePath>
+            </File>
+            <File>
+              <FileName>uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\SCSLib\uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>wiring.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\SCSLib\wiring.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>hardware</GroupName>
+          <Files>
+            <File>
+              <FileName>ee24.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\ee24\ee24.c</FilePath>
+            </File>
+            <File>
+              <FileName>max7219.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\MAX7219\max7219.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>src</GroupName>
+          <Files>
+            <File>
+              <FileName>max7219_matrix.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\MAX7219\max7219_matrix.c</FilePath>
+            </File>
+            <File>
+              <FileName>SCS_servo.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\SCS_servo\SCS_servo.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>letter_shell</GroupName>
+          <Files>
+            <File>
+              <FileName>shell.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\letter_shell\src\shell.c</FilePath>
+            </File>
+            <File>
+              <FileName>shell_cmd_list.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\letter_shell\src\shell_cmd_list.c</FilePath>
+            </File>
+            <File>
+              <FileName>shell_companion.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\letter_shell\src\shell_companion.c</FilePath>
+            </File>
+            <File>
+              <FileName>shell_ext.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\letter_shell\src\shell_ext.c</FilePath>
+            </File>
+            <File>
+              <FileName>shell_port.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\letter_shell\src\shell_port.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1184,6 +1274,96 @@
               <FileName>system_stm32f4xx.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Core/Src/system_stm32f4xx.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>SCSLib</GroupName>
+          <Files>
+            <File>
+              <FileName>SCS.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\SCSLib\SCS.c</FilePath>
+            </File>
+            <File>
+              <FileName>SCSCL.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\SCSLib\SCSCL.c</FilePath>
+            </File>
+            <File>
+              <FileName>SCSerail.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\SCSLib\SCSerail.c</FilePath>
+            </File>
+            <File>
+              <FileName>uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\SCSLib\uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>wiring.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\SCSLib\wiring.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>hardware</GroupName>
+          <Files>
+            <File>
+              <FileName>ee24.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\ee24\ee24.c</FilePath>
+            </File>
+            <File>
+              <FileName>max7219.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\MAX7219\max7219.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>src</GroupName>
+          <Files>
+            <File>
+              <FileName>max7219_matrix.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\MAX7219\max7219_matrix.c</FilePath>
+            </File>
+            <File>
+              <FileName>SCS_servo.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\SCS_servo\SCS_servo.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>letter_shell</GroupName>
+          <Files>
+            <File>
+              <FileName>shell.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\letter_shell\src\shell.c</FilePath>
+            </File>
+            <File>
+              <FileName>shell_cmd_list.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\letter_shell\src\shell_cmd_list.c</FilePath>
+            </File>
+            <File>
+              <FileName>shell_companion.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\letter_shell\src\shell_companion.c</FilePath>
+            </File>
+            <File>
+              <FileName>shell_ext.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\letter_shell\src\shell_ext.c</FilePath>
+            </File>
+            <File>
+              <FileName>shell_port.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\letter_shell\src\shell_port.c</FilePath>
             </File>
           </Files>
         </Group>
