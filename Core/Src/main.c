@@ -143,7 +143,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
 	
 	user_main_printf("Initating...");
-
+	user_main_printf("Enjoy a music...");
 	musicPlay();
 	
 	//初始化数码管显示
@@ -153,7 +153,7 @@ int main(void)
 	HAL_Delay(100);
 	WriteClear_Max7219();
 //	WriteNum_Max7219("123--213");
-	user_main_printf("7segLED ok...");
+	user_main_printf("LED Matrix ok...");
 	
 	ssd1306_Init(&hi2c1);
   HAL_Delay(100);
