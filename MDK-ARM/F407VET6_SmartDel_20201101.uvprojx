@@ -685,6 +685,16 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>Buzzer</GroupName>
+          <Files>
+            <File>
+              <FileName>buzzerDriver.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\Buzzer\buzzerDriver.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>::CMSIS</GroupName>
         </Group>
       </Groups>
@@ -1364,6 +1374,16 @@
               <FileName>shell_port.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Core\Src\letter_shell\src\shell_port.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Buzzer</GroupName>
+          <Files>
+            <File>
+              <FileName>buzzerDriver.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\Buzzer\buzzerDriver.c</FilePath>
             </File>
           </Files>
         </Group>

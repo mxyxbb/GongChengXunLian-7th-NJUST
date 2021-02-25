@@ -39,6 +39,7 @@
 #include "uart234.h"
 #include "ssd1306.h"
 #include "gongxun.h"
+#include "Buzzer/buzzerDriver.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -143,6 +144,8 @@ int main(void)
   /* USER CODE BEGIN 2 */
 	
 	user_main_printf("Initating...");
+
+	musicPlay();
 	
 	//初始化数码管显示
 	Init_MAX7219();
