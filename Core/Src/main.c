@@ -39,6 +39,7 @@
 //#include "ssd1306.h"
 #include "gongxun.h"
 #include "Buzzer/buzzerDriver.h"
+#include "MAX7219/max7219_matrix.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -144,22 +145,17 @@ int main(void)
 	
 	user_main_printf("Initating...");
 	user_main_printf("Enjoy a music...");
+	//开启蜂鸣器PWM输出
 	HAL_TIM_PWM_Start(&htim9, TIM_CHANNEL_1);
 
 	
-	//初始化矩阵显示
-//#error LED点阵还没定义哦！
-
+	//初始化LED点阵显示
+	MAX7219_MatrixInit(&hspi1, MAX7219_CS_GPIO_Port, MAX7219_CS_Pin);
+	MAX7219_MatrixUpdate();
+	uint8_t colororder[]={1,3,2,3,2,1};
+	MAX7219_mywrite(colororder);
+	MAX7219_MatrixUpdate();
 	user_main_printf("LED Matrix ok...");
-	
-//	ssd1306_Init(&hi2c1);
-//  HAL_Delay(100);
-//  ssd1306_Fill(White);
-//	ssd1306_SetCursor(10, 20);
-//  ssd1306_WriteString("UP/DOWN", Font_16x26, Black);
-//  ssd1306_UpdateScreen(&hi2c1);
-//  HAL_Delay(100);
-//	user_main_printf("0.91OLED ok...");
 	
 	//测试并初始化机械臂位置
 //	Uart2_servoCtr(1);

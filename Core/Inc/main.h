@@ -83,6 +83,8 @@ extern void led_shan(void);
 #define SG15_GPIO_Port GPIOC
 #define SG16_Pin GPIO_PIN_3
 #define SG16_GPIO_Port GPIOC
+#define MAX7219_CS_Pin GPIO_PIN_6
+#define MAX7219_CS_GPIO_Port GPIOA
 #define SJ1_Pin GPIO_PIN_7
 #define SJ1_GPIO_Port GPIOE
 #define SJ2_Pin GPIO_PIN_8
