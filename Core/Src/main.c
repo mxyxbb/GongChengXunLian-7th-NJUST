@@ -164,40 +164,9 @@ int main(void)
 	
 	//测试并初始化机械臂位置
 	Uart2_servoCtr(1);
-//	while(SW2==UNPRESSED);
-//	led_shan();
-//	led_shan();
-//	led_shan();
-//	Uart2_servoCtr(2);
-//	while(SW2==UNPRESSED);
-//	led_shan();
-//	led_shan();
-//	led_shan();
-//	Uart2_servoCtr(3);
-//	while(SW2==UNPRESSED);
-//	led_shan();
-//	led_shan();
-//	led_shan();
-//	Uart2_servoCtr(4);
-//	while(SW2==UNPRESSED);
-//	led_shan();
-//	led_shan();
-//	led_shan();
-//	Uart2_servoCtr(5);
-//	while(SW2==UNPRESSED);
-//	led_shan();
-//	led_shan();
-//	led_shan();
 	
 	user_main_printf("Robotic arm ok...");
 
-//	user_main_printf("Serching QRcode.");
-//	Uart3_readQRcode();
-//	user_main_printf("Get it,the result is shown on the 7seg display.");
-//	user_main_printf("Serching Color blocks.");
-//	Uart3_readColor();
-//	user_main_printf("Get it,the result is shown on 0.91'OLED.");
-	
 	//开启四个编码器
 	HAL_TIM_Encoder_Start(&htim2, TIM_CHANNEL_ALL);
 	HAL_TIM_Encoder_Start(&htim3, TIM_CHANNEL_ALL);
@@ -216,7 +185,6 @@ int main(void)
 	HAL_TIM_PWM_Start(&htim8, TIM_CHANNEL_4);	
 	
 	user_main_printf("Motor PWM Started...");
-	
 
 	User_PID_Init(&udPIDParameter0);
 	User_PID_Init(&udPIDParameter1);
@@ -247,196 +215,7 @@ int main(void)
 //	}
 
 	ManufacturingProcesses();
-	//for test 2021-1-2-20:53 by mxy	
-	//for test 2021-1-3-16:16 by mxy	
-	//for test 2021-1-5-16:45 by mxy	
-	while(1){}
-//	char temp__=3;
-	OneGrid(FRONT,-15);
-	OneGrid_sp(LEFT,FRONT,0);
-	OneGrid(FRONT,2);
-	Uart3_readQRcode();
-	OneGrid_sp(LEFT,FRONT,0);
-	OneGrid(FRONT,0);
-	OneGrid(FRONT,0);
-	OneGrid(FRONT,10);
-	Uart3_readColor();
-	Uart2_servoCtr(2);
-	OneGrid(FRONT,-15);
-	Grid_Lock();
-	HAL_Delay(2000);
-//	for(temp__=0;temp__<6;temp__++)
-//	{
-//		Uart2_servoCtr(3+temp__);
-//		HAL_Delay(Catch1Time[temp__]);
-//	}
-	Uart2_servoCtr(3);
-	HAL_Delay(Catch1Time[0]);
-	ni(10);
-	HAL_Delay(1000);
-	Grid_UnLock();
-	OneGrid(FRONT,0);
-	OneGrid(FRONT,-15);
-//	CarMovingTo=1;
-	Grid_Lock();
-	HAL_Delay(1000);
-	Uart2_servoCtr(10);
-	HAL_Delay(4500);
-	Grid_UnLock();
-	OneGrid(BACK,0);
-	OneGrid(BACK,-15);
-	ni(-10);
-	Grid_Lock();
-	
-	Grid_Lock();
-	Uart2_servoCtr(4);
-	HAL_Delay(Catch1Time[1]);
-	ni(10);
-	HAL_Delay(1000);
-	Grid_UnLock();
-	OneGrid(FRONT,0);
-	OneGrid(FRONT,-15);
-	Grid_Lock();
-	HAL_Delay(1000);
-	Uart2_servoCtr(11);
-	HAL_Delay(6000);
-	Grid_UnLock();
-	OneGrid(BACK,0);
-	OneGrid(BACK,-15);
-	ni(-10);
-	Grid_Lock();
-	
-	Grid_Lock();
-	Uart2_servoCtr(5);
-	HAL_Delay(Catch1Time[2]);
-	ni(10);
-	HAL_Delay(1000);
-	Grid_UnLock();
-	OneGrid(FRONT,0);
-	OneGrid(FRONT,-15);
-	Grid_Lock();
-	HAL_Delay(1000);
-	Uart2_servoCtr(12);
-	HAL_Delay(6000);
-//	Grid_UnLock();
-//	OneGrid(BACK,0);
-//	OneGrid(BACK,-15);
-//	ni(-10);
-	Grid_Lock();
-	
-	
-	//for test 2021-1-2-17:06 by lyj
-//	OneGrid(0,-15);//step 1:front
-//	AngleAndPositionTIM=0;
-//	y_speed=-userSpeed_y;
-//  while((HAL_GPIO_ReadPin(OUT3_Port,OUT3_Pin)||HAL_GPIO_ReadPin(OUT6_Port,OUT6_Pin))==0){}//start status is not being on grid
-//	CarMovingTo = 3;
-//	y_speed=0;
-//	AngleAndPositionTIM=1;
-//	AnglePosControl(0);
-//	HAL_Delay(20);
-//	AnglePosControl(1);
-//	HAL_Delay(20);
-//	AnglePosControl(2);
-//	HAL_Delay(20);
-//	AnglePosControl(3);
-//	HAL_Delay(20);	
-//	AnglePosControl(0);
-//	HAL_Delay(20);
-//	AnglePosControl(1);
-//	HAL_Delay(20);
-//	AnglePosControl(2);
-//	HAL_Delay(20);
-//	y_speed=0;
-//	x_speed=0;//step 2:left
-//	OneGrid(0,-15);
-//	OneGrid(0,-15);
-	while(1){led_shan();}//stop here
-		
-	while(1){
-//
-//		while(SW2==UNPRESSED);
-		led_shan();
-		OneGrid(0,0);
-		OneGrid(0,0);
-		OneGrid(0,0);
-		OneGrid(0,-15);
-		OneGrid(1,0);
-		OneGrid(1,0);
-		OneGrid(1,0);
-		OneGrid(1,0);
-		OneGrid(2,0);
-		OneGrid(2,0);
-		OneGrid(2,0);
-		OneGrid(2,-15);
-		OneGrid(3,0);
-		OneGrid(3,0);
-		OneGrid(3,0);
-		OneGrid(3,0);
-	}
-//	OnTheWay(0,1);
-	user_main_printf("OK, press sw2 to start...");
-	while(SW2==UNPRESSED);
-	led_shan();
-	led_shan();
-	led_shan();
-	
-	while(1){
-//	user_main_printf("Serching QRcode.");
-//	Uart3_readQRcode();
-//	user_main_printf("Get it,the result is shown on the 7seg display.");
-//	user_main_printf("Serching Color blocks.");
-//	Uart3_readColor();
-//	user_main_printf("Get it,the result is shown on 0.91'OLED.");
-//		OneGrid(0,0);
-//		OneGrid(0,0);
-//		OneGrid(0,-20);
-//		CarMovingTo=1;
-//		HAL_Delay(1000);
-//		OneGrid(1,0);
-//		OneGrid(1,0);
-//		OneGrid(1,0);
-//		CarMovingTo=2;
-//		HAL_Delay(1000);
-//		OneGrid(2,0);
-//		OneGrid(2,0);
-//		OneGrid(2,-20);
-//		CarMovingTo=3;
-//		HAL_Delay(1000);
-//		OneGrid(3,0);
-//		OneGrid(3,0);
-//		OneGrid(3,0);
-//		CarMovingTo=0;
-//		OneGrid(1,0);
-//		OneGrid(1,0);
-//		OneGrid(1,0);
-//		OneGrid(1,0);
-		HAL_Delay(1000);
 
-		while(SW2==UNPRESSED){led_shan();};
-	}	
-//	OneGrid(0,0);
-//	OneGrid(0,0);
-//	OneGrid(0,0);
-//	OneGrid(0,-0.6*userSpeed);
-//	HAL_Delay(1000);
-//	OneGrid(1,0);
-//	OneGrid(1,0);
-//	OneGrid(1,0);
-//	OneGrid(1,-0.6*userSpeed);
-//	HAL_Delay(1000);
-//	OneGrid(2,0);
-//	OneGrid(2,0);
-//	OneGrid(2,0);
-//	OneGrid(2,-0.6*userSpeed);
-//	HAL_Delay(1000);
-//	OneGrid(3,0);
-//	OneGrid(3,0);
-//	OneGrid(3,0);
-//	OneGrid(3,-0.6*userSpeed);
-	
-	
-	
   /* USER CODE END 2 */
 
   /* Infinite loop */
