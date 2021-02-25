@@ -145,28 +145,24 @@ int main(void)
 	user_main_printf("Initating...");
 	user_main_printf("Enjoy a music...");
 	HAL_TIM_PWM_Start(&htim9, TIM_CHANNEL_1);
-	musicPlay();
-	musicPlay();
-	//初始化数码管显示
-	Init_MAX7219();
-	HAL_Delay(100);
-	Write_Max7219(0x0f, 0x00);       //显示测试：1；测试结束，正常显示：0
-	HAL_Delay(100);
-	WriteClear_Max7219();
-//	WriteNum_Max7219("123--213");
+
+	
+	//初始化矩阵显示
+//#error LED点阵还没定义哦！
+
 	user_main_printf("LED Matrix ok...");
 	
-	ssd1306_Init(&hi2c1);
-  HAL_Delay(100);
-  ssd1306_Fill(White);
-	ssd1306_SetCursor(10, 20);
-  ssd1306_WriteString("UP/DOWN", Font_16x26, Black);
-  ssd1306_UpdateScreen(&hi2c1);
-  HAL_Delay(100);
-	user_main_printf("0.91OLED ok...");
+//	ssd1306_Init(&hi2c1);
+//  HAL_Delay(100);
+//  ssd1306_Fill(White);
+//	ssd1306_SetCursor(10, 20);
+//  ssd1306_WriteString("UP/DOWN", Font_16x26, Black);
+//  ssd1306_UpdateScreen(&hi2c1);
+//  HAL_Delay(100);
+//	user_main_printf("0.91OLED ok...");
 	
 	//测试并初始化机械臂位置
-	Uart2_servoCtr(1);
+//	Uart2_servoCtr(1);
 	
 	user_main_printf("Robotic arm ok...");
 

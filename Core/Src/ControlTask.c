@@ -6,7 +6,7 @@
 #include "ControlTask.h"
 #include "PID.h"
 #include "lineFollowSensor.h"
-
+#include "Buzzer/buzzerDriver.h"
 
 int32_t CoderData[4] = {0};
 int32_t CoderData_last[4] = {0};
@@ -38,7 +38,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 			Time1_ms++;			// 每1ms增一
 			Time2_ms++;			// 每1ms增一
 			Time3_ms++;
-			
+			musicPlay();
 			if(Time2_ms == 20)//传感器读入，周期为20ms(50Hz)
 			{
 				GetSensorData();

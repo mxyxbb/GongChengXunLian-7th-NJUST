@@ -7,6 +7,8 @@
 #include "main.h"
 #include "buzzerDriver.h"
 #include "melody.h"
+#include "stdbool.h"
+#include "mymath.h"
 
 #define CPU_FREQ	168000000
 #define PRESCALER 	168
@@ -55,23 +57,51 @@ void buzzerSetNewFrequency(uint32_t newFreq)
 	}
 }
 
+//void musicPlay()
+//{
+//	__ExecuteOnce(buzzerDriverInit());
+
+//  TIM9 -> CR1 |= TIM_CR1_CEN;
+//  TIM9 ->CCER |= TIM_CCER_CC4E;
+
+//  int melodyCount = sizeof(melodySizes)/ sizeof(uint32_t);
+
+//  for(int melodyIndex = 0; melodyIndex < melodyCount; melodyIndex++)
+//  {
+//	  for(int noteIndex = 0; noteIndex < melodySizes[melodyIndex]; noteIndex++)
+//  	  {
+//	  	  buzzerSetNewFrequency(melody[melodyIndex][noteIndex]);
+//	  	  HAL_Delay(noteDurations[melodyIndex][noteIndex] * melodySlowfactor[melodyIndex]);
+//  	  }
+//  }
+//   TIM9 -> CR1 &= ~TIM_CR1_CEN;
+//   TIM9 ->CCER &= ~TIM_CCER_CC4E;
+//}
 void musicPlay()
 {
-	buzzerDriverInit();
+	__ExecuteOnce(buzzerDriverInit());
+	__ExecuteOnce(TIM9 -> CR1 |= TIM_CR1_CEN);
+	__ExecuteOnce(TIM9 ->CCER |= TIM_CCER_CC4E);
+//  TIM9 -> CR1 |= TIM_CR1_CEN;
+//  TIM9 ->CCER |= TIM_CCER_CC4E;
+	static uint32_t cnt_=0;
+  static int melodyCount = sizeof(melodySizes)/ sizeof(uint32_t);
+	static int melodyIndex = 0;
+	static int noteIndex = 0;
+	if(cnt_++%180==0)
+	{
+		if( noteIndex++ < melodySizes[melodyIndex])
+		{
+			buzzerSetNewFrequency(melody[melodyIndex][noteIndex]);
+//			HAL_Delay(noteDurations[melodyIndex][noteIndex] * melodySlowfactor[melodyIndex]);
+		}
+		else
+		{
+			noteIndex=0;
+			__ValueStep(melodyIndex,1,melodyCount);
+		}
+	}
 
-  TIM9 -> CR1 |= TIM_CR1_CEN;
-  TIM9 ->CCER |= TIM_CCER_CC4E;
-
-  int melodyCount = sizeof(melodySizes)/ sizeof(uint32_t);
-
-  for(int melodyIndex = 0; melodyIndex < melodyCount; melodyIndex++)
-  {
-	  for(int noteIndex = 0; noteIndex < melodySizes[melodyIndex]; noteIndex++)
-  	  {
-	  	  buzzerSetNewFrequency(melody[melodyIndex][noteIndex]);
-	  	  HAL_Delay(noteDurations[melodyIndex][noteIndex] * melodySlowfactor[melodyIndex]);
-  	  }
-  }
-   TIM9 -> CR1 &= ~TIM_CR1_CEN;
-   TIM9 ->CCER &= ~TIM_CCER_CC4E;
+//   TIM9 -> CR1 &= ~TIM_CR1_CEN;
+//   TIM9 ->CCER &= ~TIM_CCER_CC4E;
 }

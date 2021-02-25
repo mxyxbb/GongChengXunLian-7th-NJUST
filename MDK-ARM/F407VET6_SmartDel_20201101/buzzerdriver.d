@@ -36,3 +36,5 @@ f407vet6_smartdel_20201101\buzzerdriver.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/s
 f407vet6_smartdel_20201101\buzzerdriver.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 f407vet6_smartdel_20201101\buzzerdriver.o: ..\Core\Src\Buzzer\buzzerDriver.h
 f407vet6_smartdel_20201101\buzzerdriver.o: ..\Core\Src\Buzzer\melody.h
+f407vet6_smartdel_20201101\buzzerdriver.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+f407vet6_smartdel_20201101\buzzerdriver.o: ..\Core\Src\mymath.h

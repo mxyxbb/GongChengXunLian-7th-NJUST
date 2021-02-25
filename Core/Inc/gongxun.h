@@ -15,5 +15,5 @@ extern int32_t x_speed;
 extern uint8_t Max7219_String[8];
 
 void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo);
-void ManufacturingProcesses();
+void ManufacturingProcesses(void);
 #endif
