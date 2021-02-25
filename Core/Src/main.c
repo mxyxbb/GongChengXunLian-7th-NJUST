@@ -144,8 +144,9 @@ int main(void)
 	
 	user_main_printf("Initating...");
 	user_main_printf("Enjoy a music...");
+	HAL_TIM_PWM_Start(&htim9, TIM_CHANNEL_1);
 	musicPlay();
-	
+	musicPlay();
 	//初始化数码管显示
 	Init_MAX7219();
 	HAL_Delay(100);

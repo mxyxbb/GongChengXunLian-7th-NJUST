@@ -42,14 +42,17 @@ inline void buzzerDriverInit(void)
 void buzzerSetNewFrequency(uint32_t newFreq)
 {
 	uint64_t tempFreq = newFreq;
-	if(newFreq == 0) tempFreq = 1;
+	if(newFreq != 0){
 
 	uint64_t tempNewValue = (uint64_t) CPU_FREQ / PRESCALER / tempFreq;
 
 	// setting new value
 	TIM9 ->ARR = (uint32_t)tempNewValue;
 	TIM9 -> CCR1 = (uint32_t)tempNewValue/2;
-
+	}
+	else{
+		TIM9 -> CCR1 = 0;
+	}
 }
 
 void musicPlay()
