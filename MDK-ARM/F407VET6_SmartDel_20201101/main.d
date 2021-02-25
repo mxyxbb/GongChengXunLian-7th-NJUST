@@ -46,8 +46,5 @@ f407vet6_smartdel_20201101\main.o: ../Core/Inc/gongxun.h
 f407vet6_smartdel_20201101\main.o: ../Core/Inc/lineFollowSensor.h
 f407vet6_smartdel_20201101\main.o: ../Core/Inc/user_usart.h
 f407vet6_smartdel_20201101\main.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-f407vet6_smartdel_20201101\main.o: ../Core/Inc/Max7219.h
 f407vet6_smartdel_20201101\main.o: ../Core/Inc/uart234.h
-f407vet6_smartdel_20201101\main.o: ../Core/Inc/ssd1306.h
-f407vet6_smartdel_20201101\main.o: ../Core/Inc/fonts.h
 f407vet6_smartdel_20201101\main.o: ../Core/Src/Buzzer/buzzerDriver.h

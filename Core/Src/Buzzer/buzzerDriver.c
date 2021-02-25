@@ -85,23 +85,19 @@ void musicPlay()
 //  TIM9 -> CR1 |= TIM_CR1_CEN;
 //  TIM9 ->CCER |= TIM_CCER_CC4E;
 	static uint32_t cnt_=0;
-  static int melodyCount = sizeof(melodySizes)/ sizeof(uint32_t);
-	static int melodyIndex = 0;
+//  static int melodyCount = sizeof(melodySizes)/ sizeof(uint32_t);
+//	static int melodyIndex = 0;
 	static int noteIndex = 0;
-	if(cnt_++%180==0)
+	if( noteIndex >= melodySizes[0]) noteIndex=0;
+	if(cnt_++%(noteDurations[0][noteIndex] * melodySlowfactor[0])==0)
 	{
-		if( noteIndex++ < melodySizes[melodyIndex])
-		{
-			buzzerSetNewFrequency(melody[melodyIndex][noteIndex]);
+		
+		buzzerSetNewFrequency(melody[0][noteIndex]);
+		noteIndex++;
 //			HAL_Delay(noteDurations[melodyIndex][noteIndex] * melodySlowfactor[melodyIndex]);
-		}
-		else
-		{
-			noteIndex=0;
-			__ValueStep(melodyIndex,1,melodyCount);
-		}
-	}
 
+	}
+//	__ValueStep(melodyIndex,1,melodyCount);
 //   TIM9 -> CR1 &= ~TIM_CR1_CEN;
 //   TIM9 ->CCER &= ~TIM_CCER_CC4E;
 }
