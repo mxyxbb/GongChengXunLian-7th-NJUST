@@ -242,6 +242,8 @@ void ArmGoMiddle()
 }
 SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), mi, ArmGoMiddle, ArmGoMiddle());
 
+
+
 /*--------letter shell example begin--------*/
 //void fun(char en)
 //{

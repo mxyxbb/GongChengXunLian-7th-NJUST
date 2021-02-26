@@ -152,7 +152,7 @@ int main(void)
 	//初始化LED点阵显示
 	MAX7219_MatrixInit(&hspi1, MAX7219_CS_GPIO_Port, MAX7219_CS_Pin);
 	MAX7219_MatrixUpdate();
-	uint8_t colororder[]={1,3,2,3,2,1};
+	uint8_t colororder[]={0,0,0,0,0,0};
 	MAX7219_mywrite(colororder);
 	MAX7219_MatrixUpdate();
 	user_main_printf("LED Matrix ok...");
