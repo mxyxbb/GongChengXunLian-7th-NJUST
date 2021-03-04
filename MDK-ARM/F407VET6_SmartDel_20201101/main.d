@@ -50,3 +50,7 @@ f407vet6_smartdel_20201101\main.o: ../Core/Inc/uart234.h
 f407vet6_smartdel_20201101\main.o: ../Core/Src/Buzzer/buzzerDriver.h
 f407vet6_smartdel_20201101\main.o: ../Core/Src/MAX7219/max7219_matrix.h
 f407vet6_smartdel_20201101\main.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+f407vet6_smartdel_20201101\main.o: ../Core/Src/letter_shell/src/shell_port.h
+f407vet6_smartdel_20201101\main.o: ../Core/Src/letter_shell/src/shell.h
+f407vet6_smartdel_20201101\main.o: ../Core/Src/letter_shell/src/shell_cfg.h
+f407vet6_smartdel_20201101\main.o: ../Core/Src/SCSLib/uart.h

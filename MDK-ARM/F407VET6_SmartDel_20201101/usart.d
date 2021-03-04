@@ -35,3 +35,8 @@ f407vet6_smartdel_20201101\usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4x
 f407vet6_smartdel_20201101\usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 f407vet6_smartdel_20201101\usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 f407vet6_smartdel_20201101\usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
+f407vet6_smartdel_20201101\usart.o: ../Core/Src/letter_shell/src/shell_port.h
+f407vet6_smartdel_20201101\usart.o: ../Core/Src/letter_shell/src/shell.h
+f407vet6_smartdel_20201101\usart.o: ../Core/Src/letter_shell/src/shell_cfg.h
+f407vet6_smartdel_20201101\usart.o: ../Core/Src/SCSLib/uart.h
+f407vet6_smartdel_20201101\usart.o: ../Core/Inc/user_usart.h
