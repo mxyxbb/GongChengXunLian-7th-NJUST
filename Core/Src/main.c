@@ -215,6 +215,7 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+
 	user_main_printf("begin------------------------");
   while (1)
   {

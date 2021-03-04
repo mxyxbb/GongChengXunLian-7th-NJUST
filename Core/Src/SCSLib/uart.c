@@ -32,7 +32,7 @@ int16_t Uart_Read(void)
 }
 
 
-#define USE_USART1_
+#define USE_USART2_
 /*---------------
 使用USE_USART1_ 宏定义
 配置USART1，端口映射(TX)PA9/(RX)PA10
@@ -71,5 +71,26 @@ USART2作为舵机串口
 ------------------*/
 #ifdef USE_USART2_
 
+uint8_t data_one_byte[1];	//串口接收缓冲区（一个字符）
+/**
+ * @brief 串口接收处理函数
+ */
+void SCS_Uarthandle()
+{
+
+		uartBuf[tail] = data_one_byte[0];
+		tail = (tail+1)%128;
+		// 在完成一次接收后，串口中断会被关闭，需要再次打开
+		HAL_UART_Receive_IT(&huart2, data_one_byte, 1);
+	
+}
+
+void Uart_Send(uint8_t *buf , uint8_t len)
+{
+	uint8_t i=0;
+	for(i=0; i<len; i++){
+		HAL_UART_Transmit(&huart2, (uint8_t*)&buf[i], 1, 0xFFFF);
+	}
+}
 
 #endif

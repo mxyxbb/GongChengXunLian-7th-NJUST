@@ -21,7 +21,8 @@
 #include "usart.h"
 
 /* USER CODE BEGIN 0 */
-
+#include "letter_shell/src/shell_port.h"
+#include "SCSLib/uart.h"
 /* USER CODE END 0 */
 
 UART_HandleTypeDef huart5;
@@ -72,7 +73,7 @@ void MX_USART2_UART_Init(void)
 {
 
   huart2.Instance = USART2;
-  huart2.Init.BaudRate = 1000000;//115200;
+  huart2.Init.BaudRate = 1000000;
   huart2.Init.WordLength = UART_WORDLENGTH_8B;
   huart2.Init.StopBits = UART_STOPBITS_1;
   huart2.Init.Parity = UART_PARITY_NONE;
@@ -302,6 +303,27 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
 }
 
 /* USER CODE BEGIN 1 */
+
+/**
+ * @brief 串口回调函数
+ * @param  huart            串口句柄
+ */
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+	if(huart->Instance == USART1)
+	{
+//		user_main_printf("recv:%#x\r\n",recv_buf);
+		//调用shell处理数据的接口
+		shellHandler(&shell, recv_buf);
+			//使能串口中断接收
+		HAL_UART_Receive_IT(&huart1, (uint8_t*)&recv_buf, 1);
+		
+	}	
+	else if(huart->Instance == USART2)
+	{
+		SCS_Uarthandle();
+	}	
+}
 
 /* USER CODE END 1 */
 

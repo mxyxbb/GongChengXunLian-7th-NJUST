@@ -20,7 +20,7 @@ uint8_t recv_buf = 0;
 void User_Shell_Write(const char ch)
 {
  //调用STM32 HAL库 API 使用查询方式发送
- HAL_UART_Transmit(&huart2, (uint8_t*)&ch, 1, 0xFFFF);
+ HAL_UART_Transmit(&huart1, (uint8_t*)&ch, 1, 0xFFFF);
 }
 
 /* 3. 编写初始化函数 */
