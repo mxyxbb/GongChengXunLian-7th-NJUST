@@ -19,10 +19,11 @@ typedef struct
 
 
 
-extern void ArmForceEnable(uint8_t ID_,uint8_t Enable_);
-extern void SavePos(int16_t ID_,int16_t timems_);
-extern void GoPos(int16_t ID_);
-	
+void ArmForceEnable(uint8_t ID_,uint8_t Enable_);
+void SavePos(int16_t ID_,int16_t timems_);
+void GoPos(int16_t ID_);
+void ArmInit(void);
+void DoGroup(uint8_t ID_);
 
 
 #ifdef __cplusplus

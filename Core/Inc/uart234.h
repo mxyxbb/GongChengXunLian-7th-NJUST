@@ -17,5 +17,6 @@ extern void led_shan(void);
 void Uart2_servoCtr(uint8_t CMD);
 void Uart3_readQRcode(void);
 void Uart3_readColor(void);
+void HAL_UART_RxCpltCallback_color(void);
 
 #endif

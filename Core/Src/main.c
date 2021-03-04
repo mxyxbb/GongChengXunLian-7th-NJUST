@@ -39,7 +39,14 @@
 //#include "ssd1306.h"
 #include "gongxun.h"
 #include "Buzzer/buzzerDriver.h"
+
 #include "MAX7219/max7219_matrix.h"
+
+#include "letter_shell/src/shell_port.h"
+
+#include "SCSLib/uart.h"
+
+#include "SCS_servo/SCS_servo.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -142,8 +149,13 @@ int main(void)
   MX_SPI1_Init();
   MX_UART5_Init();
   /* USER CODE BEGIN 2 */
+	User_Shell_Init();
+	HAL_UART_Receive_IT(&huart1, (uint8_t*)&recv_buf, 1);
+	HAL_UART_Receive_IT(&huart2, (uint8_t*)data_one_byte, 1);
 	
-	user_main_printf("Initating...");
+
+	
+	user_main_printf("\n\rInitating...");
 	user_main_printf("Enjoy a music...");
 	//开启蜂鸣器PWM输出
 	HAL_TIM_PWM_Start(&htim9, TIM_CHANNEL_1);
@@ -158,7 +170,8 @@ int main(void)
 	user_main_printf("LED Matrix ok...");
 	
 	//测试并初始化机械臂位置
-//	Uart2_servoCtr(1);
+	ArmInit();
+	Uart2_servoCtr(1);
 	
 	user_main_printf("Robotic arm ok...");
 
