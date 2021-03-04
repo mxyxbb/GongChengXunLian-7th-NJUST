@@ -5,7 +5,6 @@
 "f407vet6_smartdel_20201101\pid.o"
 "f407vet6_smartdel_20201101\linefollowsensor.o"
 "f407vet6_smartdel_20201101\user_usart.o"
-"f407vet6_smartdel_20201101\max7219.o"
 "f407vet6_smartdel_20201101\gongxun.o"
 "f407vet6_smartdel_20201101\uart234.o"
 "f407vet6_smartdel_20201101\fonts.o"

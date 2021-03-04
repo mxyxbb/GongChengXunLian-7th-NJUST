@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F407xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;   ../Drivers/STM32F4xx_HAL_Driver/Inc;   ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;   ../Drivers/CMSIS/Device/ST/STM32F4xx/Include;   ../Drivers/CMSIS/Include;   ..\Core\Src</IncludePath>
+              <IncludePath>../Core/Inc;    ../Drivers/STM32F4xx_HAL_Driver/Inc;    ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;    ../Drivers/CMSIS/Device/ST/STM32F4xx/Include;    ../Drivers/CMSIS/Include;    ..\Core\Src</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -416,11 +416,6 @@
               <FileName>user_usart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Core\Src\user_usart.c</FilePath>
-            </File>
-            <File>
-              <FileName>Max7219.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Core\Src\Max7219.c</FilePath>
             </File>
             <File>
               <FileName>gongxun.c</FileName>
@@ -1109,11 +1104,6 @@
               <FileName>user_usart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Core\Src\user_usart.c</FilePath>
-            </File>
-            <File>
-              <FileName>Max7219.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Core\Src\Max7219.c</FilePath>
             </File>
             <File>
               <FileName>gongxun.c</FileName>

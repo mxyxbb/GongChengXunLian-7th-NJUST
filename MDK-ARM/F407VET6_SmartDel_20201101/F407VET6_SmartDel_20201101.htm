@@ -3,7 +3,7 @@
 <title>Static Call Graph - [F407VET6_SmartDel_20201101\F407VET6_SmartDel_20201101.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image F407VET6_SmartDel_20201101\F407VET6_SmartDel_20201101.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Thu Mar 04 19:56:34 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Thu Mar 04 20:07:00 2021
 <BR><P>
 <H3>Maximum Stack Usage =        240 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -117,8 +117,8 @@ Function Pointers
  <LI><a href="#[3e]">UART4_IRQHandler</a> from startup_stm32f407xx.o(.text) referenced from startup_stm32f407xx.o(RESET)
  <LI><a href="#[3f]">UART5_IRQHandler</a> from startup_stm32f407xx.o(.text) referenced from startup_stm32f407xx.o(RESET)
  <LI><a href="#[5e]">UART_DMAAbortOnError</a> from stm32f4xx_hal_uart.o(i.UART_DMAAbortOnError) referenced from stm32f4xx_hal_uart.o(i.HAL_UART_IRQHandler)
- <LI><a href="#[2f]">USART1_IRQHandler</a> from startup_stm32f407xx.o(.text) referenced from startup_stm32f407xx.o(RESET)
- <LI><a href="#[30]">USART2_IRQHandler</a> from startup_stm32f407xx.o(.text) referenced from startup_stm32f407xx.o(RESET)
+ <LI><a href="#[2f]">USART1_IRQHandler</a> from stm32f4xx_it.o(i.USART1_IRQHandler) referenced from startup_stm32f407xx.o(RESET)
+ <LI><a href="#[30]">USART2_IRQHandler</a> from stm32f4xx_it.o(i.USART2_IRQHandler) referenced from startup_stm32f407xx.o(RESET)
  <LI><a href="#[31]">USART3_IRQHandler</a> from stm32f4xx_it.o(i.USART3_IRQHandler) referenced from startup_stm32f407xx.o(RESET)
  <LI><a href="#[51]">USART6_IRQHandler</a> from startup_stm32f407xx.o(.text) referenced from startup_stm32f407xx.o(RESET)
  <LI><a href="#[5]">UsageFault_Handler</a> from stm32f4xx_it.o(i.UsageFault_Handler) referenced from startup_stm32f407xx.o(RESET)
@@ -153,7 +153,7 @@ Global Symbols
 <P><STRONG><a name="[5d]"></a>__main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry.o(.ARM.Collect$$$$00000000))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f407xx.o(.text)
 </UL>
-<P><STRONG><a name="[190]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
+<P><STRONG><a name="[18d]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
 
 <P><STRONG><a name="[80]"></a>_main_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
 <BR><BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
@@ -163,15 +163,15 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
 </UL>
 
-<P><STRONG><a name="[191]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
+<P><STRONG><a name="[18e]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
 
-<P><STRONG><a name="[192]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
+<P><STRONG><a name="[18f]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
 
-<P><STRONG><a name="[193]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
+<P><STRONG><a name="[190]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
 
-<P><STRONG><a name="[194]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
+<P><STRONG><a name="[191]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
 
-<P><STRONG><a name="[195]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
+<P><STRONG><a name="[192]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
 
 <P><STRONG><a name="[0]"></a>Reset_Handler</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, startup_stm32f407xx.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f407xx.o(RESET)
@@ -405,12 +405,6 @@ Global Symbols
 <P><STRONG><a name="[3f]"></a>UART5_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_stm32f407xx.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f407xx.o(RESET)
 </UL>
-<P><STRONG><a name="[2f]"></a>USART1_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_stm32f407xx.o(.text))
-<BR>[Address Reference Count : 1]<UL><LI> startup_stm32f407xx.o(RESET)
-</UL>
-<P><STRONG><a name="[30]"></a>USART2_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_stm32f407xx.o(.text))
-<BR>[Address Reference Count : 1]<UL><LI> startup_stm32f407xx.o(RESET)
-</UL>
 <P><STRONG><a name="[51]"></a>USART6_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_stm32f407xx.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f407xx.o(RESET)
 </UL>
@@ -423,29 +417,29 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsr
 <LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsl
 </UL>
-<BR>[Called By]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetSysClockFreq
-<LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buzzerSetNewFrequency
-<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SetConfig
-<LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
-<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<BR>[Called By]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SetConfig
+<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetSysClockFreq
+<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buzzerSetNewFrequency
+<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 </UL>
 
 <P><STRONG><a name="[13a]"></a>__aeabi_memcpy</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, memcpya.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SavePos
 </UL>
 
-<P><STRONG><a name="[196]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
+<P><STRONG><a name="[193]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
 
-<P><STRONG><a name="[197]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
+<P><STRONG><a name="[194]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
 
 <P><STRONG><a name="[86]"></a>__aeabi_memset</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_memset$wrapper
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 </UL>
 
-<P><STRONG><a name="[198]"></a>__aeabi_memset4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[195]"></a>__aeabi_memset4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 
-<P><STRONG><a name="[199]"></a>__aeabi_memset8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[196]"></a>__aeabi_memset8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 
 <P><STRONG><a name="[85]"></a>__aeabi_memclr</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset
@@ -466,39 +460,39 @@ Global Symbols
 <LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM1_Init
 <LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
 <LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
-<LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtRun
+<LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtRun
 </UL>
 
-<P><STRONG><a name="[19a]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[197]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 
 <P><STRONG><a name="[87]"></a>_memset$wrapper</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, memseta.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset
 </UL>
 
-<P><STRONG><a name="[183]"></a>strlen</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, strlen.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[17b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSetUser
-<LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellRemoveParamQuotes
+<P><STRONG><a name="[180]"></a>strlen</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, strlen.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[178]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSetUser
+<LI><a href="#[17f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellRemoveParamQuotes
 </UL>
 
-<P><STRONG><a name="[15c]"></a>strcmp</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, strcmp.o(.text))
+<P><STRONG><a name="[159]"></a>strcmp</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, strcmp.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = strcmp
 </UL>
-<BR>[Called By]<UL><LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSeekCommand
-<LI><a href="#[17b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSetUser
-<LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellHistoryAdd
-<LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellCheckPassword
+<BR>[Called By]<UL><LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSeekCommand
+<LI><a href="#[178]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSetUser
+<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellHistoryAdd
+<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellCheckPassword
 </UL>
 
-<P><STRONG><a name="[186]"></a>strncmp</STRONG> (Thumb, 30 bytes, Stack size 12 bytes, strncmp.o(.text))
+<P><STRONG><a name="[183]"></a>strncmp</STRONG> (Thumb, 30 bytes, Stack size 12 bytes, strncmp.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = strncmp
 </UL>
-<BR>[Called By]<UL><LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSeekCommand
+<BR>[Called By]<UL><LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSeekCommand
 </UL>
 
-<P><STRONG><a name="[19b]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
+<P><STRONG><a name="[198]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
 
-<P><STRONG><a name="[151]"></a>__aeabi_uidivmod</STRONG> (Thumb, 44 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+<P><STRONG><a name="[14e]"></a>__aeabi_uidivmod</STRONG> (Thumb, 44 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
 <P><STRONG><a name="[84]"></a>__aeabi_llsl</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, llshl.o(.text))
@@ -508,7 +502,7 @@ Global Symbols
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2ulz
 </UL>
 
-<P><STRONG><a name="[19c]"></a>_ll_shift_l</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llshl.o(.text), UNUSED)
+<P><STRONG><a name="[199]"></a>_ll_shift_l</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llshl.o(.text), UNUSED)
 
 <P><STRONG><a name="[83]"></a>__aeabi_llsr</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, llushr.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
@@ -516,9 +510,9 @@ Global Symbols
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2ulz
 </UL>
 
-<P><STRONG><a name="[19d]"></a>_ll_ushift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llushr.o(.text), UNUSED)
+<P><STRONG><a name="[19a]"></a>_ll_ushift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llushr.o(.text), UNUSED)
 
-<P><STRONG><a name="[19e]"></a>__I$use$fp</STRONG> (Thumb, 0 bytes, Stack size 48 bytes, iusefp.o(.text), UNUSED)
+<P><STRONG><a name="[19b]"></a>__I$use$fp</STRONG> (Thumb, 0 bytes, Stack size 48 bytes, iusefp.o(.text), UNUSED)
 
 <P><STRONG><a name="[88]"></a>__aeabi_dadd</STRONG> (Thumb, 322 bytes, Stack size 48 bytes, dadd.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_lasr
@@ -528,7 +522,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
-<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 </UL>
 
 <P><STRONG><a name="[8c]"></a>__aeabi_dsub</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, dadd.o(.text), UNUSED)
@@ -542,24 +536,24 @@ Global Symbols
 <P><STRONG><a name="[8e]"></a>__aeabi_dmul</STRONG> (Thumb, 228 bytes, Stack size 48 bytes, dmul.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
-<BR>[Called By]<UL><LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<BR>[Called By]<UL><LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 </UL>
 
 <P><STRONG><a name="[8f]"></a>__aeabi_ddiv</STRONG> (Thumb, 222 bytes, Stack size 32 bytes, ddiv.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_round
 </UL>
-<BR>[Called By]<UL><LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<BR>[Called By]<UL><LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 </UL>
 
 <P><STRONG><a name="[90]"></a>__aeabi_d2ulz</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, dfixul.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsr
 <LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsl
 </UL>
-<BR>[Called By]<UL><LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<BR>[Called By]<UL><LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 </UL>
 
-<P><STRONG><a name="[14e]"></a>__aeabi_cdrcmple</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, cdrcmple.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<P><STRONG><a name="[14b]"></a>__aeabi_cdrcmple</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, cdrcmple.o(.text), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 </UL>
 
 <P><STRONG><a name="[81]"></a>__scatterload</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, init.o(.text))
@@ -568,13 +562,13 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_main_scatterload
 </UL>
 
-<P><STRONG><a name="[19f]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
+<P><STRONG><a name="[19c]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
 
 <P><STRONG><a name="[89]"></a>__aeabi_lasr</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, llsshr.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
 
-<P><STRONG><a name="[1a0]"></a>_ll_sshift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llsshr.o(.text), UNUSED)
+<P><STRONG><a name="[19d]"></a>_ll_sshift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llsshr.o(.text), UNUSED)
 
 <P><STRONG><a name="[8b]"></a>_double_round</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, depilogue.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
@@ -591,9 +585,9 @@ Global Symbols
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
 
-<P><STRONG><a name="[1a1]"></a>__decompress</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
+<P><STRONG><a name="[19e]"></a>__decompress</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
 
-<P><STRONG><a name="[1a2]"></a>__decompress1</STRONG> (Thumb, 86 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
+<P><STRONG><a name="[19f]"></a>__decompress1</STRONG> (Thumb, 86 bytes, Stack size unknown bytes, __dczerorl2.o(.text), UNUSED)
 
 <P><STRONG><a name="[92]"></a>Ack</STRONG> (Thumb, 104 bytes, Stack size 16 bytes, scs.o(i.Ack))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = Ack &rArr; checkHead &rArr; readSCS
@@ -603,7 +597,7 @@ Global Symbols
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkHead
 </UL>
 <BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writeByte
-<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;genWrite
+<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;genWrite
 </UL>
 
 <P><STRONG><a name="[96]"></a>AnglePosControl</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, linefollowsensor.o(i.AnglePosControl))
@@ -656,7 +650,7 @@ Global Symbols
 <P><STRONG><a name="[7]"></a>DebugMon_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.DebugMon_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f407xx.o(RESET)
 </UL>
-<P><STRONG><a name="[18e]"></a>DirectionError_Calc</STRONG> (Thumb, 198 bytes, Stack size 8 bytes, linefollowsensor.o(i.DirectionError_Calc))
+<P><STRONG><a name="[18b]"></a>DirectionError_Calc</STRONG> (Thumb, 198 bytes, Stack size 8 bytes, linefollowsensor.o(i.DirectionError_Calc))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = DirectionError_Calc
 </UL>
 <BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;yPositionControl
@@ -771,8 +765,6 @@ Global Symbols
 
 <P><STRONG><a name="[10d]"></a>HAL_GPIO_WritePin</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_hal_gpio.o(i.HAL_GPIO_WritePin))
 <BR><BR>[Called By]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;led_shan
-<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Write_Max7219_byte
-<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Write_Max7219
 <LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
 <LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SS_Select
 <LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SS_Deselect
@@ -790,11 +782,11 @@ Global Symbols
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
 <LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Mem_Write
 <LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_Transmit
+<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_WaitOnFlagUntilTimeout
 <LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ee24_write
 <LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_WaitFlagStateUntilTimeout
 <LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Mem_Read
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_IsDeviceReady
-<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_WaitOnFlagUntilTimeout
 </UL>
 
 <P><STRONG><a name="[a4]"></a>HAL_I2C_Init</STRONG> (Thumb, 446 bytes, Stack size 16 bytes, stm32f4xx_hal_i2c.o(i.HAL_I2C_Init))
@@ -835,8 +827,8 @@ Global Symbols
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_RequestMemoryWrite
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
-<BR>[Called By]<UL><LI><a href="#[18a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_WriteCommand
-<LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_UpdateScreen
+<BR>[Called By]<UL><LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_UpdateScreen
+<LI><a href="#[187]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_WriteCommand
 <LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ee24_write
 </UL>
 
@@ -1029,17 +1021,17 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_Init
 </UL>
 
-<P><STRONG><a name="[154]"></a>HAL_TIM_Base_Start_IT</STRONG> (Thumb, 42 bytes, Stack size 0 bytes, stm32f4xx_hal_tim.o(i.HAL_TIM_Base_Start_IT))
+<P><STRONG><a name="[151]"></a>HAL_TIM_Base_Start_IT</STRONG> (Thumb, 42 bytes, Stack size 0 bytes, stm32f4xx_hal_tim.o(i.HAL_TIM_Base_Start_IT))
 <BR><BR>[Called By]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[c7]"></a>HAL_TIM_ConfigClockSource</STRONG> (Thumb, 264 bytes, Stack size 24 bytes, stm32f4xx_hal_tim.o(i.HAL_TIM_ConfigClockSource))
-<BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = HAL_TIM_ConfigClockSource &rArr; TIM_TI2_ConfigInputStage
+<BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = HAL_TIM_ConfigClockSource &rArr; TIM_ETR_SetConfig
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TI2_ConfigInputStage
+<BR>[Calls]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ETR_SetConfig
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TI2_ConfigInputStage
 <LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TI1_ConfigInputStage
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ITRx_SetConfig
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ETR_SetConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM9_Init
 <LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM8_Init
@@ -1109,12 +1101,12 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[d9]"></a>HAL_TIM_PWM_ConfigChannel</STRONG> (Thumb, 264 bytes, Stack size 16 bytes, stm32f4xx_hal_tim.o(i.HAL_TIM_PWM_ConfigChannel))
-<BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = HAL_TIM_PWM_ConfigChannel &rArr; TIM_OC4_SetConfig
+<BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = HAL_TIM_PWM_ConfigChannel &rArr; TIM_OC2_SetConfig
 </UL>
-<BR>[Calls]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC4_SetConfig
+<BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC2_SetConfig
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC4_SetConfig
 <LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC3_SetConfig
 <LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC1_SetConfig
-<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC2_SetConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM9_Init
 <LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM8_Init
@@ -1177,14 +1169,16 @@ Global Symbols
 <P><STRONG><a name="[e9]"></a>HAL_UART_IRQHandler</STRONG> (Thumb, 336 bytes, Stack size 32 bytes, stm32f4xx_hal_uart.o(i.HAL_UART_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = HAL_UART_IRQHandler &rArr; UART_Receive_IT &rArr; HAL_UART_RxCpltCallback &rArr; shellHandler &rArr; shellNormalInput &rArr; shellInsertByte &rArr; shellWriteCommandLine &rArr; shellWriteString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Abort_IT
-<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_ErrorCallback
+<BR>[Calls]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_ErrorCallback
 <LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Transmit_IT
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Receive_IT
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_EndTransmit_IT
 <LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_EndRxTransfer
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Abort_IT
 </UL>
 <BR>[Called By]<UL><LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART3_IRQHandler
+<LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART2_IRQHandler
+<LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
 </UL>
 
 <P><STRONG><a name="[f0]"></a>HAL_UART_Init</STRONG> (Thumb, 114 bytes, Stack size 8 bytes, stm32f4xx_hal_uart.o(i.HAL_UART_Init))
@@ -1199,7 +1193,7 @@ Global Symbols
 <LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART2_UART_Init
 </UL>
 
-<P><STRONG><a name="[f1]"></a>HAL_UART_MspInit</STRONG> (Thumb, 554 bytes, Stack size 32 bytes, usart.o(i.HAL_UART_MspInit))
+<P><STRONG><a name="[f1]"></a>HAL_UART_MspInit</STRONG> (Thumb, 586 bytes, Stack size 32 bytes, usart.o(i.HAL_UART_MspInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = HAL_UART_MspInit &rArr; HAL_NVIC_SetPriority &rArr; __NVIC_SetPriority
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
@@ -1223,9 +1217,9 @@ Global Symbols
 <P><STRONG><a name="[f3]"></a>HAL_UART_RxCpltCallback</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, usart.o(i.HAL_UART_RxCpltCallback))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = HAL_UART_RxCpltCallback &rArr; shellHandler &rArr; shellNormalInput &rArr; shellInsertByte &rArr; shellWriteCommandLine &rArr; shellWriteString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellHandler
+<BR>[Calls]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Receive_IT
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellHandler
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCS_Uarthandle
-<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Receive_IT
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Receive_IT
 </UL>
@@ -1233,14 +1227,14 @@ Global Symbols
 <P><STRONG><a name="[f7]"></a>HAL_UART_Transmit</STRONG> (Thumb, 216 bytes, Stack size 32 bytes, stm32f4xx_hal_uart.o(i.HAL_UART_Transmit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
-<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_WaitOnFlagUntilTimeout
+<BR>[Calls]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_WaitOnFlagUntilTimeout
+<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
 <BR>[Called By]<UL><LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart3_readQRcode
 <LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart3_readColor
 <LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart2_servoCtr
 <LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fputc
-<LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Send
+<LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Send
 <LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;User_Shell_Write
 </UL>
 
@@ -1251,7 +1245,7 @@ Global Symbols
 <P><STRONG><a name="[2]"></a>HardFault_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.HardFault_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f407xx.o(RESET)
 </UL>
-<P><STRONG><a name="[147]"></a>Host2SCS</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, scs.o(i.Host2SCS))
+<P><STRONG><a name="[145]"></a>Host2SCS</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, scs.o(i.Host2SCS))
 <BR><BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WritePos
 </UL>
 
@@ -1417,8 +1411,8 @@ Global Symbols
 <P><STRONG><a name="[10c]"></a>MX_GPIO_Init</STRONG> (Thumb, 410 bytes, Stack size 32 bytes, gpio.o(i.MX_GPIO_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = MX_GPIO_Init &rArr; HAL_GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
+<BR>[Calls]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
+<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1433,7 +1427,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[110]"></a>MX_SPI1_Init</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, spi.o(i.MX_SPI1_Init))
+<P><STRONG><a name="[110]"></a>MX_SPI1_Init</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, spi.o(i.MX_SPI1_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = MX_SPI1_Init &rArr; HAL_SPI_Init &rArr; HAL_SPI_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_Init
@@ -1655,7 +1649,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SavePos
 </UL>
 
-<P><STRONG><a name="[159]"></a>SCS2Host</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, scs.o(i.SCS2Host))
+<P><STRONG><a name="[156]"></a>SCS2Host</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, scs.o(i.SCS2Host))
 <BR><BR>[Called By]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readWord
 </UL>
 
@@ -1693,7 +1687,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PeriodElapsedCallback
 </UL>
 
-<P><STRONG><a name="[155]"></a>SetMotorSPEED</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, motorcontrol.o(i.SetMotorSPEED))
+<P><STRONG><a name="[152]"></a>SetMotorSPEED</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, motorcontrol.o(i.SetMotorSPEED))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SetMotorSPEED
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mecanumRun
@@ -1754,6 +1748,20 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_ConfigChannel
 </UL>
 
+<P><STRONG><a name="[2f]"></a>USART1_IRQHandler</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, stm32f4xx_it.o(i.USART1_IRQHandler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = USART1_IRQHandler &rArr; HAL_UART_IRQHandler &rArr; UART_Receive_IT &rArr; HAL_UART_RxCpltCallback &rArr; shellHandler &rArr; shellNormalInput &rArr; shellInsertByte &rArr; shellWriteCommandLine &rArr; shellWriteString
+</UL>
+<BR>[Calls]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_IRQHandler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_stm32f407xx.o(RESET)
+</UL>
+<P><STRONG><a name="[30]"></a>USART2_IRQHandler</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, stm32f4xx_it.o(i.USART2_IRQHandler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = USART2_IRQHandler &rArr; HAL_UART_IRQHandler &rArr; UART_Receive_IT &rArr; HAL_UART_RxCpltCallback &rArr; shellHandler &rArr; shellNormalInput &rArr; shellInsertByte &rArr; shellWriteCommandLine &rArr; shellWriteString
+</UL>
+<BR>[Calls]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_IRQHandler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_stm32f407xx.o(RESET)
+</UL>
 <P><STRONG><a name="[31]"></a>USART3_IRQHandler</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, stm32f4xx_it.o(i.USART3_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = USART3_IRQHandler &rArr; HAL_UART_IRQHandler &rArr; UART_Receive_IT &rArr; HAL_UART_RxCpltCallback &rArr; shellHandler &rArr; shellNormalInput &rArr; shellInsertByte &rArr; shellWriteCommandLine &rArr; shellWriteString
 </UL>
@@ -1775,39 +1783,38 @@ Global Symbols
 <P><STRONG><a name="[126]"></a>Uart3_readColor</STRONG> (Thumb, 154 bytes, Stack size 24 bytes, uart234.o(i.Uart3_readColor))
 <BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = Uart3_readColor &rArr; ssd1306_UpdateScreen &rArr; ssd1306_WriteCommand &rArr; HAL_I2C_Mem_Write &rArr; I2C_RequestMemoryWrite &rArr; I2C_WaitOnMasterAddressFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
-<LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_WriteString
+<BR>[Calls]<UL><LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_WriteString
 <LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_UpdateScreen
 <LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_SetCursor
 <LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Receive_IT
+<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
+<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 <LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 <LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OnTheWay
 </UL>
 
-<P><STRONG><a name="[125]"></a>Uart3_readQRcode</STRONG> (Thumb, 92 bytes, Stack size 8 bytes, uart234.o(i.Uart3_readQRcode))
+<P><STRONG><a name="[125]"></a>Uart3_readQRcode</STRONG> (Thumb, 86 bytes, Stack size 8 bytes, uart234.o(i.Uart3_readQRcode))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = Uart3_readQRcode &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;led_shan
-<LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WriteNum_Max7219
+<BR>[Calls]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Receive_IT
+<LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;led_shan
 <LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
-<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Receive_IT
 </UL>
 <BR>[Called By]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OnTheWay
 </UL>
 
-<P><STRONG><a name="[157]"></a>Uart_Flush</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, uart.o(i.Uart_Flush))
+<P><STRONG><a name="[154]"></a>Uart_Flush</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, uart.o(i.Uart_Flush))
 <BR><BR>[Called By]<UL><LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rFlushSCS
 </UL>
 
-<P><STRONG><a name="[158]"></a>Uart_Read</STRONG> (Thumb, 52 bytes, Stack size 0 bytes, uart.o(i.Uart_Read))
+<P><STRONG><a name="[155]"></a>Uart_Read</STRONG> (Thumb, 52 bytes, Stack size 0 bytes, uart.o(i.Uart_Read))
 <BR><BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readSCS
 </UL>
 
-<P><STRONG><a name="[143]"></a>Uart_Send</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, uart.o(i.Uart_Send))
+<P><STRONG><a name="[142]"></a>Uart_Send</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, uart.o(i.Uart_Send))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = Uart_Send &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
@@ -1818,7 +1825,7 @@ Global Symbols
 <P><STRONG><a name="[5]"></a>UsageFault_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.UsageFault_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f407xx.o(RESET)
 </UL>
-<P><STRONG><a name="[18f]"></a>User_PID_Calc_angle</STRONG> (Thumb, 160 bytes, Stack size 0 bytes, pid.o(i.User_PID_Calc_angle))
+<P><STRONG><a name="[18c]"></a>User_PID_Calc_angle</STRONG> (Thumb, 160 bytes, Stack size 0 bytes, pid.o(i.User_PID_Calc_angle))
 <BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;yPositionControl
 <LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;yAngleControl
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPositionControl
@@ -1830,10 +1837,10 @@ Global Symbols
 <LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[144]"></a>User_Shell_Init</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, shell_port.o(i.User_Shell_Init))
+<P><STRONG><a name="[143]"></a>User_Shell_Init</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, shell_port.o(i.User_Shell_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = User_Shell_Init &rArr; shellInit &rArr; shellSeekCommand &rArr; shellGetCommandName &rArr; shellToHex
 </UL>
-<BR>[Calls]<UL><LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellInit
+<BR>[Calls]<UL><LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellInit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1845,47 +1852,22 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> shell_port.o(i.User_Shell_Init)
 </UL>
-<P><STRONG><a name="[142]"></a>WriteNum_Max7219</STRONG> (Thumb, 70 bytes, Stack size 8 bytes, max7219.o(i.WriteNum_Max7219))
-<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = WriteNum_Max7219 &rArr; Write_Max7219 &rArr; Write_Max7219_byte
-</UL>
-<BR>[Calls]<UL><LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Write_Max7219
-</UL>
-<BR>[Called By]<UL><LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart3_readQRcode
-</UL>
-
 <P><STRONG><a name="[62]"></a>WritePos</STRONG> (Thumb, 64 bytes, Stack size 32 bytes, scscl.o(i.WritePos))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = WritePos &rArr; genWrite &rArr; wFlushSCS &rArr; Uart_Send &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;genWrite
-<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Host2SCS
+<BR>[Calls]<UL><LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;genWrite
+<LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Host2SCS
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GoPos
 <LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ArmGoMiddle
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> scscl.o(shellCommand)
 </UL>
-<P><STRONG><a name="[146]"></a>Write_Max7219</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, max7219.o(i.Write_Max7219))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = Write_Max7219 &rArr; Write_Max7219_byte
-</UL>
-<BR>[Calls]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
-<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Write_Max7219_byte
-</UL>
-<BR>[Called By]<UL><LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WriteNum_Max7219
+<P><STRONG><a name="[147]"></a>__0printf</STRONG> (Thumb, 22 bytes, Stack size 24 bytes, printfa.o(i.__0printf), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
-<P><STRONG><a name="[149]"></a>Write_Max7219_byte</STRONG> (Thumb, 68 bytes, Stack size 16 bytes, max7219.o(i.Write_Max7219_byte))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = Write_Max7219_byte
-</UL>
-<BR>[Calls]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
-</UL>
-<BR>[Called By]<UL><LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Write_Max7219
-</UL>
-
-<P><STRONG><a name="[14a]"></a>__0printf</STRONG> (Thumb, 22 bytes, Stack size 24 bytes, printfa.o(i.__0printf), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
-</UL>
-
-<P><STRONG><a name="[1a3]"></a>__1printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0printf), UNUSED)
+<P><STRONG><a name="[1a0]"></a>__1printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0printf), UNUSED)
 
 <P><STRONG><a name="[12b]"></a>__2printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0printf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __2printf
@@ -1896,16 +1878,16 @@ Global Symbols
 <LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[1a4]"></a>__c89printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0printf), UNUSED)
+<P><STRONG><a name="[1a1]"></a>__c89printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0printf), UNUSED)
 
-<P><STRONG><a name="[1a5]"></a>printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0printf), UNUSED)
+<P><STRONG><a name="[1a2]"></a>printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0printf), UNUSED)
 
-<P><STRONG><a name="[14c]"></a>__0sprintf</STRONG> (Thumb, 34 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
+<P><STRONG><a name="[149]"></a>__0sprintf</STRONG> (Thumb, 34 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sputc
-<LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
-<P><STRONG><a name="[1a6]"></a>__1sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
+<P><STRONG><a name="[1a3]"></a>__1sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
 
 <P><STRONG><a name="[13f]"></a>__2sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __2sprintf
@@ -1913,21 +1895,21 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart3_readColor
 </UL>
 
-<P><STRONG><a name="[1a7]"></a>__c89sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
+<P><STRONG><a name="[1a4]"></a>__c89sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
 
-<P><STRONG><a name="[1a8]"></a>sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
+<P><STRONG><a name="[1a5]"></a>sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0sprintf), UNUSED)
 
-<P><STRONG><a name="[1a9]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
+<P><STRONG><a name="[1a6]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
 
-<P><STRONG><a name="[1aa]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
+<P><STRONG><a name="[1a7]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
 
-<P><STRONG><a name="[1ab]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
+<P><STRONG><a name="[1a8]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
-<P><STRONG><a name="[156]"></a>buzzerDriverInit</STRONG> (Thumb, 84 bytes, Stack size 0 bytes, buzzerdriver.o(i.buzzerDriverInit))
+<P><STRONG><a name="[153]"></a>buzzerDriverInit</STRONG> (Thumb, 84 bytes, Stack size 0 bytes, buzzerdriver.o(i.buzzerDriverInit))
 <BR><BR>[Called By]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;musicPlay
 </UL>
 
-<P><STRONG><a name="[152]"></a>buzzerSetNewFrequency</STRONG> (Thumb, 50 bytes, Stack size 24 bytes, buzzerdriver.o(i.buzzerSetNewFrequency))
+<P><STRONG><a name="[14f]"></a>buzzerSetNewFrequency</STRONG> (Thumb, 50 bytes, Stack size 24 bytes, buzzerdriver.o(i.buzzerSetNewFrequency))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = buzzerSetNewFrequency &rArr; __aeabi_uldivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
@@ -1947,7 +1929,7 @@ Global Symbols
 <P><STRONG><a name="[a1]"></a>delay</STRONG> (Thumb, 22 bytes, Stack size 4 bytes, wiring.o(i.delay))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = delay
 </UL>
-<BR>[Calls]<UL><LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;millis
+<BR>[Calls]<UL><LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;millis
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GoPos
 </UL>
@@ -1988,7 +1970,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> printfa.o(i.__0printf)
 </UL>
-<P><STRONG><a name="[148]"></a>genWrite</STRONG> (Thumb, 42 bytes, Stack size 24 bytes, scs.o(i.genWrite))
+<P><STRONG><a name="[146]"></a>genWrite</STRONG> (Thumb, 42 bytes, Stack size 24 bytes, scs.o(i.genWrite))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = genWrite &rArr; wFlushSCS &rArr; Uart_Send &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wFlushSCS
@@ -2002,8 +1984,8 @@ Global Symbols
 <P><STRONG><a name="[122]"></a>led_shan</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, main.o(i.led_shan))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = led_shan &rArr; HAL_Delay
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+<BR>[Calls]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 </UL>
 <BR>[Called By]<UL><LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart3_readQRcode
 <LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart2_servoCtr
@@ -2014,11 +1996,12 @@ Global Symbols
 <P><STRONG><a name="[5b]"></a>main</STRONG> (Thumb, 364 bytes, Stack size 16 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 240<LI>Call Chain = main &rArr; ManufacturingProcesses &rArr; OnTheWay &rArr; Uart3_readColor &rArr; ssd1306_UpdateScreen &rArr; ssd1306_WriteCommand &rArr; HAL_I2C_Mem_Write &rArr; I2C_RequestMemoryWrite &rArr; I2C_WaitOnMasterAddressFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;led_shan
+<BR>[Calls]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Receive_IT
+<LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;led_shan
 <LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ManufacturingProcesses
 <LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LineFollowInit
 <LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;User_PID_Init
-<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;User_Shell_Init
+<LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;User_Shell_Init
 <LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART3_UART_Init
 <LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART1_UART_Init
 <LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_UART5_Init
@@ -2038,11 +2021,10 @@ Global Symbols
 <LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MAX7219_MatrixInit
 <LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_Start
 <LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Encoder_Start
-<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_Start_IT
+<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_Start_IT
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
 <LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 <LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART2_UART_Init
-<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Receive_IT
 <LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
@@ -2050,21 +2032,21 @@ Global Symbols
 <P><STRONG><a name="[e8]"></a>mecanumRun</STRONG> (Thumb, 48 bytes, Stack size 32 bytes, motorcontrol.o(i.mecanumRun))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = mecanumRun &rArr; SetMotorSPEED
 </UL>
-<BR>[Calls]<UL><LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetMotorSPEED
+<BR>[Calls]<UL><LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetMotorSPEED
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PeriodElapsedCallback
 </UL>
 
-<P><STRONG><a name="[153]"></a>millis</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, wiring.o(i.millis))
-<BR><BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readSCS
+<P><STRONG><a name="[150]"></a>millis</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, wiring.o(i.millis))
+<BR><BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readSCS
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay
 </UL>
 
 <P><STRONG><a name="[e1]"></a>musicPlay</STRONG> (Thumb, 164 bytes, Stack size 8 bytes, buzzerdriver.o(i.musicPlay))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = musicPlay &rArr; buzzerSetNewFrequency &rArr; __aeabi_uldivmod
 </UL>
-<BR>[Calls]<UL><LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buzzerSetNewFrequency
-<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buzzerDriverInit
+<BR>[Calls]<UL><LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buzzerSetNewFrequency
+<LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buzzerDriverInit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PeriodElapsedCallback
 </UL>
@@ -2084,10 +2066,10 @@ Global Symbols
 <P><STRONG><a name="[12e]"></a>rFlushSCS</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, scserail.o(i.rFlushSCS))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = rFlushSCS
 </UL>
-<BR>[Calls]<UL><LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Flush
+<BR>[Calls]<UL><LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Flush
 </UL>
 <BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writeByte
-<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;genWrite
+<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;genWrite
 <LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read
 </UL>
 
@@ -2103,8 +2085,8 @@ Global Symbols
 <P><STRONG><a name="[94]"></a>readSCS</STRONG> (Thumb, 74 bytes, Stack size 32 bytes, scserail.o(i.readSCS))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = readSCS
 </UL>
-<BR>[Calls]<UL><LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;millis
-<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Read
+<BR>[Calls]<UL><LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;millis
+<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Read
 </UL>
 <BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkHead
 <LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read
@@ -2114,7 +2096,7 @@ Global Symbols
 <P><STRONG><a name="[132]"></a>readWord</STRONG> (Thumb, 48 bytes, Stack size 24 bytes, scs.o(i.readWord))
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = readWord &rArr; Read &rArr; wFlushSCS &rArr; Uart_Send &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCS2Host
+<BR>[Calls]<UL><LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCS2Host
 <LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read
 </UL>
 <BR>[Called By]<UL><LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadPos
@@ -2123,121 +2105,121 @@ Global Symbols
 <P><STRONG><a name="[77]"></a>shellBackspace</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, shell.o(i.shellBackspace))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = shellBackspace &rArr; shellDeleteByte &rArr; shellDeleteCommandLine &rArr; shellWriteString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellDeleteByte
+<BR>[Calls]<UL><LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellDeleteByte
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> shell.o(shellCommand)
 </UL>
-<P><STRONG><a name="[175]"></a>shellCheckPermission</STRONG> (Thumb, 54 bytes, Stack size 0 bytes, shell.o(i.shellCheckPermission))
+<P><STRONG><a name="[172]"></a>shellCheckPermission</STRONG> (Thumb, 54 bytes, Stack size 0 bytes, shell.o(i.shellCheckPermission))
 <BR><BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellHandler
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellTab
-<LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSeekCommand
-<LI><a href="#[181]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListVar
-<LI><a href="#[180]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListUser
-<LI><a href="#[17d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListKey
-<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListCommand
+<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSeekCommand
+<LI><a href="#[17e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListVar
+<LI><a href="#[17d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListUser
+<LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListKey
+<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListCommand
 </UL>
 
 <P><STRONG><a name="[7f]"></a>shellClear</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, shell.o(i.shellClear))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = shellClear &rArr; shellWriteString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
-<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellGetCurrent
+<BR>[Calls]<UL><LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
+<LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellGetCurrent
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> shell.o(shellCommand)
 </UL>
-<P><STRONG><a name="[15f]"></a>shellClearCommandLine</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, shell.o(i.shellClearCommandLine))
+<P><STRONG><a name="[15c]"></a>shellClearCommandLine</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, shell.o(i.shellClearCommandLine))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = shellClearCommandLine &rArr; shellDeleteCommandLine &rArr; shellWriteString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellDeleteCommandLine
-<LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteByte
+<BR>[Calls]<UL><LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellDeleteCommandLine
+<LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteByte
 </UL>
 <BR>[Called By]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellTab
-<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellHistory
+<LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellHistory
 </UL>
 
 <P><STRONG><a name="[7c]"></a>shellCmds</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, shell.o(i.shellCmds))
 <BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = shellCmds &rArr; shellListCommand &rArr; shellListItem &rArr; shellGetCommandName &rArr; shellToHex
 </UL>
-<BR>[Calls]<UL><LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListCommand
-<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellGetCurrent
+<BR>[Calls]<UL><LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListCommand
+<LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellGetCurrent
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> shell.o(shellCommand)
 </UL>
 <P><STRONG><a name="[78]"></a>shellDelete</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, shell.o(i.shellDelete))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = shellDelete &rArr; shellDeleteByte &rArr; shellDeleteCommandLine &rArr; shellWriteString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellDeleteByte
+<BR>[Calls]<UL><LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellDeleteByte
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> shell.o(shellCommand)
 </UL>
-<P><STRONG><a name="[15a]"></a>shellDeleteByte</STRONG> (Thumb, 218 bytes, Stack size 24 bytes, shell.o(i.shellDeleteByte))
+<P><STRONG><a name="[157]"></a>shellDeleteByte</STRONG> (Thumb, 218 bytes, Stack size 24 bytes, shell.o(i.shellDeleteByte))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = shellDeleteByte &rArr; shellDeleteCommandLine &rArr; shellWriteString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellDeleteCommandLine
-<LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteByte
+<BR>[Calls]<UL><LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellDeleteCommandLine
+<LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteByte
 </UL>
 <BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellDelete
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellBackspace
 </UL>
 
-<P><STRONG><a name="[161]"></a>shellDeleteCommandLine</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, shell.o(i.shellDeleteCommandLine))
+<P><STRONG><a name="[15e]"></a>shellDeleteCommandLine</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, shell.o(i.shellDeleteCommandLine))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = shellDeleteCommandLine &rArr; shellWriteString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
+<BR>[Calls]<UL><LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
 </UL>
-<BR>[Called By]<UL><LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellDeleteByte
-<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellClearCommandLine
+<BR>[Called By]<UL><LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellDeleteByte
+<LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellClearCommandLine
 </UL>
 
 <P><STRONG><a name="[73]"></a>shellDown</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, shell.o(i.shellDown))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = shellDown &rArr; shellHistory &rArr; shellClearCommandLine &rArr; shellDeleteCommandLine &rArr; shellWriteString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellHistory
+<BR>[Calls]<UL><LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellHistory
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> shell.o(shellCommand)
 </UL>
 <P><STRONG><a name="[79]"></a>shellEnter</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, shell.o(i.shellEnter))
 <BR><BR>[Stack]<UL><LI>Max Depth = 196<LI>Call Chain = shellEnter &rArr; shellExec &rArr; shellRunCommand &rArr; shellExtRun &rArr; shellExtParsePara &rArr; shellExtParseVar &rArr; shellSeekCommand &rArr; shellGetCommandName &rArr; shellToHex
 </UL>
-<BR>[Calls]<UL><LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExec
-<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteCommandLine
+<BR>[Calls]<UL><LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExec
+<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteCommandLine
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> shell.o(shellCommand)
 </UL>
-<P><STRONG><a name="[164]"></a>shellExec</STRONG> (Thumb, 108 bytes, Stack size 16 bytes, shell.o(i.shellExec))
+<P><STRONG><a name="[161]"></a>shellExec</STRONG> (Thumb, 108 bytes, Stack size 16 bytes, shell.o(i.shellExec))
 <BR><BR>[Stack]<UL><LI>Max Depth = 188<LI>Call Chain = shellExec &rArr; shellRunCommand &rArr; shellExtRun &rArr; shellExtParsePara &rArr; shellExtParseVar &rArr; shellSeekCommand &rArr; shellGetCommandName &rArr; shellToHex
 </UL>
-<BR>[Calls]<UL><LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
-<LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSeekCommand
-<LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellRunCommand
-<LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellParserParam
-<LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellHistoryAdd
-<LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellCheckPassword
+<BR>[Calls]<UL><LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
+<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSeekCommand
+<LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellRunCommand
+<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellParserParam
+<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellHistoryAdd
+<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellCheckPassword
 </UL>
 <BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellEnter
 </UL>
 
-<P><STRONG><a name="[16d]"></a>shellExtParsePara</STRONG> (Thumb, 86 bytes, Stack size 16 bytes, shell_ext.o(i.shellExtParsePara))
+<P><STRONG><a name="[16a]"></a>shellExtParsePara</STRONG> (Thumb, 86 bytes, Stack size 16 bytes, shell_ext.o(i.shellExtParsePara))
 <BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = shellExtParsePara &rArr; shellExtParseVar &rArr; shellSeekCommand &rArr; shellGetCommandName &rArr; shellToHex
 </UL>
-<BR>[Calls]<UL><LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtParseVar
-<LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtParseString
-<LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtParseNumber
-<LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtParseChar
+<BR>[Calls]<UL><LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtParseVar
+<LI><a href="#[16d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtParseString
+<LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtParseNumber
+<LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtParseChar
 </UL>
-<BR>[Called By]<UL><LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtRun
+<BR>[Called By]<UL><LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtRun
 </UL>
 
-<P><STRONG><a name="[172]"></a>shellExtRun</STRONG> (Thumb, 202 bytes, Stack size 72 bytes, shell_ext.o(i.shellExtRun))
+<P><STRONG><a name="[16f]"></a>shellExtRun</STRONG> (Thumb, 202 bytes, Stack size 72 bytes, shell_ext.o(i.shellExtRun))
 <BR><BR>[Stack]<UL><LI>Max Depth = 156<LI>Call Chain = shellExtRun &rArr; shellExtParsePara &rArr; shellExtParseVar &rArr; shellSeekCommand &rArr; shellGetCommandName &rArr; shellToHex
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
-<LI><a href="#[16d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtParsePara
+<LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtParsePara
 </UL>
-<BR>[Called By]<UL><LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellRunCommand
+<BR>[Called By]<UL><LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellRunCommand
 </UL>
 
-<P><STRONG><a name="[15e]"></a>shellGetCurrent</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, shell.o(i.shellGetCurrent))
+<P><STRONG><a name="[15b]"></a>shellGetCurrent</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, shell.o(i.shellGetCurrent))
 <BR><BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellVars
 <LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellUsers
 <LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSetVar
@@ -2247,18 +2229,18 @@ Global Symbols
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellClear
 </UL>
 
-<P><STRONG><a name="[171]"></a>shellGetVarValue</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, shell.o(i.shellGetVarValue))
+<P><STRONG><a name="[16e]"></a>shellGetVarValue</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, shell.o(i.shellGetVarValue))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = shellGetVarValue
 </UL>
-<BR>[Called By]<UL><LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtParseVar
-<LI><a href="#[185]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellShowVar
+<BR>[Called By]<UL><LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtParseVar
+<LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellShowVar
 </UL>
 
 <P><STRONG><a name="[f4]"></a>shellHandler</STRONG> (Thumb, 232 bytes, Stack size 32 bytes, shell.o(i.shellHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = shellHandler &rArr; shellNormalInput &rArr; shellInsertByte &rArr; shellWriteCommandLine &rArr; shellWriteString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[176]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellNormalInput
-<LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellCheckPermission
+<BR>[Calls]<UL><LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellNormalInput
+<LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellCheckPermission
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_RxCpltCallback
 </UL>
@@ -2266,121 +2248,121 @@ Global Symbols
 <P><STRONG><a name="[7a]"></a>shellHelp</STRONG> (Thumb, 128 bytes, Stack size 24 bytes, shell.o(i.shellHelp))
 <BR><BR>[Stack]<UL><LI>Max Depth = 92<LI>Call Chain = shellHelp &rArr; shellListAll &rArr; shellListCommand &rArr; shellListItem &rArr; shellGetCommandName &rArr; shellToHex
 </UL>
-<BR>[Calls]<UL><LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
-<LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSeekCommand
-<LI><a href="#[177]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListAll
-<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellGetCurrent
-<LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellGetCommandName
-<LI><a href="#[178]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellGetCommandDesc
+<BR>[Calls]<UL><LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
+<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSeekCommand
+<LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListAll
+<LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellGetCurrent
+<LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellGetCommandName
+<LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellGetCommandDesc
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> shell.o(shellCommand)
 </UL>
-<P><STRONG><a name="[145]"></a>shellInit</STRONG> (Thumb, 144 bytes, Stack size 24 bytes, shell.o(i.shellInit))
+<P><STRONG><a name="[144]"></a>shellInit</STRONG> (Thumb, 144 bytes, Stack size 24 bytes, shell.o(i.shellInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = shellInit &rArr; shellSeekCommand &rArr; shellGetCommandName &rArr; shellToHex
 </UL>
-<BR>[Calls]<UL><LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSeekCommand
-<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteCommandLine
-<LI><a href="#[17b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSetUser
-<LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellAdd
+<BR>[Calls]<UL><LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSeekCommand
+<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteCommandLine
+<LI><a href="#[178]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSetUser
+<LI><a href="#[177]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellAdd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;User_Shell_Init
+<BR>[Called By]<UL><LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;User_Shell_Init
 </UL>
 
-<P><STRONG><a name="[17c]"></a>shellInsertByte</STRONG> (Thumb, 212 bytes, Stack size 16 bytes, shell.o(i.shellInsertByte))
+<P><STRONG><a name="[179]"></a>shellInsertByte</STRONG> (Thumb, 212 bytes, Stack size 16 bytes, shell.o(i.shellInsertByte))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = shellInsertByte &rArr; shellWriteCommandLine &rArr; shellWriteString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
-<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteCommandLine
-<LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteByte
+<BR>[Calls]<UL><LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
+<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteCommandLine
+<LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteByte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[176]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellNormalInput
+<BR>[Called By]<UL><LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellNormalInput
 </UL>
 
 <P><STRONG><a name="[7e]"></a>shellKeys</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, shell.o(i.shellKeys))
 <BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = shellKeys &rArr; shellListKey &rArr; shellListItem &rArr; shellGetCommandName &rArr; shellToHex
 </UL>
-<BR>[Calls]<UL><LI><a href="#[17d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListKey
-<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellGetCurrent
+<BR>[Calls]<UL><LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListKey
+<LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellGetCurrent
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> shell.o(shellCommand)
 </UL>
 <P><STRONG><a name="[75]"></a>shellLeft</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, shell.o(i.shellLeft))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = shellLeft &rArr; shellWriteByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteByte
+<BR>[Calls]<UL><LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteByte
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> shell.o(shellCommand)
 </UL>
-<P><STRONG><a name="[177]"></a>shellListAll</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, shell.o(i.shellListAll))
+<P><STRONG><a name="[174]"></a>shellListAll</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, shell.o(i.shellListAll))
 <BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = shellListAll &rArr; shellListCommand &rArr; shellListItem &rArr; shellGetCommandName &rArr; shellToHex
 </UL>
-<BR>[Calls]<UL><LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListCommand
+<BR>[Calls]<UL><LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListCommand
 </UL>
 <BR>[Called By]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellTab
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellHelp
 </UL>
 
-<P><STRONG><a name="[162]"></a>shellListCommand</STRONG> (Thumb, 70 bytes, Stack size 16 bytes, shell.o(i.shellListCommand))
+<P><STRONG><a name="[15f]"></a>shellListCommand</STRONG> (Thumb, 70 bytes, Stack size 16 bytes, shell.o(i.shellListCommand))
 <BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = shellListCommand &rArr; shellListItem &rArr; shellGetCommandName &rArr; shellToHex
 </UL>
-<BR>[Calls]<UL><LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
-<LI><a href="#[17e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListItem
-<LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellCheckPermission
+<BR>[Calls]<UL><LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
+<LI><a href="#[17b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListItem
+<LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellCheckPermission
 </UL>
-<BR>[Called By]<UL><LI><a href="#[177]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListAll
+<BR>[Called By]<UL><LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListAll
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellCmds
 </UL>
 
-<P><STRONG><a name="[17e]"></a>shellListItem</STRONG> (Thumb, 238 bytes, Stack size 24 bytes, shell.o(i.shellListItem))
+<P><STRONG><a name="[17b]"></a>shellListItem</STRONG> (Thumb, 238 bytes, Stack size 24 bytes, shell.o(i.shellListItem))
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = shellListItem &rArr; shellGetCommandName &rArr; shellToHex
 </UL>
-<BR>[Calls]<UL><LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
-<LI><a href="#[17f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteCommandDesc
-<LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteByte
-<LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellGetCommandName
-<LI><a href="#[178]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellGetCommandDesc
+<BR>[Calls]<UL><LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
+<LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteCommandDesc
+<LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteByte
+<LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellGetCommandName
+<LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellGetCommandDesc
 </UL>
 <BR>[Called By]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellTab
-<LI><a href="#[181]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListVar
-<LI><a href="#[180]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListUser
-<LI><a href="#[17d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListKey
-<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListCommand
+<LI><a href="#[17e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListVar
+<LI><a href="#[17d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListUser
+<LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListKey
+<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListCommand
 </UL>
 
-<P><STRONG><a name="[17d]"></a>shellListKey</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, shell.o(i.shellListKey))
+<P><STRONG><a name="[17a]"></a>shellListKey</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, shell.o(i.shellListKey))
 <BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = shellListKey &rArr; shellListItem &rArr; shellGetCommandName &rArr; shellToHex
 </UL>
-<BR>[Calls]<UL><LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
-<LI><a href="#[17e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListItem
-<LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellCheckPermission
+<BR>[Calls]<UL><LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
+<LI><a href="#[17b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListItem
+<LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellCheckPermission
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellKeys
 </UL>
 
-<P><STRONG><a name="[180]"></a>shellListUser</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, shell.o(i.shellListUser))
+<P><STRONG><a name="[17d]"></a>shellListUser</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, shell.o(i.shellListUser))
 <BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = shellListUser &rArr; shellListItem &rArr; shellGetCommandName &rArr; shellToHex
 </UL>
-<BR>[Calls]<UL><LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
-<LI><a href="#[17e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListItem
-<LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellCheckPermission
+<BR>[Calls]<UL><LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
+<LI><a href="#[17b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListItem
+<LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellCheckPermission
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellUsers
 </UL>
 
-<P><STRONG><a name="[181]"></a>shellListVar</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, shell.o(i.shellListVar))
+<P><STRONG><a name="[17e]"></a>shellListVar</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, shell.o(i.shellListVar))
 <BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = shellListVar &rArr; shellListItem &rArr; shellGetCommandName &rArr; shellToHex
 </UL>
-<BR>[Calls]<UL><LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
-<LI><a href="#[17e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListItem
-<LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellCheckPermission
+<BR>[Calls]<UL><LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
+<LI><a href="#[17b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListItem
+<LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellCheckPermission
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellVars
 </UL>
 
-<P><STRONG><a name="[176]"></a>shellNormalInput</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, shell.o(i.shellNormalInput))
+<P><STRONG><a name="[173]"></a>shellNormalInput</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, shell.o(i.shellNormalInput))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = shellNormalInput &rArr; shellInsertByte &rArr; shellWriteCommandLine &rArr; shellWriteString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellInsertByte
+<BR>[Calls]<UL><LI><a href="#[179]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellInsertByte
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellHandler
 </UL>
@@ -2388,53 +2370,53 @@ Global Symbols
 <P><STRONG><a name="[74]"></a>shellRight</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, shell.o(i.shellRight))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = shellRight &rArr; shellWriteByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteByte
+<BR>[Calls]<UL><LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteByte
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> shell.o(shellCommand)
 </UL>
-<P><STRONG><a name="[169]"></a>shellRunCommand</STRONG> (Thumb, 174 bytes, Stack size 16 bytes, shell.o(i.shellRunCommand))
+<P><STRONG><a name="[166]"></a>shellRunCommand</STRONG> (Thumb, 174 bytes, Stack size 16 bytes, shell.o(i.shellRunCommand))
 <BR><BR>[Stack]<UL><LI>Max Depth = 172<LI>Call Chain = shellRunCommand &rArr; shellExtRun &rArr; shellExtParsePara &rArr; shellExtParseVar &rArr; shellSeekCommand &rArr; shellGetCommandName &rArr; shellToHex
 </UL>
-<BR>[Calls]<UL><LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtRun
-<LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteReturnValue
-<LI><a href="#[185]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellShowVar
-<LI><a href="#[17b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSetUser
-<LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellRemoveParamQuotes
+<BR>[Calls]<UL><LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtRun
+<LI><a href="#[181]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteReturnValue
+<LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellShowVar
+<LI><a href="#[178]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSetUser
+<LI><a href="#[17f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellRemoveParamQuotes
 </UL>
-<BR>[Called By]<UL><LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExec
+<BR>[Called By]<UL><LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExec
 </UL>
 
-<P><STRONG><a name="[168]"></a>shellSeekCommand</STRONG> (Thumb, 122 bytes, Stack size 32 bytes, shell.o(i.shellSeekCommand))
+<P><STRONG><a name="[165]"></a>shellSeekCommand</STRONG> (Thumb, 122 bytes, Stack size 32 bytes, shell.o(i.shellSeekCommand))
 <BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = shellSeekCommand &rArr; shellGetCommandName &rArr; shellToHex
 </UL>
-<BR>[Calls]<UL><LI><a href="#[186]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncmp
-<LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
-<LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellCheckPermission
-<LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellGetCommandName
+<BR>[Calls]<UL><LI><a href="#[183]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncmp
+<LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
+<LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellCheckPermission
+<LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellGetCommandName
 </UL>
-<BR>[Called By]<UL><LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtParseVar
+<BR>[Called By]<UL><LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtParseVar
 <LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSetVar
-<LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellInit
+<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellInit
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellHelp
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExec
+<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExec
 </UL>
 
 <P><STRONG><a name="[71]"></a>shellSetVar</STRONG> (Thumb, 106 bytes, Stack size 24 bytes, shell.o(i.shellSetVar))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = shellSetVar &rArr; shellSetVarValue &rArr; shellShowVar &rArr; shellWriteString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
-<LI><a href="#[187]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSetVarValue
-<LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSeekCommand
-<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellGetCurrent
+<BR>[Calls]<UL><LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
+<LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSetVarValue
+<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSeekCommand
+<LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellGetCurrent
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> shell.o(shellCommand)
 </UL>
-<P><STRONG><a name="[187]"></a>shellSetVarValue</STRONG> (Thumb, 140 bytes, Stack size 16 bytes, shell.o(i.shellSetVarValue))
+<P><STRONG><a name="[184]"></a>shellSetVarValue</STRONG> (Thumb, 140 bytes, Stack size 16 bytes, shell.o(i.shellSetVarValue))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = shellSetVarValue &rArr; shellShowVar &rArr; shellWriteString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
-<LI><a href="#[179]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellStringCopy
-<LI><a href="#[185]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellShowVar
+<BR>[Calls]<UL><LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
+<LI><a href="#[176]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellStringCopy
+<LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellShowVar
 </UL>
 <BR>[Called By]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSetVar
 </UL>
@@ -2442,84 +2424,84 @@ Global Symbols
 <P><STRONG><a name="[76]"></a>shellTab</STRONG> (Thumb, 266 bytes, Stack size 40 bytes, shell.o(i.shellTab))
 <BR><BR>[Stack]<UL><LI>Max Depth = 108<LI>Call Chain = shellTab &rArr; shellListAll &rArr; shellListCommand &rArr; shellListItem &rArr; shellGetCommandName &rArr; shellToHex
 </UL>
-<BR>[Calls]<UL><LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
-<LI><a href="#[17e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListItem
-<LI><a href="#[177]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListAll
-<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellClearCommandLine
-<LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellCheckPermission
-<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteCommandLine
-<LI><a href="#[179]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellStringCopy
-<LI><a href="#[189]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellStringCompare
-<LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellGetCommandName
+<BR>[Calls]<UL><LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
+<LI><a href="#[17b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListItem
+<LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListAll
+<LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellClearCommandLine
+<LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellCheckPermission
+<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteCommandLine
+<LI><a href="#[176]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellStringCopy
+<LI><a href="#[186]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellStringCompare
+<LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellGetCommandName
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> shell.o(shellCommand)
 </UL>
-<P><STRONG><a name="[188]"></a>shellToDec</STRONG> (Thumb, 86 bytes, Stack size 12 bytes, shell.o(i.shellToDec))
+<P><STRONG><a name="[185]"></a>shellToDec</STRONG> (Thumb, 86 bytes, Stack size 12 bytes, shell.o(i.shellToDec))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = shellToDec
 </UL>
-<BR>[Called By]<UL><LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteReturnValue
-<LI><a href="#[185]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellShowVar
+<BR>[Called By]<UL><LI><a href="#[181]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteReturnValue
+<LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellShowVar
 </UL>
 
-<P><STRONG><a name="[174]"></a>shellToHex</STRONG> (Thumb, 56 bytes, Stack size 12 bytes, shell.o(i.shellToHex))
+<P><STRONG><a name="[171]"></a>shellToHex</STRONG> (Thumb, 56 bytes, Stack size 12 bytes, shell.o(i.shellToHex))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = shellToHex
 </UL>
-<BR>[Called By]<UL><LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteReturnValue
-<LI><a href="#[185]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellShowVar
-<LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellGetCommandName
+<BR>[Called By]<UL><LI><a href="#[181]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteReturnValue
+<LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellShowVar
+<LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellGetCommandName
 </UL>
 
 <P><STRONG><a name="[72]"></a>shellUp</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, shell.o(i.shellUp))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = shellUp &rArr; shellHistory &rArr; shellClearCommandLine &rArr; shellDeleteCommandLine &rArr; shellWriteString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellHistory
+<BR>[Calls]<UL><LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellHistory
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> shell.o(shellCommand)
 </UL>
 <P><STRONG><a name="[7b]"></a>shellUsers</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, shell.o(i.shellUsers))
 <BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = shellUsers &rArr; shellListUser &rArr; shellListItem &rArr; shellGetCommandName &rArr; shellToHex
 </UL>
-<BR>[Calls]<UL><LI><a href="#[180]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListUser
-<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellGetCurrent
+<BR>[Calls]<UL><LI><a href="#[17d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListUser
+<LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellGetCurrent
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> shell.o(shellCommand)
 </UL>
 <P><STRONG><a name="[7d]"></a>shellVars</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, shell.o(i.shellVars))
 <BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = shellVars &rArr; shellListVar &rArr; shellListItem &rArr; shellGetCommandName &rArr; shellToHex
 </UL>
-<BR>[Calls]<UL><LI><a href="#[181]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListVar
-<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellGetCurrent
+<BR>[Calls]<UL><LI><a href="#[17e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListVar
+<LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellGetCurrent
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> shell.o(shellCommand)
 </UL>
-<P><STRONG><a name="[15d]"></a>shellWriteString</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, shell.o(i.shellWriteString))
+<P><STRONG><a name="[15a]"></a>shellWriteString</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, shell.o(i.shellWriteString))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = shellWriteString
 </UL>
 <BR>[Called By]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellTab
-<LI><a href="#[187]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSetVarValue
+<LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSetVarValue
 <LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSetVar
-<LI><a href="#[181]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListVar
-<LI><a href="#[180]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListUser
-<LI><a href="#[17d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListKey
-<LI><a href="#[17e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListItem
-<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListCommand
-<LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellInsertByte
+<LI><a href="#[17e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListVar
+<LI><a href="#[17d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListUser
+<LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListKey
+<LI><a href="#[17b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListItem
+<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListCommand
+<LI><a href="#[179]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellInsertByte
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellHelp
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExec
-<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellDeleteCommandLine
+<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExec
+<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellDeleteCommandLine
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellClear
-<LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteReturnValue
-<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteCommandLine
-<LI><a href="#[185]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellShowVar
-<LI><a href="#[17b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSetUser
-<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellHistory
-<LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellCheckPassword
+<LI><a href="#[181]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteReturnValue
+<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteCommandLine
+<LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellShowVar
+<LI><a href="#[178]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSetUser
+<LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellHistory
+<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellCheckPassword
 </UL>
 
-<P><STRONG><a name="[18c]"></a>ssd1306_DrawPixel</STRONG> (Thumb, 152 bytes, Stack size 20 bytes, ssd1306.o(i.ssd1306_DrawPixel))
+<P><STRONG><a name="[189]"></a>ssd1306_DrawPixel</STRONG> (Thumb, 152 bytes, Stack size 20 bytes, ssd1306.o(i.ssd1306_DrawPixel))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = ssd1306_DrawPixel
 </UL>
-<BR>[Called By]<UL><LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_WriteChar
+<BR>[Called By]<UL><LI><a href="#[188]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_WriteChar
 </UL>
 
 <P><STRONG><a name="[13e]"></a>ssd1306_SetCursor</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, ssd1306.o(i.ssd1306_SetCursor))
@@ -2530,15 +2512,15 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = ssd1306_UpdateScreen &rArr; ssd1306_WriteCommand &rArr; HAL_I2C_Mem_Write &rArr; I2C_RequestMemoryWrite &rArr; I2C_WaitOnMasterAddressFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Mem_Write
-<LI><a href="#[18a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_WriteCommand
+<LI><a href="#[187]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_WriteCommand
 </UL>
 <BR>[Called By]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart3_readColor
 </UL>
 
-<P><STRONG><a name="[18b]"></a>ssd1306_WriteChar</STRONG> (Thumb, 172 bytes, Stack size 40 bytes, ssd1306.o(i.ssd1306_WriteChar))
+<P><STRONG><a name="[188]"></a>ssd1306_WriteChar</STRONG> (Thumb, 172 bytes, Stack size 40 bytes, ssd1306.o(i.ssd1306_WriteChar))
 <BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = ssd1306_WriteChar &rArr; ssd1306_DrawPixel
 </UL>
-<BR>[Calls]<UL><LI><a href="#[18c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_DrawPixel
+<BR>[Calls]<UL><LI><a href="#[189]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_DrawPixel
 </UL>
 <BR>[Called By]<UL><LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_WriteString
 </UL>
@@ -2546,7 +2528,7 @@ Global Symbols
 <P><STRONG><a name="[140]"></a>ssd1306_WriteString</STRONG> (Thumb, 44 bytes, Stack size 28 bytes, ssd1306.o(i.ssd1306_WriteString))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = ssd1306_WriteString &rArr; ssd1306_WriteChar &rArr; ssd1306_DrawPixel
 </UL>
-<BR>[Calls]<UL><LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_WriteChar
+<BR>[Calls]<UL><LI><a href="#[188]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ssd1306_WriteChar
 </UL>
 <BR>[Called By]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart3_readColor
 </UL>
@@ -2563,20 +2545,20 @@ Global Symbols
 <P><STRONG><a name="[130]"></a>wFlushSCS</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, scserail.o(i.wFlushSCS))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = wFlushSCS &rArr; Uart_Send &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Send
+<BR>[Calls]<UL><LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Send
 </UL>
 <BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writeByte
-<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;genWrite
+<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;genWrite
 <LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read
 </UL>
 
 <P><STRONG><a name="[12f]"></a>writeBuf</STRONG> (Thumb, 146 bytes, Stack size 48 bytes, scs.o(i.writeBuf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = writeBuf &rArr; writeSCS
 </UL>
-<BR>[Calls]<UL><LI><a href="#[18d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writeSCS
+<BR>[Calls]<UL><LI><a href="#[18a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writeSCS
 </UL>
 <BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writeByte
-<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;genWrite
+<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;genWrite
 <LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Read
 </UL>
 
@@ -2593,7 +2575,7 @@ Global Symbols
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EnableTorque
 </UL>
 
-<P><STRONG><a name="[18d]"></a>writeSCS</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, scserail.o(i.writeSCS))
+<P><STRONG><a name="[18a]"></a>writeSCS</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, scserail.o(i.writeSCS))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = writeSCS
 </UL>
 <BR>[Called By]<UL><LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writeBuf
@@ -2602,8 +2584,8 @@ Global Symbols
 <P><STRONG><a name="[98]"></a>xAngleControl</STRONG> (Thumb, 72 bytes, Stack size 8 bytes, linefollowsensor.o(i.xAngleControl))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = xAngleControl &rArr; DirectionError_Calc
 </UL>
-<BR>[Calls]<UL><LI><a href="#[18e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DirectionError_Calc
-<LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;User_PID_Calc_angle
+<BR>[Calls]<UL><LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DirectionError_Calc
+<LI><a href="#[18c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;User_PID_Calc_angle
 </UL>
 <BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AnglePosControl
 </UL>
@@ -2611,8 +2593,8 @@ Global Symbols
 <P><STRONG><a name="[97]"></a>xPositionControl</STRONG> (Thumb, 72 bytes, Stack size 8 bytes, linefollowsensor.o(i.xPositionControl))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = xPositionControl &rArr; DirectionError_Calc
 </UL>
-<BR>[Calls]<UL><LI><a href="#[18e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DirectionError_Calc
-<LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;User_PID_Calc_angle
+<BR>[Calls]<UL><LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DirectionError_Calc
+<LI><a href="#[18c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;User_PID_Calc_angle
 </UL>
 <BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AnglePosControl
 </UL>
@@ -2620,8 +2602,8 @@ Global Symbols
 <P><STRONG><a name="[9a]"></a>yAngleControl</STRONG> (Thumb, 72 bytes, Stack size 8 bytes, linefollowsensor.o(i.yAngleControl))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = yAngleControl &rArr; DirectionError_Calc
 </UL>
-<BR>[Calls]<UL><LI><a href="#[18e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DirectionError_Calc
-<LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;User_PID_Calc_angle
+<BR>[Calls]<UL><LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DirectionError_Calc
+<LI><a href="#[18c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;User_PID_Calc_angle
 </UL>
 <BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AnglePosControl
 </UL>
@@ -2629,8 +2611,8 @@ Global Symbols
 <P><STRONG><a name="[99]"></a>yPositionControl</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, linefollowsensor.o(i.yPositionControl))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = yPositionControl &rArr; DirectionError_Calc
 </UL>
-<BR>[Calls]<UL><LI><a href="#[18e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DirectionError_Calc
-<LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;User_PID_Calc_angle
+<BR>[Calls]<UL><LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DirectionError_Calc
+<LI><a href="#[18c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;User_PID_Calc_angle
 </UL>
 <BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AnglePosControl
 </UL>
@@ -2638,7 +2620,7 @@ Global Symbols
 <H3>
 Local Symbols
 </H3>
-<P><STRONG><a name="[18a]"></a>ssd1306_WriteCommand</STRONG> (Thumb, 34 bytes, Stack size 32 bytes, ssd1306.o(i.ssd1306_WriteCommand))
+<P><STRONG><a name="[187]"></a>ssd1306_WriteCommand</STRONG> (Thumb, 34 bytes, Stack size 32 bytes, ssd1306.o(i.ssd1306_WriteCommand))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = ssd1306_WriteCommand &rArr; HAL_I2C_Mem_Write &rArr; I2C_RequestMemoryWrite &rArr; I2C_WaitOnMasterAddressFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Mem_Write
@@ -2893,216 +2875,216 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SaveAll2ee
 </UL>
 
-<P><STRONG><a name="[17a]"></a>shellAdd</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, shell.o(i.shellAdd))
-<BR><BR>[Called By]<UL><LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellInit
+<P><STRONG><a name="[177]"></a>shellAdd</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, shell.o(i.shellAdd))
+<BR><BR>[Called By]<UL><LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellInit
 </UL>
 
-<P><STRONG><a name="[15b]"></a>shellCheckPassword</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, shell.o(i.shellCheckPassword))
+<P><STRONG><a name="[158]"></a>shellCheckPassword</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, shell.o(i.shellCheckPassword))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = shellCheckPassword &rArr; shellWriteString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
-<LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
+<BR>[Calls]<UL><LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
+<LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
 </UL>
-<BR>[Called By]<UL><LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExec
+<BR>[Called By]<UL><LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExec
 </UL>
 
-<P><STRONG><a name="[178]"></a>shellGetCommandDesc</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, shell.o(i.shellGetCommandDesc))
-<BR><BR>[Called By]<UL><LI><a href="#[17e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListItem
+<P><STRONG><a name="[175]"></a>shellGetCommandDesc</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, shell.o(i.shellGetCommandDesc))
+<BR><BR>[Called By]<UL><LI><a href="#[17b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListItem
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellHelp
 </UL>
 
-<P><STRONG><a name="[173]"></a>shellGetCommandName</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, shell.o(i.shellGetCommandName))
+<P><STRONG><a name="[170]"></a>shellGetCommandName</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, shell.o(i.shellGetCommandName))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = shellGetCommandName &rArr; shellToHex
 </UL>
-<BR>[Calls]<UL><LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellToHex
+<BR>[Calls]<UL><LI><a href="#[171]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellToHex
 </UL>
 <BR>[Called By]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellTab
-<LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSeekCommand
-<LI><a href="#[17e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListItem
+<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSeekCommand
+<LI><a href="#[17b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListItem
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellHelp
 </UL>
 
-<P><STRONG><a name="[163]"></a>shellHistory</STRONG> (Thumb, 194 bytes, Stack size 16 bytes, shell.o(i.shellHistory))
+<P><STRONG><a name="[160]"></a>shellHistory</STRONG> (Thumb, 194 bytes, Stack size 16 bytes, shell.o(i.shellHistory))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = shellHistory &rArr; shellClearCommandLine &rArr; shellDeleteCommandLine &rArr; shellWriteString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
-<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellClearCommandLine
-<LI><a href="#[179]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellStringCopy
+<BR>[Calls]<UL><LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
+<LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellClearCommandLine
+<LI><a href="#[176]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellStringCopy
 </UL>
 <BR>[Called By]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellUp
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellDown
 </UL>
 
-<P><STRONG><a name="[166]"></a>shellHistoryAdd</STRONG> (Thumb, 122 bytes, Stack size 8 bytes, shell.o(i.shellHistoryAdd))
+<P><STRONG><a name="[163]"></a>shellHistoryAdd</STRONG> (Thumb, 122 bytes, Stack size 8 bytes, shell.o(i.shellHistoryAdd))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = shellHistoryAdd &rArr; strcmp
 </UL>
-<BR>[Calls]<UL><LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
-<LI><a href="#[179]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellStringCopy
+<BR>[Calls]<UL><LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
+<LI><a href="#[176]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellStringCopy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExec
+<BR>[Called By]<UL><LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExec
 </UL>
 
-<P><STRONG><a name="[167]"></a>shellParserParam</STRONG> (Thumb, 142 bytes, Stack size 20 bytes, shell.o(i.shellParserParam))
+<P><STRONG><a name="[164]"></a>shellParserParam</STRONG> (Thumb, 142 bytes, Stack size 20 bytes, shell.o(i.shellParserParam))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = shellParserParam
 </UL>
-<BR>[Called By]<UL><LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExec
+<BR>[Called By]<UL><LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExec
 </UL>
 
-<P><STRONG><a name="[182]"></a>shellRemoveParamQuotes</STRONG> (Thumb, 104 bytes, Stack size 16 bytes, shell.o(i.shellRemoveParamQuotes))
+<P><STRONG><a name="[17f]"></a>shellRemoveParamQuotes</STRONG> (Thumb, 104 bytes, Stack size 16 bytes, shell.o(i.shellRemoveParamQuotes))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = shellRemoveParamQuotes
 </UL>
-<BR>[Calls]<UL><LI><a href="#[183]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
+<BR>[Calls]<UL><LI><a href="#[180]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 </UL>
-<BR>[Called By]<UL><LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellRunCommand
+<BR>[Called By]<UL><LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellRunCommand
 </UL>
 
-<P><STRONG><a name="[17b]"></a>shellSetUser</STRONG> (Thumb, 86 bytes, Stack size 16 bytes, shell.o(i.shellSetUser))
+<P><STRONG><a name="[178]"></a>shellSetUser</STRONG> (Thumb, 86 bytes, Stack size 16 bytes, shell.o(i.shellSetUser))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = shellSetUser &rArr; shellWriteString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
-<LI><a href="#[183]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
-<LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
+<BR>[Calls]<UL><LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
+<LI><a href="#[180]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
+<LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
 </UL>
-<BR>[Called By]<UL><LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellRunCommand
-<LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellInit
+<BR>[Called By]<UL><LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellRunCommand
+<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellInit
 </UL>
 
-<P><STRONG><a name="[185]"></a>shellShowVar</STRONG> (Thumb, 158 bytes, Stack size 32 bytes, shell.o(i.shellShowVar))
+<P><STRONG><a name="[182]"></a>shellShowVar</STRONG> (Thumb, 158 bytes, Stack size 32 bytes, shell.o(i.shellShowVar))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = shellShowVar &rArr; shellWriteString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
-<LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellToHex
-<LI><a href="#[188]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellToDec
-<LI><a href="#[171]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellGetVarValue
+<BR>[Calls]<UL><LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
+<LI><a href="#[171]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellToHex
+<LI><a href="#[185]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellToDec
+<LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellGetVarValue
 </UL>
-<BR>[Called By]<UL><LI><a href="#[187]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSetVarValue
-<LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellRunCommand
+<BR>[Called By]<UL><LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSetVarValue
+<LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellRunCommand
 </UL>
 
-<P><STRONG><a name="[189]"></a>shellStringCompare</STRONG> (Thumb, 44 bytes, Stack size 12 bytes, shell.o(i.shellStringCompare))
+<P><STRONG><a name="[186]"></a>shellStringCompare</STRONG> (Thumb, 44 bytes, Stack size 12 bytes, shell.o(i.shellStringCompare))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = shellStringCompare
 </UL>
 <BR>[Called By]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellTab
 </UL>
 
-<P><STRONG><a name="[179]"></a>shellStringCopy</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, shell.o(i.shellStringCopy))
+<P><STRONG><a name="[176]"></a>shellStringCopy</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, shell.o(i.shellStringCopy))
 <BR><BR>[Called By]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellTab
-<LI><a href="#[187]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSetVarValue
-<LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellHistoryAdd
-<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellHistory
+<LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSetVarValue
+<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellHistoryAdd
+<LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellHistory
 </UL>
 
-<P><STRONG><a name="[160]"></a>shellWriteByte</STRONG> (Thumb, 14 bytes, Stack size 16 bytes, shell.o(i.shellWriteByte))
+<P><STRONG><a name="[15d]"></a>shellWriteByte</STRONG> (Thumb, 14 bytes, Stack size 16 bytes, shell.o(i.shellWriteByte))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = shellWriteByte
 </UL>
 <BR>[Called By]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellRight
-<LI><a href="#[17e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListItem
+<LI><a href="#[17b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListItem
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellLeft
-<LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellInsertByte
-<LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellDeleteByte
-<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellClearCommandLine
+<LI><a href="#[179]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellInsertByte
+<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellDeleteByte
+<LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellClearCommandLine
 </UL>
 
-<P><STRONG><a name="[17f]"></a>shellWriteCommandDesc</STRONG> (Thumb, 80 bytes, Stack size 16 bytes, shell.o(i.shellWriteCommandDesc))
+<P><STRONG><a name="[17c]"></a>shellWriteCommandDesc</STRONG> (Thumb, 80 bytes, Stack size 16 bytes, shell.o(i.shellWriteCommandDesc))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = shellWriteCommandDesc
 </UL>
-<BR>[Called By]<UL><LI><a href="#[17e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListItem
+<BR>[Called By]<UL><LI><a href="#[17b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellListItem
 </UL>
 
-<P><STRONG><a name="[165]"></a>shellWriteCommandLine</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, shell.o(i.shellWriteCommandLine))
+<P><STRONG><a name="[162]"></a>shellWriteCommandLine</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, shell.o(i.shellWriteCommandLine))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = shellWriteCommandLine &rArr; shellWriteString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
+<BR>[Calls]<UL><LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
 </UL>
 <BR>[Called By]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellTab
-<LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellInsertByte
-<LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellInit
+<LI><a href="#[179]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellInsertByte
+<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellInit
 <LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellEnter
 </UL>
 
-<P><STRONG><a name="[184]"></a>shellWriteReturnValue</STRONG> (Thumb, 104 bytes, Stack size 32 bytes, shell.o(i.shellWriteReturnValue))
+<P><STRONG><a name="[181]"></a>shellWriteReturnValue</STRONG> (Thumb, 104 bytes, Stack size 32 bytes, shell.o(i.shellWriteReturnValue))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = shellWriteReturnValue &rArr; shellWriteString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
-<LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellToHex
-<LI><a href="#[188]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellToDec
+<BR>[Calls]<UL><LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellWriteString
+<LI><a href="#[171]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellToHex
+<LI><a href="#[185]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellToDec
 </UL>
-<BR>[Called By]<UL><LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellRunCommand
+<BR>[Called By]<UL><LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellRunCommand
 </UL>
 
-<P><STRONG><a name="[16b]"></a>shellExtNumType</STRONG> (Thumb, 88 bytes, Stack size 8 bytes, shell_ext.o(i.shellExtNumType))
+<P><STRONG><a name="[168]"></a>shellExtNumType</STRONG> (Thumb, 88 bytes, Stack size 8 bytes, shell_ext.o(i.shellExtNumType))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = shellExtNumType
 </UL>
-<BR>[Called By]<UL><LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtParseNumber
+<BR>[Called By]<UL><LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtParseNumber
 </UL>
 
-<P><STRONG><a name="[16e]"></a>shellExtParseChar</STRONG> (Thumb, 70 bytes, Stack size 0 bytes, shell_ext.o(i.shellExtParseChar))
-<BR><BR>[Called By]<UL><LI><a href="#[16d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtParsePara
-<LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtParseString
+<P><STRONG><a name="[16b]"></a>shellExtParseChar</STRONG> (Thumb, 70 bytes, Stack size 0 bytes, shell_ext.o(i.shellExtParseChar))
+<BR><BR>[Called By]<UL><LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtParsePara
+<LI><a href="#[16d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtParseString
 </UL>
 
-<P><STRONG><a name="[16a]"></a>shellExtParseNumber</STRONG> (Thumb, 232 bytes, Stack size 40 bytes, shell_ext.o(i.shellExtParseNumber))
+<P><STRONG><a name="[167]"></a>shellExtParseNumber</STRONG> (Thumb, 232 bytes, Stack size 40 bytes, shell_ext.o(i.shellExtParseNumber))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = shellExtParseNumber &rArr; shellExtNumType
 </UL>
-<BR>[Calls]<UL><LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtToNum
-<LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtNumType
+<BR>[Calls]<UL><LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtToNum
+<LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtNumType
 </UL>
-<BR>[Called By]<UL><LI><a href="#[16d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtParsePara
+<BR>[Called By]<UL><LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtParsePara
 </UL>
 
-<P><STRONG><a name="[170]"></a>shellExtParseString</STRONG> (Thumb, 74 bytes, Stack size 16 bytes, shell_ext.o(i.shellExtParseString))
+<P><STRONG><a name="[16d]"></a>shellExtParseString</STRONG> (Thumb, 74 bytes, Stack size 16 bytes, shell_ext.o(i.shellExtParseString))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = shellExtParseString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtParseChar
+<BR>[Calls]<UL><LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtParseChar
 </UL>
-<BR>[Called By]<UL><LI><a href="#[16d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtParsePara
+<BR>[Called By]<UL><LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtParsePara
 </UL>
 
-<P><STRONG><a name="[16f]"></a>shellExtParseVar</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, shell_ext.o(i.shellExtParseVar))
+<P><STRONG><a name="[16c]"></a>shellExtParseVar</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, shell_ext.o(i.shellExtParseVar))
 <BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = shellExtParseVar &rArr; shellSeekCommand &rArr; shellGetCommandName &rArr; shellToHex
 </UL>
-<BR>[Calls]<UL><LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSeekCommand
-<LI><a href="#[171]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellGetVarValue
+<BR>[Calls]<UL><LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellSeekCommand
+<LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellGetVarValue
 </UL>
-<BR>[Called By]<UL><LI><a href="#[16d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtParsePara
-</UL>
-
-<P><STRONG><a name="[16c]"></a>shellExtToNum</STRONG> (Thumb, 54 bytes, Stack size 0 bytes, shell_ext.o(i.shellExtToNum))
-<BR><BR>[Called By]<UL><LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtParseNumber
+<BR>[Called By]<UL><LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtParsePara
 </UL>
 
-<P><STRONG><a name="[14d]"></a>_fp_digits</STRONG> (Thumb, 366 bytes, Stack size 64 bytes, printfa.o(i._fp_digits), UNUSED)
+<P><STRONG><a name="[169]"></a>shellExtToNum</STRONG> (Thumb, 54 bytes, Stack size 0 bytes, shell_ext.o(i.shellExtToNum))
+<BR><BR>[Called By]<UL><LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shellExtParseNumber
+</UL>
+
+<P><STRONG><a name="[14a]"></a>_fp_digits</STRONG> (Thumb, 366 bytes, Stack size 64 bytes, printfa.o(i._fp_digits), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2ulz
-<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
+<LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
 </UL>
-<BR>[Called By]<UL><LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+<BR>[Called By]<UL><LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
-<P><STRONG><a name="[14b]"></a>_printf_core</STRONG> (Thumb, 1744 bytes, Stack size 136 bytes, printfa.o(i._printf_core), UNUSED)
+<P><STRONG><a name="[148]"></a>_printf_core</STRONG> (Thumb, 1744 bytes, Stack size 136 bytes, printfa.o(i._printf_core), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
-<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
-<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_pre_padding
-<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
-<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
+<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
+<LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_pre_padding
+<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
+<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 </UL>
-<BR>[Called By]<UL><LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0sprintf
-<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0printf
-</UL>
-
-<P><STRONG><a name="[150]"></a>_printf_post_padding</STRONG> (Thumb, 36 bytes, Stack size 24 bytes, printfa.o(i._printf_post_padding), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+<BR>[Called By]<UL><LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0sprintf
+<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0printf
 </UL>
 
-<P><STRONG><a name="[14f]"></a>_printf_pre_padding</STRONG> (Thumb, 46 bytes, Stack size 24 bytes, printfa.o(i._printf_pre_padding), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+<P><STRONG><a name="[14d]"></a>_printf_post_padding</STRONG> (Thumb, 36 bytes, Stack size 24 bytes, printfa.o(i._printf_post_padding), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+</UL>
+
+<P><STRONG><a name="[14c]"></a>_printf_pre_padding</STRONG> (Thumb, 46 bytes, Stack size 24 bytes, printfa.o(i._printf_pre_padding), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
 <P><STRONG><a name="[61]"></a>_sputc</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, printfa.o(i._sputc))
-<BR><BR>[Called By]<UL><LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0sprintf
+<BR><BR>[Called By]<UL><LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0sprintf
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> printfa.o(i.__0sprintf)
 </UL><P>
