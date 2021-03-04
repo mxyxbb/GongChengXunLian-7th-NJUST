@@ -8,7 +8,6 @@
 "f407vet6_smartdel_20201101\gongxun.o"
 "f407vet6_smartdel_20201101\uart234.o"
 "f407vet6_smartdel_20201101\fonts.o"
-"f407vet6_smartdel_20201101\ssd1306.o"
 "f407vet6_smartdel_20201101\main.o"
 "f407vet6_smartdel_20201101\gpio.o"
 "f407vet6_smartdel_20201101\i2c.o"

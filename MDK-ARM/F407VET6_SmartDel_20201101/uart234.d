@@ -37,8 +37,10 @@ f407vet6_smartdel_20201101\uart234.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f
 f407vet6_smartdel_20201101\uart234.o: ../Core/Inc/user_usart.h
 f407vet6_smartdel_20201101\uart234.o: ../Core/Inc/usart.h
 f407vet6_smartdel_20201101\uart234.o: ../Core/Inc/main.h
-f407vet6_smartdel_20201101\uart234.o: ../Core/Inc/Max7219.h
 f407vet6_smartdel_20201101\uart234.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-f407vet6_smartdel_20201101\uart234.o: ../Core/Inc/ssd1306.h
-f407vet6_smartdel_20201101\uart234.o: ../Core/Inc/fonts.h
 f407vet6_smartdel_20201101\uart234.o: ../Core/Inc/i2c.h
+f407vet6_smartdel_20201101\uart234.o: ..\Core\Src\MAX7219/max7219_matrix.h
+f407vet6_smartdel_20201101\uart234.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+f407vet6_smartdel_20201101\uart234.o: ..\Core\Src\MAX7219/max7219.h
+f407vet6_smartdel_20201101\uart234.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+f407vet6_smartdel_20201101\uart234.o: ..\Core\Src\SCS_servo/SCS_servo.h

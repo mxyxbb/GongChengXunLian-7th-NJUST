@@ -39,4 +39,4 @@ f407vet6_smartdel_20201101\usart.o: ../Core/Src/letter_shell/src/shell_port.h
 f407vet6_smartdel_20201101\usart.o: ../Core/Src/letter_shell/src/shell.h
 f407vet6_smartdel_20201101\usart.o: ../Core/Src/letter_shell/src/shell_cfg.h
 f407vet6_smartdel_20201101\usart.o: ../Core/Src/SCSLib/uart.h
-f407vet6_smartdel_20201101\usart.o: ../Core/Inc/user_usart.h
+f407vet6_smartdel_20201101\usart.o: ../Core/Inc/uart234.h

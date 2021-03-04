@@ -433,11 +433,6 @@
               <FilePath>..\Core\Src\fonts.c</FilePath>
             </File>
             <File>
-              <FileName>ssd1306.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Core\Src\ssd1306.c</FilePath>
-            </File>
-            <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Core/Src/main.c</FilePath>
@@ -1119,11 +1114,6 @@
               <FileName>fonts.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Core\Src\fonts.c</FilePath>
-            </File>
-            <File>
-              <FileName>ssd1306.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Core\Src\ssd1306.c</FilePath>
             </File>
             <File>
               <FileName>main.c</FileName>
