@@ -39,7 +39,7 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 			OneGrid(FRONT,0);
 			OneGrid(FRONT,10);
 			Uart3_readColor();
-			Uart2_servoCtr(2);
+		  /*抬起机械臂();*/
 			OneGrid(FRONT,-15);
 			Grid_Lock();
 			HAL_Delay(2000);
@@ -134,7 +134,7 @@ void ManufacturingProcesses()
 	for(;index<6;index++)
 		{	
 			if(Color[index]=='R')
-				meterial[index].itsColor='1';
+				meterial[index].itsColor='1';//其ascll码值49
 			if(Color[index]=='G')
 				meterial[index].itsColor='2';
 			if(Color[index]=='B')
@@ -169,73 +169,35 @@ void ManufacturingProcesses()
 	/*performing*/
 	for(index=0;index<2;index++)
 		{
-			for(unsigned int i=0;i<3;i++)
+			for(unsigned int i=0;i<3;i++)//一次装好3个，从原料区
 				{ 
-					Uart2_servoCtr(3+queue[i+3*index]);//aiming  ascll码减48
+					Uart2_servoCtr(1+3*queue[i+3*index]+meterial[queue[i+3*index]].itsColor%3);//上蓝（1,4,7），红+1，绿+2；下蓝（10,13,16），红+1，绿+2。
 					led_shan();
-					OnTheWay(2,3);
-					if(meterial[queue[i+3*index]].itsColor=='3')
-						{
-							led_shan();
-							Uart2_servoCtr(9);//aiming
-						}
-					else if(meterial[queue[i+3*index]].itsColor=='1')
-						{
-							led_shan();
-							Uart2_servoCtr(10);//aiming
-						}
-					else if(meterial[queue[i+3*index]].itsColor=='2')
-						{
-							led_shan();
-							Uart2_servoCtr(11);//aiming
-						}
-					if(i!=2)
-						{
-							OnTheWay(3,2);
-						}
 				}
-//			HAL_Delay(3000);
-			for(unsigned int i=0;i<3;i++)
-				{
-					if(meterial[queue[i+3*index]].itsColor=='3'){
-						led_shan();
-						Uart2_servoCtr(12);//aiming
-					}
-					else if(meterial[queue[i+3*index]].itsColor=='1'){
-						led_shan();
-						Uart2_servoCtr(13);//aiming
-					}
-					else if(meterial[queue[i+3*index]].itsColor=='2'){
-						led_shan();
-						Uart2_servoCtr(14);//aiming
-					}
-					OnTheWay(3,4);
-					if(meterial[queue[i+3*index]].itsColor=='3'){
-
-						Uart2_servoCtr(15+3*index);//aiming
-						led_shan();
-					}
-					else if(meterial[queue[i+3*index]].itsColor=='1'){
-
-						Uart2_servoCtr(16+3*index);//aiming
-						led_shan();
-					}
-					else if(meterial[queue[i+3*index]].itsColor=='2'){
-
-						Uart2_servoCtr(17+3*index);//aiming
-						led_shan();
-					}if(i!=2)
-						{
-							OnTheWay(4,3);
-						}
+			OnTheWay(2,3);
+			for(unsigned int i=0;i<3;i++)//一次放好3个，在粗加工区
+				{ 
+					Uart2_servoCtr(19+2*(meterial[queue[i+3*index]].itsColor%3));//放蓝19，红21，绿23。
+					led_shan();
+				}
+			for(unsigned int i=0;i<3;i++)//一次装好3个，从粗加工区
+				{ 
+					Uart2_servoCtr(20+2*(meterial[queue[i+3*index]].itsColor%3));//装蓝20，红22，绿24。
+					led_shan();
+				}
+			OnTheWay(3,4);
+			for(unsigned int i=0;i<3;i++)//一次放好3个，在精加工区
+				{ 
+					Uart2_servoCtr(25+(meterial[queue[i+3*index]].itsColor%3));//放蓝25，红26，绿27。
+					led_shan();
 				}
 			if(index==1)
 				{
 					OnTheWay(4,5);//over
-					Uart2_servoCtr(1);
+					/*收起机械臂();*/
 				}
 			else 
-				OnTheWay(4,2);
+				  OnTheWay(4,2);
 		}
 }
 SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), gxgo, ManufacturingProcesses, ManufacturingProcesses());
