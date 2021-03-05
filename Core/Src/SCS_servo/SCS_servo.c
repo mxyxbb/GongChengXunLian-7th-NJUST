@@ -237,7 +237,7 @@ void ArmGoMiddle()
 {
 	for(uint8_t temp=0;temp<5;temp++)
   {
-		WritePos(temp+1, 510, 1000, 0);
+		WritePos(temp+1, 510, 2000, 0);
   }
 }
 SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), mi, ArmGoMiddle, ArmGoMiddle());

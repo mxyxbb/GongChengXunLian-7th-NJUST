@@ -24,7 +24,7 @@ void SavePos(int16_t ID_,int16_t timems_);
 void GoPos(int16_t ID_);
 void ArmInit(void);
 void DoGroup(uint8_t ID_);
-
+void ArmGoMiddle(void);
 
 #ifdef __cplusplus
 }

@@ -7,6 +7,8 @@
 #include "user_usart.h"
 #include <stdio.h>
 #include "main.h"
+#include "letter_shell/src/shell_port.h"
+#include "SCS_servo/SCS_servo.h"
 
 Meterial meterial[6];
 uint8_t queue[6];
@@ -128,11 +130,6 @@ void ManufacturingProcesses()
 	OnTheWay(1,2);
 	unsigned int index=0;
 	
-	//for test 2021/01/06---04:01
-	
-	
-	
-	
 	/*data preparation*/
 	for(;index<6;index++)
 		{	
@@ -241,3 +238,4 @@ void ManufacturingProcesses()
 				OnTheWay(4,2);
 		}
 }
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), gxgo, ManufacturingProcesses, ManufacturingProcesses());

@@ -149,17 +149,16 @@ int main(void)
   MX_SPI1_Init();
   MX_UART5_Init();
   /* USER CODE BEGIN 2 */
-	User_Shell_Init();
-	HAL_UART_Receive_IT(&huart1, (uint8_t*)&recv_buf, 1);
-	HAL_UART_Receive_IT(&huart2, (uint8_t*)data_one_byte, 1);
 	
-
-	
+	//打印初始化指示语句
 	user_main_printf("\n\rInitating...");
-	user_main_printf("Enjoy a music...");
-	//开启蜂鸣器PWM输出
-	HAL_TIM_PWM_Start(&htim9, TIM_CHANNEL_1);
-
+	
+	//开启控制舵机的串口2接收中断
+	HAL_UART_Receive_IT(&huart2, (uint8_t*)data_one_byte, 1);
+	//初始化舵机控制结构体
+	ArmInit();
+	//舵机位置归中
+	ArmGoMiddle();
 	
 	//初始化LED点阵显示
 	MAX7219_MatrixInit(&hspi1, MAX7219_CS_GPIO_Port, MAX7219_CS_Pin);
@@ -168,21 +167,15 @@ int main(void)
 	MAX7219_mywrite(colororder);
 	MAX7219_MatrixUpdate();
 	user_main_printf("LED Matrix ok...");
-	
-	//测试并初始化机械臂位置
-	ArmInit();
-	Uart2_servoCtr(1);
-	
-	user_main_printf("Robotic arm ok...");
 
-	//开启四个编码器
+	//开启定时器的编码器模式
 	HAL_TIM_Encoder_Start(&htim2, TIM_CHANNEL_ALL);
 	HAL_TIM_Encoder_Start(&htim3, TIM_CHANNEL_ALL);
 	HAL_TIM_Encoder_Start(&htim4, TIM_CHANNEL_ALL);
 	HAL_TIM_Encoder_Start(&htim5, TIM_CHANNEL_ALL);
 	user_main_printf("Encoder Started...");
 	
-	//测试四个电机
+	//开启8路PWM输出-控制四个电机用
 	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
 	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
 	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
@@ -191,9 +184,9 @@ int main(void)
 	HAL_TIM_PWM_Start(&htim8, TIM_CHANNEL_2);	
 	HAL_TIM_PWM_Start(&htim8, TIM_CHANNEL_3);	
 	HAL_TIM_PWM_Start(&htim8, TIM_CHANNEL_4);	
-	
 	user_main_printf("Motor PWM Started...");
 
+	//初始化PID结构体参数
 	User_PID_Init(&udPIDParameter0);
 	User_PID_Init(&udPIDParameter1);
 	User_PID_Init(&udPIDParameter2);
@@ -203,27 +196,28 @@ int main(void)
 	User_PID_Init(&xPositionPIDParameter5);
 	User_PID_Init(&yAnglePIDParameter6);
 	User_PID_Init(&yPositionPIDParameter7);
-	user_main_printf("PID parameter Initiated...");
 	LineFollowInit();
-	user_main_printf("line sensor Started...");
+	user_main_printf("PID parameter Initiated...");
 	
 	//定时器6溢出中断频率为1kHz
 	HAL_TIM_Base_Start_IT(&htim6);
 	user_main_printf("【TIM6 interrupt】 Started...(1kHz)");
 	
+	user_main_printf("Enjoy a music...");
+	//开启蜂鸣器PWM输出
+	HAL_TIM_PWM_Start(&htim9, TIM_CHANNEL_1);
+	
+	//初始化letter-shell
+	User_Shell_Init();
+	HAL_UART_Receive_IT(&huart1, (uint8_t*)&recv_buf, 1);
 
-	//for test 2021-1-3-21:20 by mxy	
-//	lockFlag=1;
-//	while(1){
-//		while(SW2==UNPRESSED);
-//		led_shan();
-//		Uart2_servoCtr(9);
-//		HAL_Delay(5000);
-//		Uart2_servoCtr(14);
-//	}
+#if 1
+	lockFlag=1;
+#endif
 
+#if 0
 	ManufacturingProcesses();
-
+#endif
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -291,10 +285,8 @@ void SystemClock_Config(void)
 /* USER CODE BEGIN 4 */
 void led_shan(){
 	LED1_ON;
-	LED2_ON;
 	HAL_Delay(200);
 	LED1_OFF;
-	LED2_OFF;
 	HAL_Delay(200);
 }
 
