@@ -436,6 +436,7 @@ unsigned int  FromGridPosition(unsigned int dir)//返回为1，代表小车离开格点
 		}
 	return 0;
 }
+
 //小车向任意方向行进一格，从格点开始到格点停止
 void OneGrid(unsigned int dir,int32_t speedOffset)
 {	//要不要提前给速度？？？要
@@ -490,20 +491,20 @@ void OneGrid(unsigned int dir,int32_t speedOffset)
 		
 		user_main_printf("I am at (%d,%d).",x_position,y_position);
 		
-		AnglePosControl((dir+1)%4);
-		HAL_Delay(20);
-		AnglePosControl((dir+1)%4);
-		HAL_Delay(20);
-		AnglePosControl((dir+1)%4);
-		HAL_Delay(20);
-		AnglePosControl((dir+1)%4);
-		HAL_Delay(20);	
-		AnglePosControl((dir+1)%4);
-		HAL_Delay(20);
-		AnglePosControl((dir+1)%4);
-		HAL_Delay(20);
-		AnglePosControl((dir+1)%4);
-		HAL_Delay(20);
+//		AnglePosControl((dir+1)%4);
+//		HAL_Delay(20);
+//		AnglePosControl((dir+1)%4);
+//		HAL_Delay(20);
+//		AnglePosControl((dir+1)%4);
+//		HAL_Delay(20);
+//		AnglePosControl((dir+1)%4);
+//		HAL_Delay(20);	
+//		AnglePosControl((dir+1)%4);
+//		HAL_Delay(20);
+//		AnglePosControl((dir+1)%4);
+//		HAL_Delay(20);
+//		AnglePosControl((dir+1)%4);
+//		HAL_Delay(20);
 		y_speed=0;
 		x_speed=0;
 
