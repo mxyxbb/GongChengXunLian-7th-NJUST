@@ -12,19 +12,25 @@
 #include "stdio.h"
 #include "../mymath.h"
 #include "../ee24/ee24.h"
+#include <string.h> //使用到了memcpy
+
 
 #define POS_LEN 100
-#define GROUP_LEN 30
+#define GROUP_LEN 40//30
 #define GROUP_POS_LEN 15
-//#define ID_START 1
-//#define ID_END 5
+
+#define POS_LEN_EX 800
 
 
-
-//开辟机械臂"位置"缓冲区
+/*-------第一缓冲区-------*/
+/*开辟机械臂"位置"缓冲区*/
 Pos postion[POS_LEN];
-//开辟机械臂"动作组"缓冲区
-int8_t group[GROUP_LEN][GROUP_POS_LEN]; 
+/*开辟机械臂"动作组"缓冲区*/
+int16_t group[GROUP_LEN][GROUP_POS_LEN]; 
+
+/*-------第二缓冲区-------*/
+/*开辟机械臂第二"位置"缓冲区,该区数据将存至stm32的片内flash*/
+Pos postion_ex[POS_LEN_EX];
 
 
 /**
@@ -40,9 +46,14 @@ void ArmInit()
 			group[i][j]=-1;
 		}
 	}
+
 	for(uint8_t i=0;i<POS_LEN;i++)
   {
 		postion[i].pos_id=-1;
+  }
+	for(uint16_t i=0;i<POS_LEN_EX;i++)
+  {
+		postion_ex[i].pos_id=-1;
   }
 }
 SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), ami, ArmInit, ArmInit());
@@ -81,13 +92,17 @@ SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), fl
 void SavePos(int16_t ID_,int16_t timems_)
 {
 	Pos postion0;
-	for(uint8_t temp=0;temp<5;temp++)//读取5个舵机的角度
+	for(uint8_t temp=0;temp<5;temp++)//读取并存储5个舵机的角度
   {
 		postion0.angle[temp]=ReadPos(temp+1);
   }
 	postion0.pos_id=ID_;//设置动作id
 	postion0.timems=timems_;//设置动作时间
-	postion[ID_]=postion0;//存储至缓存区
+	/*存储*/
+	if(ID_<POS_LEN)
+		postion[ID_]=postion0;//存储至缓存区1
+	else
+		postion_ex[ID_-POS_LEN]=postion0;//存储至缓存区2
 }
 SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), sap, SavePos, savePos(id,time));
 /**
@@ -97,11 +112,21 @@ SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), sa
   */
 void GoPos(int16_t ID_)
 {
-	for(uint8_t temp=0;temp<5;temp++)//写5个舵机的角度
-  {
-		WritePos(temp+1, postion[ID_].angle[temp], postion[ID_].timems, 0);//舵机(IDtemp),以时间timems毫秒,运行至postion[ID_].angle[temp]角度
+	if(ID_<POS_LEN){
+		for(uint8_t temp=0;temp<5;temp++)//写5个舵机的角度
+		{
+			WritePos(temp+1, postion[ID_].angle[temp], postion[ID_].timems, 0);//舵机(IDtemp),以时间timems毫秒,运行至postion[ID_].angle[temp]角度
+		}
+		delay(postion[ID_].timems);//堵塞式等待动作完成
 	}
-  delay(postion[ID_].timems);//堵塞式等待动作完成
+	else{
+		ID_ -= POS_LEN;
+		for(uint8_t temp=0;temp<5;temp++)//写5个舵机的角度
+		{
+			WritePos(temp+1, postion_ex[ID_].angle[temp], postion_ex[ID_].timems, 0);//舵机(IDtemp),以时间timems毫秒,运行至postion_ex[ID_].angle[temp]角度
+		}
+		delay(postion_ex[ID_].timems);//堵塞式等待动作完成
+	}
 }
 SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), gop, GoPos, goPos(id));
 
@@ -113,7 +138,7 @@ SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), go
   */
 //int8_t order[]={0,1,2,3,4,5};
 //saveGroup(0,order);
-void Pos2Group(uint8_t G_ID_,uint8_t GP_ID_,uint8_t P_ID)
+void Pos2Group(uint8_t G_ID_,uint8_t GP_ID_,uint16_t P_ID)
 {
 		group[G_ID_][GP_ID_]=P_ID;
 }
@@ -133,101 +158,188 @@ void DoGroup(uint8_t ID_)
 }
 SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), dog, DoGroup, DoGroup(id));
 
-
 /**
-  * @brief  存储一个16bit数据，仅用于SaveAll2ee()函数中
-  * @param  *cnt:要存储的地址
-  * @param  dt:要存储的16bit数据
+  * @brief  将与机械臂有关的缓冲区变量存入内部Flash的
+	* 扇区11(0x080E 0000 - 0x080F FFFF)中,此扇区可存储128kByte数据
   * @retval 无
   */
-static void Save2ee16(uint16_t* cnt,int16_t dt)
+void SaveAll2F()
 {
-	uint8_t s[2];
-	s[0]=LSB(dt);
-	s[1]=MSB(dt);
-	ee24_write(*cnt,s,2,0xffff);
-	*cnt+=2;
-}
-/**
-  * @brief  读取一个16bit数据，仅用于readAll2ram()函数中
-  * @param  *cnt:要读取的地址
-  * @param  dt:读取得到的16bit数据句柄
-  * @retval 无
-  */
-static void Readee16(uint16_t* cnt,int16_t *dt)
-{
-	uint8_t s[2];
-	ee24_read(*cnt, s, 2, 1000);
-	*dt = (int16_t) (s[1] << 8) | s[0]; 
-	*cnt+=2;
-}
-/**
-  * @brief  将与机械臂有关的缓冲区变量存入EEPROM中
-  * @retval 无
-  */
-void SaveAll2ee()
-{
-	uint16_t lenadd=0;
-	uint16_t cnt=4;//前面空4个位置，用来存两部分的数据长度
-	if (ee24_isConnected()){
-		
-		//----开始存位置，最大1400字节
-		for(uint8_t i=0;postion[i].pos_id!=-1;i++)//遍历位置ID
-		{
-			Save2ee16(&cnt,postion[i].pos_id);//存ID
-			for(uint8_t j=0;j<5;j++)
-			{
-				Save2ee16(&cnt,postion[i].angle[j]);//存舵机角
-			}
-			Save2ee16(&cnt,postion[i].timems);//存动作时间
-		}
-		//存位置结束
-		Save2ee16(&lenadd,cnt);//在EEPROM的开头存位置数据总长度
-		
-		//----开始存动作组，最大450字节
-		for(uint8_t i=0;group[i][0]!=-1;i++)//遍历动作组ID
-		{
-			ee24_write(cnt,(uint8_t*)group[i],GROUP_POS_LEN,0xffff);//存储该动作组的位置序列
-			cnt+=GROUP_POS_LEN;
-		}
-		//存动作组结束
-		Save2ee16(&lenadd,cnt);//在EEPROM的开头存动作组数据总长度
+	int i = 0;
+	uint32_t PageError = 0;
+	FLASH_EraseInitTypeDef a;
+	HAL_StatusTypeDef status;
+	uint32_t addr = 0x080E0000;
+	uint32_t data_buf[10];
+	
+	/* 读取Flash内容 */
+	memcpy(data_buf, (uint32_t*)addr, sizeof(uint32_t)*10);
+	printf("read before erase:\r\n\t");
+	for(i = 0;i < 10;i++)
+	{
+		printf("0x%08x ", data_buf[i]);
 	}
+	printf("\r\n");
+	
+	/*定义要擦除的部分*/
+	a.TypeErase = FLASH_TYPEERASE_SECTORS;
+	a.Banks = FLASH_BANK_1;
+	a.Sector = FLASH_SECTOR_11;
+	a.NbSectors = 1;
+	a.VoltageRange = FLASH_VOLTAGE_RANGE_3;
+
+	HAL_FLASH_Unlock();
+	status = HAL_FLASHEx_Erase(&a,&PageError);/*擦除扇区11的内容*/
+	HAL_FLASH_Lock();
+	if(status != HAL_OK)
+	{
+		printf("erase fail, PageError = %d\r\n", PageError);
+	}
+	else
+		printf("erase success\r\n");
+
+	/* 读取Flash内容 */
+	memcpy(data_buf, (uint32_t*)addr, sizeof(uint32_t)*10);
+	printf("read after erase:\r\n\t");
+	for(i = 0;i < 10;i++)
+	{
+		printf("0x%08x ", data_buf[i]);
+	}
+	printf("\r\n");
+	
+	//写入Flash内容
+	HAL_FLASH_Unlock();
+	
+	{
+		uint16_t lenadd=0;
+		uint16_t cnt=6;//前面空6个位置，用来存三部分的数据长度
+			
+			/*----开始存位置1，最大1400字节*/
+			for(uint8_t i=0;postion[i].pos_id != -1&& i < POS_LEN;i++)//遍历位置ID
+			{
+				HAL_FLASH_Program(FLASH_TYPEPROGRAM_HALFWORD, addr+cnt, postion[i].pos_id);//存ID
+				cnt += 2;
+				for(uint8_t j=0;j<5;j++)
+				{
+					HAL_FLASH_Program(FLASH_TYPEPROGRAM_HALFWORD, addr+cnt, postion[i].angle[j]);//存舵机角
+					cnt += 2;
+				}
+				HAL_FLASH_Program(FLASH_TYPEPROGRAM_HALFWORD, addr+cnt, postion[i].timems);//存动作时间
+				cnt += 2;
+			}
+			//存位置结束
+			HAL_FLASH_Program(FLASH_TYPEPROGRAM_HALFWORD, addr+lenadd, cnt);//在本扇区的开头存位置数据总长度
+			lenadd += 2;
+			//----开始存动作组，最大900字节
+			for(uint8_t i=0;group[i][0] != -1&& i < GROUP_LEN;i++)//遍历动作组ID
+			{
+				for(uint8_t j=0;j<GROUP_POS_LEN;j++)
+				{
+					HAL_FLASH_Program(FLASH_TYPEPROGRAM_HALFWORD, addr+cnt, group[i][j]);//存储该动作组的位置序列
+					cnt += 2;
+				}
+			}
+			//存动作组结束
+			status = HAL_FLASH_Program(FLASH_TYPEPROGRAM_HALFWORD, addr+lenadd, cnt);//在本扇区的开头存动作组数据总长度
+			lenadd += 2;
+			
+			/*----开始存位置ex，最大11200字节*/
+			for(uint16_t i=0;postion_ex[i].pos_id!=-1&& i < POS_LEN_EX;i++)//遍历位置ID
+			{
+				HAL_FLASH_Program(FLASH_TYPEPROGRAM_HALFWORD, addr+cnt, postion_ex[i].pos_id);//存ID
+				cnt += 2;
+				for(uint8_t j=0;j<5;j++)
+				{
+					HAL_FLASH_Program(FLASH_TYPEPROGRAM_HALFWORD, addr+cnt, postion_ex[i].angle[j]);//存舵机角
+					cnt += 2;
+				}
+				HAL_FLASH_Program(FLASH_TYPEPROGRAM_HALFWORD, addr+cnt, postion_ex[i].timems);//存动作时间
+				cnt += 2;
+			}
+			//存位置结束
+			HAL_FLASH_Program(FLASH_TYPEPROGRAM_HALFWORD, addr+lenadd, cnt);//在本扇区的开头存位置2数据总总长度
+			lenadd += 2;
+	}
+	
+	HAL_FLASH_Lock();
+	
+	if(status != HAL_OK)
+	{
+		printf("write fail\r\n");
+	}
+	else
+	{
+		printf("write success\r\n");
+	}
+
+	/* 读取Flash内容 */
+	addr = 0x080E0000;
+	memcpy(data_buf, (uint32_t*)addr, sizeof(uint32_t)*10);
+	printf("read after write:\r\n\t");
+	for(i = 0;i < 10;i++)
+	{
+		printf("0x%08x ", data_buf[i]);
+	}
+	printf("\r\n");
+
 }
-SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), sa, SaveAll2ee, SaveAll2ee());
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), sf, SaveAll2F, SaveAll2F());
 
 /**
-  * @brief  将EEPROM中的数据读至缓冲区
+  * @brief  将Flash中的数据读至缓冲区
   * @retval 无
   */
-void readAll2ram()
+void readF2ram()
 {
 	uint16_t cnt=0;
-	int16_t len[2];
-	if (ee24_isConnected()){
-		//读数据长度
-		Readee16(&cnt,len);//位置数据总长度
-		Readee16(&cnt,len+1);//动作组数据总长度
-		
-		//----开始读位置----
-		for(uint8_t i=0;i<len[0]/sizeof(postion[0]);i++)//遍历位置ID
+	int16_t len[3];
+	uint32_t addr = 0x080E0000;
+	//读数据长度
+	len[0] = *(uint16_t *)(addr+cnt);//读半字--位置1数据总长度
+	cnt += 2;
+	len[1] = *(uint16_t *)(addr+cnt);//读半字--动作组数据总长度
+	cnt += 2;
+	len[2] = *(uint16_t *)(addr+cnt);//读半字--位置2数据总长度
+	cnt += 2;
+
+	//----开始读位置1----
+	for(uint8_t i=0;i<len[0]/sizeof(postion[0]);i++)//遍历位置ID
+	{
+		postion[i].pos_id = *(uint16_t *)(addr+cnt);//读ID
+		cnt += 2;
+		for(uint8_t j=0;j<5;j++)
 		{
-			Readee16(&cnt,&postion[i].pos_id);//读ID
-			for(uint8_t j=0;j<5;j++)
-			{
-				Readee16(&cnt,&postion[i].angle[j]);//读舵机角
-			}
-			Readee16(&cnt,&postion[i].timems);//读ID
+			postion[i].angle[j] = *(uint16_t *)(addr+cnt);//读舵机角
+			cnt += 2;
 		}
-		//----开始读动作组----
-		for(uint8_t i=0;i<len[1]/GROUP_POS_LEN;i++)//遍历动作组ID
-		{
-			ee24_read(cnt,(uint8_t*)group[i],GROUP_POS_LEN,0xffff);//读取该动作组的位置序列
-			cnt+=GROUP_POS_LEN;
+		postion[i].timems = *(uint16_t *)(addr+cnt);//读动作时间
+		cnt += 2;
+	}
+	//----开始读动作组----
+	for(uint8_t i=0;i<(len[1]-len[0])/sizeof(group[0]);i++)//遍历动作组ID
+	{
+		for(uint8_t j=0;j<GROUP_POS_LEN;j++)
+		{	
+			group[i][j] = *(uint16_t *)(addr+cnt);//读取该动作组的位置序列
+			cnt += 2;
 		}
 	}
+	//----开始读位置ex----
+	for(uint16_t i=0;i<(len[2]-len[1])/sizeof(postion_ex[0]);i++)//遍历位置ID
+	{
+		postion_ex[i].pos_id = *(uint16_t *)(addr+cnt);//读ID
+		cnt += 2;
+		for(uint8_t j=0;j<5;j++)
+		{
+			postion_ex[i].angle[j] = *(uint16_t *)(addr+cnt);//读舵机角
+			cnt += 2;
+		}
+		postion_ex[i].timems = *(uint16_t *)(addr+cnt);//读动作时间
+		cnt += 2;
+	}
+	
 }
-SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), ra, readAll2ram, readAll2ram());
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), rf, readF2ram, readF2ram());
 
 /**
   * @brief  5个舵机全部归中
@@ -242,6 +354,32 @@ void ArmGoMiddle()
 }
 SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), mi, ArmGoMiddle, ArmGoMiddle());
 
+/**
+  * @brief  内部debug，不可用于其他用途
+  * @retval 无
+  */
+void ArmSetBuff()
+{
+	for(uint8_t temp=0;temp<40;temp++)
+  {
+		for(uint8_t j=0;j<15;j++)
+			group[temp][j]=j;
+  }
+	for(uint8_t temp=0;temp<100;temp++)
+  {
+		postion[temp].pos_id=temp;
+		for(uint8_t j=0;j<5;j++)
+			postion[temp].angle[j]=j;
+  }
+	for(uint16_t temp=0;temp<800;temp++)
+  {
+		postion_ex[temp].pos_id=temp;
+		for(uint8_t j=0;j<5;j++)
+			postion_ex[temp].angle[j]=j;
+  }
+	
+}
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), de1, ArmSetBuff, ArmSetBuff());
 
 
 /*--------letter shell example begin--------*/

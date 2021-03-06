@@ -48,3 +48,4 @@ f407vet6_smartdel_20201101\scs_servo.o: ..\Core\Src\SCS_servo\../mymath.h
 f407vet6_smartdel_20201101\scs_servo.o: ..\Core\Src\SCS_servo\../ee24/ee24.h
 f407vet6_smartdel_20201101\scs_servo.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 f407vet6_smartdel_20201101\scs_servo.o: ..\Core\Src\SCS_servo\../ee24/ee24Config.h
+f407vet6_smartdel_20201101\scs_servo.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

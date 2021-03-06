@@ -42,3 +42,7 @@ f407vet6_smartdel_20201101\gongxun.o: ../Core/Inc/PID.h
 f407vet6_smartdel_20201101\gongxun.o: ../Core/Inc/main.h
 f407vet6_smartdel_20201101\gongxun.o: ../Core/Inc/user_usart.h
 f407vet6_smartdel_20201101\gongxun.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+f407vet6_smartdel_20201101\gongxun.o: ..\Core\Src\letter_shell/src/shell_port.h
+f407vet6_smartdel_20201101\gongxun.o: ..\Core\Src\letter_shell/src/shell.h
+f407vet6_smartdel_20201101\gongxun.o: ..\Core\Src\letter_shell/src/shell_cfg.h
+f407vet6_smartdel_20201101\gongxun.o: ..\Core\Src\SCS_servo/SCS_servo.h
