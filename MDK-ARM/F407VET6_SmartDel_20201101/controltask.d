@@ -43,3 +43,6 @@ f407vet6_smartdel_20201101\controltask.o: ../Core/Inc/ControlTask.h
 f407vet6_smartdel_20201101\controltask.o: ../Core/Inc/PID.h
 f407vet6_smartdel_20201101\controltask.o: ../Core/Inc/lineFollowSensor.h
 f407vet6_smartdel_20201101\controltask.o: ..\Core\Src\Buzzer/buzzerDriver.h
+f407vet6_smartdel_20201101\controltask.o: ..\Core\Src\letter_shell/src/shell_port.h
+f407vet6_smartdel_20201101\controltask.o: ..\Core\Src\letter_shell/src/shell.h
+f407vet6_smartdel_20201101\controltask.o: ..\Core\Src\letter_shell/src/shell_cfg.h

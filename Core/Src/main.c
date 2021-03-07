@@ -158,7 +158,7 @@ int main(void)
 	//初始化舵机控制结构体
 	ArmInit();
 	//舵机位置归中
-	ArmGoMiddle();
+//	ArmGoMiddle();
 	
 	//初始化LED点阵显示
 	MAX7219_MatrixInit(&hspi1, MAX7219_CS_GPIO_Port, MAX7219_CS_Pin);

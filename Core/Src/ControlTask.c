@@ -7,6 +7,7 @@
 #include "PID.h"
 #include "lineFollowSensor.h"
 #include "Buzzer/buzzerDriver.h"
+#include "letter_shell/src/shell_port.h"
 
 int32_t CoderData[4] = {0};
 int32_t CoderData_last[4] = {0};
@@ -22,18 +23,25 @@ int32_t lockFlag=0;
 uint16_t Time1_ms = 0;
 uint16_t Time2_ms = 0;
 uint16_t Time3_ms = 0;
-
+uint8_t tim6enable=0;
 
 extern int32_t y_speed;
 extern int32_t x_speed;
 extern int32_t a_speed;
+
+void enableTim6(uint8_t a)
+{
+	tim6enable=a;
+}
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), et6, enableTim6, enableTim6( 0 or 1));
+
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
 
 	
 	
-    if (htim == (&htim6))//中断频率为1kHz
+    if (htim == (&htim6) && tim6enable)//中断频率为1kHz
     {
 			Time1_ms++;			// 每1ms增一
 			Time2_ms++;			// 每1ms增一

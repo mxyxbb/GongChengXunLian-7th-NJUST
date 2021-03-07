@@ -35,3 +35,6 @@ f407vet6_smartdel_20201101\motorcontrol.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/s
 f407vet6_smartdel_20201101\motorcontrol.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 f407vet6_smartdel_20201101\motorcontrol.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 f407vet6_smartdel_20201101\motorcontrol.o: ../Core/Inc/ControlTask.h
+f407vet6_smartdel_20201101\motorcontrol.o: ..\Core\Src\letter_shell/src/shell_port.h
+f407vet6_smartdel_20201101\motorcontrol.o: ..\Core\Src\letter_shell/src/shell.h
+f407vet6_smartdel_20201101\motorcontrol.o: ..\Core\Src\letter_shell/src/shell_cfg.h

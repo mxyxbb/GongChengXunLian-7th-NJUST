@@ -1,5 +1,6 @@
 #include "MotorControl.h"
 #include "ControlTask.h"
+#include "letter_shell/src/shell_port.h"
 
 extern int32_t motorspeed_set[4];//change this value to change target speed of PI controller 改变这个数组的值来改变PI速度环的设定值
 
@@ -29,7 +30,7 @@ void SetMotorPWM(uint32_t zq,uint32_t yq,uint32_t zh,uint32_t yh)
 					TIM8->CCR2 = 0;
 	}else{
 					TIM8->CCR1 = 0;
-					TIM8->CCR2 = (ZUOQIAN_TIM_ARR-zq-zq);
+					TIM8->CCR2 = (ZUOQIAN_TIM_ARR-zq-zq+1);
 	}
     #endif
 
@@ -50,7 +51,7 @@ void SetMotorPWM(uint32_t zq,uint32_t yq,uint32_t zh,uint32_t yh)
 					TIM1->CCR2 = 0;
 	}else{
 					TIM1->CCR1 = 0;
-					TIM1->CCR2 = (YOUQIAN_TIM_ARR-yq-yq);
+					TIM1->CCR2 = (YOUQIAN_TIM_ARR-yq-yq+1);
 	}
     #endif
 
@@ -71,7 +72,7 @@ void SetMotorPWM(uint32_t zq,uint32_t yq,uint32_t zh,uint32_t yh)
 					TIM1->CCR3 = 0;
 	}else{
 					TIM1->CCR4 = 0;
-					TIM1->CCR3 = (ZUOHOU_TIM_ARR-zh-zh);
+					TIM1->CCR3 = (ZUOHOU_TIM_ARR-zh-zh+1);
 	}
     #endif
 
@@ -92,11 +93,11 @@ void SetMotorPWM(uint32_t zq,uint32_t yq,uint32_t zh,uint32_t yh)
 					TIM8->CCR4 = 0;
 	}else{
 					TIM8->CCR3 = 0;
-					TIM8->CCR4 = (YOUHOU_TIM_ARR-yh-yh);
+					TIM8->CCR4 = (YOUHOU_TIM_ARR-yh-yh+1);
 	}
     #endif
 }
-
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), smp, SetMotorPWM, SetMotorPWM(zq,yq,zh,yh));
 
 void SetMotorSPEED(int32_t zq,int32_t yq,int32_t zh,int32_t yh)
 {
@@ -105,7 +106,7 @@ void SetMotorSPEED(int32_t zq,int32_t yq,int32_t zh,int32_t yh)
 	motorspeed_set[zhMotorEncoder] = zh+ZH_OFFSET;
 	motorspeed_set[yhMotorEncoder] = yh+YH_OFFSET;
 }
-
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), sms, SetMotorSPEED, SetMotorSPEED(zq,yq,zh,yh));
 
 int32_t Velocity_Kp0 = 800;
 int32_t Velocity_Ki0 = 800;
