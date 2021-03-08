@@ -7,6 +7,7 @@
 #include "MAX7219/max7219.h"
 #include <string.h>
 #include "SCS_servo/SCS_servo.h"
+#include "letter_shell/src/shell_port.h"
 
 uint8_t uart3ok=0;
 
@@ -59,7 +60,8 @@ void Uart3_readQRcode()
 {
 	Ov3Mode=Ov3Mode_QrCode;
 	HAL_UART_Receive_IT(&huart3, (uint8_t *)RxBuff, 1); //打开串口中断接收
-	while(uart3ok==0){
+	while(uart3ok==0)
+	{
 		HAL_UART_Transmit(&huart3, CMD_Serial, 10, 0xffff);
 		x_speed=5;
 		HAL_Delay(20);
@@ -67,18 +69,18 @@ void Uart3_readQRcode()
 		HAL_Delay(20);
 		x_speed=0;
 	}
-	colororder[0]=Max7219_String[0];
-	colororder[1]=Max7219_String[1];
-	colororder[2]=Max7219_String[2];
-	colororder[3]=Max7219_String[5];
-	colororder[4]=Max7219_String[6];
-	colororder[5]=Max7219_String[7];
+	colororder[0]=Max7219_String[0]-'0';
+	colororder[1]=Max7219_String[1]-'0';
+	colororder[2]=Max7219_String[2]-'0';
+	colororder[3]=Max7219_String[5]-'0';
+	colororder[4]=Max7219_String[6]-'0';
+	colororder[5]=Max7219_String[7]-'0';
 	MAX7219_mywrite(colororder);
 	MAX7219_MatrixUpdate();
 	uart3ok=0;
 	led_shan();
 }
-
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), u3rqr, Uart3_readQRcode, Uart3_readQRcode());
 
 char led_str[6]="000000";
 void Uart3_readColor()

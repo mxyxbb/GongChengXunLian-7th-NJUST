@@ -13,7 +13,7 @@
 #include "../mymath.h"
 #include "../ee24/ee24.h"
 #include <string.h> //使用到了memcpy
-
+#include "user_usart.h"
 
 #define POS_LEN 100
 #define GROUP_LEN 40//30
@@ -99,6 +99,8 @@ void SavePos(int16_t ID_,int16_t timems_)
 	postion0.pos_id=ID_;//设置动作id
 	postion0.timems=timems_;//设置动作时间
 	/*存储*/
+	for(uint8_t i=0;i<5;i++)
+	user_main_printf("angle%d: %d",i,postion0.angle[i]);
 	if(ID_<POS_LEN)
 		postion[ID_]=postion0;//存储至缓存区1
 	else

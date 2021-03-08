@@ -44,3 +44,6 @@ f407vet6_smartdel_20201101\uart234.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\
 f407vet6_smartdel_20201101\uart234.o: ..\Core\Src\MAX7219/max7219.h
 f407vet6_smartdel_20201101\uart234.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 f407vet6_smartdel_20201101\uart234.o: ..\Core\Src\SCS_servo/SCS_servo.h
+f407vet6_smartdel_20201101\uart234.o: ..\Core\Src\letter_shell/src/shell_port.h
+f407vet6_smartdel_20201101\uart234.o: ..\Core\Src\letter_shell/src/shell.h
+f407vet6_smartdel_20201101\uart234.o: ..\Core\Src\letter_shell/src/shell_cfg.h

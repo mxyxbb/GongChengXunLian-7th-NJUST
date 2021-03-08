@@ -115,11 +115,17 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LED7Seg_DIN_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PD1 PD3 PDPin PDPin */
-  GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_3|SW2_Pin|SW1_Pin;
+  /*Configure GPIO pins : PD1 PD3 PDPin */
+  GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_3|SW2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PtPin */
+  GPIO_InitStruct.Pin = SW1_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(SW1_GPIO_Port, &GPIO_InitStruct);
 
 }
 

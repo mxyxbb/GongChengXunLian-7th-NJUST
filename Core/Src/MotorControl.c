@@ -20,7 +20,7 @@ void SetMotorPWM(uint32_t zq,uint32_t yq,uint32_t zh,uint32_t yh)
 					TIM8->CCR1 = 0;
 	}else{
 					TIM8->CCR2 = 0;
-					TIM8->CCR1 = (ZUOQIAN_TIM_ARR-zq-zq);
+					TIM8->CCR1 = (ZUOQIAN_TIM_ARR-zq-zq+1);
 	}
     #else
 //        ZUOQIAN_TIM->ZUOQIAN_CCR = ZUOQIAN_TIM_ARR - zq;
@@ -41,7 +41,7 @@ void SetMotorPWM(uint32_t zq,uint32_t yq,uint32_t zh,uint32_t yh)
 					TIM1->CCR1 = 0;
 	}else{
 					TIM1->CCR2 = 0;
-					TIM1->CCR1 = (YOUQIAN_TIM_ARR-yq-yq);
+					TIM1->CCR1 = (YOUQIAN_TIM_ARR-yq-yq+1);
 	}
     #else
 //        YOUQIAN_TIM->YOUQIAN_CCR = YOUQIAN_TIM_ARR - yq;
@@ -58,11 +58,11 @@ void SetMotorPWM(uint32_t zq,uint32_t yq,uint32_t zh,uint32_t yh)
     #if (ZUOHOU_CONTROL_DIRECTION == 1) 
 //        ZUOHOU_TIM->ZUOHOU_CCR = zh;
 	if(zh>8400){
-					TIM1->CCR4 = (zh+zh-ZUOHOU_TIM_ARR);
-					TIM1->CCR3 = 0;
-	}else{
+					TIM1->CCR3 = (zh+zh-ZUOHOU_TIM_ARR);
 					TIM1->CCR4 = 0;
-					TIM1->CCR3 = (ZUOHOU_TIM_ARR-zh-zh);
+	}else{
+					TIM1->CCR3 = 0;
+					TIM1->CCR4 = (ZUOHOU_TIM_ARR-zh-zh+1);
 	}
     #else
 //        ZUOHOU_TIM->ZUOHOU_CCR = ZUOHOU_TIM_ARR - zh;
@@ -83,7 +83,7 @@ void SetMotorPWM(uint32_t zq,uint32_t yq,uint32_t zh,uint32_t yh)
 					TIM8->CCR3 = 0;
 	}else{
 					TIM8->CCR4 = 0;
-					TIM8->CCR3 = (YOUHOU_TIM_ARR-yh-yh);
+					TIM8->CCR3 = (YOUHOU_TIM_ARR-yh-yh+1);
 	}
     #else
 //        YOUHOU_TIM->YOUHOU_CCR = YOUHOU_TIM_ARR - yh;
@@ -108,8 +108,8 @@ void SetMotorSPEED(int32_t zq,int32_t yq,int32_t zh,int32_t yh)
 }
 SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), sms, SetMotorSPEED, SetMotorSPEED(zq,yq,zh,yh));
 
-int32_t Velocity_Kp0 = 800;
-int32_t Velocity_Ki0 = 800;
+int32_t Velocity_Kp0 = -250;
+int32_t Velocity_Ki0 = -250;
 uint32_t Incremental_PI0 (int32_t MotorSpeedFromEncoder_,int32_t Target)
 {
 	static int32_t Bias0,Last_bias0;
@@ -124,8 +124,8 @@ uint32_t Incremental_PI0 (int32_t MotorSpeedFromEncoder_,int32_t Target)
 		Pwm0 = PWMDOWN;
 	return Pwm0;																							//增量输出
 }
-int32_t Velocity_Kp1 = -800;
-int32_t Velocity_Ki1 = -800;
+int32_t Velocity_Kp1 = 250;
+int32_t Velocity_Ki1 = 250;
 uint32_t Incremental_PI1 (int32_t MotorSpeedFromEncoder_,int32_t Target)
 {
 	static int32_t Bias1,Last_bias1;
@@ -140,8 +140,8 @@ uint32_t Incremental_PI1 (int32_t MotorSpeedFromEncoder_,int32_t Target)
 		Pwm1 = PWMDOWN;
 	return Pwm1;																							//增量输出
 }
-int32_t Velocity_Kp2 = -800;
-int32_t Velocity_Ki2 = -800;
+int32_t Velocity_Kp2 = -250;
+int32_t Velocity_Ki2 = -250;
 uint32_t Incremental_PI2 (int32_t MotorSpeedFromEncoder_,int32_t Target)
 {
 	static int32_t Bias2,Last_bias2;
@@ -156,8 +156,8 @@ uint32_t Incremental_PI2 (int32_t MotorSpeedFromEncoder_,int32_t Target)
 		Pwm2 = PWMDOWN;
 	return Pwm2;																							//增量输出
 }
-int32_t Velocity_Kp3 = -800;
-int32_t Velocity_Ki3 = -800;
+int32_t Velocity_Kp3 = -250;
+int32_t Velocity_Ki3 = -250;
 uint32_t Incremental_PI3 (int32_t MotorSpeedFromEncoder_,int32_t Target)
 {
 	static int32_t Bias3,Last_bias3;

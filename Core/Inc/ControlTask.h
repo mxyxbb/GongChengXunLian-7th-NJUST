@@ -8,8 +8,8 @@
 #define yhMotorEncoder 3
 #define yqMotorEncoder 2
 
-extern int32_t lockFlag;
-extern int32_t AngleAndPositionTIM;
+extern uint8_t lockFlag;
+extern uint8_t AngleAndPositionTIM;
 
 extern uint16_t Time1_ms;
 extern uint16_t Time2_ms;
