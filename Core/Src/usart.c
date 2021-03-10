@@ -74,7 +74,7 @@ void MX_USART2_UART_Init(void)
 {
 
   huart2.Instance = USART2;
-  huart2.Init.BaudRate = 1000000;
+  huart2.Init.BaudRate = 115200;
   huart2.Init.WordLength = UART_WORDLENGTH_8B;
   huart2.Init.StopBits = UART_STOPBITS_1;
   huart2.Init.Parity = UART_PARITY_NONE;
@@ -342,10 +342,10 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 	{
 		HAL_UART_RxCpltCallback_color();
 	}
-	else if(huart->Instance == UART5)
-	{
-		SCS_Uarthandle();
-	}
+//	else if(huart->Instance == UART5)
+//	{
+//		SCS_Uarthandle();
+//	}
 }
 
 /* USER CODE END 1 */

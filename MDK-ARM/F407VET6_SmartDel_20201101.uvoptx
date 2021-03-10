@@ -159,7 +159,7 @@
           <Type>0</Type>
           <LineNumber>77</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134243132</Address>
+          <Address>134243164</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -406,6 +406,21 @@
           <count>46</count>
           <WinNumber>1</WinNumber>
           <ItemText>postion0,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>47</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Velocity_Ki1,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>48</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Velocity_Ki0,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>49</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Velocity_Kp0,0x0A</ItemText>
         </Ww>
       </WatchWindow1>
       <WatchWindow2>

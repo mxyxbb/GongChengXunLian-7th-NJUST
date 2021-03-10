@@ -32,7 +32,7 @@ int16_t Uart_Read(void)
 }
 
 
-#define USE_UART5_
+#define USE_USART2_
 /*---------------
 使用USE_USART1_ 宏定义
 配置USART1，端口映射(TX)PA9/(RX)PA10

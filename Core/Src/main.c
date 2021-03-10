@@ -157,7 +157,7 @@ int main(void)
 	user_main_printf("\n\rInitating...");
 	
 	//开启控制舵机的串口2接收中断
-	HAL_UART_Receive_IT(&huart5, (uint8_t*)data_one_byte, 1);
+	HAL_UART_Receive_IT(&huart2, (uint8_t*)data_one_byte, 1);
 	//初始化舵机控制结构体
 	ArmInit();
 	//舵机位置归中
@@ -179,14 +179,14 @@ int main(void)
 	user_main_printf("Encoder Started...");
 	
 	//开启8路PWM输出-控制四个电机用
-	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
-	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
+//	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+//	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
 	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
 	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_4);
-	HAL_TIM_PWM_Start(&htim8, TIM_CHANNEL_1);	
-	HAL_TIM_PWM_Start(&htim8, TIM_CHANNEL_2);	
-	HAL_TIM_PWM_Start(&htim8, TIM_CHANNEL_3);	
-	HAL_TIM_PWM_Start(&htim8, TIM_CHANNEL_4);	
+//	HAL_TIM_PWM_Start(&htim8, TIM_CHANNEL_1);	
+//	HAL_TIM_PWM_Start(&htim8, TIM_CHANNEL_2);	
+//	HAL_TIM_PWM_Start(&htim8, TIM_CHANNEL_3);	
+//	HAL_TIM_PWM_Start(&htim8, TIM_CHANNEL_4);	
 	user_main_printf("Motor PWM Started...");
 
 	//初始化PID结构体参数

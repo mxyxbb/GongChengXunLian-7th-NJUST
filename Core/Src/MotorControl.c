@@ -108,8 +108,10 @@ void SetMotorSPEED(int32_t zq,int32_t yq,int32_t zh,int32_t yh)
 }
 SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), sms, SetMotorSPEED, SetMotorSPEED(zq,yq,zh,yh));
 
-int32_t Velocity_Kp0 = -250;
-int32_t Velocity_Ki0 = -250;
+int32_t Velocity_Kp0 = -0;
+int32_t Velocity_Ki0 = -60;
+SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_INT), vkp0, &Velocity_Kp0, Velocity_Kp0);
+SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_INT), vki0, &Velocity_Ki0, Velocity_Ki0);
 uint32_t Incremental_PI0 (int32_t MotorSpeedFromEncoder_,int32_t Target)
 {
 	static int32_t Bias0,Last_bias0;

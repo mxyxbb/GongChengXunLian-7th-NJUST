@@ -13,10 +13,10 @@ int32_t CoderData[4] = {0};
 int32_t CoderData_last[4] = {0};
 int32_t motordirection[4] = {0};
 int32_t motorspeed[4] = {0};
-SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), msp0, &motorspeed[0], motorspeed[0]);
-SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), msp1, &motorspeed[1], motorspeed[1]);
-SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), msp2, &motorspeed[2], motorspeed[2]);
-SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), msp3, &motorspeed[3], motorspeed[3]);
+SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_INT), msp0, &motorspeed[0], motorspeed[0]);
+SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_INT), msp1, &motorspeed[1], motorspeed[1]);
+SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_INT), msp2, &motorspeed[2], motorspeed[2]);
+SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_INT), msp3, &motorspeed[3], motorspeed[3]);
 int32_t motorspeed_set[4] = {0};//change this value to change target speed of PI controller 改变这个数组的值来改变PI速度环的设定值
 uint32_t motorpwm_set[4] = {8400,8400,8400,8400};
 int32_t MaxSpeed[4] = {0};
@@ -121,7 +121,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 				
 				SetMotorPWM(motorpwm_set[zqMotorEncoder],motorpwm_set[yqMotorEncoder],motorpwm_set[zhMotorEncoder],motorpwm_set[yhMotorEncoder]);
 				#endif
-				mecanumRun(y_speed,x_speed,a_speed);
+//				mecanumRun(y_speed,x_speed,a_speed);
 				
 				Time1_ms = 0;
 			}
