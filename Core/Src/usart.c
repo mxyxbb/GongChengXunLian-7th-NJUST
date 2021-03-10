@@ -342,10 +342,10 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 	{
 		HAL_UART_RxCpltCallback_color();
 	}
-//	else if(huart->Instance == UART5)
-//	{
-//		SCS_Uarthandle();
-//	}
+	else if(huart->Instance == UART5)
+	{
+		SCS_Uarthandle();
+	}
 }
 
 /* USER CODE END 1 */
