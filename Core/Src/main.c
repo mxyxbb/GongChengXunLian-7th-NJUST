@@ -179,14 +179,14 @@ int main(void)
 	user_main_printf("Encoder Started...");
 	
 	//开启8路PWM输出-控制四个电机用
-//	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
-//	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
+	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
 	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
 	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_4);
-//	HAL_TIM_PWM_Start(&htim8, TIM_CHANNEL_1);	
-//	HAL_TIM_PWM_Start(&htim8, TIM_CHANNEL_2);	
-//	HAL_TIM_PWM_Start(&htim8, TIM_CHANNEL_3);	
-//	HAL_TIM_PWM_Start(&htim8, TIM_CHANNEL_4);	
+	HAL_TIM_PWM_Start(&htim8, TIM_CHANNEL_1);	
+	HAL_TIM_PWM_Start(&htim8, TIM_CHANNEL_2);	
+	HAL_TIM_PWM_Start(&htim8, TIM_CHANNEL_3);	
+	HAL_TIM_PWM_Start(&htim8, TIM_CHANNEL_4);	
 	user_main_printf("Motor PWM Started...");
 
 	//初始化PID结构体参数
@@ -231,11 +231,8 @@ int main(void)
   {
 		
 		led_shan();
-		
-		
-		
-		
-		
+//		user_main_printf("motor_speed 0-3 zh zq yq yh: %d,%d,%d,%d",motorspeed[0],motorspeed[1],motorspeed[2],motorspeed[3]);
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

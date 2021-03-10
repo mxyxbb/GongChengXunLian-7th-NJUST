@@ -1,4 +1,4 @@
---cpu=Cortex-M4.fp
+--cpu=Cortex-M4.fp.sp
 "f407vet6_smartdel_20201101\startup_stm32f407xx.o"
 "f407vet6_smartdel_20201101\motorcontrol.o"
 "f407vet6_smartdel_20201101\controltask.o"
@@ -42,7 +42,7 @@
 "f407vet6_smartdel_20201101\uart.o"
 "f407vet6_smartdel_20201101\wiring.o"
 "f407vet6_smartdel_20201101\ee24.o"
-"f407vet6_smartdel_20201101\max7219_1.o"
+"f407vet6_smartdel_20201101\max7219.o"
 "f407vet6_smartdel_20201101\max7219_matrix.o"
 "f407vet6_smartdel_20201101\scs_servo.o"
 "f407vet6_smartdel_20201101\shell.o"

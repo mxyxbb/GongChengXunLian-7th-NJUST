@@ -121,7 +121,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 				
 				SetMotorPWM(motorpwm_set[zqMotorEncoder],motorpwm_set[yqMotorEncoder],motorpwm_set[zhMotorEncoder],motorpwm_set[yhMotorEncoder]);
 				#endif
-//				mecanumRun(y_speed,x_speed,a_speed);
+				mecanumRun(y_speed,x_speed,a_speed);
 				
 				Time1_ms = 0;
 			}
