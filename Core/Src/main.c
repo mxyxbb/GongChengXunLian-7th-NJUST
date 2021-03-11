@@ -70,9 +70,9 @@
 int32_t y_speed=0;
 int32_t x_speed=0;
 int32_t a_speed=0;
-SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), xsp, &x_speed, x_speed);
-SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), ysp, &y_speed, y_speed);
-SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), asp, &a_speed, a_speed);
+SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_INT), xsp, &x_speed, x_speed);
+SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_INT), ysp, &y_speed, y_speed);
+SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_INT), asp, &a_speed, a_speed);
 
 int32_t cx_main=0;
 
@@ -232,7 +232,24 @@ int main(void)
 		
 		led_shan();
 //		user_main_printf("motor_speed 0-3 zh zq yq yh: %d,%d,%d,%d",motorspeed[0],motorspeed[1],motorspeed[2],motorspeed[3]);
-
+//		GetSensorData();
+//		printf("OUT5:%d \t",Sensor_JG_Buffer[0]);
+//		printf("OUT6:%d \t",Sensor_JG_Buffer[1]);
+//		printf("OUT7:%d \t",Sensor_JG_Buffer[2]);
+//		printf("OUT8:%d \t",Sensor_JG_Buffer[3]);
+//		printf("OUT9:%d \t",Sensor_JG_Buffer[4]);
+//		printf("OUT10:%d\t",Sensor_JG_Buffer[5]);
+//		printf("OUT11:%d\t",Sensor_JG_Buffer[6]);
+//		printf("OUT12:%d\t",Sensor_JG_Buffer[7]);
+//		printf("OUT1:%d \t",Sensor_JG_Buffer[8]);
+//		printf("OUT2:%d \t",Sensor_JG_Buffer[9]);
+//		printf("OUT3:%d \t",Sensor_JG_Buffer[10]);
+//		printf("OUT4:%d \t",Sensor_JG_Buffer[11]);
+//		printf("OUT13:%d\t",Sensor_JG_Buffer[12]);
+//		printf("SJ1:%d \t",Sensor_JG_Buffer[13]);
+//		printf("OUT15:%d\t",Sensor_JG_Buffer[14]);
+//		printf("OUT16:%d\n\r",Sensor_JG_Buffer[15]);
+		
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

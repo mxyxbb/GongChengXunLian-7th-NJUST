@@ -5,6 +5,7 @@
 #include "user_usart.h"
 #include <stdio.h>
 #include "main.h"
+#include "letter_shell/src/shell_port.h"
 
 #define SENSORNUM 4
 #define DIRECTION 4
@@ -273,22 +274,22 @@ void GetSensorData()
 //	Sensor_JG_Buffer[14] = HAL_GPIO_ReadPin(OUT15_Port,OUT15_Pin);
 //	Sensor_JG_Buffer[15] = HAL_GPIO_ReadPin(OUT16_Port,OUT16_Pin);
 
-	Sensor_JG_Buffer[0] = HAL_GPIO_ReadPin(OUT5_Port,OUT5_Pin);
-	Sensor_JG_Buffer[1] = HAL_GPIO_ReadPin(OUT6_Port,OUT6_Pin);
-	Sensor_JG_Buffer[2] = HAL_GPIO_ReadPin(OUT7_Port,OUT7_Pin);
-	Sensor_JG_Buffer[3] = HAL_GPIO_ReadPin(OUT8_Port,OUT8_Pin);
-	Sensor_JG_Buffer[4] = HAL_GPIO_ReadPin(OUT9_Port,OUT9_Pin);
-	Sensor_JG_Buffer[5] = HAL_GPIO_ReadPin(OUT10_Port,OUT10_Pin);
-	Sensor_JG_Buffer[6] = HAL_GPIO_ReadPin(OUT11_Port,OUT11_Pin);
-	Sensor_JG_Buffer[7] = HAL_GPIO_ReadPin(OUT12_Port,OUT12_Pin);
+	Sensor_JG_Buffer[0] = HAL_GPIO_ReadPin(OUT9_Port,OUT9_Pin);
+	Sensor_JG_Buffer[1] = HAL_GPIO_ReadPin(OUT10_Port,OUT10_Pin);
+	Sensor_JG_Buffer[2] = HAL_GPIO_ReadPin(OUT11_Port,OUT11_Pin);
+	Sensor_JG_Buffer[3] = HAL_GPIO_ReadPin(OUT12_Port,OUT12_Pin);
+	Sensor_JG_Buffer[4] = HAL_GPIO_ReadPin(SJ1_GPIO_Port,SJ1_Pin);
+	Sensor_JG_Buffer[5] = HAL_GPIO_ReadPin(OUT13_Port,OUT13_Pin);
+	Sensor_JG_Buffer[6] = HAL_GPIO_ReadPin(OUT15_Port,OUT15_Pin);
+	Sensor_JG_Buffer[7] = HAL_GPIO_ReadPin(OUT16_Port,OUT16_Pin);
 	Sensor_JG_Buffer[8] = HAL_GPIO_ReadPin(OUT1_Port,OUT1_Pin);
 	Sensor_JG_Buffer[9] = HAL_GPIO_ReadPin(OUT2_Port,OUT2_Pin);
 	Sensor_JG_Buffer[10] = HAL_GPIO_ReadPin(OUT3_Port,OUT3_Pin);
 	Sensor_JG_Buffer[11] = HAL_GPIO_ReadPin(OUT4_Port,OUT4_Pin);
-	Sensor_JG_Buffer[12] = HAL_GPIO_ReadPin(OUT13_Port,OUT13_Pin);
-	Sensor_JG_Buffer[13] = HAL_GPIO_ReadPin(SJ1_GPIO_Port,SJ1_Pin);//HAL_GPIO_ReadPin(OUT14_Port,OUT14_Pin);
-	Sensor_JG_Buffer[14] = HAL_GPIO_ReadPin(OUT15_Port,OUT15_Pin);
-	Sensor_JG_Buffer[15] = HAL_GPIO_ReadPin(OUT16_Port,OUT16_Pin);
+	Sensor_JG_Buffer[12] = HAL_GPIO_ReadPin(OUT5_Port,OUT5_Pin);
+	Sensor_JG_Buffer[13] = HAL_GPIO_ReadPin(OUT6_Port,OUT6_Pin);
+	Sensor_JG_Buffer[14] = HAL_GPIO_ReadPin(OUT7_Port,OUT7_Pin);
+	Sensor_JG_Buffer[15] = HAL_GPIO_ReadPin(OUT8_Port,OUT8_Pin);
 
 	
 	
@@ -509,6 +510,7 @@ void OneGrid(unsigned int dir,int32_t speedOffset)
 		x_speed=0;
 
 }
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), og, OneGrid, OneGrid(dir,speedoffset));
 
 void OneGrid_sp(unsigned int dir,uint8_t next,int32_t speedOffset)
 {	//要不要提前给速度？？？要
@@ -562,25 +564,13 @@ void OneGrid_sp(unsigned int dir,uint8_t next,int32_t speedOffset)
 		}
 		
 		user_main_printf("I am at (%d,%d).",x_position,y_position);
-		
-		AnglePosControl((dir+1)%4);
-		HAL_Delay(20);
-		AnglePosControl((dir+1)%4);
-		HAL_Delay(20);
-		AnglePosControl((dir+1)%4);
-		HAL_Delay(20);
-		AnglePosControl((dir+1)%4);
-		HAL_Delay(20);	
-		AnglePosControl((dir+1)%4);
-		HAL_Delay(20);
-		AnglePosControl((dir+1)%4);
-		HAL_Delay(20);
-		AnglePosControl((dir+1)%4);
-		HAL_Delay(20);
+	
 		y_speed=0;
 		x_speed=0;
 
 }
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), ogsp, OneGrid, OneGrid(dir,next,speedoffset));
+
 
 //填写障碍物数组
 void FillObsArray()

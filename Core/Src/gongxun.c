@@ -30,15 +30,15 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 		case 01:
 			OneGrid(FRONT,-15);
 			OneGrid_sp(LEFT,FRONT,0);
-			OneGrid(FRONT,2);
-			Uart3_readQRcode();
+			OneGrid(FRONT,0);//2);
+//			Uart3_readQRcode();
 			break;
 		case 12:
 			OneGrid_sp(LEFT,FRONT,0);
 			OneGrid(FRONT,0);
 			OneGrid(FRONT,0);
 			OneGrid(FRONT,10);
-			Uart3_readColor();
+//			Uart3_readColor();
 		  /*Ì§Æð»úÐµ±Û();*/
 			OneGrid(FRONT,-15);
 			Grid_Lock();

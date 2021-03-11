@@ -42,7 +42,7 @@ extern int32_t a_speed;
 void quietTest()
 {
 	tim6enable=1;
-	AngleAndPositionTIM=0;
+	AngleAndPositionTIM=1;
 }
 SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), qte, quietTest, quietTest());
 

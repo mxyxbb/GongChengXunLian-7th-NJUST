@@ -10,6 +10,7 @@
 #include "letter_shell/src/shell_port.h"
 
 uint8_t uart3ok=0;
+SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), u3ok, &uart3ok, uart3ok);
 
 uint8_t Ov3Mode = Ov3Mode_QrCode;
 uint8_t Max7219_String[]="123--213";
@@ -78,6 +79,7 @@ void Uart3_readQRcode()
 	MAX7219_mywrite(colororder);
 	MAX7219_MatrixUpdate();
 	uart3ok=0;
+	printf("qrcode:%s\n\r",Max7219_String);
 	led_shan();
 }
 SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), u3rqr, Uart3_readQRcode, Uart3_readQRcode());
