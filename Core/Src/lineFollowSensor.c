@@ -28,7 +28,7 @@
 #define xAngle_Ki 0
 #define xAngle_Kd -1
 
-#define xPosition_Kp 6
+#define xPosition_Kp 5//6
 #define xPosition_Ki 0
 #define xPosition_Kd 1
 
