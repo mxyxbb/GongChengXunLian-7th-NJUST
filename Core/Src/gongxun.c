@@ -13,6 +13,8 @@
 Meterial meterial[6];
 uint8_t queue[6];
 
+void GoFrontForQR(void);
+void GoFrontForMaterial(void);
 
 /*
 start point 0,
@@ -30,18 +32,22 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 		case 01:
 			OneGrid(FRONT,-15);
 			OneGrid_sp(LEFT,FRONT,0);
-			OneGrid(FRONT,0);//2);
+			GoFrontForQR();
 //			Uart3_readQRcode();
 			break;
 		case 12:
 			OneGrid_sp(LEFT,FRONT,0);
-			OneGrid(FRONT,0);
-			OneGrid(FRONT,0);
-			OneGrid(FRONT,10);
-//			Uart3_readColor();
-		  /*抬起机械臂();*/
-			OneGrid(FRONT,-15);
 			Grid_Lock();
+			HAL_Delay(1000);
+			Grid_UnLock();
+			OneGrid(FRONT,0);
+			OneGrid(FRONT,0);
+			OneGrid(FRONT,0);
+			OneGrid(FRONT,-15);
+			GoFrontForMaterial();
+//			Uart3_readColor();
+			Grid_Lock();
+		//此处机械臂可能需要预动作
 			HAL_Delay(2000);
 			break;
 		case 23:
@@ -109,10 +115,13 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 			OneGrid(FRONT,0);
 			OneGrid(FRONT,-15);
 			OneGrid(RIGHT,0);
+			Grid_Lock();
+			HAL_Delay(1500);
+			Grid_UnLock();
 			AngleAndPositionTIM=0;
 			a_speed=0;
 			x_speed=5;
-			y_speed=15;
+			y_speed=5;
 			HAL_Delay(3000);
 			a_speed=0;
 			x_speed=0;
@@ -123,6 +132,7 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 	}
 	return;
 }
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), otw, OnTheWay, OnTheWay(from,to));
 
 void ManufacturingProcesses()
 {
@@ -165,7 +175,11 @@ void ManufacturingProcesses()
 		
 		
 //	while(SW2==UNPRESSED);//examing!
-		
+	for(uint8_t i=0;i<6;i++)
+	{
+		printf("queue[%d]=%d\t",i,queue[i]);
+	}
+	printf("\n\r");
 	/*performing*/
 	for(index=0;index<2;index++)
 		{
@@ -201,3 +215,23 @@ void ManufacturingProcesses()
 		}
 }
 SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), gxgo, ManufacturingProcesses, ManufacturingProcesses());
+
+void GoFrontForQR()
+{
+	CarMovingTo=FRONT;
+	x_speed=5;
+	HAL_Delay(2500);
+	x_speed=0;
+	Uart3_readQRcode();
+	OneGrid(0,-25);
+}
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), rqr, GoFrontForQR, GoFrontForQR());
+
+void GoFrontForMaterial()
+{
+	CarMovingTo=FRONT;
+	Grid_Lock();
+	Uart3_readColor();
+	Grid_UnLock();
+}
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), rm, GoFrontForMaterial, GoFrontForMaterial());

@@ -91,6 +91,8 @@ int32_t BEGIN_Y=0;
 int32_t END_X=0;
 int32_t END_Y=0;
 
+uint8_t startFlag=0;
+SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), stf, &startFlag, startFlag);
 
 extern int32_t motorspeed_set[4];
 
@@ -160,6 +162,7 @@ int main(void)
 	HAL_UART_Receive_IT(&huart5, (uint8_t*)data_one_byte, 1);
 	//初始化舵机控制结构体
 	ArmInit();
+	readF2ram();
 	//舵机位置归中
 	ArmGoMiddle();
 	
@@ -215,11 +218,18 @@ int main(void)
 	HAL_UART_Receive_IT(&huart1, (uint8_t*)&recv_buf, 1);
 
 #if 1
-
-#endif
-
-#if 0
-	ManufacturingProcesses();
+while(1)
+{
+	if(startFlag){
+		startFlag=0;
+		tim6enable=1;
+		AngleAndPositionTIM=1;
+		ManufacturingProcesses();
+	}
+	if(!HAL_GPIO_ReadPin(SW1_GPIO_Port,SW1_Pin))
+		startFlag=1;
+	led_shan();
+}
 #endif
   /* USER CODE END 2 */
 

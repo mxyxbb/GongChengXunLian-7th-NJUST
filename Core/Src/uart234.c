@@ -59,17 +59,20 @@ int RxLine=0;           //接收到的数据长度
 
 void Uart3_readQRcode()
 {
+	printf("reading qrcode\n\r");
 	Ov3Mode=Ov3Mode_QrCode;
 	HAL_UART_Receive_IT(&huart3, (uint8_t *)RxBuff, 1); //打开串口中断接收
 	while(uart3ok==0)
 	{
+		printf("CMD_Serial\t");
 		HAL_UART_Transmit(&huart3, CMD_Serial, 10, 0xffff);
-		x_speed=5;
+		x_speed=1;
 		HAL_Delay(20);
-		x_speed=-5;
+		x_speed=-1;
 		HAL_Delay(20);
-		x_speed=0;
+		
 	}
+	x_speed=0;
 	colororder[0]=Max7219_String[0]-'0';
 	colororder[1]=Max7219_String[1]-'0';
 	colororder[2]=Max7219_String[2]-'0';
@@ -87,11 +90,11 @@ SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), u3
 char led_str[6]="000000";
 void Uart3_readColor()
 {
+	user_main_printf("%s",CMD_Material);
 	Ov3Mode=Ov3Mode_ColorBlock;
 	HAL_UART_Receive_IT(&huart3, (uint8_t *)RxBuff, 1); //打开串口中断接收
 	while(uart3ok==0){
 		HAL_UART_Transmit(&huart3, CMD_Material, 12, 0xffff);
-		user_main_printf("%s",CMD_Material);
 		x_speed=5;
 		HAL_Delay(20);
 		x_speed=-5;
@@ -128,9 +131,9 @@ void HAL_UART_RxCpltCallback_color()//在串口3的接收回调函数中调用此函数，处理ope
     
     if((DataBuff[RxLine-1] == 0x0A)&&(DataBuff[RxLine-2] == 0x0D))            //接收结束标志位，这个数据可以自定义，根据实际需求，这里只做示例使用，不一定是0xff
     {
-        printf("Uart3-RXLen=%d\r\n",RxLine); 
+        //printf("Uart3-RXLen=%d\r\n",RxLine); 
         for(int i=0;i<RxLine;i++)
-					printf("UART DataBuff[%d] = 0x%x\r\n",i,DataBuff[i]);                               
+					//printf("UART DataBuff[%d] = 0x%x\r\n",i,DataBuff[i]);                               
 
 				RxLine_Copy=RxLine;
 				RxLine=0;  //清空接收长度

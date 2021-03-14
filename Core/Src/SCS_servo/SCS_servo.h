@@ -25,7 +25,7 @@ void GoPos(int16_t ID_);
 void ArmInit(void);
 void DoGroup(uint8_t ID_);
 void ArmGoMiddle(void);
-
+void readF2ram(void);
 #ifdef __cplusplus
 }
 #endif

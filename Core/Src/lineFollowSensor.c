@@ -514,6 +514,8 @@ SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), og
 
 void OneGrid_sp(unsigned int dir,uint8_t next,int32_t speedOffset)
 {	//要不要提前给速度？？？要
+	static uint8_t first=0;
+	
 	AngleAndPositionTIM=1;
 	CarMovingTo = dir;
 	switch(dir)
@@ -534,8 +536,15 @@ void OneGrid_sp(unsigned int dir,uint8_t next,int32_t speedOffset)
 //	while(FromGridPosition(dir)==0){}
 	if(dir%2==0)
 	HAL_Delay(400);
-	else
-	HAL_Delay(800);	
+	else{
+		if(!first){
+			first=1;
+			HAL_Delay(100);
+		}
+		else
+			HAL_Delay(800);
+	}
+	
 	while(AtGridPosition_sp(dir,next)==0){}
 	
 	
@@ -878,3 +887,4 @@ void Grid_UnLock()
 {
 	lockFlag=0;
 }
+
