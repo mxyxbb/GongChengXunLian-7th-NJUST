@@ -202,7 +202,7 @@ void ManufacturingProcesses()
 			OnTheWay(3,4);
 			for(unsigned int i=0;i<3;i++)//一次放好3个，在精加工区
 				{ 
-					Uart2_servoCtr(25+(meterial[queue[i+3*index]].itsColor%3));//放蓝25，红26，绿27。
+					Uart2_servoCtr(25+index*3+(meterial[queue[i+3*index]].itsColor%3));//放蓝25，红26，绿27。
 					led_shan();
 				}
 			if(index==1)

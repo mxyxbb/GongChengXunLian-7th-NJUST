@@ -24,6 +24,10 @@
 #include "letter_shell/src/shell_port.h"
 #include "SCSLib/uart.h"
 #include "uart234.h"
+#include <stdio.h>
+uint8_t showback=0;
+SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), sb, &showback, showback);
+
 /* USER CODE END 0 */
 
 UART_HandleTypeDef huart5;
@@ -328,6 +332,8 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
 	if(huart->Instance == USART1)
 	{
+		if(showback)
+			printf("%c",recv_buf);
 		//调用shell处理数据的接口
 		shellHandler(&shell, recv_buf);
 			//使能串口中断接收
