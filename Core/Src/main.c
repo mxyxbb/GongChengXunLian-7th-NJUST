@@ -154,6 +154,13 @@ int main(void)
   MX_SPI1_Init();
   MX_UART5_Init();
   /* USER CODE BEGIN 2 */
+	led_shan();
+	led_shan();
+	led_shan();
+	led_shan();
+	led_shan();
+	led_shan();
+
 	
 	//打印初始化指示语句
 	user_main_printf("\n\rInitating...");
@@ -162,7 +169,7 @@ int main(void)
 	HAL_UART_Receive_IT(&huart5, (uint8_t*)data_one_byte, 1);
 	//初始化舵机控制结构体
 	ArmInit();
-	readF2ram();
+//	readF2ram();
 	//舵机位置归中
 	ArmGoMiddle();
 	

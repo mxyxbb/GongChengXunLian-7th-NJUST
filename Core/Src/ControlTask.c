@@ -34,7 +34,8 @@ uint8_t tim6enable=0;
 SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), t6e, &tim6enable, tim6enable);
 uint8_t musicenable=0;
 SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), emu, &musicenable, musicenable);
-
+uint8_t toggleMotor=0;
+SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), togm, &toggleMotor, toggleMotor);
 
 extern int32_t y_speed;
 extern int32_t x_speed;
@@ -58,6 +59,13 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 			Time3_ms++;
 			if(musicenable)
 				musicPlay();
+			if(toggleMotor){
+				HAL_GPIO_TogglePin(CTR1_GPIO_Port,CTR1_Pin);
+				HAL_Delay(10);
+				HAL_GPIO_TogglePin(CTR1_GPIO_Port,CTR1_Pin);
+				toggleMotor=0;
+				
+			}
 			if(Time2_ms == 20)//传感器读入，周期为20ms(50Hz)
 			{
 				GetSensorData();
