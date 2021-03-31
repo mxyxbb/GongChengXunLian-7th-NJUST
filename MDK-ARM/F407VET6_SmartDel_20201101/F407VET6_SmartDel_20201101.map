@@ -2283,35 +2283,35 @@ Image Symbol Table
     ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c 0x00000000   Number         0  stm32f4xx_hal_tim_ex.o ABSOLUTE
     ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c 0x00000000   Number         0  stm32f4xx_hal_uart.o ABSOLUTE
     ../clib/../cmprslib/zerorunl2.c          0x00000000   Number         0  __dczerorl2.o ABSOLUTE
-    ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
+    ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
-    ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
     ../clib/microlib/printf/stubs.s          0x00000000   Number         0  stubs.o ABSOLUTE
     ../clib/microlib/stdio/streams.c         0x00000000   Number         0  stdout.o ABSOLUTE
     ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpya.o ABSOLUTE
@@ -2786,95 +2786,99 @@ Image Symbol Table
     i.yAngleControl                          0x0800919c   Section        0  linefollowsensor.o(i.yAngleControl)
     i.yPositionControl                       0x080091f8   Section        0  linefollowsensor.o(i.yPositionControl)
     .constdata                               0x08009258   Section       96  motorcontrol.o(.constdata)
-    .constdata                               0x080092b8   Section      177  controltask.o(.constdata)
-    .constdata                               0x08009369   Section       63  linefollowsensor.o(.constdata)
-    .constdata                               0x080093a8   Section       95  gongxun.o(.constdata)
-    .constdata                               0x08009407   Section       38  uart234.o(.constdata)
-    .constdata                               0x0800942d   Section       50  main.o(.constdata)
-    .constdata                               0x0800945f   Section       12  usart.o(.constdata)
-    .constdata                               0x0800946b   Section       24  system_stm32f4xx.o(.constdata)
-    .constdata                               0x08009483   Section       30  scscl.o(.constdata)
-    .constdata                               0x080094a8   Section      712  max7219_matrix.o(.constdata)
-    .constdata                               0x08009770   Section      385  scs_servo.o(.constdata)
-    .constdata                               0x080098f1   Section      227  shell.o(.constdata)
-    .constdata                               0x080099d4   Section      644  buzzerdriver.o(.constdata)
-    .conststring                             0x08009c58   Section      677  shell.o(.conststring)
-    shellCommand                             0x08009f20   Section       64  motorcontrol.o(shellCommand)
-    __tagsym$$used                           0x08009f20   Number         0  motorcontrol.o(shellCommand)
-    __tagsym$$used                           0x08009f30   Number         0  motorcontrol.o(shellCommand)
-    __tagsym$$used                           0x08009f40   Number         0  motorcontrol.o(shellCommand)
-    __tagsym$$used                           0x08009f50   Number         0  motorcontrol.o(shellCommand)
-    shellCommand                             0x08009f60   Section      160  controltask.o(shellCommand)
-    __tagsym$$used                           0x08009f60   Number         0  controltask.o(shellCommand)
-    __tagsym$$used                           0x08009f70   Number         0  controltask.o(shellCommand)
-    __tagsym$$used                           0x08009f80   Number         0  controltask.o(shellCommand)
-    __tagsym$$used                           0x08009f90   Number         0  controltask.o(shellCommand)
-    __tagsym$$used                           0x08009fa0   Number         0  controltask.o(shellCommand)
-    __tagsym$$used                           0x08009fb0   Number         0  controltask.o(shellCommand)
-    __tagsym$$used                           0x08009fc0   Number         0  controltask.o(shellCommand)
-    __tagsym$$used                           0x08009fd0   Number         0  controltask.o(shellCommand)
-    __tagsym$$used                           0x08009fe0   Number         0  controltask.o(shellCommand)
-    __tagsym$$used                           0x08009ff0   Number         0  controltask.o(shellCommand)
-    shellCommand                             0x0800a000   Section       32  linefollowsensor.o(shellCommand)
-    __tagsym$$used                           0x0800a000   Number         0  linefollowsensor.o(shellCommand)
-    __tagsym$$used                           0x0800a010   Number         0  linefollowsensor.o(shellCommand)
-    shellCommand                             0x0800a020   Section       64  gongxun.o(shellCommand)
-    __tagsym$$used                           0x0800a020   Number         0  gongxun.o(shellCommand)
-    __tagsym$$used                           0x0800a030   Number         0  gongxun.o(shellCommand)
-    __tagsym$$used                           0x0800a040   Number         0  gongxun.o(shellCommand)
-    __tagsym$$used                           0x0800a050   Number         0  gongxun.o(shellCommand)
-    shellCommand                             0x0800a060   Section       32  uart234.o(shellCommand)
-    __tagsym$$used                           0x0800a060   Number         0  uart234.o(shellCommand)
-    __tagsym$$used                           0x0800a070   Number         0  uart234.o(shellCommand)
-    shellCommand                             0x0800a080   Section       64  main.o(shellCommand)
-    __tagsym$$used                           0x0800a080   Number         0  main.o(shellCommand)
-    __tagsym$$used                           0x0800a090   Number         0  main.o(shellCommand)
-    __tagsym$$used                           0x0800a0a0   Number         0  main.o(shellCommand)
-    __tagsym$$used                           0x0800a0b0   Number         0  main.o(shellCommand)
-    shellCommand                             0x0800a0c0   Section       16  usart.o(shellCommand)
-    __tagsym$$used                           0x0800a0c0   Number         0  usart.o(shellCommand)
-    shellCommand                             0x0800a0d0   Section       16  scscl.o(shellCommand)
-    __tagsym$$used                           0x0800a0d0   Number         0  scscl.o(shellCommand)
-    shellCommand                             0x0800a0e0   Section       64  max7219_matrix.o(shellCommand)
-    __tagsym$$used                           0x0800a0e0   Number         0  max7219_matrix.o(shellCommand)
-    __tagsym$$used                           0x0800a0f0   Number         0  max7219_matrix.o(shellCommand)
-    __tagsym$$used                           0x0800a100   Number         0  max7219_matrix.o(shellCommand)
-    __tagsym$$used                           0x0800a110   Number         0  max7219_matrix.o(shellCommand)
-    shellCommand                             0x0800a120   Section      240  scs_servo.o(shellCommand)
-    __tagsym$$used                           0x0800a120   Number         0  scs_servo.o(shellCommand)
-    __tagsym$$used                           0x0800a130   Number         0  scs_servo.o(shellCommand)
-    __tagsym$$used                           0x0800a140   Number         0  scs_servo.o(shellCommand)
-    __tagsym$$used                           0x0800a150   Number         0  scs_servo.o(shellCommand)
-    __tagsym$$used                           0x0800a160   Number         0  scs_servo.o(shellCommand)
-    __tagsym$$used                           0x0800a170   Number         0  scs_servo.o(shellCommand)
-    __tagsym$$used                           0x0800a180   Number         0  scs_servo.o(shellCommand)
-    __tagsym$$used                           0x0800a190   Number         0  scs_servo.o(shellCommand)
-    __tagsym$$used                           0x0800a1a0   Number         0  scs_servo.o(shellCommand)
-    __tagsym$$used                           0x0800a1b0   Number         0  scs_servo.o(shellCommand)
-    __tagsym$$used                           0x0800a1c0   Number         0  scs_servo.o(shellCommand)
-    __tagsym$$used                           0x0800a1d0   Number         0  scs_servo.o(shellCommand)
-    __tagsym$$used                           0x0800a1e0   Number         0  scs_servo.o(shellCommand)
-    __tagsym$$used                           0x0800a1f0   Number         0  scs_servo.o(shellCommand)
-    __tagsym$$used                           0x0800a200   Number         0  scs_servo.o(shellCommand)
-    shellCommand                             0x0800a210   Section      288  shell.o(shellCommand)
-    __tagsym$$used                           0x0800a210   Number         0  shell.o(shellCommand)
-    __tagsym$$used                           0x0800a220   Number         0  shell.o(shellCommand)
-    __tagsym$$used                           0x0800a230   Number         0  shell.o(shellCommand)
-    __tagsym$$used                           0x0800a240   Number         0  shell.o(shellCommand)
-    __tagsym$$used                           0x0800a250   Number         0  shell.o(shellCommand)
-    __tagsym$$used                           0x0800a260   Number         0  shell.o(shellCommand)
-    __tagsym$$used                           0x0800a270   Number         0  shell.o(shellCommand)
-    __tagsym$$used                           0x0800a280   Number         0  shell.o(shellCommand)
-    __tagsym$$used                           0x0800a290   Number         0  shell.o(shellCommand)
-    __tagsym$$used                           0x0800a2a0   Number         0  shell.o(shellCommand)
-    __tagsym$$used                           0x0800a2b0   Number         0  shell.o(shellCommand)
-    __tagsym$$used                           0x0800a2c0   Number         0  shell.o(shellCommand)
-    __tagsym$$used                           0x0800a2d0   Number         0  shell.o(shellCommand)
-    __tagsym$$used                           0x0800a2e0   Number         0  shell.o(shellCommand)
-    __tagsym$$used                           0x0800a2f0   Number         0  shell.o(shellCommand)
-    __tagsym$$used                           0x0800a300   Number         0  shell.o(shellCommand)
-    __tagsym$$used                           0x0800a310   Number         0  shell.o(shellCommand)
-    __tagsym$$used                           0x0800a320   Number         0  shell.o(shellCommand)
+    .constdata                               0x080092b8   Section      281  controltask.o(.constdata)
+    .constdata                               0x080093d1   Section       63  linefollowsensor.o(.constdata)
+    .constdata                               0x08009410   Section       95  gongxun.o(.constdata)
+    .constdata                               0x0800946f   Section       38  uart234.o(.constdata)
+    .constdata                               0x08009495   Section       50  main.o(.constdata)
+    .constdata                               0x080094c7   Section       12  usart.o(.constdata)
+    .constdata                               0x080094d3   Section       24  system_stm32f4xx.o(.constdata)
+    .constdata                               0x080094eb   Section       30  scscl.o(.constdata)
+    .constdata                               0x08009510   Section      712  max7219_matrix.o(.constdata)
+    .constdata                               0x080097d8   Section      385  scs_servo.o(.constdata)
+    .constdata                               0x08009959   Section      227  shell.o(.constdata)
+    .constdata                               0x08009a3c   Section      644  buzzerdriver.o(.constdata)
+    .conststring                             0x08009cc0   Section      677  shell.o(.conststring)
+    shellCommand                             0x08009f88   Section       64  motorcontrol.o(shellCommand)
+    __tagsym$$used                           0x08009f88   Number         0  motorcontrol.o(shellCommand)
+    __tagsym$$used                           0x08009f98   Number         0  motorcontrol.o(shellCommand)
+    __tagsym$$used                           0x08009fa8   Number         0  motorcontrol.o(shellCommand)
+    __tagsym$$used                           0x08009fb8   Number         0  motorcontrol.o(shellCommand)
+    shellCommand                             0x08009fc8   Section      224  controltask.o(shellCommand)
+    __tagsym$$used                           0x08009fc8   Number         0  controltask.o(shellCommand)
+    __tagsym$$used                           0x08009fd8   Number         0  controltask.o(shellCommand)
+    __tagsym$$used                           0x08009fe8   Number         0  controltask.o(shellCommand)
+    __tagsym$$used                           0x08009ff8   Number         0  controltask.o(shellCommand)
+    __tagsym$$used                           0x0800a008   Number         0  controltask.o(shellCommand)
+    __tagsym$$used                           0x0800a018   Number         0  controltask.o(shellCommand)
+    __tagsym$$used                           0x0800a028   Number         0  controltask.o(shellCommand)
+    __tagsym$$used                           0x0800a038   Number         0  controltask.o(shellCommand)
+    __tagsym$$used                           0x0800a048   Number         0  controltask.o(shellCommand)
+    __tagsym$$used                           0x0800a058   Number         0  controltask.o(shellCommand)
+    __tagsym$$used                           0x0800a068   Number         0  controltask.o(shellCommand)
+    __tagsym$$used                           0x0800a078   Number         0  controltask.o(shellCommand)
+    __tagsym$$used                           0x0800a088   Number         0  controltask.o(shellCommand)
+    __tagsym$$used                           0x0800a098   Number         0  controltask.o(shellCommand)
+    shellCommand                             0x0800a0a8   Section       32  linefollowsensor.o(shellCommand)
+    __tagsym$$used                           0x0800a0a8   Number         0  linefollowsensor.o(shellCommand)
+    __tagsym$$used                           0x0800a0b8   Number         0  linefollowsensor.o(shellCommand)
+    shellCommand                             0x0800a0c8   Section       64  gongxun.o(shellCommand)
+    __tagsym$$used                           0x0800a0c8   Number         0  gongxun.o(shellCommand)
+    __tagsym$$used                           0x0800a0d8   Number         0  gongxun.o(shellCommand)
+    __tagsym$$used                           0x0800a0e8   Number         0  gongxun.o(shellCommand)
+    __tagsym$$used                           0x0800a0f8   Number         0  gongxun.o(shellCommand)
+    shellCommand                             0x0800a108   Section       32  uart234.o(shellCommand)
+    __tagsym$$used                           0x0800a108   Number         0  uart234.o(shellCommand)
+    __tagsym$$used                           0x0800a118   Number         0  uart234.o(shellCommand)
+    shellCommand                             0x0800a128   Section       64  main.o(shellCommand)
+    __tagsym$$used                           0x0800a128   Number         0  main.o(shellCommand)
+    __tagsym$$used                           0x0800a138   Number         0  main.o(shellCommand)
+    __tagsym$$used                           0x0800a148   Number         0  main.o(shellCommand)
+    __tagsym$$used                           0x0800a158   Number         0  main.o(shellCommand)
+    shellCommand                             0x0800a168   Section       16  usart.o(shellCommand)
+    __tagsym$$used                           0x0800a168   Number         0  usart.o(shellCommand)
+    shellCommand                             0x0800a178   Section       16  scscl.o(shellCommand)
+    __tagsym$$used                           0x0800a178   Number         0  scscl.o(shellCommand)
+    shellCommand                             0x0800a188   Section       64  max7219_matrix.o(shellCommand)
+    __tagsym$$used                           0x0800a188   Number         0  max7219_matrix.o(shellCommand)
+    __tagsym$$used                           0x0800a198   Number         0  max7219_matrix.o(shellCommand)
+    __tagsym$$used                           0x0800a1a8   Number         0  max7219_matrix.o(shellCommand)
+    __tagsym$$used                           0x0800a1b8   Number         0  max7219_matrix.o(shellCommand)
+    shellCommand                             0x0800a1c8   Section      240  scs_servo.o(shellCommand)
+    __tagsym$$used                           0x0800a1c8   Number         0  scs_servo.o(shellCommand)
+    __tagsym$$used                           0x0800a1d8   Number         0  scs_servo.o(shellCommand)
+    __tagsym$$used                           0x0800a1e8   Number         0  scs_servo.o(shellCommand)
+    __tagsym$$used                           0x0800a1f8   Number         0  scs_servo.o(shellCommand)
+    __tagsym$$used                           0x0800a208   Number         0  scs_servo.o(shellCommand)
+    __tagsym$$used                           0x0800a218   Number         0  scs_servo.o(shellCommand)
+    __tagsym$$used                           0x0800a228   Number         0  scs_servo.o(shellCommand)
+    __tagsym$$used                           0x0800a238   Number         0  scs_servo.o(shellCommand)
+    __tagsym$$used                           0x0800a248   Number         0  scs_servo.o(shellCommand)
+    __tagsym$$used                           0x0800a258   Number         0  scs_servo.o(shellCommand)
+    __tagsym$$used                           0x0800a268   Number         0  scs_servo.o(shellCommand)
+    __tagsym$$used                           0x0800a278   Number         0  scs_servo.o(shellCommand)
+    __tagsym$$used                           0x0800a288   Number         0  scs_servo.o(shellCommand)
+    __tagsym$$used                           0x0800a298   Number         0  scs_servo.o(shellCommand)
+    __tagsym$$used                           0x0800a2a8   Number         0  scs_servo.o(shellCommand)
+    shellCommand                             0x0800a2b8   Section      288  shell.o(shellCommand)
+    __tagsym$$used                           0x0800a2b8   Number         0  shell.o(shellCommand)
+    __tagsym$$used                           0x0800a2c8   Number         0  shell.o(shellCommand)
+    __tagsym$$used                           0x0800a2d8   Number         0  shell.o(shellCommand)
+    __tagsym$$used                           0x0800a2e8   Number         0  shell.o(shellCommand)
+    __tagsym$$used                           0x0800a2f8   Number         0  shell.o(shellCommand)
+    __tagsym$$used                           0x0800a308   Number         0  shell.o(shellCommand)
+    __tagsym$$used                           0x0800a318   Number         0  shell.o(shellCommand)
+    __tagsym$$used                           0x0800a328   Number         0  shell.o(shellCommand)
+    __tagsym$$used                           0x0800a338   Number         0  shell.o(shellCommand)
+    __tagsym$$used                           0x0800a348   Number         0  shell.o(shellCommand)
+    __tagsym$$used                           0x0800a358   Number         0  shell.o(shellCommand)
+    __tagsym$$used                           0x0800a368   Number         0  shell.o(shellCommand)
+    __tagsym$$used                           0x0800a378   Number         0  shell.o(shellCommand)
+    __tagsym$$used                           0x0800a388   Number         0  shell.o(shellCommand)
+    __tagsym$$used                           0x0800a398   Number         0  shell.o(shellCommand)
+    __tagsym$$used                           0x0800a3a8   Number         0  shell.o(shellCommand)
+    __tagsym$$used                           0x0800a3b8   Number         0  shell.o(shellCommand)
+    __tagsym$$used                           0x0800a3c8   Number         0  shell.o(shellCommand)
     .data                                    0x20000000   Section       80  motorcontrol.o(.data)
     Bias0                                    0x20000020   Data           4  motorcontrol.o(.data)
     Last_bias0                               0x20000024   Data           4  motorcontrol.o(.data)
@@ -3386,192 +3390,204 @@ Image Symbol Table
     shellDescmsp2                            0x080092e3   Data          14  controltask.o(.constdata)
     shellCmdmsp3                             0x080092f1   Data           5  controltask.o(.constdata)
     shellDescmsp3                            0x080092f6   Data          14  controltask.o(.constdata)
-    shellCmdfol                              0x08009304   Data           4  controltask.o(.constdata)
-    shellDescfol                             0x08009308   Data          20  controltask.o(.constdata)
-    shellCmdlkf                              0x0800931c   Data           4  controltask.o(.constdata)
-    shellDesclkf                             0x08009320   Data           9  controltask.o(.constdata)
-    shellCmdt6e                              0x08009329   Data           4  controltask.o(.constdata)
-    shellDesct6e                             0x0800932d   Data          11  controltask.o(.constdata)
-    shellCmdemu                              0x08009338   Data           4  controltask.o(.constdata)
-    shellDescemu                             0x0800933c   Data          12  controltask.o(.constdata)
-    shellCmdtogm                             0x08009348   Data           5  controltask.o(.constdata)
-    shellDesctogm                            0x0800934d   Data          12  controltask.o(.constdata)
-    shellCmdqte                              0x08009359   Data           4  controltask.o(.constdata)
-    shellDescqte                             0x0800935d   Data          12  controltask.o(.constdata)
-    shellCmdog                               0x08009369   Data           3  linefollowsensor.o(.constdata)
-    shellDescog                              0x0800936c   Data          25  linefollowsensor.o(.constdata)
-    shellCmdogsp                             0x08009385   Data           5  linefollowsensor.o(.constdata)
-    shellDescogsp                            0x0800938a   Data          30  linefollowsensor.o(.constdata)
-    shellCmdotw                              0x080093a8   Data           4  gongxun.o(.constdata)
-    shellDescotw                             0x080093ac   Data          18  gongxun.o(.constdata)
-    shellCmdgxgo                             0x080093be   Data           5  gongxun.o(.constdata)
-    shellDescgxgo                            0x080093c3   Data          25  gongxun.o(.constdata)
-    shellCmdrqr                              0x080093dc   Data           4  gongxun.o(.constdata)
-    shellDescrqr                             0x080093e0   Data          15  gongxun.o(.constdata)
-    shellCmdrm                               0x080093ef   Data           3  gongxun.o(.constdata)
-    shellDescrm                              0x080093f2   Data          21  gongxun.o(.constdata)
-    shellCmdu3ok                             0x08009407   Data           5  uart234.o(.constdata)
-    shellDescu3ok                            0x0800940c   Data           8  uart234.o(.constdata)
-    shellCmdu3rqr                            0x08009414   Data           6  uart234.o(.constdata)
-    shellDescu3rqr                           0x0800941a   Data          19  uart234.o(.constdata)
-    shellCmdxsp                              0x0800942d   Data           4  main.o(.constdata)
-    shellDescxsp                             0x08009431   Data           8  main.o(.constdata)
-    shellCmdysp                              0x08009439   Data           4  main.o(.constdata)
-    shellDescysp                             0x0800943d   Data           8  main.o(.constdata)
-    shellCmdasp                              0x08009445   Data           4  main.o(.constdata)
-    shellDescasp                             0x08009449   Data           8  main.o(.constdata)
-    shellCmdstf                              0x08009451   Data           4  main.o(.constdata)
-    shellDescstf                             0x08009455   Data          10  main.o(.constdata)
-    shellCmdsb                               0x0800945f   Data           3  usart.o(.constdata)
-    shellDescsb                              0x08009462   Data           9  usart.o(.constdata)
-    AHBPrescTable                            0x0800946b   Data          16  system_stm32f4xx.o(.constdata)
-    APBPrescTable                            0x0800947b   Data           8  system_stm32f4xx.o(.constdata)
-    shellCmdwp                               0x08009483   Data           3  scscl.o(.constdata)
-    shellDescwp                              0x08009486   Data          27  scscl.o(.constdata)
-    symbol                                   0x080094a8   Data          40  max7219_matrix.o(.constdata)
-    numbers                                  0x080094d0   Data          80  max7219_matrix.o(.constdata)
-    numbers3_5                               0x08009520   Data          40  max7219_matrix.o(.constdata)
-    Atoz                                     0x08009548   Data         424  max7219_matrix.o(.constdata)
-    shellCmdms                               0x080096f0   Data           3  max7219_matrix.o(.constdata)
-    shellDescms                              0x080096f3   Data          40  max7219_matrix.o(.constdata)
-    shellCmdmr                               0x0800971b   Data           3  max7219_matrix.o(.constdata)
-    shellDescmr                              0x0800971e   Data          27  max7219_matrix.o(.constdata)
-    shellCmdml                               0x08009739   Data           3  max7219_matrix.o(.constdata)
-    shellDescml                              0x0800973c   Data          27  max7219_matrix.o(.constdata)
-    shellCmdmm                               0x08009757   Data           3  max7219_matrix.o(.constdata)
-    shellDescmm                              0x0800975a   Data          22  max7219_matrix.o(.constdata)
-    shellCmdami                              0x08009770   Data           4  scs_servo.o(.constdata)
-    shellDescami                             0x08009774   Data          10  scs_servo.o(.constdata)
-    shellCmdamf                              0x0800977e   Data           4  scs_servo.o(.constdata)
-    shellDescamf                             0x08009782   Data          22  scs_servo.o(.constdata)
-    shellCmdfll                              0x08009798   Data           4  scs_servo.o(.constdata)
-    shellDescfll                             0x0800979c   Data          13  scs_servo.o(.constdata)
-    shellCmdsap                              0x080097a9   Data           4  scs_servo.o(.constdata)
-    shellDescsap                             0x080097ad   Data          17  scs_servo.o(.constdata)
-    shellCmdwwp                              0x080097be   Data           4  scs_servo.o(.constdata)
-    shellDescwwp                             0x080097c2   Data          71  scs_servo.o(.constdata)
-    shellCmdseep                             0x08009809   Data           5  scs_servo.o(.constdata)
-    shellDescseep                            0x0800980e   Data          20  scs_servo.o(.constdata)
-    shellCmdcpt                              0x08009822   Data           4  scs_servo.o(.constdata)
-    shellDesccpt                             0x08009826   Data          42  scs_servo.o(.constdata)
-    shellCmdcop                              0x08009850   Data           4  scs_servo.o(.constdata)
-    shellDesccop                             0x08009854   Data          35  scs_servo.o(.constdata)
-    shellCmdgop                              0x08009877   Data           4  scs_servo.o(.constdata)
-    shellDescgop                             0x0800987b   Data          10  scs_servo.o(.constdata)
-    shellCmdp2g                              0x08009885   Data           4  scs_servo.o(.constdata)
-    shellDescp2g                             0x08009889   Data          24  scs_servo.o(.constdata)
-    shellCmddog                              0x080098a1   Data           4  scs_servo.o(.constdata)
-    shellDescdog                             0x080098a5   Data          12  scs_servo.o(.constdata)
-    shellCmdsf                               0x080098b1   Data           3  scs_servo.o(.constdata)
-    shellDescsf                              0x080098b4   Data          12  scs_servo.o(.constdata)
-    shellCmdrf                               0x080098c0   Data           3  scs_servo.o(.constdata)
-    shellDescrf                              0x080098c3   Data          12  scs_servo.o(.constdata)
-    shellCmdmi                               0x080098cf   Data           3  scs_servo.o(.constdata)
-    shellDescmi                              0x080098d2   Data          14  scs_servo.o(.constdata)
-    shellCmdde1                              0x080098e0   Data           4  scs_servo.o(.constdata)
-    shellDescde1                             0x080098e4   Data          13  scs_servo.o(.constdata)
-    shellCmdDefaultUser                      0x080098f1   Data           7  shell.o(.constdata)
-    shellPasswordDefaultUser                 0x080098f8   Data           1  shell.o(.constdata)
-    shellDesDefaultUser                      0x080098f9   Data          13  shell.o(.constdata)
-    shellCmdsetVar                           0x08009906   Data           7  shell.o(.constdata)
-    shellDescsetVar                          0x0800990d   Data           8  shell.o(.constdata)
-    shellDesc0x1B5B4100                      0x08009915   Data           3  shell.o(.constdata)
-    shellDesc0x1B5B4200                      0x08009918   Data           5  shell.o(.constdata)
-    shellDesc0x1B5B4300                      0x0800991d   Data           6  shell.o(.constdata)
-    shellDesc0x1B5B4400                      0x08009923   Data           5  shell.o(.constdata)
-    shellDesc0x09000000                      0x08009928   Data           4  shell.o(.constdata)
-    shellDesc0x08000000                      0x0800992c   Data          10  shell.o(.constdata)
-    shellDesc0x7F000000                      0x08009936   Data          10  shell.o(.constdata)
-    shellDesc0x1B5B337E                      0x08009940   Data           7  shell.o(.constdata)
-    shellDesc0x0A000000                      0x08009947   Data           6  shell.o(.constdata)
-    shellDesc0x0D000000                      0x0800994d   Data           6  shell.o(.constdata)
-    shellCmdhelp                             0x08009953   Data           5  shell.o(.constdata)
-    shellDeschelp                            0x08009958   Data          30  shell.o(.constdata)
-    shellCmdusers                            0x08009976   Data           6  shell.o(.constdata)
-    shellDescusers                           0x0800997c   Data          14  shell.o(.constdata)
-    shellCmdcmds                             0x0800998a   Data           5  shell.o(.constdata)
-    shellDesccmds                            0x0800998f   Data          13  shell.o(.constdata)
-    shellCmdvars                             0x0800999c   Data           5  shell.o(.constdata)
-    shellDescvars                            0x080099a1   Data          13  shell.o(.constdata)
-    shellCmdkeys                             0x080099ae   Data           5  shell.o(.constdata)
-    shellDesckeys                            0x080099b3   Data          13  shell.o(.constdata)
-    shellCmdclear                            0x080099c0   Data           6  shell.o(.constdata)
-    shellDescclear                           0x080099c6   Data          14  shell.o(.constdata)
-    marioMelody                              0x080099d4   Data         312  buzzerdriver.o(.constdata)
-    secondMelody                             0x08009b0c   Data           4  buzzerdriver.o(.constdata)
-    marioDuration                            0x08009b10   Data         312  buzzerdriver.o(.constdata)
-    secondDuration                           0x08009c48   Data           4  buzzerdriver.o(.constdata)
-    melodySlowfactor                         0x08009c4c   Data           4  buzzerdriver.o(.constdata)
-    melodySizes                              0x08009c50   Data           8  buzzerdriver.o(.constdata)
-    Region$$Table$$Base                      0x08009f00   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08009f20   Number         0  anon$$obj.o(Region$$Table)
-    shellCommand$$Base                       0x08009f20   Number         0  motorcontrol.o(shellCommand)
-    shellCommandsmp                          0x08009f20   Data          16  motorcontrol.o(shellCommand)
-    shellCommandsms                          0x08009f30   Data          16  motorcontrol.o(shellCommand)
-    shellVarvkp0                             0x08009f40   Data          16  motorcontrol.o(shellCommand)
-    shellVarvki0                             0x08009f50   Data          16  motorcontrol.o(shellCommand)
-    shellVarmsp0                             0x08009f60   Data          16  controltask.o(shellCommand)
-    shellVarmsp1                             0x08009f70   Data          16  controltask.o(shellCommand)
-    shellVarmsp2                             0x08009f80   Data          16  controltask.o(shellCommand)
-    shellVarmsp3                             0x08009f90   Data          16  controltask.o(shellCommand)
-    shellVarfol                              0x08009fa0   Data          16  controltask.o(shellCommand)
-    shellVarlkf                              0x08009fb0   Data          16  controltask.o(shellCommand)
-    shellVart6e                              0x08009fc0   Data          16  controltask.o(shellCommand)
-    shellVaremu                              0x08009fd0   Data          16  controltask.o(shellCommand)
-    shellVartogm                             0x08009fe0   Data          16  controltask.o(shellCommand)
-    shellCommandqte                          0x08009ff0   Data          16  controltask.o(shellCommand)
-    shellCommandog                           0x0800a000   Data          16  linefollowsensor.o(shellCommand)
-    shellCommandogsp                         0x0800a010   Data          16  linefollowsensor.o(shellCommand)
-    shellCommandotw                          0x0800a020   Data          16  gongxun.o(shellCommand)
-    shellCommandgxgo                         0x0800a030   Data          16  gongxun.o(shellCommand)
-    shellCommandrqr                          0x0800a040   Data          16  gongxun.o(shellCommand)
-    shellCommandrm                           0x0800a050   Data          16  gongxun.o(shellCommand)
-    shellVaru3ok                             0x0800a060   Data          16  uart234.o(shellCommand)
-    shellCommandu3rqr                        0x0800a070   Data          16  uart234.o(shellCommand)
-    shellVarxsp                              0x0800a080   Data          16  main.o(shellCommand)
-    shellVarysp                              0x0800a090   Data          16  main.o(shellCommand)
-    shellVarasp                              0x0800a0a0   Data          16  main.o(shellCommand)
-    shellVarstf                              0x0800a0b0   Data          16  main.o(shellCommand)
-    shellVarsb                               0x0800a0c0   Data          16  usart.o(shellCommand)
-    shellCommandwp                           0x0800a0d0   Data          16  scscl.o(shellCommand)
-    shellCommandms                           0x0800a0e0   Data          16  max7219_matrix.o(shellCommand)
-    shellCommandmr                           0x0800a0f0   Data          16  max7219_matrix.o(shellCommand)
-    shellCommandml                           0x0800a100   Data          16  max7219_matrix.o(shellCommand)
-    shellCommandmm                           0x0800a110   Data          16  max7219_matrix.o(shellCommand)
-    shellCommandami                          0x0800a120   Data          16  scs_servo.o(shellCommand)
-    shellCommandamf                          0x0800a130   Data          16  scs_servo.o(shellCommand)
-    shellCommandfll                          0x0800a140   Data          16  scs_servo.o(shellCommand)
-    shellCommandsap                          0x0800a150   Data          16  scs_servo.o(shellCommand)
-    shellCommandwwp                          0x0800a160   Data          16  scs_servo.o(shellCommand)
-    shellCommandseep                         0x0800a170   Data          16  scs_servo.o(shellCommand)
-    shellCommandcpt                          0x0800a180   Data          16  scs_servo.o(shellCommand)
-    shellCommandcop                          0x0800a190   Data          16  scs_servo.o(shellCommand)
-    shellCommandgop                          0x0800a1a0   Data          16  scs_servo.o(shellCommand)
-    shellCommandp2g                          0x0800a1b0   Data          16  scs_servo.o(shellCommand)
-    shellCommanddog                          0x0800a1c0   Data          16  scs_servo.o(shellCommand)
-    shellCommandsf                           0x0800a1d0   Data          16  scs_servo.o(shellCommand)
-    shellCommandrf                           0x0800a1e0   Data          16  scs_servo.o(shellCommand)
-    shellCommandmi                           0x0800a1f0   Data          16  scs_servo.o(shellCommand)
-    shellCommandde1                          0x0800a200   Data          16  scs_servo.o(shellCommand)
-    shellUserDefault                         0x0800a210   Data          16  shell.o(shellCommand)
-    shellCommandsetVar                       0x0800a220   Data          16  shell.o(shellCommand)
-    shellKey0x1B5B4100                       0x0800a230   Data          16  shell.o(shellCommand)
-    shellKey0x1B5B4200                       0x0800a240   Data          16  shell.o(shellCommand)
-    shellKey0x1B5B4300                       0x0800a250   Data          16  shell.o(shellCommand)
-    shellKey0x1B5B4400                       0x0800a260   Data          16  shell.o(shellCommand)
-    shellKey0x09000000                       0x0800a270   Data          16  shell.o(shellCommand)
-    shellKey0x08000000                       0x0800a280   Data          16  shell.o(shellCommand)
-    shellKey0x7F000000                       0x0800a290   Data          16  shell.o(shellCommand)
-    shellKey0x1B5B337E                       0x0800a2a0   Data          16  shell.o(shellCommand)
-    shellKey0x0A000000                       0x0800a2b0   Data          16  shell.o(shellCommand)
-    shellKey0x0D000000                       0x0800a2c0   Data          16  shell.o(shellCommand)
-    shellCommandhelp                         0x0800a2d0   Data          16  shell.o(shellCommand)
-    shellCommandusers                        0x0800a2e0   Data          16  shell.o(shellCommand)
-    shellCommandcmds                         0x0800a2f0   Data          16  shell.o(shellCommand)
-    shellCommandvars                         0x0800a300   Data          16  shell.o(shellCommand)
-    shellCommandkeys                         0x0800a310   Data          16  shell.o(shellCommand)
-    shellCommandclear                        0x0800a320   Data          16  shell.o(shellCommand)
-    shellCommand$$Limit                      0x0800a330   Number         0  shell.o(shellCommand)
+    shellCmdmspset0                          0x08009304   Data           8  controltask.o(.constdata)
+    shellDescmspset0                         0x0800930c   Data          18  controltask.o(.constdata)
+    shellCmdmspset1                          0x0800931e   Data           8  controltask.o(.constdata)
+    shellDescmspset1                         0x08009326   Data          18  controltask.o(.constdata)
+    shellCmdmspset2                          0x08009338   Data           8  controltask.o(.constdata)
+    shellDescmspset2                         0x08009340   Data          18  controltask.o(.constdata)
+    shellCmdmspset3                          0x08009352   Data           8  controltask.o(.constdata)
+    shellDescmspset3                         0x0800935a   Data          18  controltask.o(.constdata)
+    shellCmdfol                              0x0800936c   Data           4  controltask.o(.constdata)
+    shellDescfol                             0x08009370   Data          20  controltask.o(.constdata)
+    shellCmdlkf                              0x08009384   Data           4  controltask.o(.constdata)
+    shellDesclkf                             0x08009388   Data           9  controltask.o(.constdata)
+    shellCmdt6e                              0x08009391   Data           4  controltask.o(.constdata)
+    shellDesct6e                             0x08009395   Data          11  controltask.o(.constdata)
+    shellCmdemu                              0x080093a0   Data           4  controltask.o(.constdata)
+    shellDescemu                             0x080093a4   Data          12  controltask.o(.constdata)
+    shellCmdtogm                             0x080093b0   Data           5  controltask.o(.constdata)
+    shellDesctogm                            0x080093b5   Data          12  controltask.o(.constdata)
+    shellCmdqte                              0x080093c1   Data           4  controltask.o(.constdata)
+    shellDescqte                             0x080093c5   Data          12  controltask.o(.constdata)
+    shellCmdog                               0x080093d1   Data           3  linefollowsensor.o(.constdata)
+    shellDescog                              0x080093d4   Data          25  linefollowsensor.o(.constdata)
+    shellCmdogsp                             0x080093ed   Data           5  linefollowsensor.o(.constdata)
+    shellDescogsp                            0x080093f2   Data          30  linefollowsensor.o(.constdata)
+    shellCmdotw                              0x08009410   Data           4  gongxun.o(.constdata)
+    shellDescotw                             0x08009414   Data          18  gongxun.o(.constdata)
+    shellCmdgxgo                             0x08009426   Data           5  gongxun.o(.constdata)
+    shellDescgxgo                            0x0800942b   Data          25  gongxun.o(.constdata)
+    shellCmdrqr                              0x08009444   Data           4  gongxun.o(.constdata)
+    shellDescrqr                             0x08009448   Data          15  gongxun.o(.constdata)
+    shellCmdrm                               0x08009457   Data           3  gongxun.o(.constdata)
+    shellDescrm                              0x0800945a   Data          21  gongxun.o(.constdata)
+    shellCmdu3ok                             0x0800946f   Data           5  uart234.o(.constdata)
+    shellDescu3ok                            0x08009474   Data           8  uart234.o(.constdata)
+    shellCmdu3rqr                            0x0800947c   Data           6  uart234.o(.constdata)
+    shellDescu3rqr                           0x08009482   Data          19  uart234.o(.constdata)
+    shellCmdxsp                              0x08009495   Data           4  main.o(.constdata)
+    shellDescxsp                             0x08009499   Data           8  main.o(.constdata)
+    shellCmdysp                              0x080094a1   Data           4  main.o(.constdata)
+    shellDescysp                             0x080094a5   Data           8  main.o(.constdata)
+    shellCmdasp                              0x080094ad   Data           4  main.o(.constdata)
+    shellDescasp                             0x080094b1   Data           8  main.o(.constdata)
+    shellCmdstf                              0x080094b9   Data           4  main.o(.constdata)
+    shellDescstf                             0x080094bd   Data          10  main.o(.constdata)
+    shellCmdsb                               0x080094c7   Data           3  usart.o(.constdata)
+    shellDescsb                              0x080094ca   Data           9  usart.o(.constdata)
+    AHBPrescTable                            0x080094d3   Data          16  system_stm32f4xx.o(.constdata)
+    APBPrescTable                            0x080094e3   Data           8  system_stm32f4xx.o(.constdata)
+    shellCmdwp                               0x080094eb   Data           3  scscl.o(.constdata)
+    shellDescwp                              0x080094ee   Data          27  scscl.o(.constdata)
+    symbol                                   0x08009510   Data          40  max7219_matrix.o(.constdata)
+    numbers                                  0x08009538   Data          80  max7219_matrix.o(.constdata)
+    numbers3_5                               0x08009588   Data          40  max7219_matrix.o(.constdata)
+    Atoz                                     0x080095b0   Data         424  max7219_matrix.o(.constdata)
+    shellCmdms                               0x08009758   Data           3  max7219_matrix.o(.constdata)
+    shellDescms                              0x0800975b   Data          40  max7219_matrix.o(.constdata)
+    shellCmdmr                               0x08009783   Data           3  max7219_matrix.o(.constdata)
+    shellDescmr                              0x08009786   Data          27  max7219_matrix.o(.constdata)
+    shellCmdml                               0x080097a1   Data           3  max7219_matrix.o(.constdata)
+    shellDescml                              0x080097a4   Data          27  max7219_matrix.o(.constdata)
+    shellCmdmm                               0x080097bf   Data           3  max7219_matrix.o(.constdata)
+    shellDescmm                              0x080097c2   Data          22  max7219_matrix.o(.constdata)
+    shellCmdami                              0x080097d8   Data           4  scs_servo.o(.constdata)
+    shellDescami                             0x080097dc   Data          10  scs_servo.o(.constdata)
+    shellCmdamf                              0x080097e6   Data           4  scs_servo.o(.constdata)
+    shellDescamf                             0x080097ea   Data          22  scs_servo.o(.constdata)
+    shellCmdfll                              0x08009800   Data           4  scs_servo.o(.constdata)
+    shellDescfll                             0x08009804   Data          13  scs_servo.o(.constdata)
+    shellCmdsap                              0x08009811   Data           4  scs_servo.o(.constdata)
+    shellDescsap                             0x08009815   Data          17  scs_servo.o(.constdata)
+    shellCmdwwp                              0x08009826   Data           4  scs_servo.o(.constdata)
+    shellDescwwp                             0x0800982a   Data          71  scs_servo.o(.constdata)
+    shellCmdseep                             0x08009871   Data           5  scs_servo.o(.constdata)
+    shellDescseep                            0x08009876   Data          20  scs_servo.o(.constdata)
+    shellCmdcpt                              0x0800988a   Data           4  scs_servo.o(.constdata)
+    shellDesccpt                             0x0800988e   Data          42  scs_servo.o(.constdata)
+    shellCmdcop                              0x080098b8   Data           4  scs_servo.o(.constdata)
+    shellDesccop                             0x080098bc   Data          35  scs_servo.o(.constdata)
+    shellCmdgop                              0x080098df   Data           4  scs_servo.o(.constdata)
+    shellDescgop                             0x080098e3   Data          10  scs_servo.o(.constdata)
+    shellCmdp2g                              0x080098ed   Data           4  scs_servo.o(.constdata)
+    shellDescp2g                             0x080098f1   Data          24  scs_servo.o(.constdata)
+    shellCmddog                              0x08009909   Data           4  scs_servo.o(.constdata)
+    shellDescdog                             0x0800990d   Data          12  scs_servo.o(.constdata)
+    shellCmdsf                               0x08009919   Data           3  scs_servo.o(.constdata)
+    shellDescsf                              0x0800991c   Data          12  scs_servo.o(.constdata)
+    shellCmdrf                               0x08009928   Data           3  scs_servo.o(.constdata)
+    shellDescrf                              0x0800992b   Data          12  scs_servo.o(.constdata)
+    shellCmdmi                               0x08009937   Data           3  scs_servo.o(.constdata)
+    shellDescmi                              0x0800993a   Data          14  scs_servo.o(.constdata)
+    shellCmdde1                              0x08009948   Data           4  scs_servo.o(.constdata)
+    shellDescde1                             0x0800994c   Data          13  scs_servo.o(.constdata)
+    shellCmdDefaultUser                      0x08009959   Data           7  shell.o(.constdata)
+    shellPasswordDefaultUser                 0x08009960   Data           1  shell.o(.constdata)
+    shellDesDefaultUser                      0x08009961   Data          13  shell.o(.constdata)
+    shellCmdsetVar                           0x0800996e   Data           7  shell.o(.constdata)
+    shellDescsetVar                          0x08009975   Data           8  shell.o(.constdata)
+    shellDesc0x1B5B4100                      0x0800997d   Data           3  shell.o(.constdata)
+    shellDesc0x1B5B4200                      0x08009980   Data           5  shell.o(.constdata)
+    shellDesc0x1B5B4300                      0x08009985   Data           6  shell.o(.constdata)
+    shellDesc0x1B5B4400                      0x0800998b   Data           5  shell.o(.constdata)
+    shellDesc0x09000000                      0x08009990   Data           4  shell.o(.constdata)
+    shellDesc0x08000000                      0x08009994   Data          10  shell.o(.constdata)
+    shellDesc0x7F000000                      0x0800999e   Data          10  shell.o(.constdata)
+    shellDesc0x1B5B337E                      0x080099a8   Data           7  shell.o(.constdata)
+    shellDesc0x0A000000                      0x080099af   Data           6  shell.o(.constdata)
+    shellDesc0x0D000000                      0x080099b5   Data           6  shell.o(.constdata)
+    shellCmdhelp                             0x080099bb   Data           5  shell.o(.constdata)
+    shellDeschelp                            0x080099c0   Data          30  shell.o(.constdata)
+    shellCmdusers                            0x080099de   Data           6  shell.o(.constdata)
+    shellDescusers                           0x080099e4   Data          14  shell.o(.constdata)
+    shellCmdcmds                             0x080099f2   Data           5  shell.o(.constdata)
+    shellDesccmds                            0x080099f7   Data          13  shell.o(.constdata)
+    shellCmdvars                             0x08009a04   Data           5  shell.o(.constdata)
+    shellDescvars                            0x08009a09   Data          13  shell.o(.constdata)
+    shellCmdkeys                             0x08009a16   Data           5  shell.o(.constdata)
+    shellDesckeys                            0x08009a1b   Data          13  shell.o(.constdata)
+    shellCmdclear                            0x08009a28   Data           6  shell.o(.constdata)
+    shellDescclear                           0x08009a2e   Data          14  shell.o(.constdata)
+    marioMelody                              0x08009a3c   Data         312  buzzerdriver.o(.constdata)
+    secondMelody                             0x08009b74   Data           4  buzzerdriver.o(.constdata)
+    marioDuration                            0x08009b78   Data         312  buzzerdriver.o(.constdata)
+    secondDuration                           0x08009cb0   Data           4  buzzerdriver.o(.constdata)
+    melodySlowfactor                         0x08009cb4   Data           4  buzzerdriver.o(.constdata)
+    melodySizes                              0x08009cb8   Data           8  buzzerdriver.o(.constdata)
+    Region$$Table$$Base                      0x08009f68   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08009f88   Number         0  anon$$obj.o(Region$$Table)
+    shellCommand$$Base                       0x08009f88   Number         0  motorcontrol.o(shellCommand)
+    shellCommandsmp                          0x08009f88   Data          16  motorcontrol.o(shellCommand)
+    shellCommandsms                          0x08009f98   Data          16  motorcontrol.o(shellCommand)
+    shellVarvkp0                             0x08009fa8   Data          16  motorcontrol.o(shellCommand)
+    shellVarvki0                             0x08009fb8   Data          16  motorcontrol.o(shellCommand)
+    shellVarmsp0                             0x08009fc8   Data          16  controltask.o(shellCommand)
+    shellVarmsp1                             0x08009fd8   Data          16  controltask.o(shellCommand)
+    shellVarmsp2                             0x08009fe8   Data          16  controltask.o(shellCommand)
+    shellVarmsp3                             0x08009ff8   Data          16  controltask.o(shellCommand)
+    shellVarmspset0                          0x0800a008   Data          16  controltask.o(shellCommand)
+    shellVarmspset1                          0x0800a018   Data          16  controltask.o(shellCommand)
+    shellVarmspset2                          0x0800a028   Data          16  controltask.o(shellCommand)
+    shellVarmspset3                          0x0800a038   Data          16  controltask.o(shellCommand)
+    shellVarfol                              0x0800a048   Data          16  controltask.o(shellCommand)
+    shellVarlkf                              0x0800a058   Data          16  controltask.o(shellCommand)
+    shellVart6e                              0x0800a068   Data          16  controltask.o(shellCommand)
+    shellVaremu                              0x0800a078   Data          16  controltask.o(shellCommand)
+    shellVartogm                             0x0800a088   Data          16  controltask.o(shellCommand)
+    shellCommandqte                          0x0800a098   Data          16  controltask.o(shellCommand)
+    shellCommandog                           0x0800a0a8   Data          16  linefollowsensor.o(shellCommand)
+    shellCommandogsp                         0x0800a0b8   Data          16  linefollowsensor.o(shellCommand)
+    shellCommandotw                          0x0800a0c8   Data          16  gongxun.o(shellCommand)
+    shellCommandgxgo                         0x0800a0d8   Data          16  gongxun.o(shellCommand)
+    shellCommandrqr                          0x0800a0e8   Data          16  gongxun.o(shellCommand)
+    shellCommandrm                           0x0800a0f8   Data          16  gongxun.o(shellCommand)
+    shellVaru3ok                             0x0800a108   Data          16  uart234.o(shellCommand)
+    shellCommandu3rqr                        0x0800a118   Data          16  uart234.o(shellCommand)
+    shellVarxsp                              0x0800a128   Data          16  main.o(shellCommand)
+    shellVarysp                              0x0800a138   Data          16  main.o(shellCommand)
+    shellVarasp                              0x0800a148   Data          16  main.o(shellCommand)
+    shellVarstf                              0x0800a158   Data          16  main.o(shellCommand)
+    shellVarsb                               0x0800a168   Data          16  usart.o(shellCommand)
+    shellCommandwp                           0x0800a178   Data          16  scscl.o(shellCommand)
+    shellCommandms                           0x0800a188   Data          16  max7219_matrix.o(shellCommand)
+    shellCommandmr                           0x0800a198   Data          16  max7219_matrix.o(shellCommand)
+    shellCommandml                           0x0800a1a8   Data          16  max7219_matrix.o(shellCommand)
+    shellCommandmm                           0x0800a1b8   Data          16  max7219_matrix.o(shellCommand)
+    shellCommandami                          0x0800a1c8   Data          16  scs_servo.o(shellCommand)
+    shellCommandamf                          0x0800a1d8   Data          16  scs_servo.o(shellCommand)
+    shellCommandfll                          0x0800a1e8   Data          16  scs_servo.o(shellCommand)
+    shellCommandsap                          0x0800a1f8   Data          16  scs_servo.o(shellCommand)
+    shellCommandwwp                          0x0800a208   Data          16  scs_servo.o(shellCommand)
+    shellCommandseep                         0x0800a218   Data          16  scs_servo.o(shellCommand)
+    shellCommandcpt                          0x0800a228   Data          16  scs_servo.o(shellCommand)
+    shellCommandcop                          0x0800a238   Data          16  scs_servo.o(shellCommand)
+    shellCommandgop                          0x0800a248   Data          16  scs_servo.o(shellCommand)
+    shellCommandp2g                          0x0800a258   Data          16  scs_servo.o(shellCommand)
+    shellCommanddog                          0x0800a268   Data          16  scs_servo.o(shellCommand)
+    shellCommandsf                           0x0800a278   Data          16  scs_servo.o(shellCommand)
+    shellCommandrf                           0x0800a288   Data          16  scs_servo.o(shellCommand)
+    shellCommandmi                           0x0800a298   Data          16  scs_servo.o(shellCommand)
+    shellCommandde1                          0x0800a2a8   Data          16  scs_servo.o(shellCommand)
+    shellUserDefault                         0x0800a2b8   Data          16  shell.o(shellCommand)
+    shellCommandsetVar                       0x0800a2c8   Data          16  shell.o(shellCommand)
+    shellKey0x1B5B4100                       0x0800a2d8   Data          16  shell.o(shellCommand)
+    shellKey0x1B5B4200                       0x0800a2e8   Data          16  shell.o(shellCommand)
+    shellKey0x1B5B4300                       0x0800a2f8   Data          16  shell.o(shellCommand)
+    shellKey0x1B5B4400                       0x0800a308   Data          16  shell.o(shellCommand)
+    shellKey0x09000000                       0x0800a318   Data          16  shell.o(shellCommand)
+    shellKey0x08000000                       0x0800a328   Data          16  shell.o(shellCommand)
+    shellKey0x7F000000                       0x0800a338   Data          16  shell.o(shellCommand)
+    shellKey0x1B5B337E                       0x0800a348   Data          16  shell.o(shellCommand)
+    shellKey0x0A000000                       0x0800a358   Data          16  shell.o(shellCommand)
+    shellKey0x0D000000                       0x0800a368   Data          16  shell.o(shellCommand)
+    shellCommandhelp                         0x0800a378   Data          16  shell.o(shellCommand)
+    shellCommandusers                        0x0800a388   Data          16  shell.o(shellCommand)
+    shellCommandcmds                         0x0800a398   Data          16  shell.o(shellCommand)
+    shellCommandvars                         0x0800a3a8   Data          16  shell.o(shellCommand)
+    shellCommandkeys                         0x0800a3b8   Data          16  shell.o(shellCommand)
+    shellCommandclear                        0x0800a3c8   Data          16  shell.o(shellCommand)
+    shellCommand$$Limit                      0x0800a3d8   Number         0  shell.o(shellCommand)
     Velocity_Kp0                             0x20000000   Data           4  motorcontrol.o(.data)
     Velocity_Ki0                             0x20000004   Data           4  motorcontrol.o(.data)
     Velocity_Kp1                             0x20000008   Data           4  motorcontrol.o(.data)
@@ -3698,9 +3714,9 @@ Memory Map of the image
 
   Image Entry point : 0x08000189
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x0000a524, Max: 0x00080000, ABSOLUTE, COMPRESSED[0x0000a3d8])
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x0000a5cc, Max: 0x00080000, ABSOLUTE, COMPRESSED[0x0000a484])
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x0000a330, Max: 0x00080000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x0000a3d8, Max: 0x00080000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -4057,41 +4073,41 @@ Memory Map of the image
     0x0800919c   0x0800919c   0x0000005c   Code   RO          348    i.yAngleControl     linefollowsensor.o
     0x080091f8   0x080091f8   0x00000060   Code   RO          349    i.yPositionControl  linefollowsensor.o
     0x08009258   0x08009258   0x00000060   Data   RO           21    .constdata          motorcontrol.o
-    0x080092b8   0x080092b8   0x000000b1   Data   RO          208    .constdata          controltask.o
-    0x08009369   0x08009369   0x0000003f   Data   RO          352    .constdata          linefollowsensor.o
-    0x080093a8   0x080093a8   0x0000005f   Data   RO          526    .constdata          gongxun.o
-    0x08009407   0x08009407   0x00000026   Data   RO          589    .constdata          uart234.o
-    0x0800942d   0x0800942d   0x00000032   Data   RO          668    .constdata          main.o
-    0x0800945f   0x0800945f   0x0000000c   Data   RO          969    .constdata          usart.o
-    0x0800946b   0x0800946b   0x00000018   Data   RO         4426    .constdata          system_stm32f4xx.o
-    0x08009483   0x08009483   0x0000001e   Data   RO         4590    .constdata          scscl.o
-    0x080094a1   0x080094a1   0x00000007   PAD
-    0x080094a8   0x080094a8   0x000002c8   Data   RO         5041    .constdata          max7219_matrix.o
-    0x08009770   0x08009770   0x00000181   Data   RO         5140    .constdata          scs_servo.o
-    0x080098f1   0x080098f1   0x000000e3   Data   RO         5333    .constdata          shell.o
-    0x080099d4   0x080099d4   0x00000284   Data   RO         5733    .constdata          buzzerdriver.o
-    0x08009c58   0x08009c58   0x000002a5   Data   RO         5334    .conststring        shell.o
-    0x08009efd   0x08009efd   0x00000003   PAD
-    0x08009f00   0x08009f00   0x00000020   Data   RO         6093    Region$$Table       anon$$obj.o
-    0x08009f20   0x08009f20   0x00000040   Data   RO           23    shellCommand        motorcontrol.o
-    0x08009f60   0x08009f60   0x000000a0   Data   RO          210    shellCommand        controltask.o
-    0x0800a000   0x0800a000   0x00000020   Data   RO          354    shellCommand        linefollowsensor.o
-    0x0800a020   0x0800a020   0x00000040   Data   RO          528    shellCommand        gongxun.o
-    0x0800a060   0x0800a060   0x00000020   Data   RO          591    shellCommand        uart234.o
-    0x0800a080   0x0800a080   0x00000040   Data   RO          670    shellCommand        main.o
-    0x0800a0c0   0x0800a0c0   0x00000010   Data   RO          971    shellCommand        usart.o
-    0x0800a0d0   0x0800a0d0   0x00000010   Data   RO         4592    shellCommand        scscl.o
-    0x0800a0e0   0x0800a0e0   0x00000040   Data   RO         5042    shellCommand        max7219_matrix.o
-    0x0800a120   0x0800a120   0x000000f0   Data   RO         5141    shellCommand        scs_servo.o
-    0x0800a210   0x0800a210   0x00000120   Data   RO         5336    shellCommand        shell.o
+    0x080092b8   0x080092b8   0x00000119   Data   RO          208    .constdata          controltask.o
+    0x080093d1   0x080093d1   0x0000003f   Data   RO          352    .constdata          linefollowsensor.o
+    0x08009410   0x08009410   0x0000005f   Data   RO          526    .constdata          gongxun.o
+    0x0800946f   0x0800946f   0x00000026   Data   RO          589    .constdata          uart234.o
+    0x08009495   0x08009495   0x00000032   Data   RO          668    .constdata          main.o
+    0x080094c7   0x080094c7   0x0000000c   Data   RO          969    .constdata          usart.o
+    0x080094d3   0x080094d3   0x00000018   Data   RO         4426    .constdata          system_stm32f4xx.o
+    0x080094eb   0x080094eb   0x0000001e   Data   RO         4590    .constdata          scscl.o
+    0x08009509   0x08009509   0x00000007   PAD
+    0x08009510   0x08009510   0x000002c8   Data   RO         5041    .constdata          max7219_matrix.o
+    0x080097d8   0x080097d8   0x00000181   Data   RO         5140    .constdata          scs_servo.o
+    0x08009959   0x08009959   0x000000e3   Data   RO         5333    .constdata          shell.o
+    0x08009a3c   0x08009a3c   0x00000284   Data   RO         5733    .constdata          buzzerdriver.o
+    0x08009cc0   0x08009cc0   0x000002a5   Data   RO         5334    .conststring        shell.o
+    0x08009f65   0x08009f65   0x00000003   PAD
+    0x08009f68   0x08009f68   0x00000020   Data   RO         6093    Region$$Table       anon$$obj.o
+    0x08009f88   0x08009f88   0x00000040   Data   RO           23    shellCommand        motorcontrol.o
+    0x08009fc8   0x08009fc8   0x000000e0   Data   RO          210    shellCommand        controltask.o
+    0x0800a0a8   0x0800a0a8   0x00000020   Data   RO          354    shellCommand        linefollowsensor.o
+    0x0800a0c8   0x0800a0c8   0x00000040   Data   RO          528    shellCommand        gongxun.o
+    0x0800a108   0x0800a108   0x00000020   Data   RO          591    shellCommand        uart234.o
+    0x0800a128   0x0800a128   0x00000040   Data   RO          670    shellCommand        main.o
+    0x0800a168   0x0800a168   0x00000010   Data   RO          971    shellCommand        usart.o
+    0x0800a178   0x0800a178   0x00000010   Data   RO         4592    shellCommand        scscl.o
+    0x0800a188   0x0800a188   0x00000040   Data   RO         5042    shellCommand        max7219_matrix.o
+    0x0800a1c8   0x0800a1c8   0x000000f0   Data   RO         5141    shellCommand        scs_servo.o
+    0x0800a2b8   0x0800a2b8   0x00000120   Data   RO         5336    shellCommand        shell.o
 
 
-    Execution Region RW_IRAM2 (Exec base: 0x10000000, Load base: 0x0800a3d8, Size: 0x00000000, Max: 0x00010000, ABSOLUTE)
+    Execution Region RW_IRAM2 (Exec base: 0x10000000, Load base: 0x0800a484, Size: 0x00000000, Max: 0x00010000, ABSOLUTE)
 
     **** No section assigned to this execution region ****
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x0800a330, Size: 0x000049d0, Max: 0x00020000, ABSOLUTE, COMPRESSED[0x000000a8])
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x0800a3d8, Size: 0x000049d0, Max: 0x00020000, ABSOLUTE, COMPRESSED[0x000000ac])
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -4157,7 +4173,7 @@ Image component sizes
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
        352         54        644         27          0       4181   buzzerdriver.o
-       760        116        337         29         96       4285   controltask.o
+       760        116        505         29         96       4953   controltask.o
       1436         68        159          6         12       5226   gongxun.o
        456         26          0          0          0       1231   gpio.o
        196         26          0          0         84       1749   i2c.o
@@ -4199,7 +4215,7 @@ Image component sizes
         50         10          0          4          0       2143   wiring.o
 
     ----------------------------------------------------------------------
-     33140       2862       4704        496      18396    1014850   Object Totals
+     33140       2862       4872        496      18396    1015518   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         46          0         10         27         10          0   (incl. Padding)
 
@@ -4259,15 +4275,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     37072       2974       4704        500      18396     988246   Grand Totals
-     37072       2974       4704        168      18396     988246   ELF Image Totals (compressed)
-     37072       2974       4704        168          0          0   ROM Totals
+     37072       2974       4872        500      18396     988914   Grand Totals
+     37072       2974       4872        172      18396     988914   ELF Image Totals (compressed)
+     37072       2974       4872        172          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                41776 (  40.80kB)
+    Total RO  Size (Code + RO Data)                41944 (  40.96kB)
     Total RW  Size (RW Data + ZI Data)             18896 (  18.45kB)
-    Total ROM Size (Code + RO Data + RW Data)      41944 (  40.96kB)
+    Total ROM Size (Code + RO Data + RW Data)      42116 (  41.13kB)
 
 ==============================================================================
 

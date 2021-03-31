@@ -3,7 +3,7 @@
 <title>Static Call Graph - [F407VET6_SmartDel_20201101\F407VET6_SmartDel_20201101.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image F407VET6_SmartDel_20201101\F407VET6_SmartDel_20201101.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Tue Mar 30 22:48:48 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Wed Mar 31 20:32:25 2021
 <BR><P>
 <H3>Maximum Stack Usage =        224 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -789,13 +789,13 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> scs_servo.o(shellCommand)
 </UL>
 <P><STRONG><a name="[b2]"></a>Grid_Lock</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, linefollowsensor.o(i.Grid_Lock))
-<BR><BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GoFrontForMaterial
-<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OnTheWay
+<BR><BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OnTheWay
+<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GoFrontForMaterial
 </UL>
 
 <P><STRONG><a name="[b4]"></a>Grid_UnLock</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, linefollowsensor.o(i.Grid_UnLock))
-<BR><BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GoFrontForMaterial
-<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OnTheWay
+<BR><BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OnTheWay
+<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GoFrontForMaterial
 </UL>
 
 <P><STRONG><a name="[101]"></a>HAL_DMA_Abort_IT</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, stm32f4xx_hal_dma.o(i.HAL_DMA_Abort_IT))
@@ -1680,14 +1680,14 @@ Global Symbols
 <P><STRONG><a name="[66]"></a>OnTheWay</STRONG> (Thumb, 604 bytes, Stack size 24 bytes, gongxun.o(i.OnTheWay))
 <BR><BR>[Stack]<UL><LI>Max Depth = 192<LI>Call Chain = OnTheWay &rArr; GoFrontForQR &rArr; Uart3_readQRcode &rArr; MAX7219_MatrixUpdate &rArr; MAX7219_Digit &rArr; MAX7219_Write &rArr; SPI_Tx &rArr; HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GoFrontForMaterial
-<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ni
+<BR>[Calls]<UL><LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ni
 <LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OneGrid_sp
 <LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OneGrid
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Grid_UnLock
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Grid_Lock
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GoFrontForQR
+<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GoFrontForMaterial
 </UL>
 <BR>[Called By]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ManufacturingProcesses
 </UL>

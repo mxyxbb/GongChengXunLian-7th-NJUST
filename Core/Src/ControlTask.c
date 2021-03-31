@@ -19,6 +19,10 @@ SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_INT), msp
 SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_INT), msp3, &motorspeed[3], motorspeed[3]);
 int32_t motorspeed_set[4] = {0};//change this value to change target speed of PI controller 改变这个数组的值来改变PI速度环的设定值
 uint32_t motorpwm_set[4] = {8400,8400,8400,8400};
+SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_INT), mspset0, &motorspeed_set[0], motorspeed_set[0]);
+SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_INT), mspset1, &motorspeed_set[1], motorspeed_set[1]);
+SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_INT), mspset2, &motorspeed_set[2], motorspeed_set[2]);
+SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_INT), mspset3, &motorspeed_set[3], motorspeed_set[3]);
 int32_t MaxSpeed[4] = {0};
 uint8_t cx=0;//循环变量
 uint8_t AngleAndPositionTIM=1;
