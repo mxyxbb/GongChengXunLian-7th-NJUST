@@ -98,6 +98,14 @@
 #define NOTE_D8  4699
 #define NOTE_DS8 4978
 
+const uint32_t tickMelody[] = {
+	NOTE_B5,0,NOTE_B5,0,NOTE_B5,0
+};
+const uint32_t tickDuration[] = {
+	8,4,8,4,8,4
+};
+
+
 const uint32_t marioMelody[] = {
 		  NOTE_E7, NOTE_E7, 0, NOTE_E7,
 		  0, NOTE_C7, NOTE_E7, 0,
@@ -212,4 +220,10 @@ const uint16_t melodySlowfactor[] ={15, 30};
 
 const uint32_t melodySizes[] ={sizeof(marioMelody)/sizeof(uint32_t),
 						sizeof(secondDuration)/sizeof(uint32_t)};
+
+const uint32_t* melody2[] ={tickMelody, secondMelody};
+const uint32_t* noteDurations2[] = {tickDuration, secondDuration};
+const uint32_t melodySizes2[] ={sizeof(tickMelody)/sizeof(uint32_t),
+						sizeof(secondDuration)/sizeof(uint32_t)};
+
 #endif /* MELODY_H_ */

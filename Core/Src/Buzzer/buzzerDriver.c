@@ -101,3 +101,17 @@ void musicPlay()
 //   TIM9 -> CR1 &= ~TIM_CR1_CEN;
 //   TIM9 ->CCER &= ~TIM_CCER_CC4E;
 }
+void music2Play()
+{
+  int melodyCount = sizeof(melodySizes2)/ sizeof(uint32_t);
+
+  for(int melodyIndex = 0; melodyIndex < melodyCount; melodyIndex++)
+  {
+	  for(int noteIndex = 0; noteIndex < melodySizes2[melodyIndex]; noteIndex++)
+  	  {
+	  	  buzzerSetNewFrequency(melody2[melodyIndex][noteIndex]);
+	  	  HAL_Delay(noteDurations2[melodyIndex][noteIndex] * melodySlowfactor[melodyIndex]);
+  	  }
+  }
+
+}

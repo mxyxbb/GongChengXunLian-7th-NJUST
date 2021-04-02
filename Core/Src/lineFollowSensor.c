@@ -6,6 +6,10 @@
 #include <stdio.h>
 #include "main.h"
 #include "letter_shell/src/shell_port.h"
+#include "Buzzer/buzzerDriver.h"
+#include "Buzzer/melody.h"
+#include <string.h> //使用到了memcpy
+
 
 #define SENSORNUM 4
 #define DIRECTION 4
@@ -56,6 +60,8 @@ int32_t xAngle=0;
 int32_t yAngle=0;
 //int32_t Angle=0;
 int32_t Sensor_JG_Buffer[30];//JG == ji guang
+int32_t Sensor_Check_Buffer[30];//JG == ji guang
+
 int32_t SegOFFSET_JG[DIRECTION]={0};
 //int32_t Angle_PIDControlVal=0;
 int32_t xAngle_PIDControlVal=0;
@@ -69,6 +75,9 @@ int32_t yPositionSet = 0;
 
 int32_t CarMovingTo = RIGHT;//FRONT;
 int32_t CarMovingTo_last = RIGHT;
+
+//用于自动校正灰度传感器，会被存储在flash中
+uint8_t index_gray[16];
 
 extern int32_t y_speed;
 extern int32_t x_speed;
@@ -257,52 +266,31 @@ int32_t DirectionError_Calc(int32_t direction)//0,1,2,3 前右后左
 void GetSensorData()
 {
 	//读16个灰度
-//	Sensor_JG_Buffer[0] = HAL_GPIO_ReadPin(OUT1_Port,OUT1_Pin);
-//	Sensor_JG_Buffer[1] = HAL_GPIO_ReadPin(OUT2_Port,OUT2_Pin);
-//	Sensor_JG_Buffer[2] = HAL_GPIO_ReadPin(OUT3_Port,OUT3_Pin);
-//	Sensor_JG_Buffer[3] = HAL_GPIO_ReadPin(OUT4_Port,OUT4_Pin);
-//	Sensor_JG_Buffer[4] = HAL_GPIO_ReadPin(OUT5_Port,OUT5_Pin);
-//	Sensor_JG_Buffer[5] = HAL_GPIO_ReadPin(OUT6_Port,OUT6_Pin);
-//	Sensor_JG_Buffer[6] = HAL_GPIO_ReadPin(OUT7_Port,OUT7_Pin);
-//	Sensor_JG_Buffer[7] = HAL_GPIO_ReadPin(OUT8_Port,OUT8_Pin);
-//	Sensor_JG_Buffer[8] = HAL_GPIO_ReadPin(OUT9_Port,OUT9_Pin);
-//	Sensor_JG_Buffer[9] = HAL_GPIO_ReadPin(OUT10_Port,OUT10_Pin);
-//	Sensor_JG_Buffer[10] = HAL_GPIO_ReadPin(OUT11_Port,OUT11_Pin);
-//	Sensor_JG_Buffer[11] = HAL_GPIO_ReadPin(OUT12_Port,OUT12_Pin);
-//	Sensor_JG_Buffer[12] = HAL_GPIO_ReadPin(OUT13_Port,OUT13_Pin);
-//	Sensor_JG_Buffer[13] = HAL_GPIO_ReadPin(SJ1_GPIO_Port,SJ1_Pin);//HAL_GPIO_ReadPin(OUT14_Port,OUT14_Pin);
-//	Sensor_JG_Buffer[14] = HAL_GPIO_ReadPin(OUT15_Port,OUT15_Pin);
-//	Sensor_JG_Buffer[15] = HAL_GPIO_ReadPin(OUT16_Port,OUT16_Pin);
+	Sensor_JG_Buffer[index_gray[0]] = HAL_GPIO_ReadPin(OUT1_Port,OUT1_Pin);
+	Sensor_JG_Buffer[index_gray[1]] = HAL_GPIO_ReadPin(OUT2_Port,OUT2_Pin);
+	Sensor_JG_Buffer[index_gray[2]] = HAL_GPIO_ReadPin(OUT3_Port,OUT3_Pin);
+	Sensor_JG_Buffer[index_gray[3]] = HAL_GPIO_ReadPin(OUT4_Port,OUT4_Pin);
+	Sensor_JG_Buffer[index_gray[4]] = HAL_GPIO_ReadPin(OUT5_Port,OUT5_Pin);
+	Sensor_JG_Buffer[index_gray[5]] = HAL_GPIO_ReadPin(OUT6_Port,OUT6_Pin);
+	Sensor_JG_Buffer[index_gray[6]] = HAL_GPIO_ReadPin(OUT7_Port,OUT7_Pin);
+	Sensor_JG_Buffer[index_gray[7]] = HAL_GPIO_ReadPin(OUT8_Port,OUT8_Pin);
+	Sensor_JG_Buffer[index_gray[8]] = HAL_GPIO_ReadPin(OUT9_Port,OUT9_Pin);
+	Sensor_JG_Buffer[index_gray[9]] = HAL_GPIO_ReadPin(OUT10_Port,OUT10_Pin);
+	Sensor_JG_Buffer[index_gray[10]] = HAL_GPIO_ReadPin(OUT11_Port,OUT11_Pin);
+	Sensor_JG_Buffer[index_gray[11]] = HAL_GPIO_ReadPin(OUT12_Port,OUT12_Pin);
+	Sensor_JG_Buffer[index_gray[12]] = HAL_GPIO_ReadPin(OUT13_Port,OUT13_Pin);
+	Sensor_JG_Buffer[index_gray[13]] = HAL_GPIO_ReadPin(OUT14_Port,OUT14_Pin);
+	Sensor_JG_Buffer[index_gray[14]] = HAL_GPIO_ReadPin(OUT15_Port,OUT15_Pin);
+	Sensor_JG_Buffer[index_gray[15]] = HAL_GPIO_ReadPin(OUT16_Port,OUT16_Pin);
 
-	Sensor_JG_Buffer[0] = HAL_GPIO_ReadPin(OUT9_Port,OUT9_Pin);
-	Sensor_JG_Buffer[1] = HAL_GPIO_ReadPin(OUT10_Port,OUT10_Pin);
-	Sensor_JG_Buffer[2] = HAL_GPIO_ReadPin(OUT11_Port,OUT11_Pin);
-	Sensor_JG_Buffer[3] = HAL_GPIO_ReadPin(OUT12_Port,OUT12_Pin);
-	Sensor_JG_Buffer[4] = HAL_GPIO_ReadPin(SJ1_GPIO_Port,SJ1_Pin);
-	Sensor_JG_Buffer[5] = HAL_GPIO_ReadPin(OUT13_Port,OUT13_Pin);
-	Sensor_JG_Buffer[6] = HAL_GPIO_ReadPin(OUT15_Port,OUT15_Pin);
-	Sensor_JG_Buffer[7] = HAL_GPIO_ReadPin(OUT16_Port,OUT16_Pin);
-	Sensor_JG_Buffer[8] = HAL_GPIO_ReadPin(OUT1_Port,OUT1_Pin);
-	Sensor_JG_Buffer[9] = HAL_GPIO_ReadPin(OUT2_Port,OUT2_Pin);
-	Sensor_JG_Buffer[10] = HAL_GPIO_ReadPin(OUT3_Port,OUT3_Pin);
-	Sensor_JG_Buffer[11] = HAL_GPIO_ReadPin(OUT4_Port,OUT4_Pin);
-	Sensor_JG_Buffer[12] = HAL_GPIO_ReadPin(OUT5_Port,OUT5_Pin);
-	Sensor_JG_Buffer[13] = HAL_GPIO_ReadPin(OUT6_Port,OUT6_Pin);
-	Sensor_JG_Buffer[14] = HAL_GPIO_ReadPin(OUT7_Port,OUT7_Pin);
-	Sensor_JG_Buffer[15] = HAL_GPIO_ReadPin(OUT8_Port,OUT8_Pin);
-
-	
-	
 	//读6个激光
-	Sensor_JG_Buffer[16] = HAL_GPIO_ReadPin(OUT14_Port,OUT14_Pin);//HAL_GPIO_ReadPin(SJ1_GPIO_Port,SJ1_Pin);
+	Sensor_JG_Buffer[16] = HAL_GPIO_ReadPin(SJ1_GPIO_Port,SJ1_Pin);
 	Sensor_JG_Buffer[17] = HAL_GPIO_ReadPin(SJ2_GPIO_Port,SJ2_Pin);
 	Sensor_JG_Buffer[18] = HAL_GPIO_ReadPin(SJ3_GPIO_Port,SJ3_Pin);
 	Sensor_JG_Buffer[19] = HAL_GPIO_ReadPin(SJ4_GPIO_Port,SJ4_Pin);
 	Sensor_JG_Buffer[20] = HAL_GPIO_ReadPin(SJ5_GPIO_Port,SJ5_Pin);
 	Sensor_JG_Buffer[21] = HAL_GPIO_ReadPin(SJ6_GPIO_Port,SJ6_Pin);
 
-	
-	
 	for(xunhuan=0;xunhuan<TOTAL_SENSORNUM;xunhuan++)
 	{
 		if(Sensor_JG_Buffer[xunhuan] == BLACK)
@@ -312,6 +300,170 @@ void GetSensorData()
 	}
 	//1 -- online, 0 -- offline
 }
+
+static void GetSensorDataRaw()
+{
+	//读16个灰度
+	Sensor_Check_Buffer[0] = HAL_GPIO_ReadPin(OUT1_Port,OUT1_Pin);
+	Sensor_Check_Buffer[1] = HAL_GPIO_ReadPin(OUT2_Port,OUT2_Pin);
+	Sensor_Check_Buffer[2] = HAL_GPIO_ReadPin(OUT3_Port,OUT3_Pin);
+	Sensor_Check_Buffer[3] = HAL_GPIO_ReadPin(OUT4_Port,OUT4_Pin);
+	Sensor_Check_Buffer[4] = HAL_GPIO_ReadPin(OUT5_Port,OUT5_Pin);
+	Sensor_Check_Buffer[5] = HAL_GPIO_ReadPin(OUT6_Port,OUT6_Pin);
+	Sensor_Check_Buffer[6] = HAL_GPIO_ReadPin(OUT7_Port,OUT7_Pin);
+	Sensor_Check_Buffer[7] = HAL_GPIO_ReadPin(OUT8_Port,OUT8_Pin);
+	Sensor_Check_Buffer[8] = HAL_GPIO_ReadPin(OUT9_Port,OUT9_Pin);
+	Sensor_Check_Buffer[9] = HAL_GPIO_ReadPin(OUT10_Port,OUT10_Pin);
+	Sensor_Check_Buffer[10] = HAL_GPIO_ReadPin(OUT11_Port,OUT11_Pin);
+	Sensor_Check_Buffer[11] = HAL_GPIO_ReadPin(OUT12_Port,OUT12_Pin);
+	Sensor_Check_Buffer[12] = HAL_GPIO_ReadPin(OUT13_Port,OUT13_Pin);
+	Sensor_Check_Buffer[13] = HAL_GPIO_ReadPin(OUT14_Port,OUT14_Pin);
+	Sensor_Check_Buffer[14] = HAL_GPIO_ReadPin(OUT15_Port,OUT15_Pin);
+	Sensor_Check_Buffer[15] = HAL_GPIO_ReadPin(OUT16_Port,OUT16_Pin);
+
+	//读6个激光
+	Sensor_Check_Buffer[16] = HAL_GPIO_ReadPin(SJ1_GPIO_Port,SJ1_Pin);
+	Sensor_Check_Buffer[17] = HAL_GPIO_ReadPin(SJ2_GPIO_Port,SJ2_Pin);
+	Sensor_Check_Buffer[18] = HAL_GPIO_ReadPin(SJ3_GPIO_Port,SJ3_Pin);
+	Sensor_Check_Buffer[19] = HAL_GPIO_ReadPin(SJ4_GPIO_Port,SJ4_Pin);
+	Sensor_Check_Buffer[20] = HAL_GPIO_ReadPin(SJ5_GPIO_Port,SJ5_Pin);
+	Sensor_Check_Buffer[21] = HAL_GPIO_ReadPin(SJ6_GPIO_Port,SJ6_Pin);
+
+	for(xunhuan=0;xunhuan<TOTAL_SENSORNUM;xunhuan++)
+	{
+		if(Sensor_Check_Buffer[xunhuan] == BLACK)
+			Sensor_Check_Buffer[xunhuan]= 1;
+		else
+			Sensor_Check_Buffer[xunhuan]= 0;
+	}
+	//1 -- online, 0 -- offline
+}
+//调用此函数前，确认所有传感器在白色环境，
+//使前方最左侧传感器位于黑线上后，调用此函数
+//听到蜂鸣器鸣响后，立即使刚才的传感器恢复白色状态
+//蜂鸣器会鸣响3声，在蜂鸣器鸣响结束前，按顺时针顺序，使下一个灰度处于黑线上
+//重复上面操作，依次操作所有16个传感器
+//这样，传感器的连接关系便会由程序自动保存，车辆可正常循迹
+void CheckSensorData()
+{
+	uint8_t i,j;
+	for(j=0;j<15;j++){
+		GetSensorDataRaw();
+		for(i=0;i<15;i++)
+			if(Sensor_Check_Buffer[i]==BLACK)
+			{
+				index_gray[j]=i;
+				music2Play();
+				break;
+			}
+	}
+}
+
+/**
+  * @brief  将与传感器顺序有关的缓冲区变量存入内部Flash的
+	* 扇区10(0x080C 0000 - 0x080D FFFF)中,此扇区可存储128kByte数据
+  * @retval 无
+  */
+void SaveSensor2F()
+{
+	int i = 0;
+	uint32_t PageError = 0;
+	FLASH_EraseInitTypeDef a;
+	HAL_StatusTypeDef status;
+	uint32_t addr = 0x080C0000;
+	uint32_t data_buf[10];
+	
+	/* 读取Flash内容 */
+	memcpy(data_buf, (uint32_t*)addr, sizeof(uint32_t)*10);
+	printf("read before erase:\r\n\t");
+	for(i = 0;i < 10;i++)
+	{
+		printf("0x%08x ", data_buf[i]);
+	}
+	printf("\r\n");
+	
+	/*定义要擦除的部分*/
+	a.TypeErase = FLASH_TYPEERASE_SECTORS;
+	a.Banks = FLASH_BANK_1;
+	a.Sector = FLASH_SECTOR_10;
+	a.NbSectors = 1;
+	a.VoltageRange = FLASH_VOLTAGE_RANGE_3;
+
+	HAL_FLASH_Unlock();
+	status = HAL_FLASHEx_Erase(&a,&PageError);/*擦除扇区11的内容*/
+	HAL_FLASH_Lock();
+	if(status != HAL_OK)
+	{
+		printf("erase fail, PageError = %d\r\n", PageError);
+	}
+	else
+		printf("erase success\r\n");
+
+	/* 读取Flash内容 */
+	memcpy(data_buf, (uint32_t*)addr, sizeof(uint32_t)*10);
+	printf("read after erase:\r\n\t");
+	for(i = 0;i < 10;i++)
+	{
+		printf("0x%08x ", data_buf[i]);
+	}
+	printf("\r\n");
+	
+	//写入Flash内容
+	HAL_FLASH_Unlock();
+	
+	{
+		uint16_t lenadd=0;
+		uint16_t cnt=0;//从第0个位置开始存数据
+			
+			/*----开始存传感器顺序数据，共16字节*/
+			for(uint8_t i=0;i<16;i++)//遍历16个数据
+			{
+				HAL_FLASH_Program(FLASH_TYPEPROGRAM_BYTE, addr+cnt, index_gray[i]);//存ID
+				cnt += 1;
+			}
+			//存数据结束
+	}
+	
+	HAL_FLASH_Lock();
+	
+	if(status != HAL_OK)
+	{
+		printf("write fail\r\n");
+	}
+	else
+	{
+		printf("write success\r\n");
+	}
+
+	/* 读取Flash内容 */
+	addr = 0x080C0000;
+	memcpy(data_buf, (uint32_t*)addr, sizeof(uint32_t)*10);
+	printf("read after write:\r\n\t");
+	for(i = 0;i < 10;i++)
+	{
+		printf("0x%08x ", data_buf[i]);
+	}
+	printf("\r\n");
+
+}
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), ssenf, SaveSensor2F, SaveSensor2F());
+
+/**
+  * @brief  将Flash中的传感器顺序数据读至缓冲区
+  * @retval 无
+  */
+void readSensorF2ram()
+{
+	uint16_t cnt=0;
+	uint32_t addr = 0x080C0000;
+	//读传感器顺序数据，长度已知为16
+	for(uint8_t i=0;i<16;i++)//遍历16个数据
+	{
+		index_gray[i] = *(uint8_t *)(addr+cnt);//读ID
+		cnt += 1;
+	}
+}
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), rsenf, readSensorF2ram, readSensorF2ram());
 
 //判断是否在格点
 unsigned int  AtGridPosition(unsigned int dir)//返回为1，代表小车达到格点
