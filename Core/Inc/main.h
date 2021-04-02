@@ -138,6 +138,8 @@ extern void led_shan(void);
 /* USER CODE BEGIN Private defines */
 #define CTR1_Pin GPIO_PIN_0
 #define CTR1_GPIO_Port GPIOD
+#define CTR2_Pin GPIO_PIN_1
+#define CTR2_GPIO_Port GPIOD
 
 #define SW1 HAL_GPIO_ReadPin(SW1_GPIO_Port,SW1_Pin)
 #define SW2 HAL_GPIO_ReadPin(SW2_GPIO_Port,SW2_Pin)

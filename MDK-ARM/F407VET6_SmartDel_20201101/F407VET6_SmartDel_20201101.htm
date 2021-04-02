@@ -3,7 +3,7 @@
 <title>Static Call Graph - [F407VET6_SmartDel_20201101\F407VET6_SmartDel_20201101.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image F407VET6_SmartDel_20201101\F407VET6_SmartDel_20201101.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Wed Mar 31 20:32:25 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Thu Apr 01 22:04:21 2021
 <BR><P>
 <H3>Maximum Stack Usage =        224 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -881,9 +881,9 @@ Global Symbols
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 <LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_OscConfig
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
-<LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_WaitFlagStateUntilTimeout
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_WaitForLastOperation
 <LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_Transmit
+<LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_WaitFlagStateUntilTimeout
 <LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_WaitOnFlagUntilTimeout
 </UL>
 
@@ -1216,7 +1216,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[e9]"></a>HAL_TIM_PeriodElapsedCallback</STRONG> (Thumb, 632 bytes, Stack size 16 bytes, controltask.o(i.HAL_TIM_PeriodElapsedCallback))
+<P><STRONG><a name="[e9]"></a>HAL_TIM_PeriodElapsedCallback</STRONG> (Thumb, 670 bytes, Stack size 16 bytes, controltask.o(i.HAL_TIM_PeriodElapsedCallback))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = HAL_TIM_PeriodElapsedCallback &rArr; musicPlay &rArr; buzzerSetNewFrequency &rArr; __aeabi_uldivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;musicPlay

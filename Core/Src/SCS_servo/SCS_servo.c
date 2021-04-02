@@ -152,7 +152,7 @@ void seePos(int16_t PID)
 	user_main_printf("PID=%d",postion0.pos_id);
 	user_main_printf("time=%d",postion0.timems);
 	for(uint8_t i=0;i<5;i++)
-	user_main_printf("angle%d: %d",i,postion0.angle[i]);
+	user_main_printf("angle%d:%d",i,postion0.angle[i]);
 }
 SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), seep, seePos, seePos(int16_t PID));
 
