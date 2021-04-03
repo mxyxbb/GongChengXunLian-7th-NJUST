@@ -77,6 +77,7 @@ void buzzerSetNewFrequency(uint32_t newFreq)
 //   TIM9 -> CR1 &= ~TIM_CR1_CEN;
 //   TIM9 ->CCER &= ~TIM_CCER_CC4E;
 //}
+//·Ç¶ÂÈû
 void musicPlay()
 {
 	__ExecuteOnce(buzzerDriverInit());
@@ -101,7 +102,7 @@ void musicPlay()
 //   TIM9 -> CR1 &= ~TIM_CR1_CEN;
 //   TIM9 ->CCER &= ~TIM_CCER_CC4E;
 }
-void music2Play()
+void music2Play()//¶ÂÈûÊ½
 {
   int melodyCount = sizeof(melodySizes2)/ sizeof(uint32_t);
 
@@ -114,4 +115,28 @@ void music2Play()
   	  }
   }
 
+}
+void music3Play()
+{
+	__ExecuteOnce(buzzerDriverInit());
+	__ExecuteOnce(TIM9 -> CR1 |= TIM_CR1_CEN);
+	__ExecuteOnce(TIM9 ->CCER |= TIM_CCER_CC4E);
+//  TIM9 -> CR1 |= TIM_CR1_CEN;
+//  TIM9 ->CCER |= TIM_CCER_CC4E;
+	static uint32_t cnt_=0;
+//  static int melodyCount = sizeof(melodySizes)/ sizeof(uint32_t);
+//	static int melodyIndex = 0;
+	static int noteIndex = 0;
+	if( noteIndex >= melodySizes3[0]) noteIndex=0;
+	if(cnt_++%(noteDurations3[0][noteIndex] * melodySlowfactor[0])==0){
+		buzzerSetNewFrequency(melody3twincle[0][noteIndex]);
+		noteIndex++;
+	}
+	if(cnt_++%(noteDurations3[0][noteIndex] * melodySlowfactor[0])==0){
+		buzzerSetNewFrequency(melody3twincle[0][noteIndex]);
+		noteIndex++;
+	}
+//	__ValueStep(melodyIndex,1,melodyCount);
+//   TIM9 -> CR1 &= ~TIM_CR1_CEN;
+//   TIM9 ->CCER &= ~TIM_CCER_CC4E;
 }

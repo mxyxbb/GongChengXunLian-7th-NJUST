@@ -25,7 +25,7 @@ SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_INT), msp
 SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_INT), mspset3, &motorspeed_set[3], motorspeed_set[3]);
 int32_t MaxSpeed[4] = {0};
 uint8_t cx=0;//—≠ª∑±‰¡ø
-uint8_t AngleAndPositionTIM=1;
+uint8_t AngleAndPositionTIM=0;
 uint8_t lockFlag=0;
 SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), fol, &AngleAndPositionTIM, AngleAndPositionTIM);
 SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), lkf, &lockFlag, lockFlag);
@@ -38,6 +38,8 @@ uint8_t tim6enable=0;
 SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), t6e, &tim6enable, tim6enable);
 uint8_t musicenable=0;
 SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), emu, &musicenable, musicenable);
+uint8_t musicenable2=0;
+SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), emu2, &musicenable2, musicenable2);
 uint8_t toggleMotor=0;
 SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), togm, &toggleMotor, toggleMotor);
 uint8_t toggleServo=0;
@@ -65,6 +67,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 			Time3_ms++;
 			if(musicenable)
 				musicPlay();
+			if(musicenable2)
+				music3Play();
 			if(toggleMotor){
 				HAL_GPIO_TogglePin(CTR1_GPIO_Port,CTR1_Pin);
 				HAL_Delay(10);

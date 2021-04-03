@@ -7,7 +7,6 @@
 #include "main.h"
 #include "letter_shell/src/shell_port.h"
 #include "Buzzer/buzzerDriver.h"
-#include "Buzzer/melody.h"
 #include <string.h> //使用到了memcpy
 
 
@@ -339,25 +338,30 @@ static void GetSensorDataRaw()
 	//1 -- online, 0 -- offline
 }
 //调用此函数前，确认所有传感器在白色环境，
-//使前方最左侧传感器位于黑线上后，调用此函数
-//听到蜂鸣器鸣响后，立即使刚才的传感器恢复白色状态
-//蜂鸣器会鸣响3声，在蜂鸣器鸣响结束前，按顺时针顺序，使下一个灰度处于黑线上
-//重复上面操作，依次操作所有16个传感器
-//这样，传感器的连接关系便会由程序自动保存，车辆可正常循迹
+//调用此函数,蜂鸣器会循环鸣响3声,
+//听到蜂鸣器鸣响第三声时，使第一个传感器（前方最左侧）处于黑色状态
+//待下一波3声鸣响开始第一声后，这个传感器的顺序数据就被保存了
+//听到这一波蜂鸣器鸣响第三声时，使第二个传感器（前方自左向右第2个）处于黑色状态
+//待下一波3声鸣响开始第一声后，这个传感器的顺序数据就被保存了
+//依次顺时针重复上面的操作16次
+//这样，16个传感器的连接关系便会由程序自动保存，车辆可正常循迹
 void CheckSensorData()
 {
 	uint8_t i,j;
-	for(j=0;j<15;j++){
+	for(j=0;j<16;j++){
+		if(j%4==0) HAL_Delay(1000);
+		music2Play();
 		GetSensorDataRaw();
-		for(i=0;i<15;i++)
+		
+		for(i=0;i<16;i++)
 			if(Sensor_Check_Buffer[i]==BLACK)
 			{
 				index_gray[j]=i;
-				music2Play();
 				break;
 			}
 	}
 }
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), csd, CheckSensorData, CheckSensorData());
 
 /**
   * @brief  将与传感器顺序有关的缓冲区变量存入内部Flash的
@@ -412,7 +416,6 @@ void SaveSensor2F()
 	HAL_FLASH_Unlock();
 	
 	{
-		uint16_t lenadd=0;
 		uint16_t cnt=0;//从第0个位置开始存数据
 			
 			/*----开始存传感器顺序数据，共16字节*/
