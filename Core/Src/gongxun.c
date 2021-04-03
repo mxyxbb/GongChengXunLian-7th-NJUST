@@ -10,6 +10,9 @@
 #include "letter_shell/src/shell_port.h"
 #include "SCS_servo/SCS_servo.h"
 
+extern int32_t x_position;
+extern int32_t y_position;
+
 Meterial meterial[6];
 uint8_t queue[6];
 
@@ -235,3 +238,25 @@ void GoFrontForMaterial()
 	Grid_UnLock();
 }
 SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), rm, GoFrontForMaterial, GoFrontForMaterial());
+
+void resetCar()
+{
+	CarMovingTo=RIGHT;
+	AngleAndPositionTIM=1;
+	Grid_UnLock();
+	y_speed=-10;
+	while(HAL_GPIO_ReadPin(SJ2_GPIO_Port,SJ2_Pin)==1);
+	y_speed=10;
+	HAL_Delay(200);
+	
+	CarMovingTo=BACK;
+	AngleAndPositionTIM=1;
+	Grid_UnLock();
+	x_speed=-10;
+	while(HAL_GPIO_ReadPin(SJ1_GPIO_Port,SJ1_Pin)==1);
+	x_speed=10;
+	HAL_Delay(200);
+	
+	x_position=0;
+	y_position=0;
+}
