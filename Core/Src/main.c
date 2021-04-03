@@ -153,6 +153,7 @@ int main(void)
   MX_USART3_UART_Init();
   MX_SPI1_Init();
   MX_UART5_Init();
+  MX_TIM12_Init();
   /* USER CODE BEGIN 2 */
 	led_shan();
 	led_shan();
@@ -219,7 +220,9 @@ int main(void)
 	user_main_printf("Enjoy a music...");
 	//开启蜂鸣器PWM输出
 	HAL_TIM_PWM_Start(&htim9, TIM_CHANNEL_1);
-
+	HAL_TIM_PWM_Start(&htim12, TIM_CHANNEL_2);
+	
+	
 	//初始化letter-shell
 	User_Shell_Init();
 	HAL_UART_Receive_IT(&huart1, (uint8_t*)&recv_buf, 1);

@@ -22,7 +22,7 @@ inline void buzzerDriverInit(void)
 	TIM9 -> CR1 &= ~(TIM_CR1_CKD_0 | TIM_CR1_CKD_1 | TIM_CR1_DIR);	// TIME x1 and DIR UP
 	TIM9 -> CR1 |= TIM_CR1_ARPE;									// Auto reload
 	TIM9 -> PSC = PRESCALER - 1;									// Prescaler
-	TIM2 ->ARR = 60000;												// Period
+	TIM9 ->ARR = 60000;												// Period
 
 	//Pulse
 	TIM9 -> CCER &= ~TIM_CCER_CC4E;
@@ -33,6 +33,22 @@ inline void buzzerDriverInit(void)
 
 	//Set pulse
 	TIM9 -> CCR1 = 60000/2;
+	
+	//Base Timer configuration:
+	TIM12 -> CR1 &= ~(TIM_CR1_CKD_0 | TIM_CR1_CKD_1 | TIM_CR1_DIR);	// TIME x1 and DIR UP
+	TIM12 -> CR1 |= TIM_CR1_ARPE;									// Auto reload
+	TIM12 -> PSC = PRESCALER - 1;									// Prescaler
+	TIM12 ->ARR = 60000;												// Period
+
+	//Pulse
+	TIM12 -> CCER &= ~TIM_CCER_CC4E;
+	TIM12 -> CCER |= TIM_CCER_CC4P;
+
+	TIM12 -> CCMR2 &= ~TIM_CR2_OIS4;
+	TIM12 -> CCMR2 |= TIM_CCMR2_OC4M_2 | TIM_CCMR2_OC4M_1;
+
+	//Set pulse
+	TIM12 -> CCR2 = 60000/2;
 }
 
 /*
@@ -56,6 +72,22 @@ void buzzerSetNewFrequency(uint32_t newFreq)
 		TIM9 -> CCR1 = 0;
 	}
 }
+void buzzerSetNewFrequency2(uint32_t newFreq)
+{
+	uint64_t tempFreq = newFreq;
+	if(newFreq != 0){
+
+	uint64_t tempNewValue = (uint64_t) CPU_FREQ / PRESCALER / tempFreq;
+
+	// setting new value
+	TIM12 ->ARR = (uint32_t)tempNewValue;
+	TIM12 -> CCR2 = (uint32_t)tempNewValue/2;
+	}
+	else{
+		TIM12 -> CCR2 = 0;
+	}
+}
+
 
 //void musicPlay()
 //{
@@ -121,20 +153,27 @@ void music3Play()
 	__ExecuteOnce(buzzerDriverInit());
 	__ExecuteOnce(TIM9 -> CR1 |= TIM_CR1_CEN);
 	__ExecuteOnce(TIM9 ->CCER |= TIM_CCER_CC4E);
-//  TIM9 -> CR1 |= TIM_CR1_CEN;
-//  TIM9 ->CCER |= TIM_CCER_CC4E;
+	__ExecuteOnce(TIM12 -> CR1 |= TIM_CR1_CEN);
+	__ExecuteOnce(TIM12 ->CCER |= TIM_CCER_CC4E);
+	
 	static uint32_t cnt_=0;
+	static uint32_t cnt2_=0;
+	
 //  static int melodyCount = sizeof(melodySizes)/ sizeof(uint32_t);
 //	static int melodyIndex = 0;
 	static int noteIndex = 0;
+	static int noteIndex2 = 0;
+	
 	if( noteIndex >= melodySizes3[0]) noteIndex=0;
+	if( noteIndex2 >= melodySizes3_2[0]) noteIndex2=0;
+	
 	if(cnt_++%(noteDurations3[0][noteIndex] * melodySlowfactor[0])==0){
 		buzzerSetNewFrequency(melody3twincle[0][noteIndex]);
 		noteIndex++;
 	}
-	if(cnt_++%(noteDurations3[0][noteIndex] * melodySlowfactor[0])==0){
-		buzzerSetNewFrequency(melody3twincle[0][noteIndex]);
-		noteIndex++;
+	if(cnt2_++%(noteDurations3_2[0][noteIndex2] * melodySlowfactor[0])==0){
+		buzzerSetNewFrequency2(melody3twincle2[0][noteIndex2]);
+		noteIndex2++;
 	}
 //	__ValueStep(melodyIndex,1,melodyCount);
 //   TIM9 -> CR1 &= ~TIM_CR1_CEN;
