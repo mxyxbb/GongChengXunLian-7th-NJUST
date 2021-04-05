@@ -26,25 +26,25 @@ extern int32_t x_speed;
 PS:车上的篮子颜色固定，Ⅰ、Ⅱ、Ⅲ号代表蓝、红、绿篮子，同地面从左到右的颜色顺序
 控制机械臂执行特定动作 (堵塞式)
 
-CMD			action
----原料区---
-1				抓上左，且上左是蓝色（红+1，绿+2）
-4				抓上中，且上中是蓝色
-7				抓上右，且上右是蓝色
-10 			抓下左，且下左是蓝色
-13			抓下中，且下中是蓝色
-16			抓下右，且下右是蓝色
----粗加工---
-19			放Ⅰ号篮子物料（抓+1）
-21			放Ⅱ号篮子物料
-23			放Ⅲ号篮子物料
----精加工---
-25			放Ⅰ号篮子物料（上）
-26      放Ⅱ号篮子物料
-27      放Ⅲ号篮子物料
-28      放Ⅰ号篮子物料（下）
-29      放Ⅱ号篮子物料
-30      放Ⅲ号篮子物料
+DOG		CMD			action
+			---原料区---
+0			1				抓上左，且上左是蓝色（红+1，绿+2）
+3			4				抓上中，且上中是蓝色
+6			7				抓上右，且上右是蓝色
+9			10 			抓下左，且下左是蓝色
+12		13			抓下中，且下中是蓝色
+15		16			抓下右，且下右是蓝色
+			---粗加工---
+18		19			放Ⅰ号篮子物料（抓+1）
+20		21			放Ⅱ号篮子物料
+22		23			放Ⅲ号篮子物料
+			---精加工---
+24		25			放Ⅰ号篮子物料（上）
+25		26      放Ⅱ号篮子物料
+26		27      放Ⅲ号篮子物料
+27		28      放Ⅰ号篮子物料（下）
+28		29      放Ⅱ号篮子物料
+29		30      放Ⅲ号篮子物料
 */
 void Uart2_servoCtr(uint8_t CMD){
 	DoGroup(CMD-1);
@@ -59,17 +59,20 @@ int RxLine=0;           //接收到的数据长度
 
 void Uart3_readQRcode()
 {
+	printf("reading qrcode\n\r");
 	Ov3Mode=Ov3Mode_QrCode;
 	HAL_UART_Receive_IT(&huart3, (uint8_t *)RxBuff, 1); //打开串口中断接收
 	while(uart3ok==0)
 	{
+		printf("CMD_Serial\t");
 		HAL_UART_Transmit(&huart3, CMD_Serial, 10, 0xffff);
-		x_speed=5;
+		x_speed=1;
 		HAL_Delay(20);
-		x_speed=-5;
+		x_speed=-1;
 		HAL_Delay(20);
-		x_speed=0;
+		
 	}
+	x_speed=0;
 	colororder[0]=Max7219_String[0]-'0';
 	colororder[1]=Max7219_String[1]-'0';
 	colororder[2]=Max7219_String[2]-'0';
@@ -87,11 +90,11 @@ SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), u3
 char led_str[6]="000000";
 void Uart3_readColor()
 {
+	user_main_printf("%s",CMD_Material);
 	Ov3Mode=Ov3Mode_ColorBlock;
 	HAL_UART_Receive_IT(&huart3, (uint8_t *)RxBuff, 1); //打开串口中断接收
 	while(uart3ok==0){
 		HAL_UART_Transmit(&huart3, CMD_Material, 12, 0xffff);
-		user_main_printf("%s",CMD_Material);
 		x_speed=5;
 		HAL_Delay(20);
 		x_speed=-5;
@@ -128,9 +131,9 @@ void HAL_UART_RxCpltCallback_color()//在串口3的接收回调函数中调用此函数，处理ope
     
     if((DataBuff[RxLine-1] == 0x0A)&&(DataBuff[RxLine-2] == 0x0D))            //接收结束标志位，这个数据可以自定义，根据实际需求，这里只做示例使用，不一定是0xff
     {
-        printf("Uart3-RXLen=%d\r\n",RxLine); 
+        //printf("Uart3-RXLen=%d\r\n",RxLine); 
         for(int i=0;i<RxLine;i++)
-					printf("UART DataBuff[%d] = 0x%x\r\n",i,DataBuff[i]);                               
+					//printf("UART DataBuff[%d] = 0x%x\r\n",i,DataBuff[i]);                               
 
 				RxLine_Copy=RxLine;
 				RxLine=0;  //清空接收长度

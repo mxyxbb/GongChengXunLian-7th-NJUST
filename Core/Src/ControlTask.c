@@ -19,9 +19,13 @@ SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_INT), msp
 SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_INT), msp3, &motorspeed[3], motorspeed[3]);
 int32_t motorspeed_set[4] = {0};//change this value to change target speed of PI controller 改变这个数组的值来改变PI速度环的设定值
 uint32_t motorpwm_set[4] = {8400,8400,8400,8400};
+SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_INT), mspset0, &motorspeed_set[0], motorspeed_set[0]);
+SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_INT), mspset1, &motorspeed_set[1], motorspeed_set[1]);
+SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_INT), mspset2, &motorspeed_set[2], motorspeed_set[2]);
+SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_INT), mspset3, &motorspeed_set[3], motorspeed_set[3]);
 int32_t MaxSpeed[4] = {0};
 uint8_t cx=0;//循环变量
-uint8_t AngleAndPositionTIM=1;
+uint8_t AngleAndPositionTIM=0;
 uint8_t lockFlag=0;
 SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), fol, &AngleAndPositionTIM, AngleAndPositionTIM);
 SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), lkf, &lockFlag, lockFlag);
@@ -34,7 +38,12 @@ uint8_t tim6enable=0;
 SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), t6e, &tim6enable, tim6enable);
 uint8_t musicenable=0;
 SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), emu, &musicenable, musicenable);
-
+uint8_t musicenable2=0;
+SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), emu2, &musicenable2, musicenable2);
+uint8_t toggleMotor=0;
+SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), togm, &toggleMotor, toggleMotor);
+uint8_t toggleServo=0;
+SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), togs, &toggleServo, toggleServo);
 
 extern int32_t y_speed;
 extern int32_t x_speed;
@@ -58,6 +67,20 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 			Time3_ms++;
 			if(musicenable)
 				musicPlay();
+			if(musicenable2)
+				music3Play();
+			if(toggleMotor){
+				HAL_GPIO_TogglePin(CTR1_GPIO_Port,CTR1_Pin);
+				HAL_Delay(10);
+				HAL_GPIO_TogglePin(CTR1_GPIO_Port,CTR1_Pin);
+				toggleMotor=0;
+			}
+			if(toggleServo){
+				HAL_GPIO_TogglePin(CTR2_GPIO_Port,CTR2_Pin);
+				HAL_Delay(10);
+				HAL_GPIO_TogglePin(CTR2_GPIO_Port,CTR2_Pin);
+				toggleServo=0;
+			}
 			if(Time2_ms == 20)//传感器读入，周期为20ms(50Hz)
 			{
 				GetSensorData();

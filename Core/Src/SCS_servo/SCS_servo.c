@@ -108,12 +108,117 @@ void SavePos(int16_t ID_,int16_t timems_)
 }
 SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), sap, SavePos, savePos(id,time));
 /**
+  * @brief  使某舵机动作到指定位置，并将写入的指定位置存为该舵机之后的动作目标位置
+  * @param  PID:动作结构体序号
+  * @param  SID:指定舵机的序号（1、2、3、4、5）
+  * @param  Position:指定舵机要运动到的目标位置（20-1000）
+  * @param  Position:指定舵机运动到的目标位置花费的时间（ms）
+  * @retval 无
+  */
+void WritePos_sp(int16_t PID,uint8_t SID, uint16_t Position, uint16_t Time)
+{	
+	WritePos(SID,Position,Time,0);
+	Pos postion0;
+	/*读取*/
+	if(PID<POS_LEN)
+		postion0=postion[PID];//存储至缓存区1
+	else
+		postion0=postion_ex[PID-POS_LEN];//存储至缓存区2
+	/*修改*/
+	postion0.angle[SID-1]=Position;
+	/*存储*/
+	for(uint8_t i=0;i<5;i++)
+	user_main_printf("angle%d: %d",i,postion0.angle[i]);
+	if(PID<POS_LEN)
+		postion[PID]=postion0;//存储至缓存区1
+	else
+		postion_ex[PID-POS_LEN]=postion0;//存储至缓存区2
+}
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), wwp, WritePos_sp, WritePos_sp(int16_t PID,uint8_t SID, uint16_t Position, uint16_t Time));
+/**
+  * @brief  查看指定动作结构体的数据
+  * @param  PID:动作结构体序号
+  * @retval 无
+  */
+void seePos(int16_t PID)
+{	
+	Pos postion0;
+	/*读取*/
+	if(PID<POS_LEN)
+		postion0=postion[PID];//存储至缓存区1
+	else
+		postion0=postion_ex[PID-POS_LEN];//存储至缓存区2
+	/*打印*/
+	user_main_printf("PID=%d",postion0.pos_id);
+	user_main_printf("time=%d",postion0.timems);
+	for(uint8_t i=0;i<5;i++)
+	user_main_printf("angle%d:%d",i,postion0.angle[i]);
+}
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), seep, seePos, seePos(int16_t PID));
+
+void changePosTime(int16_t PID,uint16_t Time)
+{
+	Pos postion0;
+	/*读取*/
+	if(PID<POS_LEN)
+		postion0=postion[PID];//存储至缓存区1
+	else
+		postion0=postion_ex[PID-POS_LEN];//存储至缓存区2
+	user_main_printf("time before=%d",postion0.timems);
+	postion0.timems=Time;
+	user_main_printf("time after=%d",postion0.timems);
+	/*存储*/
+	for(uint8_t i=0;i<5;i++)
+	user_main_printf("angle%d: %d",i,postion0.angle[i]);
+	if(PID<POS_LEN)
+		postion[PID]=postion0;//存储至缓存区1
+	else
+		postion_ex[PID-POS_LEN]=postion0;//存储至缓存区2
+}
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), cpt, changePosTime, changePosTime(int16_t PID,,uint16_t Time));
+
+
+/**
+  * @brief  复制动作结构体
+  * @param  Pfrom:复制的源动作结构体序号
+  * @param  Pto:复制的目的动作结构体序号
+  * @retval 无
+  */
+void copyPos(int16_t Pfrom,int16_t Pto)
+{	
+	Pos postion0;
+	/*读取*/
+	if(Pfrom<POS_LEN)
+		postion0=postion[Pfrom];//从缓存区1读取
+	else
+		postion0=postion_ex[Pfrom-POS_LEN];//从缓存区2读取
+	/*打印*/
+	for(uint8_t i=0;i<5;i++)
+	user_main_printf("angle%d: %d",i,postion0.angle[i]);
+	if(Pto<POS_LEN)
+		postion[Pto]=postion0;//存储至缓存区1
+	else
+		postion_ex[Pto-POS_LEN]=postion0;//存储至缓存区2
+	user_main_printf("copy complete!");
+}
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), cop, copyPos, copyPos(int16_t Pfrom,int16_t Pto));
+
+
+/**
   * @brief  使机械臂动作到指定位置
   * @param  ID_:指定位置信息存储在数组中的位置
   * @retval 无
   */
 void GoPos(int16_t ID_)
 {
+	if(ID_<POS_LEN){
+		if(postion[ID_].pos_id==-1)
+			return;
+	}
+	else{
+		if(postion_ex[ID_].pos_id==-1)
+			return;
+	}
 	if(ID_<POS_LEN){
 		for(uint8_t temp=0;temp<5;temp++)//写5个舵机的角度
 		{

@@ -10,9 +10,14 @@
 #include "letter_shell/src/shell_port.h"
 #include "SCS_servo/SCS_servo.h"
 
+extern int32_t x_position;
+extern int32_t y_position;
+
 Meterial meterial[6];
 uint8_t queue[6];
 
+void GoFrontForQR(void);
+void GoFrontForMaterial(void);
 
 /*
 start point 0,
@@ -30,18 +35,22 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 		case 01:
 			OneGrid(FRONT,-15);
 			OneGrid_sp(LEFT,FRONT,0);
-			OneGrid(FRONT,0);//2);
+			GoFrontForQR();
 //			Uart3_readQRcode();
 			break;
 		case 12:
 			OneGrid_sp(LEFT,FRONT,0);
-			OneGrid(FRONT,0);
-			OneGrid(FRONT,0);
-			OneGrid(FRONT,10);
-//			Uart3_readColor();
-		  /*抬起机械臂();*/
-			OneGrid(FRONT,-15);
 			Grid_Lock();
+			HAL_Delay(1000);
+			Grid_UnLock();
+			OneGrid(FRONT,0);
+			OneGrid(FRONT,0);
+			OneGrid(FRONT,0);
+			OneGrid(FRONT,-15);
+			GoFrontForMaterial();
+//			Uart3_readColor();
+			Grid_Lock();
+		//此处机械臂可能需要预动作
 			HAL_Delay(2000);
 			break;
 		case 23:
@@ -109,10 +118,13 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 			OneGrid(FRONT,0);
 			OneGrid(FRONT,-15);
 			OneGrid(RIGHT,0);
+			Grid_Lock();
+			HAL_Delay(1500);
+			Grid_UnLock();
 			AngleAndPositionTIM=0;
 			a_speed=0;
 			x_speed=5;
-			y_speed=15;
+			y_speed=5;
 			HAL_Delay(3000);
 			a_speed=0;
 			x_speed=0;
@@ -123,6 +135,7 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 	}
 	return;
 }
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), otw, OnTheWay, OnTheWay(from,to));
 
 void ManufacturingProcesses()
 {
@@ -165,7 +178,11 @@ void ManufacturingProcesses()
 		
 		
 //	while(SW2==UNPRESSED);//examing!
-		
+	for(uint8_t i=0;i<6;i++)
+	{
+		printf("queue[%d]=%d\t",i,queue[i]);
+	}
+	printf("\n\r");
 	/*performing*/
 	for(index=0;index<2;index++)
 		{
@@ -188,7 +205,7 @@ void ManufacturingProcesses()
 			OnTheWay(3,4);
 			for(unsigned int i=0;i<3;i++)//一次放好3个，在精加工区
 				{ 
-					Uart2_servoCtr(25+(meterial[queue[i+3*index]].itsColor%3));//放蓝25，红26，绿27。
+					Uart2_servoCtr(25+index*3+(meterial[queue[i+3*index]].itsColor%3));//放蓝25，红26，绿27。
 					led_shan();
 				}
 			if(index==1)
@@ -201,3 +218,45 @@ void ManufacturingProcesses()
 		}
 }
 SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), gxgo, ManufacturingProcesses, ManufacturingProcesses());
+
+void GoFrontForQR()
+{
+	CarMovingTo=FRONT;
+	x_speed=5;
+	HAL_Delay(2500);
+	x_speed=0;
+	Uart3_readQRcode();
+	OneGrid(0,-25);
+}
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), rqr, GoFrontForQR, GoFrontForQR());
+
+void GoFrontForMaterial()
+{
+	CarMovingTo=FRONT;
+	Grid_Lock();
+	Uart3_readColor();
+	Grid_UnLock();
+}
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), rm, GoFrontForMaterial, GoFrontForMaterial());
+
+void resetCar()
+{
+	CarMovingTo=RIGHT;
+	AngleAndPositionTIM=1;
+	Grid_UnLock();
+	y_speed=-10;
+	while(HAL_GPIO_ReadPin(SJ2_GPIO_Port,SJ2_Pin)==1);
+	y_speed=10;
+	HAL_Delay(200);
+	
+	CarMovingTo=BACK;
+	AngleAndPositionTIM=1;
+	Grid_UnLock();
+	x_speed=-10;
+	while(HAL_GPIO_ReadPin(SJ1_GPIO_Port,SJ1_Pin)==1);
+	x_speed=10;
+	HAL_Delay(200);
+	
+	x_position=0;
+	y_position=0;
+}

@@ -108,8 +108,8 @@ void SetMotorSPEED(int32_t zq,int32_t yq,int32_t zh,int32_t yh)
 }
 SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), sms, SetMotorSPEED, SetMotorSPEED(zq,yq,zh,yh));
 
-int32_t Velocity_Kp0 = -500;
-int32_t Velocity_Ki0 = -500;
+int32_t Velocity_Kp0 = -800;
+int32_t Velocity_Ki0 = -800;
 SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_INT), vkp0, &Velocity_Kp0, Velocity_Kp0);
 SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_INT), vki0, &Velocity_Ki0, Velocity_Ki0);
 uint32_t Incremental_PI0 (int32_t MotorSpeedFromEncoder_,int32_t Target)
@@ -126,8 +126,8 @@ uint32_t Incremental_PI0 (int32_t MotorSpeedFromEncoder_,int32_t Target)
 		Pwm0 = PWMDOWN;
 	return Pwm0;																							//增量输出
 }
-int32_t Velocity_Kp1 = -500;
-int32_t Velocity_Ki1 = -500;
+int32_t Velocity_Kp1 = -800;
+int32_t Velocity_Ki1 = -800;
 uint32_t Incremental_PI1 (int32_t MotorSpeedFromEncoder_,int32_t Target)
 {
 	static int32_t Bias1,Last_bias1;
@@ -142,8 +142,8 @@ uint32_t Incremental_PI1 (int32_t MotorSpeedFromEncoder_,int32_t Target)
 		Pwm1 = PWMDOWN;
 	return Pwm1;																							//增量输出
 }
-int32_t Velocity_Kp2 = -500;
-int32_t Velocity_Ki2 = -500;
+int32_t Velocity_Kp2 = -800;
+int32_t Velocity_Ki2 = -800;
 uint32_t Incremental_PI2 (int32_t MotorSpeedFromEncoder_,int32_t Target)
 {
 	static int32_t Bias2,Last_bias2;
@@ -158,8 +158,8 @@ uint32_t Incremental_PI2 (int32_t MotorSpeedFromEncoder_,int32_t Target)
 		Pwm2 = PWMDOWN;
 	return Pwm2;																							//增量输出
 }
-int32_t Velocity_Kp3 = -500;
-int32_t Velocity_Ki3 = -500;
+int32_t Velocity_Kp3 = -800;
+int32_t Velocity_Ki3 = -800;
 uint32_t Incremental_PI3 (int32_t MotorSpeedFromEncoder_,int32_t Target)
 {
 	static int32_t Bias3,Last_bias3;

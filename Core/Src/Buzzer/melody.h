@@ -97,6 +97,53 @@
 #define NOTE_CS8 4435
 #define NOTE_D8  4699
 #define NOTE_DS8 4978
+const uint32_t twicle1Melody[] = {
+	NOTE_C6,0,NOTE_C6,0,NOTE_G6,0,NOTE_G6,0,NOTE_A6,0,NOTE_A6,0,NOTE_G6,0,0,0,
+	NOTE_F6,0,NOTE_F6,0,NOTE_E6,0,NOTE_E6,0,NOTE_D6,0,NOTE_D6,0,NOTE_C6,0,0,0,
+	NOTE_G6,0,NOTE_G6,0,NOTE_F6,0,NOTE_F6,0,NOTE_E6,0,NOTE_E6,0,NOTE_D6,0,0,0,
+	NOTE_G6,0,NOTE_G6,0,NOTE_F6,0,NOTE_F6,0,NOTE_E6,0,NOTE_E6,0,NOTE_D6,0,0,0,
+	NOTE_C6,0,NOTE_C6,0,NOTE_G6,0,NOTE_G6,0,NOTE_A6,0,NOTE_A6,0,NOTE_G6,0,0,0,
+	NOTE_F6,0,NOTE_F6,0,NOTE_E6,0,NOTE_E6,0,NOTE_D6,0,NOTE_D6,0,NOTE_C6,0,0,0,
+};
+const uint32_t twicle1Duration[] = {
+	12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,
+	12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,
+	12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,
+	12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,
+	12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,
+	12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,
+};
+const uint32_t twicle2Melody[] = {
+	NOTE_C5,0,NOTE_G5,0,NOTE_E5,0,NOTE_G5,0,NOTE_C5,0,NOTE_G5,0,NOTE_E5,0,NOTE_G5,0,
+	NOTE_C5,0,NOTE_A5,0,NOTE_F5,0,NOTE_A5,0,NOTE_C5,0,NOTE_G5,0,NOTE_E5,0,NOTE_G5,0,
+	NOTE_B4,0,NOTE_G5,0,NOTE_D5,0,NOTE_G5,0,NOTE_C5,0,NOTE_G5,0,NOTE_E5,0,NOTE_G5,0,
+	NOTE_B4,0,NOTE_G5,0,NOTE_D5,0,NOTE_G5,0,NOTE_C5,0,NOTE_G5,0,NOTE_E5,0,NOTE_G5,0,
+	NOTE_C5,0,NOTE_G5,0,NOTE_E5,0,NOTE_G5,0,NOTE_B4,0,NOTE_G5,0,NOTE_D5,0,NOTE_G5,0,
+	NOTE_C5,0,NOTE_G5,0,NOTE_E5,0,NOTE_G5,0,NOTE_B4,0,NOTE_G5,0,NOTE_D5,0,NOTE_G5,0,
+	NOTE_C5,0,NOTE_G5,0,NOTE_E5,0,NOTE_G5,0,NOTE_B4,0,NOTE_G5,0,NOTE_D5,0,NOTE_G5,0,
+	NOTE_C5,0,NOTE_G5,0,NOTE_E5,0,NOTE_G5,0,NOTE_C5,0,NOTE_G5,0,NOTE_E5,0,NOTE_G5,0,
+	NOTE_C5,0,NOTE_G5,0,NOTE_E5,0,NOTE_G5,0,NOTE_C5,0,NOTE_G5,0,NOTE_E5,0,NOTE_G5,0,
+	NOTE_C5,0,NOTE_A5,0,NOTE_F5,0,NOTE_A5,0,NOTE_C5,0,NOTE_G5,0,NOTE_E5,0,NOTE_G5,0,
+	NOTE_B4,0,NOTE_G5,0,NOTE_D5,0,NOTE_G5,0,NOTE_C5,0,NOTE_G5,0,NOTE_E5,0,NOTE_G5,0,
+	NOTE_B4,0,NOTE_G5,0,NOTE_D5,0,NOTE_G5,0,NOTE_C5,0,NOTE_G5,0,NOTE_E5,0,NOTE_G5,0,
+};
+const uint32_t twicle2Duration[] = {
+	6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,
+	6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,
+	6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,
+	6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,
+	6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,
+	6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,
+};
+
+const uint32_t tickMelody[] = {
+	NOTE_B4,0,NOTE_B4,0,NOTE_B4,0//6
+	
+};
+const uint32_t tickDuration[] = {
+	8,4,8,4,8,32
+};
+
 
 const uint32_t marioMelody[] = {
 		  NOTE_E7, NOTE_E7, 0, NOTE_E7,
@@ -212,4 +259,20 @@ const uint16_t melodySlowfactor[] ={15, 30};
 
 const uint32_t melodySizes[] ={sizeof(marioMelody)/sizeof(uint32_t),
 						sizeof(secondDuration)/sizeof(uint32_t)};
+
+const uint32_t* melody2[] ={tickMelody, secondMelody};
+const uint32_t* noteDurations2[] = {tickDuration, secondDuration};
+const uint32_t melodySizes2[] ={sizeof(tickMelody)/sizeof(uint32_t),
+						sizeof(secondDuration)/sizeof(uint32_t)};
+
+const uint32_t* melody3twincle[] ={twicle1Melody, secondMelody};
+const uint32_t* noteDurations3[] = {twicle1Duration, secondDuration};
+const uint32_t melodySizes3[] ={sizeof(twicle1Melody)/sizeof(uint32_t),
+						sizeof(secondDuration)/sizeof(uint32_t)};
+const uint32_t* melody3twincle2[] ={twicle2Melody, secondMelody};
+const uint32_t* noteDurations3_2[] = {twicle2Duration, secondDuration};
+const uint32_t melodySizes3_2[] ={sizeof(twicle2Melody)/sizeof(uint32_t),
+						sizeof(secondDuration)/sizeof(uint32_t)};
+
+						
 #endif /* MELODY_H_ */
