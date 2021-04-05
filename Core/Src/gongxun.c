@@ -35,7 +35,7 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 		case 01:
 			OneGrid(FRONT,-15);
 			OneGrid_sp(LEFT,FRONT,0);
-			GoFrontForQR();
+//			GoFrontForQR();
 //			Uart3_readQRcode();
 			break;
 		case 12:
@@ -47,7 +47,7 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 			OneGrid(FRONT,0);
 			OneGrid(FRONT,0);
 			OneGrid(FRONT,-15);
-			GoFrontForMaterial();
+//			GoFrontForMaterial();
 //			Uart3_readColor();
 			Grid_Lock();
 		//此处机械臂可能需要预动作

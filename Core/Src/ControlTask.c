@@ -129,7 +129,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 				 //保存当前脉冲数，用于下次计算速度
 				for(cx=0; cx<4; cx++)
 					CoderData_last[cx] = CoderData[cx];
-				#if 1 //pid调节部分
+				#if 1 //pi转速调节部分
 				//增量PID调节车轮速度
 				motorpwm_set[0] = Incremental_PI0(motorspeed[0],motorspeed_set[0]);
 				motorpwm_set[1] = Incremental_PI1(motorspeed[1],motorspeed_set[1]);

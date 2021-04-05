@@ -26,10 +26,10 @@
 //下面的数值由编码器和MCU的接线方式决定
 //若车轮正转，脉冲计数值增加，则定义脉冲相序为1
 //若车轮正转，脉冲计数值减小，则定义脉冲相序为0
-#define CoderPhase0 0
-#define CoderPhase1 0
-#define CoderPhase2 1
-#define CoderPhase3 1
+#define CoderPhase0 1//0
+#define CoderPhase1 1//0
+#define CoderPhase2 0//1
+#define CoderPhase3 0//1
 
 #define YOUQIAN_TIM_ARR 16799
 #define ZUOHOU_TIM_ARR 16799
@@ -39,10 +39,10 @@
 #define PWMUPPER 16099
 #define PWMDOWN	500
 
-#define YOUQIAN_CONTROL_DIRECTION 1
-#define ZUOHOU_CONTROL_DIRECTION 1
-#define YOUHOU_CONTROL_DIRECTION 1
-#define ZUOQIAN_CONTROL_DIRECTION 0
+#define YOUQIAN_CONTROL_DIRECTION 0//1
+#define ZUOHOU_CONTROL_DIRECTION 0//1
+#define YOUHOU_CONTROL_DIRECTION 0//1
+#define ZUOQIAN_CONTROL_DIRECTION 1//0
 
 void SetMotorPWM(uint32_t zq,uint32_t yq,uint32_t zh,uint32_t yh);
 void MotorSpeed2RealSpeed(void);

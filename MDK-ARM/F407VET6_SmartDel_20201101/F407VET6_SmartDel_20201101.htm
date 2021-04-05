@@ -3,11 +3,11 @@
 <title>Static Call Graph - [F407VET6_SmartDel_20201101\F407VET6_SmartDel_20201101.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image F407VET6_SmartDel_20201101\F407VET6_SmartDel_20201101.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sat Apr 03 21:33:35 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Mon Apr 05 22:03:59 2021
 <BR><P>
-<H3>Maximum Stack Usage =        224 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        208 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-main &rArr; ManufacturingProcesses &rArr; OnTheWay &rArr; GoFrontForQR &rArr; Uart3_readQRcode &rArr; MAX7219_MatrixUpdate &rArr; MAX7219_Digit &rArr; MAX7219_Write &rArr; SPI_Tx &rArr; HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
+SavePos &rArr; ReadPos &rArr; readWord &rArr; Read &rArr; wFlushSCS &rArr; Uart_Send &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 <P>
 <H3>
 Mutually Recursive functions
@@ -440,11 +440,11 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[14c]"></a>__aeabi_memcpy</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, memcpya.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;copyPos
+<BR><BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seePos
+<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;copyPos
 <LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;changePosTime
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WritePos_sp
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SavePos
-<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seePos
 </UL>
 
 <P><STRONG><a name="[149]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text))
@@ -712,8 +712,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writeByte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ForceAll
-<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ArmForceEnable
+<BR>[Called By]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ArmForceEnable
+<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ForceAll
 </UL>
 
 <P><STRONG><a name="[12a]"></a>Error_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, main.o(i.Error_Handler))
@@ -764,7 +764,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> scs_servo.o(shellCommand)
 </UL>
-<P><STRONG><a name="[b6]"></a>GetSensorData</STRONG> (Thumb, 448 bytes, Stack size 8 bytes, linefollowsensor.o(i.GetSensorData))
+<P><STRONG><a name="[b6]"></a>GetSensorData</STRONG> (Thumb, 352 bytes, Stack size 8 bytes, linefollowsensor.o(i.GetSensorData))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = GetSensorData
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_ReadPin
@@ -779,8 +779,6 @@ Global Symbols
 <LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Grid_Lock
 <LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart3_readColor
 </UL>
-<BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OnTheWay
-</UL>
 <BR>[Address Reference Count : 1]<UL><LI> gongxun.o(shellCommand)
 </UL>
 <P><STRONG><a name="[6b]"></a>GoFrontForQR</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, gongxun.o(i.GoFrontForQR))
@@ -789,8 +787,6 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OneGrid
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 <LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart3_readQRcode
-</UL>
-<BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OnTheWay
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> gongxun.o(shellCommand)
 </UL>
@@ -904,9 +900,9 @@ Global Symbols
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 <LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_OscConfig
 <LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
+<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_WaitForLastOperation
 <LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_Transmit
 <LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_WaitFlagStateUntilTimeout
-<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_WaitForLastOperation
 <LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_WaitOnFlagUntilTimeout
 </UL>
 
@@ -1046,8 +1042,8 @@ Global Symbols
 <P><STRONG><a name="[d9]"></a>HAL_SPI_Transmit</STRONG> (Thumb, 418 bytes, Stack size 40 bytes, stm32f4xx_hal_spi.o(i.HAL_SPI_Transmit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_EndRxTxTransaction
-<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
+<BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
+<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_EndRxTxTransaction
 </UL>
 <BR>[Called By]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_Tx
 </UL>
@@ -1405,8 +1401,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writeByte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ForceAll
-<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ArmForceEnable
+<BR>[Called By]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ArmForceEnable
+<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ForceAll
 </UL>
 
 <P><STRONG><a name="[118]"></a>MAX7219_Decode</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, max7219.o(i.MAX7219_Decode))
@@ -1529,7 +1525,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> max7219_matrix.o(shellCommand)
 </UL>
-<P><STRONG><a name="[127]"></a>MX_GPIO_Init</STRONG> (Thumb, 430 bytes, Stack size 32 bytes, gpio.o(i.MX_GPIO_Init))
+<P><STRONG><a name="[127]"></a>MX_GPIO_Init</STRONG> (Thumb, 452 bytes, Stack size 32 bytes, gpio.o(i.MX_GPIO_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = MX_GPIO_Init &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
@@ -1697,7 +1693,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[6a]"></a>ManufacturingProcesses</STRONG> (Thumb, 698 bytes, Stack size 16 bytes, gongxun.o(i.ManufacturingProcesses))
-<BR><BR>[Stack]<UL><LI>Max Depth = 208<LI>Call Chain = ManufacturingProcesses &rArr; OnTheWay &rArr; GoFrontForQR &rArr; Uart3_readQRcode &rArr; MAX7219_MatrixUpdate &rArr; MAX7219_Digit &rArr; MAX7219_Write &rArr; SPI_Tx &rArr; HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 192<LI>Call Chain = ManufacturingProcesses &rArr; Uart2_servoCtr &rArr; DoGroup &rArr; GoPos &rArr; WritePos &rArr; genWrite &rArr; wFlushSCS &rArr; Uart_Send &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;led_shan
 <LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart2_servoCtr
@@ -1718,8 +1714,8 @@ Global Symbols
 <P><STRONG><a name="[1]"></a>NMI_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.NMI_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f407xx.o(RESET)
 </UL>
-<P><STRONG><a name="[69]"></a>OnTheWay</STRONG> (Thumb, 604 bytes, Stack size 24 bytes, gongxun.o(i.OnTheWay))
-<BR><BR>[Stack]<UL><LI>Max Depth = 192<LI>Call Chain = OnTheWay &rArr; GoFrontForQR &rArr; Uart3_readQRcode &rArr; MAX7219_MatrixUpdate &rArr; MAX7219_Digit &rArr; MAX7219_Write &rArr; SPI_Tx &rArr; HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
+<P><STRONG><a name="[69]"></a>OnTheWay</STRONG> (Thumb, 598 bytes, Stack size 24 bytes, gongxun.o(i.OnTheWay))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = OnTheWay &rArr; OneGrid_sp &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ni
 <LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OneGrid_sp
@@ -1727,8 +1723,6 @@ Global Symbols
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Grid_UnLock
 <LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Grid_Lock
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
-<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GoFrontForQR
-<LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GoFrontForMaterial
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ManufacturingProcesses
 </UL>
@@ -2050,12 +2044,12 @@ Global Symbols
 <LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart3_readQRcode
 <LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart3_readColor
 <LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ManufacturingProcesses
+<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seePos
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;copyPos
 <LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;changePosTime
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WritePos_sp
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SavePos
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SaveAll2F
-<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;seePos
 </UL>
 
 <P><STRONG><a name="[1ac]"></a>__c89printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printfa.o(i.__0printf), UNUSED)
@@ -2172,7 +2166,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[5b]"></a>main</STRONG> (Thumb, 428 bytes, Stack size 16 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 224<LI>Call Chain = main &rArr; ManufacturingProcesses &rArr; OnTheWay &rArr; GoFrontForQR &rArr; Uart3_readQRcode &rArr; MAX7219_MatrixUpdate &rArr; MAX7219_Digit &rArr; MAX7219_Write &rArr; SPI_Tx &rArr; HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 208<LI>Call Chain = main &rArr; ManufacturingProcesses &rArr; Uart2_servoCtr &rArr; DoGroup &rArr; GoPos &rArr; WritePos &rArr; genWrite &rArr; wFlushSCS &rArr; Uart_Send &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_ReadPin
 <LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LineFollowInit
@@ -2252,7 +2246,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PeriodElapsedCallback
 </UL>
 
-<P><STRONG><a name="[13e]"></a>ni</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, linefollowsensor.o(i.ni))
+<P><STRONG><a name="[13e]"></a>ni</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, linefollowsensor.o(i.ni))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = ni &rArr; HAL_Delay
 </UL>
 <BR>[Calls]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
@@ -2716,8 +2710,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writeByte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ForceAll
-<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ArmForceEnable
+<BR>[Called By]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ArmForceEnable
+<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ForceAll
 </UL>
 
 <P><STRONG><a name="[144]"></a>wFlushSCS</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, scserail.o(i.wFlushSCS))

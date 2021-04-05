@@ -27,17 +27,17 @@
 //#define Position_Kd 1
 
 
-#define xAngle_Kp -6
+#define xAngle_Kp 2//6
 #define xAngle_Ki 0
-#define xAngle_Kd -1
+#define xAngle_Kd 1
 
-#define xPosition_Kp 5//6
+#define xPosition_Kp 1 //6
 #define xPosition_Ki 0
 #define xPosition_Kd 1
 
-#define yAngle_Kp -1//-2//-6//-15
+#define yAngle_Kp 1//-2//-6//-15
 #define yAngle_Ki 0//0
-#define yAngle_Kd -1
+#define yAngle_Kd 1
 
 #define yPosition_Kp -1//-2//-1
 #define yPosition_Ki -0
@@ -265,22 +265,56 @@ int32_t DirectionError_Calc(int32_t direction)//0,1,2,3 前右后左
 void GetSensorData()
 {
 	//读16个灰度
-	Sensor_JG_Buffer[index_gray[0]] = HAL_GPIO_ReadPin(OUT1_Port,OUT1_Pin);
-	Sensor_JG_Buffer[index_gray[1]] = HAL_GPIO_ReadPin(OUT2_Port,OUT2_Pin);
-	Sensor_JG_Buffer[index_gray[2]] = HAL_GPIO_ReadPin(OUT3_Port,OUT3_Pin);
-	Sensor_JG_Buffer[index_gray[3]] = HAL_GPIO_ReadPin(OUT4_Port,OUT4_Pin);
-	Sensor_JG_Buffer[index_gray[4]] = HAL_GPIO_ReadPin(OUT5_Port,OUT5_Pin);
-	Sensor_JG_Buffer[index_gray[5]] = HAL_GPIO_ReadPin(OUT6_Port,OUT6_Pin);
-	Sensor_JG_Buffer[index_gray[6]] = HAL_GPIO_ReadPin(OUT7_Port,OUT7_Pin);
-	Sensor_JG_Buffer[index_gray[7]] = HAL_GPIO_ReadPin(OUT8_Port,OUT8_Pin);
-	Sensor_JG_Buffer[index_gray[8]] = HAL_GPIO_ReadPin(OUT9_Port,OUT9_Pin);
-	Sensor_JG_Buffer[index_gray[9]] = HAL_GPIO_ReadPin(OUT10_Port,OUT10_Pin);
-	Sensor_JG_Buffer[index_gray[10]] = HAL_GPIO_ReadPin(OUT11_Port,OUT11_Pin);
-	Sensor_JG_Buffer[index_gray[11]] = HAL_GPIO_ReadPin(OUT12_Port,OUT12_Pin);
-	Sensor_JG_Buffer[index_gray[12]] = HAL_GPIO_ReadPin(OUT13_Port,OUT13_Pin);
-	Sensor_JG_Buffer[index_gray[13]] = HAL_GPIO_ReadPin(OUT14_Port,OUT14_Pin);
-	Sensor_JG_Buffer[index_gray[14]] = HAL_GPIO_ReadPin(OUT15_Port,OUT15_Pin);
-	Sensor_JG_Buffer[index_gray[15]] = HAL_GPIO_ReadPin(OUT16_Port,OUT16_Pin);
+//	Sensor_JG_Buffer[index_gray[0]] = HAL_GPIO_ReadPin(OUT1_Port,OUT1_Pin);
+//	Sensor_JG_Buffer[index_gray[1]] = HAL_GPIO_ReadPin(OUT2_Port,OUT2_Pin);
+//	Sensor_JG_Buffer[index_gray[2]] = HAL_GPIO_ReadPin(OUT3_Port,OUT3_Pin);
+//	Sensor_JG_Buffer[index_gray[3]] = HAL_GPIO_ReadPin(OUT4_Port,OUT4_Pin);
+//	Sensor_JG_Buffer[index_gray[4]] = HAL_GPIO_ReadPin(OUT5_Port,OUT5_Pin);
+//	Sensor_JG_Buffer[index_gray[5]] = HAL_GPIO_ReadPin(OUT6_Port,OUT6_Pin);
+//	Sensor_JG_Buffer[index_gray[6]] = HAL_GPIO_ReadPin(OUT7_Port,OUT7_Pin);
+//	Sensor_JG_Buffer[index_gray[7]] = HAL_GPIO_ReadPin(OUT8_Port,OUT8_Pin);
+//	Sensor_JG_Buffer[index_gray[8]] = HAL_GPIO_ReadPin(OUT9_Port,OUT9_Pin);
+//	Sensor_JG_Buffer[index_gray[9]] = HAL_GPIO_ReadPin(OUT10_Port,OUT10_Pin);
+//	Sensor_JG_Buffer[index_gray[10]] = HAL_GPIO_ReadPin(OUT11_Port,OUT11_Pin);
+//	Sensor_JG_Buffer[index_gray[11]] = HAL_GPIO_ReadPin(OUT12_Port,OUT12_Pin);
+//	Sensor_JG_Buffer[index_gray[12]] = HAL_GPIO_ReadPin(OUT13_Port,OUT13_Pin);
+//	Sensor_JG_Buffer[index_gray[13]] = HAL_GPIO_ReadPin(OUT14_Port,OUT14_Pin);
+//	Sensor_JG_Buffer[index_gray[14]] = HAL_GPIO_ReadPin(OUT15_Port,OUT15_Pin);
+//	Sensor_JG_Buffer[index_gray[15]] = HAL_GPIO_ReadPin(OUT16_Port,OUT16_Pin);
+	
+//	Sensor_JG_Buffer[0] = HAL_GPIO_ReadPin(OUT1_Port,OUT1_Pin);
+//	Sensor_JG_Buffer[1] = HAL_GPIO_ReadPin(OUT2_Port,OUT2_Pin);
+//	Sensor_JG_Buffer[2] = HAL_GPIO_ReadPin(OUT3_Port,OUT3_Pin);
+//	Sensor_JG_Buffer[3] = HAL_GPIO_ReadPin(OUT4_Port,OUT4_Pin);
+//	Sensor_JG_Buffer[4] = HAL_GPIO_ReadPin(OUT5_Port,OUT5_Pin);
+//	Sensor_JG_Buffer[5] = HAL_GPIO_ReadPin(OUT6_Port,OUT6_Pin);
+//	Sensor_JG_Buffer[6] = HAL_GPIO_ReadPin(OUT7_Port,OUT7_Pin);
+//	Sensor_JG_Buffer[7] = HAL_GPIO_ReadPin(OUT8_Port,OUT8_Pin);
+//	Sensor_JG_Buffer[8] = HAL_GPIO_ReadPin(OUT9_Port,OUT9_Pin);
+//	Sensor_JG_Buffer[9] = HAL_GPIO_ReadPin(OUT10_Port,OUT10_Pin);
+//	Sensor_JG_Buffer[10] = HAL_GPIO_ReadPin(OUT11_Port,OUT11_Pin);
+//	Sensor_JG_Buffer[11] = HAL_GPIO_ReadPin(OUT12_Port,OUT12_Pin);
+//	Sensor_JG_Buffer[12] = HAL_GPIO_ReadPin(OUT13_Port,OUT13_Pin);
+//	Sensor_JG_Buffer[13] = HAL_GPIO_ReadPin(OUT14_Port,OUT14_Pin);
+//	Sensor_JG_Buffer[14] = HAL_GPIO_ReadPin(OUT15_Port,OUT15_Pin);
+//	Sensor_JG_Buffer[15] = HAL_GPIO_ReadPin(OUT16_Port,OUT16_Pin);
+
+	Sensor_JG_Buffer[0] = HAL_GPIO_ReadPin(OUT1_Port,OUT1_Pin);
+	Sensor_JG_Buffer[1] = HAL_GPIO_ReadPin(OUT2_Port,OUT2_Pin);
+	Sensor_JG_Buffer[2] = HAL_GPIO_ReadPin(OUT11_Port,OUT11_Pin);//HAL_GPIO_ReadPin(OUT3_Port,OUT3_Pin);
+	Sensor_JG_Buffer[3] = HAL_GPIO_ReadPin(OUT10_Port,OUT10_Pin);//HAL_GPIO_ReadPin(OUT4_Port,OUT4_Pin);
+	Sensor_JG_Buffer[4] = HAL_GPIO_ReadPin(OUT9_Port,OUT9_Pin);//HAL_GPIO_ReadPin(OUT5_Port,OUT5_Pin);
+	Sensor_JG_Buffer[5] = HAL_GPIO_ReadPin(OUT12_Port,OUT12_Pin);//HAL_GPIO_ReadPin(OUT6_Port,OUT6_Pin);
+	Sensor_JG_Buffer[6] = HAL_GPIO_ReadPin(OUT8_Port,OUT8_Pin);//HAL_GPIO_ReadPin(OUT7_Port,OUT7_Pin);
+	Sensor_JG_Buffer[7] = HAL_GPIO_ReadPin(OUT16_Port,OUT16_Pin);//HAL_GPIO_ReadPin(OUT8_Port,OUT8_Pin);--
+	Sensor_JG_Buffer[8] = HAL_GPIO_ReadPin(OUT5_Port,OUT5_Pin);//HAL_GPIO_ReadPin(OUT9_Port,OUT9_Pin);
+	Sensor_JG_Buffer[9] = HAL_GPIO_ReadPin(OUT6_Port,OUT6_Pin);//HAL_GPIO_ReadPin(OUT10_Port,OUT10_Pin);
+	Sensor_JG_Buffer[10] = HAL_GPIO_ReadPin(OUT15_Port,OUT15_Pin);//HAL_GPIO_ReadPin(OUT11_Port,OUT11_Pin);
+	Sensor_JG_Buffer[11] = HAL_GPIO_ReadPin(OUT13_Port,OUT13_Pin);//HAL_GPIO_ReadPin(OUT12_Port,OUT12_Pin);
+	Sensor_JG_Buffer[12] = HAL_GPIO_ReadPin(OUT14_Port,OUT14_Pin);//HAL_GPIO_ReadPin(OUT13_Port,OUT13_Pin);
+	Sensor_JG_Buffer[13] = HAL_GPIO_ReadPin(OUT7_Port,OUT7_Pin);//HAL_GPIO_ReadPin(OUT14_Port,OUT14_Pin);
+	Sensor_JG_Buffer[14] = HAL_GPIO_ReadPin(OUT3_Port,OUT3_Pin);//HAL_GPIO_ReadPin(OUT15_Port,OUT15_Pin);
+	Sensor_JG_Buffer[15] = HAL_GPIO_ReadPin(OUT4_Port,OUT4_Pin);//HAL_GPIO_ReadPin(OUT16_Port,OUT16_Pin);
 
 	//读6个激光
 	Sensor_JG_Buffer[16] = HAL_GPIO_ReadPin(SJ1_GPIO_Port,SJ1_Pin);
@@ -1025,7 +1059,7 @@ void TurnAndBack()
 void ni(int32_t speed_)
 {
 	AngleAndPositionTIM=0;
-	a_speed=speed_;
+	a_speed=-speed_;
 	HAL_Delay(600);
 	while(Sensor_JG_Buffer[1]!=BLACK);
 	a_speed=0;
