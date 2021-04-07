@@ -9,6 +9,7 @@
 #include "melody.h"
 #include "stdbool.h"
 #include "mymath.h"
+#include "stdio.h"
 
 #define CPU_FREQ	168000000
 #define PRESCALER 	168
@@ -179,3 +180,25 @@ void music3Play()
 //   TIM9 -> CR1 &= ~TIM_CR1_CEN;
 //   TIM9 ->CCER &= ~TIM_CCER_CC4E;
 }
+
+////·Ç¶ÂÈû
+//void music4Play()
+//{
+//	__ExecuteOnce(buzzerDriverInit());
+//	__ExecuteOnce(TIM9 -> CR1 |= TIM_CR1_CEN);
+//	__ExecuteOnce(TIM9 ->CCER |= TIM_CCER_CC4E);
+////  TIM9 -> CR1 |= TIM_CR1_CEN;
+////  TIM9 ->CCER |= TIM_CCER_CC4E;
+//	static uint32_t cnt_=0;
+////  static int melodyCount = sizeof(melodySizes)/ sizeof(uint32_t);
+////	static int melodyIndex = 0;
+//	static int noteIndex = 0;
+//	if( noteIndex >= melodySizes4[0]) noteIndex=0;
+//	
+//	
+//	buzzerSetNewFrequency(melody4[0][noteIndex]);
+//	if(cnt_++%(noteDurations4[0][noteIndex] * melodySlowfactor[0] * 2)==0)
+//	{
+//		noteIndex++;
+//	}
+//}

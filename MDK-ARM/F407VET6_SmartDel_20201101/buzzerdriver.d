@@ -38,3 +38,4 @@ f407vet6_smartdel_20201101\buzzerdriver.o: ..\Core\Src\Buzzer\buzzerDriver.h
 f407vet6_smartdel_20201101\buzzerdriver.o: ..\Core\Src\Buzzer\melody.h
 f407vet6_smartdel_20201101\buzzerdriver.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 f407vet6_smartdel_20201101\buzzerdriver.o: ..\Core\Src\mymath.h
+f407vet6_smartdel_20201101\buzzerdriver.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

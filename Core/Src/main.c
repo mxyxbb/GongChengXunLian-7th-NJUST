@@ -170,7 +170,7 @@ int main(void)
 	HAL_UART_Receive_IT(&huart5, (uint8_t*)data_one_byte, 1);
 	//初始化舵机控制结构体
 	ArmInit();
-//	readF2ram();
+	readF2ram();
 	//舵机位置归中
 	ArmGoMiddle();
 	
@@ -226,6 +226,7 @@ int main(void)
 	//初始化letter-shell
 	User_Shell_Init();
 	HAL_UART_Receive_IT(&huart1, (uint8_t*)&recv_buf, 1);
+
 
 #if 1
 while(1)

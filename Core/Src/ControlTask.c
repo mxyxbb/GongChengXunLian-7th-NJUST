@@ -40,6 +40,9 @@ uint8_t musicenable=0;
 SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), emu, &musicenable, musicenable);
 uint8_t musicenable2=0;
 SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), emu2, &musicenable2, musicenable2);
+uint8_t musicenable3=0;
+SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), emu3, &musicenable3, musicenable3);
+
 uint8_t toggleMotor=0;
 SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), togm, &toggleMotor, toggleMotor);
 uint8_t toggleServo=0;
@@ -69,6 +72,11 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 				musicPlay();
 			if(musicenable2)
 				music3Play();
+			if(musicenable3)
+//				music4Play();
+			
+			if(!(musicenable||musicenable2||musicenable3))
+				TIM12->CCR2=0,TIM9->CCR1=0;
 			if(toggleMotor){
 				HAL_GPIO_TogglePin(CTR1_GPIO_Port,CTR1_Pin);
 				HAL_Delay(10);

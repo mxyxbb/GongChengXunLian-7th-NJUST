@@ -1,0 +1,39 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <group>
+    <GroupID>动作组0</GroupID>
+    <Idx0>-1</Idx0>
+    <Idx1>-1</Idx1>
+    <Idx2>-1</Idx2>
+    <Idx3>-1</Idx3>
+    <Idx4>-1</Idx4>
+    <Idx5>-1</Idx5>
+    <Idx6>-1</Idx6>
+    <Idx7>-1</Idx7>
+    <Idx8>-1</Idx8>
+    <Idx9>0</Idx9>
+    <Idx10>0</Idx10>
+  </group>
+  <group>
+    <GroupID>动作组1</GroupID>
+    <Idx0>-1</Idx0>
+    <Idx1>-1</Idx1>
+    <Idx2>-1</Idx2>
+    <Idx3>-1</Idx3>
+    <Idx4>-1</Idx4>
+    <Idx5>-1</Idx5>
+    <Idx6>-1</Idx6>
+    <Idx7>-1</Idx7>
+    <Idx8>-1</Idx8>
+    <Idx9>1</Idx9>
+  </group>
+  <group>
+    <GroupID>动作组5</GroupID>
+    <Idx0>-1</Idx0>
+    <Idx1>-1</Idx1>
+    <Idx2>-1</Idx2>
+    <Idx3>-1</Idx3>
+    <Idx4>-1</Idx4>
+    <Idx5>-1</Idx5>
+  </group>
+</NewDataSet>

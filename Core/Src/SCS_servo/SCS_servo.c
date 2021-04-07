@@ -487,7 +487,37 @@ void ArmSetBuff()
 	
 }
 SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), de1, ArmSetBuff, ArmSetBuff());
-
+/*
+typedef struct
+{
+	int16_t  pos_id;
+	int16_t  angle[5];//20-1003 mid:511
+	int16_t  timems;
+}Pos;
+*/
+void Write5Angle(uint16_t PID, int16_t angle0, int16_t angle1, int16_t angle2, int16_t angle3, int16_t angle4, int16_t timems_)
+{
+	if(PID<POS_LEN){
+			postion[PID].pos_id=PID;
+			postion[PID].angle[0]=angle0;
+			postion[PID].angle[1]=angle1;
+			postion[PID].angle[2]=angle2;
+			postion[PID].angle[3]=angle3;
+			postion[PID].angle[4]=angle4;
+			postion[PID].timems=timems_;
+	}
+	else{
+			uint16_t k=PID-POS_LEN;
+			postion_ex[k].pos_id=PID;
+			postion_ex[k].angle[0]=angle0;
+			postion_ex[k].angle[1]=angle1;
+			postion_ex[k].angle[2]=angle2;
+			postion_ex[k].angle[3]=angle3;
+			postion_ex[k].angle[4]=angle4;
+			postion_ex[k].timems=timems_;
+	}
+}
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), w5a, Write5Angle, Write5Angle(PID,angle0~4,timems_));
 
 /*--------letter shell example begin--------*/
 //void fun(char en)

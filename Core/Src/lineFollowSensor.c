@@ -27,19 +27,19 @@
 //#define Position_Kd 1
 
 
-#define xAngle_Kp 2//6
+#define xAngle_Kp 3//6
 #define xAngle_Ki 0
 #define xAngle_Kd 1
 
-#define xPosition_Kp 1 //6
+#define xPosition_Kp 3 //6
 #define xPosition_Ki 0
 #define xPosition_Kd 1
 
-#define yAngle_Kp 1//-2//-6//-15
+#define yAngle_Kp 2//-2//-6//-15
 #define yAngle_Ki 0//0
 #define yAngle_Kd 1
 
-#define yPosition_Kp -1//-2//-1
+#define yPosition_Kp -2//-2//-1
 #define yPosition_Ki -0
 #define yPosition_Kd -1//-1
 
@@ -113,6 +113,45 @@ void LineFollowInit()
 	yPositionPIDParameter7.Ki = yPosition_Ki;
 	yPositionPIDParameter7.Kd = yPosition_Kd;
 }
+void LockSetPID()
+{
+	xAnglePIDParameter4.Kp = 2;
+	xAnglePIDParameter4.Ki = xAngle_Ki;
+	xAnglePIDParameter4.Kd = xAngle_Kd;
+
+	xPositionPIDParameter5.Kp = 1;
+	xPositionPIDParameter5.Ki = xPosition_Ki;
+	xPositionPIDParameter5.Kd = xPosition_Kd;
+
+	yAnglePIDParameter6.Kp = 1;
+	yAnglePIDParameter6.Ki = yAngle_Ki;
+	yAnglePIDParameter6.Kd = yAngle_Kd;
+
+	yPositionPIDParameter7.Kp = -1;
+	yPositionPIDParameter7.Ki = yPosition_Ki;
+	yPositionPIDParameter7.Kd = yPosition_Kd;
+}
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), lset, LockSetPID, LockSetPID());
+
+void LockResetPID()
+{
+	xAnglePIDParameter4.Kp = xAngle_Kp;
+	xAnglePIDParameter4.Ki = xAngle_Ki;
+	xAnglePIDParameter4.Kd = xAngle_Kd;
+
+	xPositionPIDParameter5.Kp = xPosition_Kp;
+	xPositionPIDParameter5.Ki = xPosition_Ki;
+	xPositionPIDParameter5.Kd = xPosition_Kd;
+
+	yAnglePIDParameter6.Kp = yAngle_Kp;
+	yAnglePIDParameter6.Ki = yAngle_Ki;
+	yAnglePIDParameter6.Kd = yAngle_Kd;
+
+	yPositionPIDParameter7.Kp = yPosition_Kp;
+	yPositionPIDParameter7.Ki = yPosition_Ki;
+	yPositionPIDParameter7.Kd = yPosition_Kd;
+}
+
 
 void xAngleControl()
 {
@@ -1059,8 +1098,10 @@ void TurnAndBack()
 void ni(int32_t speed_)
 {
 	AngleAndPositionTIM=0;
+	x_speed=0;
+	y_speed=0;
 	a_speed=-speed_;
-	HAL_Delay(600);
+	HAL_Delay(900);
 	while(Sensor_JG_Buffer[1]!=BLACK);
 	a_speed=0;
 	CarMovingTo=0;
@@ -1069,11 +1110,13 @@ void ni(int32_t speed_)
 
 void Grid_Lock()
 {
+	LockSetPID();
 	lockFlag=1;
 }
 
 void Grid_UnLock()
 {
 	lockFlag=0;
+	LockResetPID();
 }
 

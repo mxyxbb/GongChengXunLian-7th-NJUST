@@ -97,6 +97,86 @@
 #define NOTE_CS8 4435
 #define NOTE_D8  4699
 #define NOTE_DS8 4978
+
+
+
+//const uint32_t NJUSTMelody[] = {
+//NOTE_G4,0,NOTE_C5,0,NOTE_E5,0,NOTE_A5,0,NOTE_G5,0,NOTE_F5,0,NOTE_E5,0,NOTE_D5,0,NOTE_E5,0,NOTE_A4,0,NOTE_B4,0,NOTE_G4,0,NOTE_G4,0,NOTE_G5,0,NOTE_F5,0,NOTE_E5,0,NOTE_D5,0,NOTE_E5,0,NOTE_C5,0,NOTE_C5,0,NOTE_C5,0,NOTE_C5,0,NOTE_G4,0,NOTE_G4,0,
+//NOTE_C5,0,NOTE_D5,0,NOTE_E5,0,NOTE_D5,0,NOTE_E5,0,NOTE_D5,0,NOTE_C5,0,NOTE_B4,0,NOTE_A4,0,NOTE_B4,0,NOTE_G4,0,NOTE_A4,0,NOTE_A4,0,NOTE_D5,0,NOTE_E5,0,NOTE_F5,0,NOTE_A5,0,NOTE_A5,0,
+//NOTE_G5,0,NOTE_C5,0,NOTE_F5,0,NOTE_E5,0,NOTE_C5,0,NOTE_D5,0,NOTE_E5,0,NOTE_F5,0,NOTE_G5,0,NOTE_G5,0,NOTE_F5,0,NOTE_F5,0,NOTE_E5,0,NOTE_C5,0,NOTE_B4,0,NOTE_C5,0,
+//NOTE_A4,0,NOTE_D5,0,NOTE_E5,0,NOTE_F5,0,NOTE_A5,0,NOTE_G5,0,NOTE_A5,0,NOTE_G5,0,NOTE_F5,0,NOTE_E5,0,NOTE_D5,0,NOTE_E5,0,NOTE_C5,0,0,0,
+//NOTE_A5,0,NOTE_A5,0,NOTE_G5,0,NOTE_G5,0,NOTE_C5,0,NOTE_D5,0,NOTE_E5,0,NOTE_A5,0,NOTE_A5,0,NOTE_G5,0,NOTE_G5,0,NOTE_C5,0,NOTE_D5,0,NOTE_E5,0,
+//NOTE_F5,0,NOTE_F5,0,NOTE_E5,0,NOTE_C5,0,NOTE_A4,0,NOTE_F5,0,NOTE_F5,0,NOTE_E5,0,NOTE_C5,0,NOTE_A4,0,NOTE_G4,0,NOTE_G4,0,NOTE_C5,0,NOTE_E5,0,NOTE_A5,0,NOTE_G5,0,NOTE_G5,0,NOTE_F5,0,NOTE_E5 ,0,NOTE_D5,0,NOTE_E5,0,
+//NOTE_C5,0,
+//结尾
+//NOTE_G5,0,NOTE_C5,0,NOTE_E5,0,NOTE_G5,0,NOTE_G5,0,NOTE_G5,0,NOTE_G5,0,NOTE_G5,0,NOTE_A5,0,NOTE_B5,0,NOTE_C6,0,NOTE_C6,0,NOTE_C5,0,NOTE_C5,0,NOTE_C5,0,NOTE_C5,0,0
+//};
+
+//const uint32_t NJUSTDuration[] = {
+//6,0,6,0,6,0,12,0,9,0,6,0,6,0,9,0,6,0,6,0,9,0,6,0,
+//6,0,9,0,6,0,6,0,6,0,6,0,
+//6,0,9,0,6,0,6,0,
+//9,0,6,0,
+//第二行
+//6,0,6,0,6,0,9,0,6,0,
+//6,0,6,0,6,0,6,0,6,0,
+//18,0,9,0,6,0,
+//6,0,6,0,6,0,9,0,6,0,
+//6,0,6,0,6,0,6,0,6,0,
+//18,0,6,0,6,0,
+//12,0,6,0,9,0,6,0,
+//6,0,6,0,6,0,6,0,
+//18,0,6,0,6,0,
+//12,0,6,0,9,0,6,0,
+//6,0,6,0,6,0,6,0,6,0,
+//18,0,6,0,
+//9,0,6,0,6,0,6,0,6,0,6,0,24,0,
+//9,0,6,0,6,0,6,0,6,0,6,0,24,0,
+//9,0,6,0,6,0,6,0,12,0,
+//9,0,6,0,6,0,6,0,6,0,9,0,6,0,
+//12,0,12,0,
+//24,0,
+//6,0,6,0,6,0,6,0,6,0,6,0,
+//18,0,
+//结尾
+//6,0,6,0,6,0,
+//9,0,6,0,6,0,6,0,6,0,12,0,12,0,24,0,6,0,
+//6,0,6,0,6,0,6,0,20
+//};
+//const uint32_t NJUSTDuration[] = {
+//6,1,6,1,6,1,12,1,9,1,6,1,6,1,9,1,6,1,6,1,9,1,6,1,
+//6,1,9,1,6,1,6,1,6,1,6,1,
+//6,1,9,1,6,1,6,1,
+//9,1,6,1,
+////第二行
+//6,1,6,1,6,1,9,1,6,1,
+//6,1,6,1,6,1,6,1,6,1,
+//18,1,9,1,6,1,
+//6,1,6,1,6,1,9,1,6,1,
+//6,1,6,1,6,1,6,1,6,1,
+//18,1,6,1,6,1,
+//12,1,6,1,9,1,6,1,
+//6,1,6,1,6,1,6,1,
+//18,1,6,1,6,1,
+//12,1,6,1,9,1,6,1,
+//6,1,6,1,6,1,6,1,6,1,
+//18,1,6,1,
+//9,1,6,1,6,1,6,1,6,1,6,1,24,1,
+//9,1,6,1,6,1,6,1,6,1,6,1,24,1,
+//9,1,6,1,6,1,6,1,12,1,
+//9,1,6,1,6,1,6,1,6,1,9,1,6,1,
+//12,1,12,1,
+//24,1,
+//6,1,6,1,6,1,6,1,6,1,6,1,
+//18,1,
+////结尾
+//6,1,6,1,6,1,
+//9,1,6,1,6,1,6,1,6,1,12,1,12,1,24,1,6,1,
+//6,1,6,1,6,1,6,1,6
+//};
+
+
+
 const uint32_t twicle1Melody[] = {
 	NOTE_C6,0,NOTE_C6,0,NOTE_G6,0,NOTE_G6,0,NOTE_A6,0,NOTE_A6,0,NOTE_G6,0,0,0,
 	NOTE_F6,0,NOTE_F6,0,NOTE_E6,0,NOTE_E6,0,NOTE_D6,0,NOTE_D6,0,NOTE_C6,0,0,0,
@@ -253,7 +333,7 @@ const uint32_t secondDuration[] = {0
 //  4,20,
 };
 
-const uint32_t* melody[] ={marioMelody, secondMelody};
+const uint32_t* melody[] ={marioMelody, secondMelody};//emu
 const uint32_t* noteDurations[] = {marioDuration, secondDuration};
 const uint16_t melodySlowfactor[] ={15, 30};
 
@@ -265,7 +345,7 @@ const uint32_t* noteDurations2[] = {tickDuration, secondDuration};
 const uint32_t melodySizes2[] ={sizeof(tickMelody)/sizeof(uint32_t),
 						sizeof(secondDuration)/sizeof(uint32_t)};
 
-const uint32_t* melody3twincle[] ={twicle1Melody, secondMelody};
+const uint32_t* melody3twincle[] ={twicle1Melody, secondMelody};//emu2
 const uint32_t* noteDurations3[] = {twicle1Duration, secondDuration};
 const uint32_t melodySizes3[] ={sizeof(twicle1Melody)/sizeof(uint32_t),
 						sizeof(secondDuration)/sizeof(uint32_t)};
@@ -274,5 +354,9 @@ const uint32_t* noteDurations3_2[] = {twicle2Duration, secondDuration};
 const uint32_t melodySizes3_2[] ={sizeof(twicle2Melody)/sizeof(uint32_t),
 						sizeof(secondDuration)/sizeof(uint32_t)};
 
+//const uint32_t* melody4[] ={NJUSTMelody, secondMelody};//emu3
+//const uint32_t* noteDurations4[] = {NJUSTDuration, secondDuration};
+//const uint32_t melodySizes4[] ={sizeof(NJUSTMelody)/sizeof(uint32_t),
+//						sizeof(secondDuration)/sizeof(uint32_t)};
 						
 #endif /* MELODY_H_ */

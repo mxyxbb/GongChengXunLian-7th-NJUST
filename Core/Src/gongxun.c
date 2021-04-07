@@ -46,6 +46,7 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 			OneGrid(FRONT,0);
 			OneGrid(FRONT,0);
 			OneGrid(FRONT,0);
+			OneGrid(FRONT,0);
 			OneGrid(FRONT,-15);
 //			GoFrontForMaterial();
 //			Uart3_readColor();
@@ -66,6 +67,9 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 			Grid_UnLock();
 			OneGrid(BACK,0);
 			OneGrid(BACK,-15);
+			Grid_Lock();
+			HAL_Delay(1000);
+			Grid_UnLock();
 			ni(-10);
 			Grid_Lock();
 			HAL_Delay(1000);
@@ -74,6 +78,9 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 			Grid_UnLock();
 			OneGrid(FRONT,0);
 			OneGrid(FRONT,-15);
+			Grid_Lock();
+			HAL_Delay(1000);
+			Grid_UnLock();
 			ni(10);
 			Grid_Lock();
 			HAL_Delay(1000);
@@ -87,6 +94,9 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 			Grid_UnLock();
 			OneGrid(BACK,0);
 			OneGrid(BACK,-15);
+			Grid_Lock();
+			HAL_Delay(1000);
+			Grid_UnLock();
 			ni(-10);
 			Grid_Lock();
 			HAL_Delay(1000);
@@ -100,6 +110,9 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 			Grid_UnLock();
 			OneGrid(BACK,0);
 			OneGrid(BACK,-15);
+			Grid_Lock();
+			HAL_Delay(1000);
+			Grid_UnLock();
 			ni(-10);
 			Grid_Lock();
 			HAL_Delay(1000);
@@ -109,6 +122,9 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 					OneGrid(BACK,0);
 				}
 			OneGrid(BACK,-15);
+			Grid_Lock();
+			HAL_Delay(1000);
+			Grid_UnLock();
 			ni(-10);
 			Grid_Lock();
 			break;
@@ -125,7 +141,7 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 			a_speed=0;
 			x_speed=5;
 			y_speed=5;
-			HAL_Delay(3000);
+			HAL_Delay(2500);
 			a_speed=0;
 			x_speed=0;
 			y_speed=0;
