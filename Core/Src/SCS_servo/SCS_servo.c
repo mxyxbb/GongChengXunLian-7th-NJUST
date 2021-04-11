@@ -518,6 +518,17 @@ void Write5Angle(uint16_t PID, int16_t angle0, int16_t angle1, int16_t angle2, i
 	}
 }
 SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), w5a, Write5Angle, Write5Angle(PID,angle0~4,timems_));
+void Write5Position(int16_t angle0, int16_t angle1, int16_t angle2, int16_t angle3, int16_t angle4, int16_t timems_)
+{
+	WritePos(1,angle0,timems_,0);
+	WritePos(2,angle1,timems_,0);
+	WritePos(3,angle2,timems_,0);
+	WritePos(4,angle3,timems_,0);
+	WritePos(5,angle4,timems_,0);
+}
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), w5p, Write5Position, Write5Position(angle0~4,timems_));
+
+
 
 /*--------letter shell example begin--------*/
 //void fun(char en)

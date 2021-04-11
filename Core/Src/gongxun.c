@@ -35,16 +35,16 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 		case 01:
 			OneGrid(FRONT,-15);
 			OneGrid_sp(LEFT,FRONT,0);
-//			GoFrontForQR();
+			OneGrid_sp(LEFT,FRONT,0);
+			OneGrid(FRONT,0);
+			OneGrid(FRONT,-15);
+			Grid_Lock();
+			HAL_Delay(500);
+			HAL_Delay(500);
 //			Uart3_readQRcode();
+			Grid_UnLock();
 			break;
 		case 12:
-			OneGrid_sp(LEFT,FRONT,0);
-			Grid_Lock();
-			HAL_Delay(1000);
-			Grid_UnLock();
-			OneGrid(FRONT,0);
-			OneGrid(FRONT,0);
 			OneGrid(FRONT,0);
 			OneGrid(FRONT,0);
 			OneGrid(FRONT,-15);

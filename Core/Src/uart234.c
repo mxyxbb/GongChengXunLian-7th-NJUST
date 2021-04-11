@@ -15,7 +15,9 @@ SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), u3
 uint8_t Ov3Mode = Ov3Mode_QrCode;
 uint8_t Max7219_String[]="123--213";
 uint8_t CMD_Serial[] = "CMD_Serial";
+uint8_t CMD_qrcode[] = "qrcode";
 uint8_t CMD_Material[] = "CMD_Material\r\n";
+uint8_t CMD_color[] = "color";
 uint8_t colororder[]={0,0,0,0,0,0};//用于LED点阵的显示，按自左到右的顺序显示在屏幕上
 
 extern int32_t y_speed;
@@ -64,8 +66,8 @@ void Uart3_readQRcode()
 	HAL_UART_Receive_IT(&huart3, (uint8_t *)RxBuff, 1); //打开串口中断接收
 	while(uart3ok==0)
 	{
-		printf("CMD_Serial\t");
-		HAL_UART_Transmit(&huart3, CMD_Serial, 10, 0xffff);
+		user_main_printf("%s",CMD_qrcode);
+		HAL_UART_Transmit(&huart3, CMD_qrcode, 6, 0xffff);
 		x_speed=1;
 		HAL_Delay(20);
 		x_speed=-1;
@@ -90,11 +92,11 @@ SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), u3
 char led_str[6]="000000";
 void Uart3_readColor()
 {
-	user_main_printf("%s",CMD_Material);
+	user_main_printf("%s",CMD_color);
 	Ov3Mode=Ov3Mode_ColorBlock;
 	HAL_UART_Receive_IT(&huart3, (uint8_t *)RxBuff, 1); //打开串口中断接收
 	while(uart3ok==0){
-		HAL_UART_Transmit(&huart3, CMD_Material, 12, 0xffff);
+		HAL_UART_Transmit(&huart3, CMD_color, 5, 0xffff);
 		x_speed=5;
 		HAL_Delay(20);
 		x_speed=-5;

@@ -101,7 +101,11 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 				AnglePosControl(CarMovingTo);
 				if(lockFlag==1)
 				{
-					AnglePosControl(CarMovingTo+1);
+					AnglePosControl(0);
+					AnglePosControl(1);
+					AnglePosControl(2);
+					AnglePosControl(3);
+					
 				}
 				Time3_ms = 0;
 			}

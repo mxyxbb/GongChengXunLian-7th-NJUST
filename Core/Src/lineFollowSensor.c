@@ -178,7 +178,6 @@ void yAngleControl()
 //	LRPosition = Error[LEFT] +/*-*/ Error[RIGHT];
 	yAngle = Error[LEFT] +/*-*/ Error[RIGHT];// LRPosition;	//approximately equ
 	a_speed = User_PID_Calc_angle(&yAnglePIDParameter6,yAngle,yAngleSet);
-	
 }
 
 
