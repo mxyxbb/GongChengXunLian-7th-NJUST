@@ -21,6 +21,10 @@ int getErr(void)
 
 int WritePos(uint8_t ID, uint16_t Position, uint16_t Time, uint16_t Speed)
 {
+	if(ID==5)
+		End = 0;
+	else
+		End = 1;
 	uint8_t bBuf[6];
 	Host2SCS(bBuf+0, bBuf+1, Position);
 	Host2SCS(bBuf+2, bBuf+3, Time);
@@ -32,6 +36,10 @@ SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), wp
 
 int RegWritePos(uint8_t ID, uint16_t Position, uint16_t Time, uint16_t Speed)
 {
+	if(ID==5)
+		End = 0;
+	else
+		End = 1;
 	uint8_t bBuf[6];
 	Host2SCS(bBuf+0, bBuf+1, Position);
 	Host2SCS(bBuf+2, bBuf+3, Time);
@@ -117,6 +125,7 @@ int FeedBack(int ID)
 	
 int ReadPos(int ID)
 {
+	
 	int Pos = -1;
 	if(ID==-1){
 		Pos = Mem[SCSCL_PRESENT_POSITION_L-SCSCL_PRESENT_POSITION_L];
@@ -128,10 +137,34 @@ int ReadPos(int ID)
 		if(Pos==-1){
 			Err = 1;
 		}
+	if(ID==5)
+	{	
+		if(!Err && Pos&(1<<15)){
+		Pos = -(Pos&~(1<<15));
+		}
+	}
 	}
 	return Pos;
 }
-
+//int ReadPos(int ID)
+//{
+//	int Pos = -1;
+//	if(ID==-1){
+//		Pos = Mem[SMSBCL_PRESENT_POSITION_H-SMSBCL_PRESENT_POSITION_L];
+//		Pos <<= 8;
+//		Pos |= Mem[SMSBCL_PRESENT_POSITION_L-SMSBCL_PRESENT_POSITION_L];;
+//	}else{
+//		Err = 0;
+//		Pos = readWord(ID, SMSBCL_PRESENT_POSITION_L);
+//		if(Pos==-1){
+//			Err = 1;
+//		}
+//	}
+//	if(!Err && Pos&(1<<15)){
+//		Pos = -(Pos&~(1<<15));
+//	}	
+//	return Pos;
+//}
 int ReadSpeed(int ID)
 {
 	int Speed = -1;

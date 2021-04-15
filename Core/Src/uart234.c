@@ -49,7 +49,8 @@ DOG		CMD			action
 29		30      放Ⅲ号篮子物料
 */
 void Uart2_servoCtr(uint8_t CMD){
-	DoGroup(CMD-1);
+//	DoGroup(CMD-1);
+	DoGroup(1);
 	led_shan();
 }
 

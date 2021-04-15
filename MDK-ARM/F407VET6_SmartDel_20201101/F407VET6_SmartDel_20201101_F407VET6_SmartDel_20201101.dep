@@ -206,7 +206,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x5FCB0B61)
 I (../Core/Inc/usart.h)(0x60486D90)
 I (../Core/Inc/main.h)(0x606AC016)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
-F (..\Core\Src\gongxun.c)(0x6072FD95)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\Core\Src-I.\RTE\_F407VET6_SmartDel_20201101-ID:\Users\Ma\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\Users\Ma\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o f407vet6_smartdel_20201101\gongxun.o --omf_browse f407vet6_smartdel_20201101\gongxun.crf --depend f407vet6_smartdel_20201101\gongxun.d)
+F (..\Core\Src\gongxun.c)(0x6076F7B0)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\Core\Src-I.\RTE\_F407VET6_SmartDel_20201101-ID:\Users\Ma\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\Users\Ma\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o f407vet6_smartdel_20201101\gongxun.o --omf_browse f407vet6_smartdel_20201101\gongxun.crf --depend f407vet6_smartdel_20201101\gongxun.d)
 I (../Core/Inc/gongxun.h)(0x6037A020)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x5FCB0B61)
 I (../Core/Inc/stm32f4xx_hal_conf.h)(0x60486D90)
@@ -253,7 +253,7 @@ I (..\Core\Src\letter_shell/src/shell_port.h)(0x6040CA38)
 I (..\Core\Src\letter_shell/src/shell.h)(0x6003E7A7)
 I (..\Core\Src\letter_shell/src/shell_cfg.h)(0x6029E00D)
 I (..\Core\Src\SCS_servo/SCS_servo.h)(0x606AC016)
-F (..\Core\Src\uart234.c)(0x606F0FA7)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\Core\Src-I.\RTE\_F407VET6_SmartDel_20201101-ID:\Users\Ma\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\Users\Ma\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o f407vet6_smartdel_20201101\uart234.o --omf_browse f407vet6_smartdel_20201101\uart234.crf --depend f407vet6_smartdel_20201101\uart234.d)
+F (..\Core\Src\uart234.c)(0x60743AF5)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\Core\Src-I.\RTE\_F407VET6_SmartDel_20201101-ID:\Users\Ma\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\Users\Ma\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o f407vet6_smartdel_20201101\uart234.o --omf_browse f407vet6_smartdel_20201101\uart234.crf --depend f407vet6_smartdel_20201101\uart234.d)
 I (../Core/Inc/uart234.h)(0x6040DC4A)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x5FCB0B61)
 I (../Core/Inc/stm32f4xx_hal_conf.h)(0x60486D90)
@@ -1297,15 +1297,15 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h)(0x5FCB0B61)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x5FCB0B61)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x5FCB0B61)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x5FCB0B61)
-F (..\Core\Src\SCSLib\SCS.c)(0x5EB4457A)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\Core\Src-I.\RTE\_F407VET6_SmartDel_20201101-ID:\Users\Ma\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\Users\Ma\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o f407vet6_smartdel_20201101\scs.o --omf_browse f407vet6_smartdel_20201101\scs.crf --depend f407vet6_smartdel_20201101\scs.d)
+F (..\Core\Src\SCSLib\SCS.c)(0x60782C57)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\Core\Src-I.\RTE\_F407VET6_SmartDel_20201101-ID:\Users\Ma\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\Users\Ma\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o f407vet6_smartdel_20201101\scs.o --omf_browse f407vet6_smartdel_20201101\scs.crf --depend f407vet6_smartdel_20201101\scs.d)
 I (..\Core\Src\SCSLib\INST.h)(0x5D199603)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
-I (..\Core\Src\SCSLib\SCS.h)(0x5D4ADB8F)
-F (..\Core\Src\SCSLib\SCSCL.c)(0x6029FB7E)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\Core\Src-I.\RTE\_F407VET6_SmartDel_20201101-ID:\Users\Ma\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\Users\Ma\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o f407vet6_smartdel_20201101\scscl.o --omf_browse f407vet6_smartdel_20201101\scscl.crf --depend f407vet6_smartdel_20201101\scscl.d)
+I (..\Core\Src\SCSLib\SCS.h)(0x60782B0F)
+F (..\Core\Src\SCSLib\SCSCL.c)(0x60783794)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\Core\Src-I.\RTE\_F407VET6_SmartDel_20201101-ID:\Users\Ma\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\Users\Ma\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o f407vet6_smartdel_20201101\scscl.o --omf_browse f407vet6_smartdel_20201101\scscl.crf --depend f407vet6_smartdel_20201101\scscl.d)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
 I (..\Core\Src\SCSLib\INST.h)(0x5D199603)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
-I (..\Core\Src\SCSLib\SCS.h)(0x5D4ADB8F)
+I (..\Core\Src\SCSLib\SCS.h)(0x60782B0F)
 I (..\Core\Src\SCSLib\SCSCL.h)(0x5EB442F1)
 I (..\Core\Src\SCSLib\../letter_shell/src/shell_port.h)(0x6040CA38)
 I (..\Core\Src\SCSLib\../letter_shell/src/shell.h)(0x6003E7A7)
@@ -1450,6 +1450,47 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h)(0x5FCB0B61)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x5FCB0B61)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x5FCB0B61)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x5FCB0B61)
+F (..\Core\Src\SCSLib\SMSBCL.c)(0x60782B0F)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\Core\Src-I.\RTE\_F407VET6_SmartDel_20201101-ID:\Users\Ma\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\Users\Ma\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o f407vet6_smartdel_20201101\smsbcl.o --omf_browse f407vet6_smartdel_20201101\smsbcl.crf --depend f407vet6_smartdel_20201101\smsbcl.d)
+I (D:\Program Files\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+I (..\Core\Src\SCSLib\INST.h)(0x5D199603)
+I (D:\Program Files\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (..\Core\Src\SCSLib\SCS.h)(0x60782B0F)
+I (..\Core\Src\SCSLib\SMSBCL.h)(0x6076D2E4)
+I (..\Core\Src\SCSLib\../letter_shell/src/shell_port.h)(0x6040CA38)
+I (..\Core\Src\SCSLib\../letter_shell/src/shell.h)(0x6003E7A7)
+I (..\Core\Src\SCSLib\../letter_shell/src/shell_cfg.h)(0x6029E00D)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x5FCB0B61)
+I (../Core/Inc/stm32f4xx_hal_conf.h)(0x60486D90)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x5FCB0B61)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h)(0x5FCB0B61)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x5FCB0AEC)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h)(0x5FCB0AEC)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x5FCB0AF2)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x5FCB0AF2)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x5FCB0AF2)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5FCB0AF2)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x5FCB0AF2)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x5FCB0AEC)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5FCB0B61)
+I (D:\Program Files\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h)(0x5FCB0B61)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h)(0x5FCB0B61)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h)(0x5FCB0B61)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h)(0x5FCB0B61)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h)(0x5FCB0B61)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h)(0x5FCB0B61)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h)(0x5FCB0B61)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h)(0x5FCB0B61)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h)(0x5FCB0B61)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h)(0x5FCB0B61)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h)(0x5FCB0B61)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c_ex.h)(0x5FCB0B61)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x5FCB0B61)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x5FCB0B61)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h)(0x5FCB0B61)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x5FCB0B61)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x5FCB0B61)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x5FCB0B61)
 F (..\Core\Src\ee24\ee24.c)(0x602A2C5D)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\Core\Src-I.\RTE\_F407VET6_SmartDel_20201101-ID:\Users\Ma\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\Users\Ma\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o f407vet6_smartdel_20201101\ee24.o --omf_browse f407vet6_smartdel_20201101\ee24.crf --depend f407vet6_smartdel_20201101\ee24.d)
 I (../Core/Inc/i2c.h)(0x60486D8F)
 I (../Core/Inc/main.h)(0x606AC016)
@@ -1569,7 +1610,7 @@ I (D:\Program Files\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
 I (..\Core\Src\MAX7219\../letter_shell/src/shell_port.h)(0x6040CA38)
 I (..\Core\Src\MAX7219\../letter_shell/src/shell.h)(0x6003E7A7)
 I (..\Core\Src\MAX7219\../letter_shell/src/shell_cfg.h)(0x6029E00D)
-F (..\Core\Src\SCS_servo\SCS_servo.c)(0x6071A0C7)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\Core\Src-I.\RTE\_F407VET6_SmartDel_20201101-ID:\Users\Ma\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\Users\Ma\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o f407vet6_smartdel_20201101\scs_servo.o --omf_browse f407vet6_smartdel_20201101\scs_servo.crf --depend f407vet6_smartdel_20201101\scs_servo.d)
+F (..\Core\Src\SCS_servo\SCS_servo.c)(0x607836B2)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\Core\Src-I.\RTE\_F407VET6_SmartDel_20201101-ID:\Users\Ma\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\Users\Ma\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o f407vet6_smartdel_20201101\scs_servo.o --omf_browse f407vet6_smartdel_20201101\scs_servo.crf --depend f407vet6_smartdel_20201101\scs_servo.d)
 I (..\Core\Src\SCS_servo\SCS_servo.h)(0x606AC016)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x5FCB0B61)
 I (../Core/Inc/stm32f4xx_hal_conf.h)(0x60486D90)
@@ -1604,10 +1645,11 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h)(0x5FCB0B61)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x5FCB0B61)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x5FCB0B61)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x5FCB0B61)
-I (..\Core\Src\SCS_servo\../SCSLib/SCServo.h)(0x5CD38F5C)
+I (..\Core\Src\SCS_servo\../SCSLib/SCServo.h)(0x6076CD66)
 I (..\Core\Src\SCS_servo\../SCSLib/INST.h)(0x5D199603)
-I (..\Core\Src\SCS_servo\../SCSLib/SCS.h)(0x5D4ADB8F)
+I (..\Core\Src\SCS_servo\../SCSLib/SCS.h)(0x60782B0F)
 I (..\Core\Src\SCS_servo\../SCSLib/SCSCL.h)(0x5EB442F1)
+I (..\Core\Src\SCS_servo\../SCSLib/SMSBCL.h)(0x6076D2E4)
 I (..\Core\Src\SCS_servo\../SCSLib/uart.h)(0x602911FF)
 I (..\Core\Src\SCS_servo\../SCSLib/wiring.h)(0x6027DA36)
 I (..\Core\Src\SCS_servo\../letter_shell/src/shell_port.h)(0x6040CA38)
@@ -1620,6 +1662,43 @@ I (D:\Program Files\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x599ECD2E)
 I (..\Core\Src\SCS_servo\../ee24/ee24Config.h)(0x602A065C)
 I (D:\Program Files\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
 I (../Core/Inc/user_usart.h)(0x5FBA7E78)
+I (..\Core\Src\Buzzer/buzzerDriver.h)(0x606DBF1E)
+F (..\Core\Src\SCS_servo\model.c)(0x6075BC18)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\Core\Src-I.\RTE\_F407VET6_SmartDel_20201101-ID:\Users\Ma\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\Users\Ma\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o f407vet6_smartdel_20201101\model.o --omf_browse f407vet6_smartdel_20201101\model.crf --depend f407vet6_smartdel_20201101\model.d)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x5FCB0B61)
+I (../Core/Inc/stm32f4xx_hal_conf.h)(0x60486D90)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h)(0x5FCB0B61)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h)(0x5FCB0B61)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h)(0x5FCB0AEC)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h)(0x5FCB0AEC)
+I (../Drivers/CMSIS/Include/core_cm4.h)(0x5FCB0AF2)
+I (D:\Program Files\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x5FCB0AF2)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x5FCB0AF2)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5FCB0AF2)
+I (../Drivers/CMSIS/Include/mpu_armv7.h)(0x5FCB0AF2)
+I (../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h)(0x5FCB0AEC)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x5FCB0B61)
+I (D:\Program Files\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h)(0x5FCB0B61)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h)(0x5FCB0B61)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h)(0x5FCB0B61)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h)(0x5FCB0B61)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h)(0x5FCB0B61)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h)(0x5FCB0B61)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h)(0x5FCB0B61)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h)(0x5FCB0B61)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h)(0x5FCB0B61)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h)(0x5FCB0B61)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h)(0x5FCB0B61)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c_ex.h)(0x5FCB0B61)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h)(0x5FCB0B61)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x5FCB0B61)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h)(0x5FCB0B61)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x5FCB0B61)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x5FCB0B61)
+I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x5FCB0B61)
+I (D:\Program Files\Keil_v5\ARM\ARMCC\include\math.h)(0x599ECD2E)
+I (D:\Program Files\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
 F (..\Core\Src\letter_shell\src\shell.c)(0x6003E7A7)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ..\Core\Src-I.\RTE\_F407VET6_SmartDel_20201101-ID:\Users\Ma\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\Users\Ma\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o f407vet6_smartdel_20201101\shell.o --omf_browse f407vet6_smartdel_20201101\shell.crf --depend f407vet6_smartdel_20201101\shell.d)
 I (..\Core\Src\letter_shell\src\shell.h)(0x6003E7A7)
 I (..\Core\Src\letter_shell\src\shell_cfg.h)(0x6029E00D)

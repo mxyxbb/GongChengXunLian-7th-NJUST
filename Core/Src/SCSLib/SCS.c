@@ -9,7 +9,7 @@
 #include "SCS.h"
 
 static uint8_t Level =1;//舵机返回等级
-static uint8_t End = 1;//处理器大小端结构
+uint8_t End = 1;//处理器大小端结构
 //static uint8_t Error = 0;//舵机状态
 
 //1个16位数拆分为2个8位数
@@ -147,6 +147,10 @@ int writeByte(uint8_t ID, uint8_t MemAddr, uint8_t bDat)
 
 int writeWord(uint8_t ID, uint8_t MemAddr, uint16_t wDat)
 {
+	if(ID==5)
+		End = 0;
+	else
+		End = 1;
 	uint8_t buf[2];
 	Host2SCS(buf+0, buf+1, wDat);
 	rFlushSCS();
@@ -207,6 +211,10 @@ int readByte(uint8_t ID, uint8_t MemAddr)
 //读2字节，超时返回-1
 int readWord(uint8_t ID, uint8_t MemAddr)
 {	
+	if(ID==5)
+		End = 0;
+	else
+		End = 1;
 	uint8_t nDat[2];
 	int Size;
 	uint16_t wDat;

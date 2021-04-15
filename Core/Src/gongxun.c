@@ -41,7 +41,7 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 			Grid_Lock();
 			HAL_Delay(500);
 			HAL_Delay(500);
-//			Uart3_readQRcode();
+			Uart3_readQRcode();
 			Grid_UnLock();
 			break;
 		case 12:

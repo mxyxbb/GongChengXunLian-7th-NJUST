@@ -14,6 +14,7 @@
 #include "../ee24/ee24.h"
 #include <string.h> //使用到了memcpy
 #include "user_usart.h"
+#include "Buzzer/buzzerDriver.h"
 
 #define POS_LEN 100
 #define GROUP_LEN 40//30
@@ -65,9 +66,18 @@ SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), am
   * @retval 无
   */
 void ArmForceEnable(uint8_t ID_,uint8_t Enable_){
-	unLockEprom(ID_);//打开EPROM保存功能
-	EnableTorque(ID_, Enable_);
-	LockEprom(ID_);//关闭EPROM保存功能
+	if(ID_!=5)
+	{
+		unLockEprom(ID_);//打开EPROM保存功能
+		EnableTorque(ID_, Enable_);
+		LockEprom(ID_);//关闭EPROM保存功能
+	}
+	else if(ID_==5)
+	{
+		unLockEpromEx(ID_);//打开EPROM保存功能
+		EnableTorque(ID_, Enable_);
+		LockEpromEx(ID_);//关闭EPROM保存功能
+	}
 }
 SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), amf, ArmForceEnable, ArmForceEnable(id,en));
 /**
@@ -81,6 +91,8 @@ void ForceAll(uint8_t Enable_){
 		EnableTorque(ID_+1, Enable_);
 		LockEprom(ID_+1);//关闭EPROM保存功能
 	}
+	if(!Enable_)//卸力时
+		music2Play();//嘀嘀嘀
 }
 SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), fll, ForceAll, forceAll(en));
 /**
@@ -117,7 +129,10 @@ SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), sa
   */
 void WritePos_sp(int16_t PID,uint8_t SID, uint16_t Position, uint16_t Time)
 {	
-	WritePos(SID,Position,Time,0);
+	if(SID!=5)
+		WritePos(SID,Position,Time,0);
+	else
+		WritePosEx(SID,Position,0,0);
 	Pos postion0;
 	/*读取*/
 	if(PID<POS_LEN)
@@ -222,7 +237,10 @@ void GoPos(int16_t ID_)
 	if(ID_<POS_LEN){
 		for(uint8_t temp=0;temp<5;temp++)//写5个舵机的角度
 		{
-			WritePos(temp+1, postion[ID_].angle[temp], postion[ID_].timems, 0);//舵机(IDtemp),以时间timems毫秒,运行至postion[ID_].angle[temp]角度
+			if(temp!=4)
+				WritePos(temp+1, postion[ID_].angle[temp], postion[ID_].timems, 0);//舵机(IDtemp),以时间timems毫秒,运行至postion[ID_].angle[temp]角度
+			else if(temp==4)
+				WritePosEx(temp+1, postion[ID_].angle[temp],2000, 50);//舵机(IDtemp),以时间timems毫秒,运行至postion[ID_].angle[temp]角度
 		}
 		delay(postion[ID_].timems);//堵塞式等待动作完成
 	}
@@ -230,7 +248,10 @@ void GoPos(int16_t ID_)
 		ID_ -= POS_LEN;
 		for(uint8_t temp=0;temp<5;temp++)//写5个舵机的角度
 		{
-			WritePos(temp+1, postion_ex[ID_].angle[temp], postion_ex[ID_].timems, 0);//舵机(IDtemp),以时间timems毫秒,运行至postion_ex[ID_].angle[temp]角度
+			if(temp!=4)
+				WritePos(temp+1, postion[ID_].angle[temp], postion[ID_].timems, 0);//舵机(IDtemp),以时间timems毫秒,运行至postion[ID_].angle[temp]角度
+			else if(temp==4)
+				WritePosEx(temp+1, postion[ID_].angle[temp],2000, 50);//舵机(IDtemp),以时间timems毫秒,运行至postion[ID_].angle[temp]角度
 		}
 		delay(postion_ex[ID_].timems);//堵塞式等待动作完成
 	}
@@ -454,10 +475,11 @@ SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), rf
   */
 void ArmGoMiddle()
 {
-	for(uint8_t temp=0;temp<5;temp++)
+	for(uint8_t temp=0;temp<4;temp++)
   {
 		WritePos(temp+1, 510, 2000, 0);
   }
+	WritePosEx(5, 2000, 2000, 50);
 }
 SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), mi, ArmGoMiddle, ArmGoMiddle());
 
@@ -524,7 +546,7 @@ void Write5Position(int16_t angle0, int16_t angle1, int16_t angle2, int16_t angl
 	WritePos(2,angle1,timems_,0);
 	WritePos(3,angle2,timems_,0);
 	WritePos(4,angle3,timems_,0);
-	WritePos(5,angle4,timems_,0);
+	WritePosEx(5,angle4,timems_,0);
 }
 SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), w5p, Write5Position, Write5Position(angle0~4,timems_));
 

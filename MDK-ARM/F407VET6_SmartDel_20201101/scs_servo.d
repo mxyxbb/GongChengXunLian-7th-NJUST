@@ -38,6 +38,7 @@ f407vet6_smartdel_20201101\scs_servo.o: ..\Core\Src\SCS_servo\../SCSLib/SCServo.
 f407vet6_smartdel_20201101\scs_servo.o: ..\Core\Src\SCS_servo\../SCSLib/INST.h
 f407vet6_smartdel_20201101\scs_servo.o: ..\Core\Src\SCS_servo\../SCSLib/SCS.h
 f407vet6_smartdel_20201101\scs_servo.o: ..\Core\Src\SCS_servo\../SCSLib/SCSCL.h
+f407vet6_smartdel_20201101\scs_servo.o: ..\Core\Src\SCS_servo\../SCSLib/SMSBCL.h
 f407vet6_smartdel_20201101\scs_servo.o: ..\Core\Src\SCS_servo\../SCSLib/uart.h
 f407vet6_smartdel_20201101\scs_servo.o: ..\Core\Src\SCS_servo\../SCSLib/wiring.h
 f407vet6_smartdel_20201101\scs_servo.o: ..\Core\Src\SCS_servo\../letter_shell/src/shell_port.h
@@ -50,3 +51,4 @@ f407vet6_smartdel_20201101\scs_servo.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\.
 f407vet6_smartdel_20201101\scs_servo.o: ..\Core\Src\SCS_servo\../ee24/ee24Config.h
 f407vet6_smartdel_20201101\scs_servo.o: D:\Program Files\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 f407vet6_smartdel_20201101\scs_servo.o: ../Core/Inc/user_usart.h
+f407vet6_smartdel_20201101\scs_servo.o: ..\Core\Src\Buzzer/buzzerDriver.h

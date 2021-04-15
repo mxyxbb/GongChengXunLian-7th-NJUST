@@ -27,6 +27,8 @@ extern int SCS2Host(uint8_t DataL, uint8_t DataH);//2个8位数组合为1个16位数
 extern int Ack(uint8_t ID);//应答
 extern int checkHead(void);//帧头检测
 
+extern uint8_t End;//处理器大小端结构
+
 //硬件接口函数
 extern int writeSCS(uint8_t *nDat, int nLen);
 extern int readSCS(uint8_t *nDat, int nLen);

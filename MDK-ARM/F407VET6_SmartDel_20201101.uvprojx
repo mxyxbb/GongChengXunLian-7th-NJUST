@@ -612,6 +612,11 @@
               <FileType>1</FileType>
               <FilePath>..\Core\Src\SCSLib\wiring.c</FilePath>
             </File>
+            <File>
+              <FileName>SMSBCL.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\SCSLib\SMSBCL.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -641,6 +646,11 @@
               <FileName>SCS_servo.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Core\Src\SCS_servo\SCS_servo.c</FilePath>
+            </File>
+            <File>
+              <FileName>model.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\SCS_servo\model.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1295,6 +1305,11 @@
               <FileType>1</FileType>
               <FilePath>..\Core\Src\SCSLib\wiring.c</FilePath>
             </File>
+            <File>
+              <FileName>SMSBCL.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\SCSLib\SMSBCL.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1324,6 +1339,11 @@
               <FileName>SCS_servo.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Core\Src\SCS_servo\SCS_servo.c</FilePath>
+            </File>
+            <File>
+              <FileName>model.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\SCS_servo\model.c</FilePath>
             </File>
           </Files>
         </Group>
