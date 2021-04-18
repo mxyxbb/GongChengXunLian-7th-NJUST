@@ -1106,6 +1106,7 @@ void ni(int32_t speed_)
 	CarMovingTo=0;
 	AngleAndPositionTIM=1;
 }
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), ni, ni, ni(speed));
 
 void Grid_Lock()
 {

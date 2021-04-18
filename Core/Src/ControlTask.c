@@ -48,6 +48,9 @@ SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), to
 uint8_t toggleServo=0;
 SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), togs, &toggleServo, toggleServo);
 
+uint8_t gray_count=0;
+
+
 extern int32_t y_speed;
 extern int32_t x_speed;
 extern int32_t a_speed;
@@ -101,11 +104,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 				AnglePosControl(CarMovingTo);
 				if(lockFlag==1)
 				{
-					AnglePosControl(0);
-					AnglePosControl(1);
-					AnglePosControl(2);
-					AnglePosControl(3);
-					
+						AnglePosControl(CarMovingTo+1);
 				}
 				Time3_ms = 0;
 			}
