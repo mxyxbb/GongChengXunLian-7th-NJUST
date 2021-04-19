@@ -8,9 +8,13 @@
 #include <string.h>
 #include "SCS_servo/SCS_servo.h"
 #include "letter_shell/src/shell_port.h"
+#include "mymath.h"
 
 uint8_t uart3ok=0;
 SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), u3ok, &uart3ok, uart3ok);
+uint8_t readcolor_mode=1;//1--单次发、0---重复发
+SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), rc1111, &readcolor_mode, readcolor_mode);
+
 
 uint8_t Ov3Mode = Ov3Mode_QrCode;
 uint8_t Max7219_String[]="123--213";
@@ -47,10 +51,12 @@ DOG		CMD			action
 27		28      放Ⅰ号篮子物料（下）
 28		29      放Ⅱ号篮子物料 
 29		30      放Ⅲ号篮子物料
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!（上）对应码垛下层
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!（下）对应码垛上层
+
 */
 void Uart2_servoCtr(uint8_t CMD){
-//	DoGroup(CMD-1);
-	DoGroup(1);
+	DoGroup(CMD-1);
 	led_shan();
 }
 
@@ -73,7 +79,6 @@ void Uart3_readQRcode()
 		HAL_Delay(20);
 		x_speed=-1;
 		HAL_Delay(20);
-		
 	}
 	x_speed=0;
 	colororder[0]=Max7219_String[0]-'0';
@@ -90,24 +95,30 @@ void Uart3_readQRcode()
 }
 SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), u3rqr, Uart3_readQRcode, Uart3_readQRcode());
 
-char led_str[6]="000000";
+char led_str[6]="RGBRGB";
+
 void Uart3_readColor()
 {
 	user_main_printf("%s",CMD_color);
 	Ov3Mode=Ov3Mode_ColorBlock;
 	HAL_UART_Receive_IT(&huart3, (uint8_t *)RxBuff, 1); //打开串口中断接收
 	while(uart3ok==0){
-		HAL_UART_Transmit(&huart3, CMD_color, 5, 0xffff);
-		x_speed=5;
-		HAL_Delay(20);
-		x_speed=-5;
-		HAL_Delay(20);
-		x_speed=0;
+		if(readcolor_mode)
+			__ExecuteOnce(HAL_UART_Transmit(&huart3, CMD_color, 5, 0xffff));
+		else
+			HAL_UART_Transmit(&huart3, CMD_color, 5, 0xffff);
 	}
 	sprintf(led_str,"%c%c%c/%c%c%c",Color[0],Color[1],Color[2],Color[3],Color[4],Color[5]);
-	user_main_printf("color result: %s",led_str);
+	user_main_printf("color result:%s",led_str);
 	uart3ok=0;
 }
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), u3rco, Uart3_readColor, Uart3_readColor());
+
+void Uart2_sendColor()
+{
+	user_main_printf("color result:%s",led_str);
+}
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), u2sco, Uart2_sendColor, Uart2_sendColor());
 
 void HAL_UART_RxCpltCallback_color()//在串口3的接收回调函数中调用此函数，处理openMV发回的颜色识别数据
 {
@@ -164,7 +175,7 @@ void HAL_UART_RxCpltCallback_color()//在串口3的接收回调函数中调用此函数，处理ope
 						case Ov3Mode_ColorBlock:
 							for(i=0;i<6;i++)
 							{
-								Color[i]=DataBuff[6-i];
+								Color[i]=DataBuff[i+1];
 							}
 						break;
 					}
@@ -175,7 +186,7 @@ void HAL_UART_RxCpltCallback_color()//在串口3的接收回调函数中调用此函数，处理ope
 		}
 		
 
-		if(RxLine_Copy<setVal)
+		if(RxLine_Copy<setVal&&!uart3ok)
 		{	
 			HAL_UART_Receive_IT(&huart3, (uint8_t *)RxBuff, 1); //接受长度不够，要继续接收，继续打开一次串口中断接收，否则只会接收一个数据就停止接收
 		}

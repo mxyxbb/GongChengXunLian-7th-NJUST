@@ -231,7 +231,7 @@ void GoPos(int16_t ID_)
 			return;
 	}
 	else{
-		if(postion_ex[ID_].pos_id==-1)
+		if(postion_ex[ID_-POS_LEN].pos_id==-1)
 			return;
 	}
 	if(ID_<POS_LEN){
@@ -249,9 +249,9 @@ void GoPos(int16_t ID_)
 		for(uint8_t temp=0;temp<5;temp++)//写5个舵机的角度
 		{
 			if(temp!=4)
-				WritePos(temp+1, postion[ID_].angle[temp], postion[ID_].timems, 0);//舵机(IDtemp),以时间timems毫秒,运行至postion[ID_].angle[temp]角度
+				WritePos(temp+1, postion_ex[ID_].angle[temp], postion[ID_].timems, 0);//舵机(IDtemp),以时间timems毫秒,运行至postion[ID_].angle[temp]角度
 			else if(temp==4)
-				WritePosEx(temp+1, postion[ID_].angle[temp],2000, 50);//舵机(IDtemp),以时间timems毫秒,运行至postion[ID_].angle[temp]角度
+				WritePosEx(temp+1, postion_ex[ID_].angle[temp],2000, 50);//舵机(IDtemp),以时间timems毫秒,运行至postion[ID_].angle[temp]角度
 		}
 		delay(postion_ex[ID_].timems);//堵塞式等待动作完成
 	}
@@ -549,8 +549,30 @@ void Write5Position(int16_t angle0, int16_t angle1, int16_t angle2, int16_t angl
 	WritePosEx(5,angle4,timems_,0);
 }
 SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), w5p, Write5Position, Write5Position(angle0~4,timems_));
-
-
+void readGroup(uint8_t GID)
+{
+	for(uint8_t i=0;i<15&&group[GID][i]!=-1;i++)
+	{
+		user_main_printf("%d,", group[GID][i]);
+	}
+}
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), rg, readGroup, readGroup(GID));
+void readAllGroupTime()
+{
+	uint16_t time;
+	for(uint8_t i=0;i<GROUP_LEN&&group[i][0]!=-1;i++)//0-39
+	{
+		for(uint8_t j=0;j<GROUP_POS_LEN&&group[i][j]!=-1;j++)//0-15
+		{
+			if(group[i][j]<POS_LEN)
+				time += postion[group[i][j]].timems;
+			else
+				time += postion_ex[group[i][j]-POS_LEN].timems;
+		}
+	}
+	user_main_printf("total arm time: %d", time);
+}
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), ragt, readAllGroupTime, readAllGroupTime(GID));
 
 /*--------letter shell example begin--------*/
 //void fun(char en)

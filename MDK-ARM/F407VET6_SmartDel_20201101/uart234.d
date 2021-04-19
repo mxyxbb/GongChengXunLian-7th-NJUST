@@ -47,3 +47,4 @@ f407vet6_smartdel_20201101\uart234.o: ..\Core\Src\SCS_servo/SCS_servo.h
 f407vet6_smartdel_20201101\uart234.o: ..\Core\Src\letter_shell/src/shell_port.h
 f407vet6_smartdel_20201101\uart234.o: ..\Core\Src\letter_shell/src/shell.h
 f407vet6_smartdel_20201101\uart234.o: ..\Core\Src\letter_shell/src/shell_cfg.h
+f407vet6_smartdel_20201101\uart234.o: ..\Core\Src\mymath.h

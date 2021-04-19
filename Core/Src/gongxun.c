@@ -41,18 +41,19 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 			Grid_Lock();
 			HAL_Delay(500);
 			HAL_Delay(500);
+			GoPos(99);
 			Uart3_readQRcode();
+			GoPos(87);
 			Grid_UnLock();
 			break;
 		case 12:
 			OneGrid(FRONT,0);
 			OneGrid(FRONT,0);
 			OneGrid(FRONT,-15);
-//			GoFrontForMaterial();
-//			Uart3_readColor();
+			GoPos(0);
+			Uart3_readColor();
 			Grid_Lock();
 		//此处机械臂可能需要预动作
-			HAL_Delay(2000);
 			break;
 		case 23:
 			ni(10);
@@ -130,6 +131,7 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 			break;
 		case 45:
 			Grid_UnLock();
+			GoPos(87);
 			OneGrid(FRONT,0);
 			OneGrid(FRONT,0);
 			OneGrid(FRONT,-15);
@@ -141,7 +143,7 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 			a_speed=0;
 			x_speed=5;
 			y_speed=5;
-			HAL_Delay(2500);
+			HAL_Delay(2000);
 			a_speed=0;
 			x_speed=0;
 			y_speed=0;
@@ -157,6 +159,22 @@ void ManufacturingProcesses()
 {
 	OnTheWay(0,1);
 	OnTheWay(1,2);
+//	//临时调试
+//	Color[0]='R';
+//	Color[1]='G';
+//	Color[2]='B';
+//	Color[3]='R';
+//	Color[4]='G';
+//	Color[5]='B';
+//	Max7219_String[0]='2';
+//	Max7219_String[1]='1';
+//	Max7219_String[2]='3';
+//	Max7219_String[3]='-';
+//	Max7219_String[4]='-';
+//	Max7219_String[5]='3';
+//	Max7219_String[6]='2';
+//	Max7219_String[7]='1';
+	
 	unsigned int index=0;
 	
 	/*data preparation*/
@@ -210,11 +228,17 @@ void ManufacturingProcesses()
 			OnTheWay(2,3);
 			for(unsigned int i=0;i<3;i++)//一次放好3个，在粗加工区
 				{ 
+					static uint8_t once__=0;
+					if(once__)
+						GoPos(87);
+					else
+						once__=1;
 					Uart2_servoCtr(19+2*(meterial[queue[i+3*index]].itsColor%3));//放蓝19，红21，绿23。
 					led_shan();
 				}
 			for(unsigned int i=0;i<3;i++)//一次装好3个，从粗加工区
 				{ 
+					GoPos(87);
 					Uart2_servoCtr(20+2*(meterial[queue[i+3*index]].itsColor%3));//装蓝20，红22，绿24。
 					led_shan();
 				}
@@ -227,6 +251,7 @@ void ManufacturingProcesses()
 			if(index==1)
 				{
 					OnTheWay(4,5);//over
+					GoPos(87);
 					/*收起机械臂();*/
 				}
 			else 
