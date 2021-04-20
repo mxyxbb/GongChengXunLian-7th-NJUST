@@ -75,8 +75,8 @@ buffer12	buffer13	buffer14	buffer15
 #define OUT20_Port GPIOB
 #define OUT20_Pin	GPIO_PIN_11
 #define userSpeed 35
-#define userSpeed_x 30
-#define userSpeed_y 15
+#define userSpeed_x 30 //30
+#define userSpeed_y 15 //15
 #define TURN90 800
 
 

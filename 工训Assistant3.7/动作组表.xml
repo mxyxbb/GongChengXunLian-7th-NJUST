@@ -1,2 +1,32 @@
 <?xml version="1.0" standalone="yes"?>
-<NewDataSet />
+<NewDataSet>
+  <group>
+    <GroupID>动作组30</GroupID>
+    <Idx0>45</Idx0>
+    <Idx1>40</Idx1>
+    <Idx2>41</Idx2>
+    <Idx3>42</Idx3>
+    <Idx4>43</Idx4>
+    <Idx5>102</Idx5>
+    <Idx6>103</Idx6>
+    <Idx7>104</Idx7>
+    <Idx8>105</Idx8>
+    <Idx9>-1</Idx9>
+    <Idx10>-1</Idx10>
+  </group>
+  <group>
+    <GroupID>动作组31</GroupID>
+    <Idx0>98</Idx0>
+    <Idx1>58</Idx1>
+    <Idx2>59</Idx2>
+    <Idx3>60</Idx3>
+    <Idx4>83</Idx4>
+    <Idx5>106</Idx5>
+    <Idx6>107</Idx6>
+    <Idx7>108</Idx7>
+    <Idx8>109</Idx8>
+    <Idx9>-1</Idx9>
+    <Idx10>-1</Idx10>
+    <Idx11>-1</Idx11>
+  </group>
+</NewDataSet>

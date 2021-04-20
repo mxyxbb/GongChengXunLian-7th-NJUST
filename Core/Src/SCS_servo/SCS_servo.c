@@ -259,6 +259,44 @@ void GoPos(int16_t ID_)
 SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), gop, GoPos, goPos(id));
 
 /**
+  * @brief  使机械臂动作到指定位置
+  * @param  ID_:指定位置信息存储在数组中的位置
+  * @retval 无
+  */
+void GoPosSP(int16_t ID_)
+{
+	if(ID_<POS_LEN){
+		if(postion[ID_].pos_id==-1)
+			return;
+	}
+	else{
+		if(postion_ex[ID_-POS_LEN].pos_id==-1)
+			return;
+	}
+	if(ID_<POS_LEN){
+		for(uint8_t temp=0;temp<5;temp++)//写5个舵机的角度
+		{
+			if(temp!=4)
+				WritePos(temp+1, postion[ID_].angle[temp], postion[ID_].timems, 0);//舵机(IDtemp),以时间timems毫秒,运行至postion[ID_].angle[temp]角度
+			else if(temp==4)
+				WritePosEx(temp+1, postion[ID_].angle[temp],2000, 50);//舵机(IDtemp),以时间timems毫秒,运行至postion[ID_].angle[temp]角度
+		}
+	}
+	else{
+		ID_ -= POS_LEN;
+		for(uint8_t temp=0;temp<5;temp++)//写5个舵机的角度
+		{
+			if(temp!=4)
+				WritePos(temp+1, postion_ex[ID_].angle[temp], postion[ID_].timems, 0);//舵机(IDtemp),以时间timems毫秒,运行至postion[ID_].angle[temp]角度
+			else if(temp==4)
+				WritePosEx(temp+1, postion_ex[ID_].angle[temp],2000, 50);//舵机(IDtemp),以时间timems毫秒,运行至postion[ID_].angle[temp]角度
+		}
+	}
+}
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), gopsp, GoPosSP, GoPosSP(id));
+
+
+/**
   * @brief  修改缓冲区机械臂动作组序列
   * @param  ID_:动作组信息存储在数组中的位置
   * @param  PosIDs:按顺序存储着动作组各个动作的数组
@@ -553,7 +591,7 @@ void readGroup(uint8_t GID)
 {
 	for(uint8_t i=0;i<15&&group[GID][i]!=-1;i++)
 	{
-		user_main_printf("%d,", group[GID][i]);
+		printf("%d,", group[GID][i]);
 	}
 }
 SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), rg, readGroup, readGroup(GID));

@@ -37,86 +37,86 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 			OneGrid_sp(LEFT,FRONT,0);
 			OneGrid_sp(LEFT,FRONT,0);
 			OneGrid(FRONT,0);
+			GoPosSP(99);//读二维码
 			OneGrid(FRONT,-15);
 			Grid_Lock();
 			HAL_Delay(500);
-			HAL_Delay(500);
-			GoPos(99);
+			HAL_Delay(200);
 			Uart3_readQRcode();
-			GoPos(87);
+			GoPosSP(87);//回中
 			Grid_UnLock();
 			break;
 		case 12:
 			OneGrid(FRONT,0);
 			OneGrid(FRONT,0);
+			GoPosSP(0);//读颜色
 			OneGrid(FRONT,-15);
-			GoPos(0);
 			Uart3_readColor();
 			Grid_Lock();
 		//此处机械臂可能需要预动作
 			break;
 		case 23:
 			ni(10);
-			HAL_Delay(1000);
+			HAL_Delay(800);
 			Grid_UnLock();
 			OneGrid(FRONT,0);
 			OneGrid(FRONT,-15);
 			Grid_Lock();
-			HAL_Delay(1000);
+			HAL_Delay(800);
 			break;
 		case 32:
 			Grid_UnLock();
 			OneGrid(BACK,0);
 			OneGrid(BACK,-15);
 			Grid_Lock();
-			HAL_Delay(1000);
+			HAL_Delay(800);
 			Grid_UnLock();
 			ni(-10);
 			Grid_Lock();
-			HAL_Delay(1000);
+			HAL_Delay(800);
 			break;
 		case 34:
 			Grid_UnLock();
 			OneGrid(FRONT,0);
 			OneGrid(FRONT,-15);
 			Grid_Lock();
-			HAL_Delay(1000);
+			HAL_Delay(800);
 			Grid_UnLock();
 			ni(10);
 			Grid_Lock();
-			HAL_Delay(1000);
+			HAL_Delay(800);
 			Grid_UnLock();
 			OneGrid(FRONT,0);
 			OneGrid(FRONT,-15);
 			Grid_Lock();
-			HAL_Delay(1000);
+			HAL_Delay(800);
 			break;
 		case 43:
 			Grid_UnLock();
 			OneGrid(BACK,0);
 			OneGrid(BACK,-15);
 			Grid_Lock();
-			HAL_Delay(1000);
+			HAL_Delay(800);
 			Grid_UnLock();
 			ni(-10);
 			Grid_Lock();
-			HAL_Delay(1000);
+			HAL_Delay(800);
 			Grid_UnLock();
 			OneGrid(BACK,0);
 			OneGrid(BACK,-15);
 			Grid_Lock();
-			HAL_Delay(1000);
+			HAL_Delay(800);
 			break;
 		case 42:
 			Grid_UnLock();
 			OneGrid(BACK,0);
 			OneGrid(BACK,-15);
 			Grid_Lock();
-			HAL_Delay(1000);
+			HAL_Delay(800);
 			Grid_UnLock();
 			ni(-10);
 			Grid_Lock();
-			HAL_Delay(1000);
+			HAL_Delay(800);
 			Grid_UnLock();
 			for(int i=0;i<3;i++)
 				{
@@ -124,26 +124,26 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 				}
 			OneGrid(BACK,-15);
 			Grid_Lock();
-			HAL_Delay(1000);
+			HAL_Delay(800);
 			Grid_UnLock();
 			ni(-10);
 			Grid_Lock();
 			break;
 		case 45:
 			Grid_UnLock();
-			GoPos(87);
+			GoPosSP(87);
 			OneGrid(FRONT,0);
 			OneGrid(FRONT,0);
 			OneGrid(FRONT,-15);
 			OneGrid(RIGHT,0);
 			Grid_Lock();
-			HAL_Delay(1500);
+			HAL_Delay(1000);
 			Grid_UnLock();
 			AngleAndPositionTIM=0;
 			a_speed=0;
 			x_speed=5;
 			y_speed=5;
-			HAL_Delay(2000);
+			HAL_Delay(1800);
 			a_speed=0;
 			x_speed=0;
 			y_speed=0;

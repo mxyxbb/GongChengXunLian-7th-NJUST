@@ -107,8 +107,9 @@ void Uart3_readColor()
 			__ExecuteOnce(HAL_UART_Transmit(&huart3, CMD_color, 5, 0xffff));
 		else
 			HAL_UART_Transmit(&huart3, CMD_color, 5, 0xffff);
+		HAL_Delay(40);
 	}
-	sprintf(led_str,"%c%c%c/%c%c%c",Color[0],Color[1],Color[2],Color[3],Color[4],Color[5]);
+	sprintf(led_str,"%c%c%c%c%c%c",Color[0],Color[1],Color[2],Color[3],Color[4],Color[5]);
 	user_main_printf("color result:%s",led_str);
 	uart3ok=0;
 }
