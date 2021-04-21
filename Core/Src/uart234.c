@@ -72,14 +72,10 @@ void Uart3_readQRcode()
 	printf("reading qrcode\n\r");
 	Ov3Mode=Ov3Mode_QrCode;
 	HAL_UART_Receive_IT(&huart3, (uint8_t *)RxBuff, 1); //打开串口中断接收
+	HAL_UART_Transmit(&huart3, CMD_qrcode, 6, 0xffff);
 	while(uart3ok==0)
 	{
-		user_main_printf("%s",CMD_qrcode);
-		HAL_UART_Transmit(&huart3, CMD_qrcode, 6, 0xffff);
-		x_speed=1;
-		HAL_Delay(20);
-		x_speed=-1;
-		HAL_Delay(20);
+		__ExecuteOnce(user_main_printf("%s",CMD_qrcode));
 	}
 	x_speed=0;
 	colororder[0]=Max7219_String[0]-'0';

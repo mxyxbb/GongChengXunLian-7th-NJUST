@@ -223,6 +223,9 @@ int main(void)
 	HAL_TIM_PWM_Start(&htim12, TIM_CHANNEL_2);
 	
 	GoPos(87);
+	HAL_Delay(500);
+	GoPos(101);
+	
 	
 	//初始化letter-shell
 	User_Shell_Init();
@@ -234,9 +237,12 @@ while(1)
 {
 	if(startFlag){
 		startFlag=0;
-		tim6enable=1;
-		AngleAndPositionTIM=1;
-		lockFlag=0;
+		tim6enable=1;//开启定时器
+		AngleAndPositionTIM=1;//开启循迹
+		lockFlag=0;//不锁车
+		readQ=1;//开启识别二维码功能
+		readC=1;//开启识别颜色功能
+		
 		ManufacturingProcesses();
 	}
 	if(!HAL_GPIO_ReadPin(SW1_GPIO_Port,SW1_Pin))

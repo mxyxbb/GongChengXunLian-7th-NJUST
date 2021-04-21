@@ -15,6 +15,8 @@ extern int32_t y_position;
 
 Meterial meterial[6];
 uint8_t queue[6];
+uint8_t readQ=0;//0--关闭识别Qrcode，1--开启识别Qrcode
+uint8_t readC=0;//0--关闭识别颜色，1--开启识别颜色
 
 void GoFrontForQR(void);
 void GoFrontForMaterial(void);
@@ -31,7 +33,7 @@ int Color2Addend(char ascllColor)//用法：将(meterial[queue[i+3*index]].itsColor%
 	{
 		int idx;
 		int Addend=0;
-		char PlacemarkOrder[]="213";//改这里，从左到右代表地标的颜色，如312，代表蓝红绿
+		char PlacemarkOrder[]="312";//改这里，从左到右代表地标的颜色，如312，代表蓝红绿
 		for(idx=0;idx<3;idx++)
 		{
 			if(PlacemarkOrder[idx]==ascllColor)
@@ -53,21 +55,23 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 			OneGrid_sp(LEFT,FRONT,0);
 			OneGrid_sp(LEFT,FRONT,0);
 			OneGrid(FRONT,0);
-			GoPosSP(99);//读二维码
+//			GoPosSP(99);//读二维码
 			OneGrid(FRONT,-15);
 			Grid_Lock();
-			HAL_Delay(500);
-			HAL_Delay(200);
-			Uart3_readQRcode();
+//			HAL_Delay(500);
+			if(readQ)
+				Uart3_readQRcode();
 			GoPosSP(87);//回中
 			Grid_UnLock();
 			break;
 		case 12:
-			OneGrid(FRONT,0);
-			OneGrid(FRONT,0);
-			GoPosSP(0);//读颜色
-			OneGrid(FRONT,-15);
-			Uart3_readColor();
+			OneGrid(FRONT,20);
+			OneGrid(FRONT,20);
+//			GoPosSP(0);//读颜色
+			OneGrid(FRONT,20);
+			if(readC)
+				Uart3_readColor();
+			OneGrid(BACK,-20);
 			Grid_Lock();
 		//此处机械臂可能需要预动作
 			break;
@@ -242,7 +246,7 @@ void ManufacturingProcesses()
 					led_shan();
 				}
 			OnTheWay(2,3);		
-			uint8_t once__=0;//420去掉static
+			uint8_t once__=0;//4月20日：去掉static
 			for(unsigned int i=0;i<3;i++)//一次放好3个，在粗加工区
 				{ 
 					if(once__)
