@@ -278,7 +278,7 @@ int main(void)
 while(1)
 {
 	if(startFlag){
-		musicenable2=1;
+		musicenable2=0;
 		startFlag=0;
 		tim6enable=1;//开启定时器
 		AngleAndPositionTIM=0;//关循迹（出发时需要）

@@ -3,7 +3,7 @@
 <title>Static Call Graph - [F407VET6_SmartDel_20201101\F407VET6_SmartDel_20201101.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image F407VET6_SmartDel_20201101\F407VET6_SmartDel_20201101.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Wed Apr 21 20:49:32 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Thu Apr 22 03:30:04 2021
 <BR><P>
 <H3>Maximum Stack Usage =        224 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1768,7 +1768,7 @@ Global Symbols
 <P><STRONG><a name="[2]"></a>NMI_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.NMI_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f407xx.o(RESET)
 </UL>
-<P><STRONG><a name="[6c]"></a>OnTheWay</STRONG> (Thumb, 666 bytes, Stack size 24 bytes, gongxun.o(i.OnTheWay))
+<P><STRONG><a name="[6c]"></a>OnTheWay</STRONG> (Thumb, 680 bytes, Stack size 24 bytes, gongxun.o(i.OnTheWay))
 <BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = OnTheWay &rArr; Uart3_readQRcode &rArr; MAX7219_MatrixUpdate &rArr; MAX7219_Digit &rArr; MAX7219_Write &rArr; SPI_Tx &rArr; HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ni
@@ -1977,7 +1977,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> uart234.o(shellCommand)
 </UL>
-<P><STRONG><a name="[149]"></a>Uart2_servoCtr</STRONG> (Thumb, 78 bytes, Stack size 8 bytes, uart234.o(i.Uart2_servoCtr))
+<P><STRONG><a name="[149]"></a>Uart2_servoCtr</STRONG> (Thumb, 66 bytes, Stack size 8 bytes, uart234.o(i.Uart2_servoCtr))
 <BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = Uart2_servoCtr &rArr; DoGroup &rArr; GoPos &rArr; WritePosEx &rArr; genWrite &rArr; wFlushSCS &rArr; Uart_Send &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DoGroup
@@ -2253,7 +2253,7 @@ Global Symbols
 <LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ManufacturingProcesses
 </UL>
 
-<P><STRONG><a name="[5c]"></a>main</STRONG> (Thumb, 470 bytes, Stack size 16 bytes, main.o(i.main))
+<P><STRONG><a name="[5c]"></a>main</STRONG> (Thumb, 468 bytes, Stack size 16 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 224<LI>Call Chain = main &rArr; ManufacturingProcesses &rArr; OnTheWay &rArr; Uart3_readQRcode &rArr; MAX7219_MatrixUpdate &rArr; MAX7219_Digit &rArr; MAX7219_Write &rArr; SPI_Tx &rArr; HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_ReadPin

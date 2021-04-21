@@ -51,9 +51,10 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 	switch(vector)
 	{
 		case 01:
+			CarMovingTo=FRONT;
 			a_speed=0;
-			x_speed=34;
-			y_speed=-23;
+			x_speed=20;
+			y_speed=-20;
 			HAL_Delay(2100);
 			a_speed=0;
 			x_speed=0;
@@ -66,9 +67,11 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 ////			GoPosSP(99);//机械臂.读二维码动作
 //			OneGrid(FRONT,-15);
 			Grid_Lock();
-			HAL_Delay(500);
+			HAL_Delay(800);
+			Grid_UnLock();
 			if(readQ)
 				Uart3_readQRcode();
+			OneGrid(FRONT,0);
 			GoPosSP(87);//回中
 			Grid_UnLock();
 			break;
@@ -166,7 +169,7 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 			a_speed=0;
 			x_speed=30;
 			y_speed=18;
-			HAL_Delay(2500);
+			HAL_Delay(2900);
 			a_speed=0;
 			x_speed=0;
 			y_speed=0;
