@@ -12,6 +12,7 @@ extern uint8_t lockFlag;
 extern uint8_t AngleAndPositionTIM;
 extern int32_t motorspeed[4];
 extern uint8_t tim6enable;
+extern uint8_t lockFlag;
 
 extern uint16_t Time1_ms;
 extern uint16_t Time2_ms;

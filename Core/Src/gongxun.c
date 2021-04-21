@@ -27,6 +27,22 @@ rough machining area 3,
 Semi-finished products area 4,
 return point 5,
 */
+int Color2Addend(char ascllColor)//用法：将(meterial[queue[i+3*index]].itsColor%3)替换成Color2Addend(meterial[queue[i+3*index]].itsColor)
+	{
+		int idx;
+		int Addend=0;
+		char PlacemarkOrder[]="213";//改这里，从左到右代表地标的颜色，如312，代表蓝红绿
+		for(idx=0;idx<3;idx++)
+		{
+			if(PlacemarkOrder[idx]==ascllColor)
+			{
+				Addend=idx;
+				break;
+			}
+		}
+		return Addend;
+	}
+
 void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 {
 	unsigned int vector = vectorFrom*10+vectorTo;
@@ -222,30 +238,30 @@ void ManufacturingProcesses()
 		{
 			for(unsigned int i=0;i<3;i++)//一次装好3个，从原料区
 				{ 
-					Uart2_servoCtr(1+3*queue[i+3*index]+meterial[queue[i+3*index]].itsColor%3);//上蓝（1,4,7），红+1，绿+2；下蓝（10,13,16），红+1，绿+2。
+					Uart2_servoCtr(1+3*queue[i+3*index]+Color2Addend(meterial[queue[i+3*index]].itsColor));//上蓝（1,4,7），红+1，绿+2；下蓝（10,13,16），红+1，绿+2。
 					led_shan();
 				}
-			OnTheWay(2,3);
+			OnTheWay(2,3);		
+			uint8_t once__=0;//420去掉static
 			for(unsigned int i=0;i<3;i++)//一次放好3个，在粗加工区
 				{ 
-					static uint8_t once__=0;
 					if(once__)
 						GoPos(87);
 					else
 						once__=1;
-					Uart2_servoCtr(19+2*(meterial[queue[i+3*index]].itsColor%3));//放蓝19，红21，绿23。
+					Uart2_servoCtr(19+2*(Color2Addend(meterial[queue[i+3*index]].itsColor)));//放蓝19，红21，绿23。
 					led_shan();
 				}
 			for(unsigned int i=0;i<3;i++)//一次装好3个，从粗加工区
 				{ 
 					GoPos(87);
-					Uart2_servoCtr(20+2*(meterial[queue[i+3*index]].itsColor%3));//装蓝20，红22，绿24。
+					Uart2_servoCtr(20+2*(Color2Addend(meterial[queue[i+3*index]].itsColor)));//装蓝20，红22，绿24。
 					led_shan();
 				}
 			OnTheWay(3,4);
 			for(unsigned int i=0;i<3;i++)//一次放好3个，在精加工区
 				{ 
-					Uart2_servoCtr(25+index*3+(meterial[queue[i+3*index]].itsColor%3));//放蓝25，红26，绿27。
+					Uart2_servoCtr(25+index*3+(Color2Addend(meterial[queue[i+3*index]].itsColor)));//放蓝25，红26，绿27。
 					led_shan();
 				}
 			if(index==1)

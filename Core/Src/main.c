@@ -236,6 +236,7 @@ while(1)
 		startFlag=0;
 		tim6enable=1;
 		AngleAndPositionTIM=1;
+		lockFlag=0;
 		ManufacturingProcesses();
 	}
 	if(!HAL_GPIO_ReadPin(SW1_GPIO_Port,SW1_Pin))
