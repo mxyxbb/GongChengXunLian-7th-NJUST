@@ -77,7 +77,7 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 			OneGrid(FRONT,13);
 //			GoPosSP(0);//机械臂.读颜色动作
 			OneGrid(FRONT,20);
-			if(readC)
+//			if(readC)
 				Uart3_readColor();
 			OneGrid(BACK,-20);
 			Grid_Lock();

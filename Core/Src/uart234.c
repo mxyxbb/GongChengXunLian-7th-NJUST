@@ -68,6 +68,8 @@ void Uart2_servoCtr(uint8_t CMD){
 		DoGroup(32);
 	else if(CMD==30)
 		DoGroup(33);
+	else if(CMD==23)
+		DoGroup(34);
 	else
 		DoGroup(CMD-1);
 //	DoGroup(CMD-1);

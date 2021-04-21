@@ -231,13 +231,13 @@ int main(void)
 	User_Shell_Init();
 	HAL_UART_Receive_IT(&huart1, (uint8_t*)&recv_buf, 1);
 	
-	CarMovingTo=FRONT;
-	tim6enable=1;//开启定时器
-	AngleAndPositionTIM=1;//开循迹.
-	lockFlag=1;//锁车
-	Grid_Lock();
-	HAL_Delay(1000);
-	Grid_UnLock();
+//	CarMovingTo=FRONT;
+//	tim6enable=1;//开启定时器
+//	AngleAndPositionTIM=1;//开循迹.
+//	lockFlag=1;//锁车
+//	Grid_Lock();
+//	HAL_Delay(1000);
+//	Grid_UnLock();
 	
 ///*测试回家*/
 //	tim6enable=1;//开启定时器
@@ -284,7 +284,7 @@ while(1)
 		AngleAndPositionTIM=0;//关循迹（出发时需要）
 		lockFlag=0;//不锁车
 		readQ=1;//开启识别二维码功能
-		readC=0;//开启1/关闭0 识别颜色功能
+		readC=1;//开启1/关闭0 识别颜色功能
 		
 		ManufacturingProcesses();
 	}
