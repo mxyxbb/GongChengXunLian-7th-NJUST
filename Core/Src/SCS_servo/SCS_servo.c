@@ -597,7 +597,7 @@ void readGroup(uint8_t GID)
 SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), rg, readGroup, readGroup(GID));
 void readAllGroupTime()
 {
-	uint16_t time;
+	uint32_t time=0;
 	for(uint8_t i=0;i<GROUP_LEN&&group[i][0]!=-1;i++)//0-39
 	{
 		for(uint8_t j=0;j<GROUP_POS_LEN&&group[i][j]!=-1;j++)//0-15

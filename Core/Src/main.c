@@ -230,24 +230,67 @@ int main(void)
 	//初始化letter-shell
 	User_Shell_Init();
 	HAL_UART_Receive_IT(&huart1, (uint8_t*)&recv_buf, 1);
+	
+	CarMovingTo=FRONT;
+	tim6enable=1;//开启定时器
+	AngleAndPositionTIM=1;//开循迹.
+	lockFlag=1;//锁车
+	Grid_Lock();
+	HAL_Delay(1000);
+	Grid_UnLock();
+	
+///*测试回家*/
+//	tim6enable=1;//开启定时器
+//	AngleAndPositionTIM=0;//关闭循迹
+//	lockFlag=0;//不锁车
+//	musicenable2=0;//无音乐
+//	a_speed=0;
+//	x_speed=30;
+//	y_speed=18;
+//	HAL_Delay(2400);
+//	a_speed=0;
+//	x_speed=0;
+//	y_speed=0;	
 
+//	tim6enable=1;//开启定时器
+//	AngleAndPositionTIM=1;//开循迹.
+//	lockFlag=1;//锁车
+//	Grid_Lock();
+//	ni(10);
+//	HAL_Delay(500);
+//	ni(10);
+//	HAL_Delay(5000);
+//	Grid_UnLock();
+///*测试出家*/
+//	tim6enable=1;//开启定时器
+//	AngleAndPositionTIM=0;//关闭循迹
+//	lockFlag=0;//不锁车
+//	musicenable2=0;//无音乐
+//	a_speed=0;
+//	x_speed=32;
+//	y_speed=-23;
+//	HAL_Delay(2100);
+//	a_speed=0;
+//	x_speed=0;
+//	y_speed=0;		
 
 #if 1
 while(1)
 {
 	if(startFlag){
+		musicenable2=1;
 		startFlag=0;
 		tim6enable=1;//开启定时器
-		AngleAndPositionTIM=1;//开启循迹
+		AngleAndPositionTIM=0;//关循迹（出发时需要）
 		lockFlag=0;//不锁车
 		readQ=1;//开启识别二维码功能
-		readC=1;//开启识别颜色功能
+		readC=0;//开启1/关闭0 识别颜色功能
 		
 		ManufacturingProcesses();
 	}
 	if(!HAL_GPIO_ReadPin(SW1_GPIO_Port,SW1_Pin))
 		startFlag=1;
-	led_shan();
+//	led_shan();
 }
 #endif
   /* USER CODE END 2 */
@@ -324,9 +367,9 @@ void SystemClock_Config(void)
 /* USER CODE BEGIN 4 */
 void led_shan(){
 	LED1_ON;
-	HAL_Delay(200);
+	HAL_Delay(20);
 	LED1_OFF;
-	HAL_Delay(200);
+	HAL_Delay(20);
 }
 
 static void MX_USART2_UART_Init()

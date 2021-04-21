@@ -1110,6 +1110,7 @@ SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), ni
 
 void Grid_Lock()
 {
+	AngleAndPositionTIM=1;//¿ªÑ­¼£
 	LockSetPID();
 	lockFlag=1;
 }

@@ -3,7 +3,7 @@
 
 #include "stm32f4xx_hal.h"
 
-#define maxLinearSpeed 60
+#define maxLinearSpeed 100
 
 #define ZQ_OFFSET 0
 #define YQ_OFFSET 0

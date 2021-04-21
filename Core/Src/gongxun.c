@@ -51,23 +51,31 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 	switch(vector)
 	{
 		case 01:
-			OneGrid(FRONT,-15);
-			OneGrid_sp(LEFT,FRONT,0);
-			OneGrid_sp(LEFT,FRONT,0);
-			OneGrid(FRONT,0);
-//			GoPosSP(99);//读二维码
-			OneGrid(FRONT,-15);
+			a_speed=0;
+			x_speed=34;
+			y_speed=-23;
+			HAL_Delay(2100);
+			a_speed=0;
+			x_speed=0;
+			y_speed=0;
+		
+//			OneGrid(FRONT,-15);
+//			OneGrid_sp(LEFT,FRONT,0);
+//			OneGrid_sp(LEFT,FRONT,0);
+//			OneGrid(FRONT,0);
+////			GoPosSP(99);//机械臂.读二维码动作
+//			OneGrid(FRONT,-15);
 			Grid_Lock();
-//			HAL_Delay(500);
+			HAL_Delay(500);
 			if(readQ)
 				Uart3_readQRcode();
 			GoPosSP(87);//回中
 			Grid_UnLock();
 			break;
 		case 12:
-			OneGrid(FRONT,20);
-			OneGrid(FRONT,20);
-//			GoPosSP(0);//读颜色
+			OneGrid(FRONT,15);
+			OneGrid(FRONT,13);
+//			GoPosSP(0);//机械臂.读颜色动作
 			OneGrid(FRONT,20);
 			if(readC)
 				Uart3_readColor();
@@ -128,6 +136,7 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 			HAL_Delay(800);
 			break;
 		case 42:
+			GoPosSP(87);
 			Grid_UnLock();
 			OneGrid(BACK,0);
 			OneGrid(BACK,-15);
@@ -140,11 +149,11 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 			Grid_UnLock();
 			for(int i=0;i<3;i++)
 				{
-					OneGrid(BACK,0);
+					OneGrid(BACK,8);
 				}
 			OneGrid(BACK,-15);
 			Grid_Lock();
-			HAL_Delay(800);
+			HAL_Delay(500);
 			Grid_UnLock();
 			ni(-10);
 			Grid_Lock();
@@ -152,24 +161,32 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 		case 45:
 			Grid_UnLock();
 			GoPosSP(87);
-			OneGrid(FRONT,0);
-			OneGrid(FRONT,0);
-			OneGrid(FRONT,-15);
-			OneGrid(RIGHT,0);
-			Grid_Lock();
-			HAL_Delay(1000);
-			Grid_UnLock();
-			AngleAndPositionTIM=0;
+		//冲回家
+			AngleAndPositionTIM=0;//关闭循迹
 			a_speed=0;
-			x_speed=5;
-			y_speed=5;
-			HAL_Delay(1800);
+			x_speed=30;
+			y_speed=18;
+			HAL_Delay(2500);
 			a_speed=0;
 			x_speed=0;
 			y_speed=0;
-			/*have some problems*/
+//			OneGrid(FRONT,0);
+//			OneGrid(FRONT,0);
+//			OneGrid(FRONT,-15);
+//			OneGrid(RIGHT,0);
+//			Grid_Lock();
+//			HAL_Delay(1000);
+//			Grid_UnLock();
+//			AngleAndPositionTIM=0;
+//			a_speed=0;
+//			x_speed=5;
+//			y_speed=5;
+//			HAL_Delay(1800);
+//			a_speed=0;
+//			x_speed=0;
+//			y_speed=0;
+			
 			break;
-		
 	}
 	return;
 }
