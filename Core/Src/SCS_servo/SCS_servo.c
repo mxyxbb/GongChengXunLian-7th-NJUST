@@ -242,7 +242,7 @@ void GoPos(int16_t ID_)
 			else if(temp==4)
 				WritePosEx(temp+1, postion[ID_].angle[temp],2000, 50);//舵机(IDtemp),以时间timems毫秒,运行至postion[ID_].angle[temp]角度
 		}
-		delay(postion[ID_].timems+10);//堵塞式等待动作完成
+		delay(postion[ID_].timems);//堵塞式等待动作完成
 	}
 	else{
 		ID_ -= POS_LEN;
@@ -253,7 +253,7 @@ void GoPos(int16_t ID_)
 			else if(temp==4)
 				WritePosEx(temp+1, postion_ex[ID_].angle[temp],2000, 50);//舵机(IDtemp),以时间timems毫秒,运行至postion[ID_].angle[temp]角度
 		}
-		delay(postion_ex[ID_].timems+10);//堵塞式等待动作完成
+		delay(postion_ex[ID_].timems);//堵塞式等待动作完成
 	}
 }
 SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), gop, GoPos, goPos(id));
@@ -317,10 +317,13 @@ SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), p2
   */
 void DoGroup(uint8_t ID_)
 {
+	printf("group-%d:",ID_);
 	for(uint8_t i=0;group[ID_][i]!=-1;i++)
   {
 		GoPos(group[ID_][i]);
+		printf("%d,",group[ID_][i]);
   }
+	printf("\n\r");
 }
 SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), dog, DoGroup, DoGroup(id));
 
@@ -631,7 +634,7 @@ uint8_t endList[3][10]={
  {79, 90, 91, 92, 82, 93, 94, 95} ,   /*  二号-40 */
  {83, 106, 107, 108, 109, 113, 114, 100}   /*  三号-80 */
 };
-int16_t TimeListE[]={-40,-40,-80};
+int16_t TimeListE[]={-40,-40,-45};
 void calibrateEndArea()
 {
 	for(uint8_t i=0;i<3;i++){
@@ -649,7 +652,7 @@ uint8_t midList[3][10]={
  {55,56,57, /*57,*/69,70,255} ,   /*  二号-20 */
  {62,63,64,65,  /*65,*/72,73}   /*  三号-20 */
 };
-int16_t TimeListM[]={-40,-40,-40};
+int16_t TimeListM[]={-40,-50,-60};
 //			---粗加工---
 //18		19			放Ⅰ号篮子物料（抓+1） 46,47,48,  48,67,68
 //20		21			放Ⅱ号篮子物料					55,56,57, 57,69,70					

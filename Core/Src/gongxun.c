@@ -54,12 +54,13 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 			CarMovingTo=FRONT;
 			a_speed=0;
 			x_speed=9;
-			y_speed=-8;
-			HAL_Delay(3000);
+			y_speed=-9;
+			HAL_Delay(2300);
 			a_speed=0;
 			x_speed=0;
 			y_speed=0;
-		
+			OneGrid_sp(LEFT,FRONT,0);
+			OneGrid(FRONT,0);
 //			OneGrid(FRONT,-15);
 //			OneGrid_sp(LEFT,FRONT,0);
 //			OneGrid_sp(LEFT,FRONT,0);
@@ -71,14 +72,14 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 			Grid_UnLock();
 			if(readQ)
 				Uart3_readQRcode();
-			OneGrid(FRONT,0);
+			OneGrid(FRONT,-5);
 			waitForQrcode();
 			GoPosSP(87);//回中
 			Grid_UnLock();
 			break;
 		case 12:
 			//			if(readC)
-			Uart3_readColor();
+
 			OneGrid(FRONT,13);
 			OneGrid(FRONT,13);
 //			GoPosSP(0);//机械臂.读颜色动作
@@ -89,14 +90,14 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 //前进一定的距离
 			
 			Grid_Lock();
-			HAL_Delay(1000);
+			HAL_Delay(2000);
 			Grid_UnLock();
 			x_speed=5;
 			distanceStart = 1;
 			while(distance<348) {};
 			distanceStart = 0;
 			x_speed=0;
-				
+			Uart3_readColor();	
 				
 			waitForColor();
 			OneGrid(BACK,-20);
@@ -132,12 +133,12 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 			Grid_UnLock();
 			ni(10);
 			Grid_Lock();
-			HAL_Delay(800);
+			HAL_Delay(1000);
 			Grid_UnLock();
 			OneGrid(FRONT,0);
 			OneGrid(FRONT,-15);
 			Grid_Lock();
-			HAL_Delay(800);
+			HAL_Delay(300);
 			break;
 		case 43:
 			Grid_UnLock();
@@ -279,8 +280,9 @@ void ManufacturingProcesses()
 		{
 			for(unsigned int i=0;i<3;i++)//一次装好3个，从原料区
 				{ 
-					Uart2_servoCtr(1+3*queue[i+3*index]+Color2Addend(meterial[queue[i+3*index]].itsColor));//上蓝（1,4,7），红+1，绿+2；下蓝（10,13,16），红+1，绿+2。
+ 					Uart2_servoCtr(1+3*queue[i+3*index]+Color2Addend(meterial[queue[i+3*index]].itsColor));//上蓝（1,4,7），红+1，绿+2；下蓝（10,13,16），红+1，绿+2。
 					led_shan();
+					user_main_printf("doing group:%d",3*queue[i+3*index]+Color2Addend(meterial[queue[i+3*index]].itsColor));
 				}
 			OnTheWay(2,3);		
 			uint8_t once__=0;//4月20日：去掉static
