@@ -3,7 +3,7 @@
 <title>Static Call Graph - [F407VET6_SmartDel_20201101\F407VET6_SmartDel_20201101.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image F407VET6_SmartDel_20201101\F407VET6_SmartDel_20201101.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Thu Apr 22 22:33:55 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Fri Apr 23 01:18:57 2021
 <BR><P>
 <H3>Maximum Stack Usage =        224 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1272,7 +1272,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[fb]"></a>HAL_TIM_PeriodElapsedCallback</STRONG> (Thumb, 712 bytes, Stack size 16 bytes, controltask.o(i.HAL_TIM_PeriodElapsedCallback))
+<P><STRONG><a name="[fb]"></a>HAL_TIM_PeriodElapsedCallback</STRONG> (Thumb, 734 bytes, Stack size 16 bytes, controltask.o(i.HAL_TIM_PeriodElapsedCallback))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = HAL_TIM_PeriodElapsedCallback &rArr; musicPlay &rArr; buzzerSetNewFrequency &rArr; __aeabi_uldivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;musicPlay
@@ -1766,7 +1766,7 @@ Global Symbols
 <P><STRONG><a name="[2]"></a>NMI_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.NMI_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f407xx.o(RESET)
 </UL>
-<P><STRONG><a name="[6c]"></a>OnTheWay</STRONG> (Thumb, 690 bytes, Stack size 24 bytes, gongxun.o(i.OnTheWay))
+<P><STRONG><a name="[6c]"></a>OnTheWay</STRONG> (Thumb, 742 bytes, Stack size 24 bytes, gongxun.o(i.OnTheWay))
 <BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = OnTheWay &rArr; waitForQrcode &rArr; MAX7219_MatrixUpdate &rArr; MAX7219_Digit &rArr; MAX7219_Write &rArr; SPI_Tx &rArr; HAL_SPI_Transmit &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ni

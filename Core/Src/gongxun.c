@@ -53,7 +53,7 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 		case 01:
 			CarMovingTo=FRONT;
 			a_speed=0;
-			x_speed=10;
+			x_speed=9;
 			y_speed=-8;
 			HAL_Delay(3000);
 			a_speed=0;
@@ -82,7 +82,22 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 			OneGrid(FRONT,13);
 			OneGrid(FRONT,13);
 //			GoPosSP(0);//机械臂.读颜色动作
-			OneGrid(FRONT,20);
+			OneGrid(FRONT,0);
+		
+		
+		
+//前进一定的距离
+			
+			Grid_Lock();
+			HAL_Delay(1000);
+			Grid_UnLock();
+			x_speed=5;
+			distanceStart = 1;
+			while(distance<348) {};
+			distanceStart = 0;
+			x_speed=0;
+				
+				
 			waitForColor();
 			OneGrid(BACK,-20);
 			Grid_Lock();

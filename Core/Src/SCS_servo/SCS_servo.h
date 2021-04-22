@@ -31,8 +31,8 @@ void ArmInit(void);
 void DoGroup(uint8_t ID_);
 void ArmGoMiddle(void);
 void readF2ram(void);
-void calibrateEndArea();
-void calibrateMidArea();
+void calibrateEndArea(void);
+void calibrateMidArea(void);
 	
 #ifdef __cplusplus
 }

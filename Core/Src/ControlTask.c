@@ -50,6 +50,8 @@ SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), to
 
 uint8_t gray_count=0;
 
+uint8_t distanceStart=0;
+int32_t distance=0;
 
 extern int32_t y_speed;
 extern int32_t x_speed;
@@ -156,7 +158,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 				SetMotorPWM(motorpwm_set[zqMotorEncoder],motorpwm_set[yqMotorEncoder],motorpwm_set[zhMotorEncoder],motorpwm_set[yhMotorEncoder]);
 				#endif
 				mecanumRun(y_speed,x_speed,a_speed);
-				
+				if(distanceStart)
+					distance+=motorspeed[0];
 				Time1_ms = 0;
 			}
 			if(Time1_ms == 20)//任务x，周期为20ms(50Hz)

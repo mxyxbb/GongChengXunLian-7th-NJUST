@@ -221,7 +221,7 @@ int main(void)
 	//¿ªÆô·äÃùÆ÷PWMÊä³ö
 	HAL_TIM_PWM_Start(&htim9, TIM_CHANNEL_1);
 	HAL_TIM_PWM_Start(&htim12, TIM_CHANNEL_2);
-	
+	    
 	GoPos(101);
 //	calibrateEndArea();
 //	calibrateMidArea();
