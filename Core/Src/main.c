@@ -223,8 +223,9 @@ int main(void)
 	HAL_TIM_PWM_Start(&htim12, TIM_CHANNEL_2);
 	
 	GoPos(101);
-	
-	
+//	calibrateEndArea();
+//	calibrateMidArea();
+
 	//≥ı ºªØletter-shell
 	User_Shell_Init();
 	HAL_UART_Receive_IT(&huart1, (uint8_t*)&recv_buf, 1);

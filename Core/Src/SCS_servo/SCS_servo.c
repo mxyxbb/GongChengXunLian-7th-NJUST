@@ -612,6 +612,63 @@ void readAllGroupTime()
 }
 SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), ragt, readAllGroupTime, readAllGroupTime(GID));
 
+/**
+  * @brief  矫正精加工区6个动作组的角度（不存入flash）
+  * @param  shun:顺时针矫正的角度增量（注意校正后的角度不要超过舵机的最大角度）
+  * @retval 无
+  */
+//DOG		CMD			action
+//25		26      放Ⅱ号篮子物料									（码垛下层）   49 50 51 52 53 79 90 91 92 82
+//28		29      放Ⅱ号篮子物料 								（码垛上层）   49 50 51 52 53 79 93 94 95 82
+
+//30    25      放一号篮子物料于台阶上层位置1（码垛下层）    45 40 41 42 43 44 102 103 104 105
+//32		28			放一号篮子物料于台阶上层位置1（码垛上层）    45 40 41 42 43 110 111 112 105
+
+//31		27		  放三号篮子物料于台阶上层位置3（码垛下层）    98 58 59 60 83 106 107 108 109
+//33		30			放三号篮子物料于台阶上层位置3（码垛上层）    98 58 59 60 83 113 114 100
+uint8_t endList[3][10]={
+ {102, 103, 104, 105, 110, 111, 112, 255/*, 112*/} ,   /*  一号-40  !!!!!!!! */
+ {79, 90, 91, 92, 82, 93, 94, 95} ,   /*  二号-40 */
+ {83, 106, 107, 108, 109, 113, 114, 100}   /*  三号-80 */
+};
+int16_t TimeListE[]={-40,-40,-80};
+void calibrateEndArea()
+{
+	for(uint8_t i=0;i<3;i++){
+		for(uint8_t j=0;j<8;j++){
+			/*读取*/
+			if(endList[i][j]<POS_LEN)
+				postion[endList[i][j]].angle[4]+=TimeListE[i];//修改缓存区1
+			else
+				postion_ex[endList[i][j]-POS_LEN].angle[4]+=TimeListE[i];//修改缓存区2
+		}
+	}
+}
+uint8_t midList[3][10]={
+ {46,47,48,  48,67,68} ,   /*  一号-20 */
+ {55,56,57, /*57,*/69,70,255} ,   /*  二号-20 */
+ {62,63,64,65,  /*65,*/72,73}   /*  三号-20 */
+};
+int16_t TimeListM[]={-40,-40,-40};
+//			---粗加工---
+//18		19			放Ⅰ号篮子物料（抓+1） 46,47,48,  48,67,68
+//20		21			放Ⅱ号篮子物料					55,56,57, 57,69,70					
+//22		23			放Ⅲ号篮子物料         62,63,64,65,  65,72,73
+void calibrateMidArea()
+{
+	for(uint8_t i=0;i<3;i++){
+		for(uint8_t j=0;j<6;j++){
+			/*读取*/
+			if(midList[i][j]<POS_LEN)
+				postion[midList[i][j]].angle[4]+=TimeListM[i];//修改缓存区1
+			else
+				postion_ex[midList[i][j]-POS_LEN].angle[4]+=TimeListM[i];//修改缓存区2
+		}
+	}
+}
+
+
+
 /*--------letter shell example begin--------*/
 //void fun(char en)
 //{
