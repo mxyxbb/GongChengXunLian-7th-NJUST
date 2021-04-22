@@ -242,7 +242,7 @@ void GoPos(int16_t ID_)
 			else if(temp==4)
 				WritePosEx(temp+1, postion[ID_].angle[temp],2000, 50);//舵机(IDtemp),以时间timems毫秒,运行至postion[ID_].angle[temp]角度
 		}
-		delay(postion[ID_].timems);//堵塞式等待动作完成
+		delay(postion[ID_].timems+10);//堵塞式等待动作完成
 	}
 	else{
 		ID_ -= POS_LEN;
@@ -253,7 +253,7 @@ void GoPos(int16_t ID_)
 			else if(temp==4)
 				WritePosEx(temp+1, postion_ex[ID_].angle[temp],2000, 50);//舵机(IDtemp),以时间timems毫秒,运行至postion[ID_].angle[temp]角度
 		}
-		delay(postion_ex[ID_].timems);//堵塞式等待动作完成
+		delay(postion_ex[ID_].timems+10);//堵塞式等待动作完成
 	}
 }
 SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), gop, GoPos, goPos(id));

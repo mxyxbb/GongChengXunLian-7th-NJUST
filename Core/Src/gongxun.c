@@ -53,9 +53,9 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 		case 01:
 			CarMovingTo=FRONT;
 			a_speed=0;
-			x_speed=20;
-			y_speed=-20;
-			HAL_Delay(2100);
+			x_speed=10;
+			y_speed=-8;
+			HAL_Delay(3000);
 			a_speed=0;
 			x_speed=0;
 			y_speed=0;
@@ -67,21 +67,23 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 ////			GoPosSP(99);//机械臂.读二维码动作
 //			OneGrid(FRONT,-15);
 			Grid_Lock();
-			HAL_Delay(800);
+			HAL_Delay(1500);
 			Grid_UnLock();
 			if(readQ)
 				Uart3_readQRcode();
 			OneGrid(FRONT,0);
+			waitForQrcode();
 			GoPosSP(87);//回中
 			Grid_UnLock();
 			break;
 		case 12:
-			OneGrid(FRONT,15);
+			//			if(readC)
+			Uart3_readColor();
+			OneGrid(FRONT,13);
 			OneGrid(FRONT,13);
 //			GoPosSP(0);//机械臂.读颜色动作
 			OneGrid(FRONT,20);
-//			if(readC)
-				Uart3_readColor();
+			waitForColor();
 			OneGrid(BACK,-20);
 			Grid_Lock();
 		//此处机械臂可能需要预动作
@@ -152,7 +154,7 @@ void OnTheWay(unsigned int vectorFrom,unsigned int vectorTo)
 			Grid_UnLock();
 			for(int i=0;i<3;i++)
 				{
-					OneGrid(BACK,8);
+					OneGrid(BACK,6);
 				}
 			OneGrid(BACK,-15);
 			Grid_Lock();

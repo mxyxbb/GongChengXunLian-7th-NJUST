@@ -668,8 +668,8 @@ unsigned int  FromGridPosition(unsigned int dir)//返回为1，代表小车离开格点
 //小车向任意方向行进一格，从格点开始到格点停止
 void OneGrid(unsigned int dir,int32_t speedOffset)
 {	//要不要提前给速度？？？要
-	AngleAndPositionTIM=1;
 	CarMovingTo = dir;
+	AngleAndPositionTIM=1;
 	switch(dir)
 	{
 		case 0:	
@@ -1118,6 +1118,9 @@ void Grid_Lock()
 void Grid_UnLock()
 {
 	lockFlag=0;
+	x_speed=0;
+	y_speed=0;
+	a_speed=0;
 	LockResetPID();
 }
 

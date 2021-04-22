@@ -12,9 +12,6 @@
 
 uint8_t uart3ok=0;
 SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), u3ok, &uart3ok, uart3ok);
-uint8_t readcolor_mode=1;//1--单次发、0---重复发
-SHELL_EXPORT_VAR(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_VAR_CHAR), rc1111, &readcolor_mode, readcolor_mode);
-
 
 uint8_t Ov3Mode = Ov3Mode_QrCode;
 uint8_t Max7219_String[]="123--213";
@@ -88,10 +85,33 @@ void Uart3_readQRcode()
 	Ov3Mode=Ov3Mode_QrCode;
 	HAL_UART_Receive_IT(&huart3, (uint8_t *)RxBuff, 1); //打开串口中断接收
 	HAL_UART_Transmit(&huart3, CMD_qrcode, 6, 0xffff);
+	user_main_printf("reading %s",CMD_qrcode);
+//	while(uart3ok==0)
+//	{
+//		__ExecuteOnce(user_main_printf("%s",CMD_qrcode));
+//	}
+//	x_speed=0;
+//	colororder[0]=Max7219_String[0]-'0';
+//	colororder[1]=Max7219_String[1]-'0';
+//	colororder[2]=Max7219_String[2]-'0';
+//	colororder[3]=Max7219_String[5]-'0';
+//	colororder[4]=Max7219_String[6]-'0';
+//	colororder[5]=Max7219_String[7]-'0';
+//	MAX7219_mywrite(colororder);
+//	MAX7219_MatrixUpdate();
+//	uart3ok=0;
+//	printf("qrcode:%s\n\r",Max7219_String);
+//	led_shan();
+}
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), u3rqr, Uart3_readQRcode, Uart3_readQRcode());
+
+void waitForQrcode()
+{
 	while(uart3ok==0)
 	{
-		__ExecuteOnce(user_main_printf("%s",CMD_qrcode));
+		__ExecuteOnce(user_main_printf("still reading..."));
 	}
+	user_main_printf("Qrcode ok!");
 	x_speed=0;
 	colororder[0]=Max7219_String[0]-'0';
 	colororder[1]=Max7219_String[1]-'0';
@@ -105,7 +125,6 @@ void Uart3_readQRcode()
 	printf("qrcode:%s\n\r",Max7219_String);
 	led_shan();
 }
-SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), u3rqr, Uart3_readQRcode, Uart3_readQRcode());
 
 char led_str[6]="RGBRGB";
 
@@ -114,18 +133,25 @@ void Uart3_readColor()
 	user_main_printf("%s",CMD_color);
 	Ov3Mode=Ov3Mode_ColorBlock;
 	HAL_UART_Receive_IT(&huart3, (uint8_t *)RxBuff, 1); //打开串口中断接收
-	while(uart3ok==0){
-		if(readcolor_mode)
-			__ExecuteOnce(HAL_UART_Transmit(&huart3, CMD_color, 5, 0xffff));
-		else
-			HAL_UART_Transmit(&huart3, CMD_color, 5, 0xffff);
-		HAL_Delay(40);
+	HAL_UART_Transmit(&huart3, CMD_color, 5, 0xffff);
+//	while(uart3ok==0){
+//	}
+//	sprintf(led_str,"%c%c%c%c%c%c",Color[0],Color[1],Color[2],Color[3],Color[4],Color[5]);
+//	user_main_printf("color result:%s",led_str);
+//	uart3ok=0;
+}
+SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), u3rco, Uart3_readColor, Uart3_readColor());
+
+void waitForColor()
+{
+	while(uart3ok==0)
+	{
+		__ExecuteOnce(user_main_printf("still reading..."));
 	}
 	sprintf(led_str,"%c%c%c%c%c%c",Color[0],Color[1],Color[2],Color[3],Color[4],Color[5]);
 	user_main_printf("color result:%s",led_str);
 	uart3ok=0;
 }
-SHELL_EXPORT_CMD(SHELL_CMD_PERMISSION(0)|SHELL_CMD_TYPE(SHELL_TYPE_CMD_FUNC), u3rco, Uart3_readColor, Uart3_readColor());
 
 void Uart2_sendColor()
 {
